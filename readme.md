@@ -1,208 +1,85 @@
-# Agency Landing Page Template
+# Awesome Base India [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A premium Next.js 16+ landing page template designed for creative agencies and design studios. Features stunning WebGL effects, smooth scroll animations, and a conversion-focused layout.
+**Awesome Base India** is a curated list of Indian projects, dApps, and initiatives building on Base - an Ethereum L2 incubated by Coinbase.
 
-## Features
+## Base Official Links
 
-- ✅ **Next.js 16+** with App Router
-- ✅ **TypeScript** (strict mode with noUncheckedIndexedAccess)
-- ✅ **Tailwind CSS v4** with custom design tokens
-- ✅ **Dark Mode** via next-themes with smooth transitions
-- ✅ **WebGL Effects** - Wave shader hero, water ripple project cards
-- ✅ **Motion** via motion/react with reduced-motion support
-- ✅ **GSAP Animations** - Scroll-triggered reveals, pinned sections
-- ✅ **Lenis Smooth Scroll** - Butter-smooth scrolling experience
-- ✅ **SEO Ready** - metadata, Open Graph, Twitter cards
-- ✅ **Accessibility** - skip links, focus rings, ARIA labels
-- ✅ **Edge Compatible** - no Node-only APIs
++ [Base.org](https://base.org/)
++ [Base Blog](https://base.mirror.xyz/)
++ [Base Bridge](https://bridge.base.org/)
++ [Base Discord](https://base.org/discord)
++ [Base Farcaster](https://warpcast.com/base)
++ [Base GitHub](https://github.com/base-org)
++ [Base Guild](https://guild.xyz/buildonbase)
++ [Base Quests](https://quests.base.org/)
++ [Base Status](https://status.base.org/)
++ [Base X](https://x.com/buildonbase)
 
-## Sections
+## Base India Community
 
-- **Hero** - Full-screen animated wave shader with headline
-- **Projects** - Interactive project cards with water ripple WebGL effect
-- **Services** - Animated text reveal with flowing menu hover effects
-- **About** - Image + text layout with scroll animations
-- **Social Proof** - Bento grid with testimonials and stats
-- **FAQ** - Accordion with smooth expand/collapse
-- **Footer** - Sticky reveal effect, CTA, navigation columns
++ [Inner Circle X](https://x.com/innercircle_so)
++ [Community Link](https://t.co/BC2WASe4OD)
 
-## Getting Started
+## Indian Base Ecosystem
 
-### Install dependencies
+### Bridges
 
-```bash
-npm install
-```
+*Indian projects building cross-chain bridge solutions on Base*
 
-### Run development server
+<!-- Add Indian bridge projects here -->
 
-```bash
-npm run dev
-```
+### DAOs
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+*Indian DAOs and decentralized governance projects on Base*
 
-## Scripts
+<!-- Add Indian DAO projects here -->
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint errors |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
-| `npm run typecheck` | Run TypeScript type checking |
+### DeFi
 
-## Project Structure
+*Indian DeFi protocols, DEXs, and financial applications on Base*
 
-```
-├── app/
-│   ├── globals.css        # Design tokens & base styles
-│   ├── layout.tsx         # Root layout with providers
-│   ├── page.tsx           # Landing page
-│   ├── robots.ts          # Dynamic robots.txt
-│   ├── sitemap.ts         # Dynamic sitemap
-│   └── icon.svg           # Favicon
-├── components/
-│   ├── about.tsx          # About section with scroll animations
-│   ├── faq.tsx            # FAQ accordion section
-│   ├── footer.tsx         # Sticky reveal footer
-│   ├── header.tsx         # Animated navigation header
-│   ├── hero.tsx           # WebGL wave shader hero
-│   ├── projects.tsx       # Project cards with water ripple
-│   ├── providers.tsx      # Theme & motion providers
-│   ├── services.tsx       # Services with flowing menu
-│   ├── skip-to-content.tsx # Skip link for a11y
-│   ├── smooth-scroll.tsx  # Lenis smooth scrolling
-│   ├── social-proof.tsx   # Testimonials bento grid
-│   ├── theme-switch.tsx   # Floating theme toggle
-│   ├── theme-toggle.tsx   # Button theme toggle
-│   └── water-ripple.tsx   # WebGL water ripple effect
-├── lib/
-│   ├── config.ts          # Site configuration & feature flags
-│   ├── metadata.ts        # SEO metadata utilities
-│   ├── motion.tsx         # Motion components & hooks
-│   └── overlay-context.tsx # Project overlay state
-└── public/
-    ├── img/               # Image assets
-    └── site.webmanifest   # PWA manifest
-```
+<!-- Add Indian DeFi projects here -->
 
-## Configuration
+### Gaming
 
-### Feature Flags
+*Indian gaming projects and blockchain games on Base*
 
-Edit `lib/config.ts` to toggle features:
+<!-- Add Indian gaming projects here -->
 
-```typescript
-export const features = {
-  smoothScroll: true,  // Enable/disable Lenis smooth scroll
-  darkMode: true,      // Enable/disable dark mode toggle
-} as const;
-```
+### Infrastructure
 
-### Site Configuration
+*Indian infrastructure providers, developer tools, and platforms on Base*
 
-Update branding in `lib/config.ts`:
+<!-- Add Indian infrastructure projects here -->
 
-```typescript
-export const siteConfig = {
-  name: "Pulsewave",
-  tagline: "Built to evolve ideas.",
-  description: "Your agency description...",
-  url: "https://yoursite.com",
-  twitter: "@yourhandle",
-} as const;
-```
+### NFTs
 
-## Customization
+*Indian NFT marketplaces, creators, and platforms on Base*
 
-### 1. Update Site Configuration
+<!-- Add Indian NFT projects here -->
 
-Edit `lib/metadata.ts` to update:
-- Site name, description, and URL
-- Social media handles
-- Keywords and authors
+### Onramps
 
-### 2. Replace Icons
+*Indian fiat-to-crypto onramps and payment solutions for Base*
 
-Replace the following files with your brand assets:
-- `app/icon.svg` - Favicon (32x32)
-- `app/apple-icon.svg` - Apple touch icon (180x180)
-- `public/og-image.png` - Open Graph image (1200x630)
-- `public/icon-192.png` - PWA icon (192x192)
-- `public/icon-512.png` - PWA icon (512x512)
+<!-- Add Indian onramp projects here -->
 
-### 3. Customize Design Tokens
+### Social
 
-Edit `app/globals.css` to modify:
-- Color palette (primary, neutral, semantic colors)
-- Spacing scale
-- Border radii
-- Shadows and gradients
-- Typography
+*Indian social platforms and community projects on Base*
 
-### 4. Add Routes
+<!-- Add Indian social projects here -->
 
-Create new routes in the `app/` directory:
+### Wallets
 
-```tsx
-// app/about/page.tsx
-import { createMetadata } from "@/lib/metadata";
-import type { Metadata } from "next";
+*Indian wallet providers supporting Base*
 
-export const metadata: Metadata = createMetadata({
-  title: "About Us",
-  description: "Learn more about our agency.",
-  path: "/about",
-});
+<!-- Add Indian wallet projects here -->
 
-export default function AboutPage() {
-  return <main id="main-content">...</main>;
-}
-```
+## Contributions
 
-## Design Tokens
-
-The template uses CSS custom properties for theming. Key tokens:
-
-### Colors
-- `--background` / `--foreground` - Page background and text
-- `--muted` / `--muted-foreground` - Subtle backgrounds and text
-- `--accent` / `--accent-foreground` - Primary action colors
-- `--border` / `--ring` - Borders and focus rings
-
-### Shadows
-- `--shadow-sm` through `--shadow-2xl` - Elevation levels
-
-### Gradients
-- `--gradient-primary` - Brand gradient
-- `--gradient-subtle` - Section backgrounds
-- `--gradient-radial` - Hero backgrounds
-
-## Accessibility
-
-The template includes:
-- Skip-to-content link
-- Visible focus rings (keyboard navigation)
-- ARIA labels on interactive elements
-- Reduced motion support
-- Proper heading hierarchy
-- WCAG 2.1 AA contrast compliance
-
-## Edge Runtime
-
-All code is Edge-compatible. No Node.js-only APIs are used in runtime code. The template can be deployed to:
-- Vercel Edge Functions
-- Cloudflare Workers
-- Any edge-capable platform
+If you have something you'd like to add, please open a pull request and ensure it matches the format + ordering (alphanumerical) of the existing entries. Links that are inactive, outdated, or no longer relevant may be removed at any time.
 
 ## License
 
-This template is licensed for use in commercial projects. You may not resell or redistribute the template itself.
-
----
-
-Built with ❤️ using Next.js, Tailwind CSS, GSAP, and React Three Fiber
+[MIT License](LICENSE)
