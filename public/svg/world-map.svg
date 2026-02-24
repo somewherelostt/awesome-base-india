@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <g opacity="0.4" stroke="white" stroke-width="0.5">
+    <!-- Simplified world map dots -->
+    <circle cx="280" cy="180" r="2" fill="white"/>
+    <circle cx="290" cy="175" r="2" fill="white"/>
+    <circle cx="300" cy="170" r="2" fill="white"/>
+    <circle cx="310" cy="168" r="2" fill="white"/>
+    <circle cx="320" cy="165" r="2" fill="white"/>
+    <circle cx="330" cy="170" r="2" fill="white"/>
+    <circle cx="340" cy="175" r="2" fill="white"/>
+    <circle cx="350" cy="180" r="2" fill="white"/>
+    <circle cx="360" cy="185" r="2" fill="white"/>
+    <circle cx="370" cy="190" r="2" fill="white"/>
+    <circle cx="380" cy="195" r="2" fill="white"/>
+    <circle cx="390" cy="200" r="2" fill="white"/>
+    <circle cx="400" cy="200" r="2" fill="white"/>
+    <circle cx="410" cy="195" r="2" fill="white"/>
+    <!-- Europe -->
+    <circle cx="520" cy="150" r="2" fill="white"/>
+    <circle cx="530" cy="145" r="2" fill="white"/>
+    <circle cx="540" cy="140" r="2" fill="white"/>
+    <circle cx="550" cy="138" r="2" fill="white"/>
+    <circle cx="560" cy="142" r="2" fill="white"/>
+    <circle cx="570" cy="148" r="2" fill="white"/>
+    <circle cx="580" cy="152" r="2" fill="white"/>
+    <circle cx="590" cy="155" r="2" fill="white"/>
+    <circle cx="600" cy="158" r="2" fill="white"/>
+    <circle cx="540" cy="160" r="2" fill="white"/>
+    <circle cx="550" cy="165" r="2" fill="white"/>
+    <circle cx="560" cy="168" r="2" fill="white"/>
+    <circle cx="570" cy="170" r="2" fill="white"/>
+    <!-- Africa -->
+    <circle cx="560" cy="230" r="2" fill="white"/>
+    <circle cx="570" cy="240" r="2" fill="white"/>
+    <circle cx="575" cy="260" r="2" fill="white"/>
+    <circle cx="580" cy="280" r="2" fill="white"/>
+    <circle cx="575" cy="300" r="2" fill="white"/>
+    <circle cx="570" cy="320" r="2" fill="white"/>
+    <circle cx="565" cy="340" r="2" fill="white"/>
+    <circle cx="555" cy="350" r="2" fill="white"/>
+    <!-- India (highlighted) -->
+    <circle cx="720" cy="220" r="3" fill="white"/>
+    <circle cx="730" cy="230" r="3" fill="white"/>
+    <circle cx="740" cy="240" r="3" fill="white"/>
+    <circle cx="735" cy="255" r="3" fill="white"/>
+    <circle cx="725" cy="265" r="3" fill="white"/>
+    <circle cx="715" cy="275" r="3" fill="white"/>
+    <circle cx="720" cy="285" r="3" fill="white"/>
+    <circle cx="730" cy="275" r="3" fill="white"/>
+    <circle cx="710" cy="240" r="3" fill="white"/>
+    <circle cx="700" cy="250" r="3" fill="white"/>
+    <circle cx="745" cy="260" r="3" fill="white"/>
+    <!-- Asia -->
+    <circle cx="780" cy="200" r="2" fill="white"/>
+    <circle cx="800" cy="210" r="2" fill="white"/>
+    <circle cx="820" cy="215" r="2" fill="white"/>
+    <circle cx="840" cy="220" r="2" fill="white"/>
+    <circle cx="860" cy="230" r="2" fill="white"/>
+    <circle cx="880" cy="235" r="2" fill="white"/>
+    <circle cx="650" cy="160" r="2" fill="white"/>
+    <circle cx="670" cy="165" r="2" fill="white"/>
+    <circle cx="690" cy="170" r="2" fill="white"/>
+    <circle cx="710" cy="175" r="2" fill="white"/>
+    <circle cx="730" cy="180" r="2" fill="white"/>
+    <!-- Australia -->
+    <circle cx="870" cy="350" r="2" fill="white"/>
+    <circle cx="880" cy="340" r="2" fill="white"/>
+    <circle cx="890" cy="345" r="2" fill="white"/>
+    <circle cx="900" cy="355" r="2" fill="white"/>
+    <circle cx="885" cy="360" r="2" fill="white"/>
+    <!-- Connection lines from India -->
+    <line x1="725" y1="255" x2="560" y2="155" stroke="white" stroke-width="0.3" stroke-dasharray="4 4"/>
+    <line x1="725" y1="255" x2="350" y2="180" stroke="white" stroke-width="0.3" stroke-dasharray="4 4"/>
+    <line x1="725" y1="255" x2="850" y2="230" stroke="white" stroke-width="0.3" stroke-dasharray="4 4"/>
+    <line x1="725" y1="255" x2="885" y2="350" stroke="white" stroke-width="0.3" stroke-dasharray="4 4"/>
+  </g>
+</svg>
