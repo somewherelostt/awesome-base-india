@@ -1,7 +1,8 @@
-# Awesome Base India [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Base India 
 
 **Awesome Base India** is a list of Base ecosystem links including all the Products & Projects from India accross Base Batches 001, Base Batches 002, Base Fellowship, Hypethon.
 
+**The Goal Is Very Simple, bringing India into the global on-chain posters.**
 
 **Base** is an Ethereum L2, incubated by Coinbase.
 
