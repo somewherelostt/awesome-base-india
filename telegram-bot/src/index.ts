@@ -276,15 +276,64 @@ bot.on("text", async (ctx) => {
   }
 });
 
-// Minimal HTTP server for Render Web Service (health check on PORT)
-const PORT = process.env.PORT || 3000;
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("OK");
-});
-server.listen(PORT, () => console.log(`Health server on :${PORT}`));
+// Webhook mode: use when deployed (e.g. Render) so only one "receiver" exists — avoids 409 conflict with polling.
+const WEBHOOK_BASE = process.env.WEBHOOK_BASE_URL || process.env.RENDER_EXTERNAL_URL;
+const WEBHOOK_PATH = "/webhook";
+const PORT = Number(process.env.PORT) || 3000;
 
-bot.launch().then(() => console.log("Bot running."));
+const server = http.createServer((req, res) => {
+  // Health check / root (Render pings this)
+  if ((req.method === "GET" || req.method === "HEAD") && req.url !== WEBHOOK_PATH) {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("OK");
+    return;
+  }
+
+  // Telegram webhook
+  if (req.method === "POST" && req.url === WEBHOOK_PATH) {
+    let body = "";
+    req.setEncoding("utf8");
+    req.on("data", (chunk) => { body += chunk; });
+    req.on("end", () => {
+      let update: unknown;
+      try {
+        update = JSON.parse(body);
+      } catch {
+        res.writeHead(400);
+        res.end();
+        return;
+      }
+      bot.handleUpdate(update as Parameters<typeof bot.handleUpdate>[0], res).then(() => {
+        if (!res.writableEnded) {
+          res.writeHead(200);
+          res.end();
+        }
+      }).catch((err) => {
+        console.error("Webhook handleUpdate error:", err);
+        if (!res.writableEnded) {
+          res.writeHead(500);
+          res.end();
+        }
+      });
+    });
+    return;
+  }
+
+  res.writeHead(404);
+  res.end();
+});
+
+server.listen(PORT, async () => {
+  console.log(`Health server on :${PORT}`);
+  if (WEBHOOK_BASE) {
+    const url = `${WEBHOOK_BASE.replace(/\/$/, "")}${WEBHOOK_PATH}`;
+    await bot.telegram.setWebhook(url);
+    console.log("Bot running (webhook):", url);
+  } else {
+    await bot.launch();
+    console.log("Bot running (polling).");
+  }
+});
 
 process.once("SIGINT", () => {
   server.close();

@@ -95,9 +95,12 @@ The bot runs an HTTP server on `PORT` (for Render health checks) and the Telegra
    - `SUPABASE_SERVICE_KEY` – your Supabase secret key  
 
 6. **Create Web Service**  
-   Click **Create Web Service**. After deploy, check **Logs** for “Health server on :XXXX” and “Bot running.”
+   Click **Create Web Service**. After deploy, check **Logs** for “Health server on :XXXX” and “Bot running (webhook): …”.
 
-7. **Free tier note**  
+7. **Webhook vs polling**  
+   On Render the bot uses *webhook* mode (Telegram sends updates to `https://your-service.onrender.com/webhook`). Render sets `RENDER_EXTERNAL_URL` automatically, so no extra env is needed. This avoids the “409 Conflict: only one bot instance” error. For local dev, don’t set `RENDER_EXTERNAL_URL` or `WEBHOOK_BASE_URL` so the bot uses polling — and stop the local bot when the same token is used on Render.
+
+8. **Free tier note**  
    On the free tier, the service may spin down after ~15 minutes with no traffic. When someone messages the bot, the first request can be slow (cold start). To keep it awake, you can use a free cron (e.g. [cron-job.org](https://cron-job.org)) to hit `https://your-service.onrender.com/` every 10 minutes.
 
 ## Commands
