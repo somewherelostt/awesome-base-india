@@ -8,39 +8,8 @@ Bot that collects project submissions via Telegram and saves them to Supabase. Y
    Message [@BotFather](https://t.me/BotFather), create a bot, copy the token.
 
 2. **Supabase**  
-   Create a project and run this SQL in the SQL editor to create the table:
-
-```sql
-create table if not exists project_submissions (
-  id uuid primary key default gen_random_uuid(),
-  created_at timestamptz not null default now(),
-  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
-
-  product_name text not null,
-  project_url text not null,
-  description text not null,
-  github_url text,
-  twitter_profile text,
-
-  founder_name text not null,
-  founder_twitter text not null,
-  teammates jsonb not null default '[]',
-
-  category text,
-  batch text,
-
-  telegram_user_id bigint not null,
-  telegram_username text
-);
-
--- Optional: RLS so only service role can write; you can read from dashboard or a small admin
-alter table project_submissions enable row level security;
-
-create policy "Service role can do anything"
-  on project_submissions for all
-  using (true)
-  with check (true);
-```
+   Create a project and run the SQL in **`supabase-setup.sql`** in the SQL editor (creates the table with Base ecosystem–style fields: logo, category, tags).  
+   If you already have the table, run **`supabase-migrate-ecosystem-fields.sql`** to add `logo_url` and `tags`.
 
 3. **Env**  
    Copy `.env.example` to `.env` and set:
@@ -67,17 +36,20 @@ npm run dev
 ## Flow
 
 1. User sends `/start` or `/submit`.
-2. Bot asks in order:  
+2. Bot asks in order (aligned with [Base ecosystem](https://www.base.org/ecosystem)):  
    - Product name  
    - Project URL  
    - Description  
+   - Logo URL (optional, `/skip`)  
+   - Main category: **AI**, **Wallet**, **Defi**, **Consumer**, **Onramp**, **Infra**  
+   - Tags (optional, comma-separated, e.g. Developer Tool, Social, Dex; `/skip`)  
    - GitHub link (optional, `/skip`)  
    - Project Twitter (optional, `/skip`)  
    - Founder name  
    - Founder Twitter  
    - Teammates: one per line as `Name @handle`, or `/skip` for solo
 3. Bot inserts one row into `project_submissions` with `status = 'pending'`.
-4. You review in Supabase, set `status = 'approved'` (or reject), then use the row to add the project to the frontend (e.g. copy into `lib/data.ts` or feed an API that serves the directory).
+4. You review in Supabase, set `status = 'approved'` (or reject), then use the row on the frontend.
 
 ## Field mapping to frontend
 
@@ -86,12 +58,15 @@ npm run dev
 | `product_name`         | `Project.name`            |
 | `project_url`          | `Project.url`             |
 | `description`          | `Project.description`    |
+| `logo_url`             | `Project.logo` (image URL) |
+| `category`             | `Project.category` (AI, Wallet, Defi, Consumer, Onramp, Infra) |
+| `tags`                 | `Project.tags` (array)    |
 | `founder_name`         | `Project.founder`, `Founder.name` |
 | `founder_twitter`      | `Project.founderTwitter`, `Founder.twitter` |
-| `teammates` (array)    | Extra `Founder` entries (name, twitter)     |
+| `teammates` (array)    | Extra `Founder` entries (name, twitter) |
 | `github_url`           | Use for links / proof     |
 | `twitter_profile`      | Project’s Twitter         |
-| `category` / `batch`   | `Project.category`, `Project.batch` (optional; bot can be extended to ask these) |
+| `batch`                | `Project.batch` (optional) |
 
 ## Commands
 

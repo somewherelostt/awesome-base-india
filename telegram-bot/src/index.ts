@@ -1,6 +1,7 @@
 import "dotenv/config";
-import { Telegraf, type Context } from "telegraf";
+import { Telegraf } from "telegraf";
 import type { SubmissionState } from "./types";
+import { MAIN_CATEGORIES } from "./types";
 import { insertSubmission } from "./supabase";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -15,6 +16,9 @@ type Step =
   | "product_name"
   | "project_url"
   | "description"
+  | "logo_url"
+  | "category"
+  | "tags"
   | "github_url"
   | "twitter_profile"
   | "founder_name"
@@ -128,6 +132,54 @@ bot.on("text", async (ctx) => {
 
   if (step === "description") {
     state.description = text;
+    flow.step = "logo_url";
+    await ctx.reply(
+      "Optional: *Logo image URL* (square image for the listing). Send /skip to skip.",
+      { parse_mode: "Markdown" }
+    );
+    return;
+  }
+
+  if (step === "logo_url") {
+    if (text.toLowerCase() === "/skip") {
+      state.logo_url = null;
+    } else if (isValidUrl(text)) {
+      state.logo_url = text;
+    } else {
+      await ctx.reply("Send a valid image URL or /skip.");
+      return;
+    }
+    flow.step = "category";
+    const catList = MAIN_CATEGORIES.join(", ");
+    await ctx.reply(
+      `*Main category* (like Base ecosystem):\n${catList}\n\nReply with exactly one of the above.`,
+      { parse_mode: "Markdown" }
+    );
+    return;
+  }
+
+  if (step === "category") {
+    const normalized = text.trim();
+    const match = MAIN_CATEGORIES.find((c) => c.toLowerCase() === normalized.toLowerCase());
+    if (!match) {
+      await ctx.reply(`Please choose one of: ${MAIN_CATEGORIES.join(", ")}`);
+      return;
+    }
+    state.category = match;
+    flow.step = "tags";
+    await ctx.reply(
+      "Optional: *Tags* (comma-separated, e.g. Developer Tool, Social, Dex). Send /skip to skip.",
+      { parse_mode: "Markdown" }
+    );
+    return;
+  }
+
+  if (step === "tags") {
+    if (text.toLowerCase() === "/skip") {
+      state.tags = [];
+    } else {
+      state.tags = text.split(",").map((t) => t.trim()).filter(Boolean);
+    }
     flow.step = "github_url";
     await ctx.reply(
       "Optional: *GitHub link* for the project. Send /skip to skip.",
@@ -188,12 +240,14 @@ bot.on("text", async (ctx) => {
       product_name: state.product_name!,
       project_url: state.project_url!,
       description: state.description!,
+      logo_url: state.logo_url ?? null,
+      category: state.category ?? null,
+      tags: state.tags ?? [],
       github_url: state.github_url ?? null,
       twitter_profile: state.twitter_profile ?? null,
       founder_name: state.founder_name!,
       founder_twitter: state.founder_twitter!,
       teammates: state.teammates ?? [],
-      category: null,
       batch: null,
       status: "pending" as const,
       telegram_user_id: userId,
