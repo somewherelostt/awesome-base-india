@@ -2,8 +2,10 @@ import { BaseFooter } from "@/components/base-footer";
 import { BaseHeader } from "@/components/base-header";
 import { SubmitForm } from "@/components/submit-form";
 import { ThemeSwitch } from "@/components/theme-switch";
+import { siteConfig } from "@/lib/config";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = createMetadata({
@@ -14,6 +16,10 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function SubmitPage(): ReactNode {
+  if (siteConfig.submitBotUrl) {
+    redirect(siteConfig.submitBotUrl);
+  }
+
   return (
     <>
       <BaseHeader />

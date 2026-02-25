@@ -68,6 +68,38 @@ npm run dev
 | `twitter_profile`      | Project’s Twitter         |
 | `batch`                | `Project.batch` (optional) |
 
+## Deploy on Render (Web Service, free tier)
+
+The bot runs an HTTP server on `PORT` (for Render health checks) and the Telegram bot in the same process.
+
+1. **Push the repo**  
+   Ensure the repo is pushed to GitHub.
+
+2. **Create a Render account**  
+   Go to [render.com](https://render.com) and sign in (e.g. with GitHub).
+
+3. **New Web Service**  
+   - Dashboard → **New +** → **Web Service**.  
+   - Connect GitHub and select the **awesome-base-india** repo.  
+   - Set **Root Directory** to: `telegram-bot`  
+   - **Name**: e.g. `awesome-base-india-bot`.
+
+4. **Build & start**  
+   - **Build Command:** `npm install && npm run build`  
+   - **Start Command:** `npm start`
+
+5. **Environment variables**  
+   In the service **Environment** tab, add:
+   - `TELEGRAM_BOT_TOKEN` – from BotFather  
+   - `SUPABASE_URL` – e.g. `https://xxxxx.supabase.co`  
+   - `SUPABASE_SERVICE_KEY` – your Supabase secret key  
+
+6. **Create Web Service**  
+   Click **Create Web Service**. After deploy, check **Logs** for “Health server on :XXXX” and “Bot running.”
+
+7. **Free tier note**  
+   On the free tier, the service may spin down after ~15 minutes with no traffic. When someone messages the bot, the first request can be slow (cold start). To keep it awake, you can use a free cron (e.g. [cron-job.org](https://cron-job.org)) to hit `https://your-service.onrender.com/` every 10 minutes.
+
 ## Commands
 
 - `/start` – Start or restart the flow  

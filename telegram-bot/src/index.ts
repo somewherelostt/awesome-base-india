@@ -1,4 +1,5 @@
 import "dotenv/config";
+import http from "http";
 import { Telegraf } from "telegraf";
 import type { SubmissionState } from "./types";
 import { MAIN_CATEGORIES } from "./types";
@@ -271,7 +272,21 @@ bot.on("text", async (ctx) => {
   }
 });
 
+// Minimal HTTP server for Render Web Service (health check on PORT)
+const PORT = process.env.PORT || 3000;
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("OK");
+});
+server.listen(PORT, () => console.log(`Health server on :${PORT}`));
+
 bot.launch().then(() => console.log("Bot running."));
 
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
+process.once("SIGINT", () => {
+  server.close();
+  bot.stop("SIGINT");
+});
+process.once("SIGTERM", () => {
+  server.close();
+  bot.stop("SIGTERM");
+});

@@ -15,6 +15,9 @@ export const siteConfig = {
   url: "https://baseindiacircle.xyz",
   twitter: "@BaseIndiaCircle",
 
+  /** Telegram bot URL for project submissions. If set, /submit redirects here; if null, the submit form page is shown. */
+  submitBotUrl: "https://t.me/awesome_base_India_bot" as string | null,
+
   nav: {
     cta: {
       text: "Submit Project",
