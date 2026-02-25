@@ -77,21 +77,25 @@ function parseTeammates(text: string): { name: string; twitter: string }[] {
   return result;
 }
 
+const ONBOARDING_MESSAGE =
+  "👋 *Welcome to Base India Circle*\n\n" +
+  "We’re the directory for products and projects building on Base from India. Submit your project here and we’ll verify it — once approved, you’ll be listed so the community can discover you.\n\n" +
+  "I’ll ask you a few questions (project name, link, description, category, founder, etc.). You can *\/skip* optional fields and *\/cancel* anytime to start over.\n\n" +
+  "Ready? Let’s start with the first one 👇";
+
+function sendOnboardingAndStartFlow(ctx: { reply: (text: string, opts?: { parse_mode: "Markdown" }) => Promise<unknown> }, fromId: number | undefined) {
+  ctx.reply(ONBOARDING_MESSAGE, { parse_mode: "Markdown" });
+  if (fromId) getOrCreateFlow(fromId);
+}
+
 bot.start((ctx) => {
-  ctx.reply(
-    "Welcome to Base India Circle submission bot.\n\n" +
-      "I’ll ask you a few questions about your project. Reply in order; you can type /skip for optional fields and /cancel to abort.\n\n" +
-      "First: *What is your product/project name?*",
-    { parse_mode: "Markdown" }
-  );
-  const userId = ctx.from?.id;
-  if (userId) getOrCreateFlow(userId);
+  sendOnboardingAndStartFlow(ctx, ctx.from?.id);
+  ctx.reply("*What is your product/project name?*", { parse_mode: "Markdown" });
 });
 
 bot.command("submit", (ctx) => {
-  ctx.reply("What is your *product/project name?*", { parse_mode: "Markdown" });
-  const userId = ctx.from?.id;
-  if (userId) getOrCreateFlow(userId);
+  sendOnboardingAndStartFlow(ctx, ctx.from?.id);
+  ctx.reply("*What is your product/project name?*", { parse_mode: "Markdown" });
 });
 
 bot.command("cancel", (ctx) => {
