@@ -27,6 +27,9 @@ Thumbs.db
 *.log
 logs/
 
+# workspace-only
+minimal/
+
 # IDE / editor
 .idea/
 *.swp
