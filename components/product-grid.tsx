@@ -12,6 +12,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     Gaming: "bg-amber-500/10 text-amber-400 border-amber-500/20",
     Infra: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     "Mini-apps": "bg-violet-500/10 text-violet-400 border-violet-500/20",
+    NFT: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    DAO: "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/20",
+    Identity: "bg-sky-500/10 text-sky-400 border-sky-500/20",
     Social: "bg-green-500/10 text-green-400 border-green-500/20",
     Payments: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   };
