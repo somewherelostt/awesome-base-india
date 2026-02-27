@@ -34,17 +34,17 @@ function shuffleWithSeed<T>(items: T[], seed: number): T[] {
 
 function getCategoryAccent(category: string): { border: string; tint: string; text: string } {
   const palette: Record<string, { border: string; tint: string; text: string }> = {
-    AI: { border: "#FF6B35", tint: "rgba(255,107,53,0.45)", text: "text-orange-300" },
-    Consumer: { border: "#EC4899", tint: "rgba(236,72,153,0.45)", text: "text-pink-300" },
+    AI: { border: "#FF8C00", tint: "rgba(255,140,0,0.45)", text: "text-orange-300" },
+    Consumer: { border: "#FF8C00", tint: "rgba(255,140,0,0.45)", text: "text-orange-300" },
     DeFi: { border: "#0052FF", tint: "rgba(0,82,255,0.48)", text: "text-blue-300" },
-    Gaming: { border: "#F59E0B", tint: "rgba(245,158,11,0.45)", text: "text-amber-300" },
-    Infra: { border: "#06B6D4", tint: "rgba(6,182,212,0.45)", text: "text-cyan-300" },
-    "Mini-apps": { border: "#8B5CF6", tint: "rgba(139,92,246,0.45)", text: "text-violet-300" },
-    NFT: { border: "#A855F7", tint: "rgba(168,85,247,0.45)", text: "text-purple-300" },
-    DAO: { border: "#D946EF", tint: "rgba(217,70,239,0.45)", text: "text-fuchsia-300" },
-    Identity: { border: "#0EA5E9", tint: "rgba(14,165,233,0.45)", text: "text-sky-300" },
-    Social: { border: "#10B981", tint: "rgba(16,185,129,0.45)", text: "text-green-300" },
-    Payments: { border: "#14B8A6", tint: "rgba(20,184,166,0.45)", text: "text-emerald-300" },
+    Gaming: { border: "#FF8C00", tint: "rgba(255,140,0,0.45)", text: "text-orange-300" },
+    Infra: { border: "#0052FF", tint: "rgba(0,82,255,0.48)", text: "text-blue-300" },
+    "Mini-apps": { border: "#C87BFF", tint: "rgba(200,123,255,0.45)", text: "text-purple-300" },
+    NFT: { border: "#C87BFF", tint: "rgba(200,123,255,0.45)", text: "text-purple-300" },
+    DAO: { border: "#C87BFF", tint: "rgba(200,123,255,0.45)", text: "text-purple-300" },
+    Identity: { border: "#0052FF", tint: "rgba(0,82,255,0.48)", text: "text-blue-300" },
+    Social: { border: "#00C851", tint: "rgba(0,200,81,0.45)", text: "text-green-300" },
+    Payments: { border: "#00C851", tint: "rgba(0,200,81,0.45)", text: "text-green-300" },
   };
 
   return palette[category] || { border: "#0052FF", tint: "rgba(0,82,255,0.45)", text: "text-blue-300" };
