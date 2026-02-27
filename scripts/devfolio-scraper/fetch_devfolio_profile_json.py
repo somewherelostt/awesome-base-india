@@ -101,8 +101,9 @@ def social_from_profiles(profiles: list) -> dict:
     for p in profiles or []:
         if not isinstance(p, dict):
             continue
-        url = (p.get("url") or p.get("link") or "").strip()
-        kind = (p.get("type") or p.get("platform") or "").lower()
+        # Support both url/link and value/name (readme-md.json API shape)
+        url = (p.get("url") or p.get("link") or p.get("value") or "").strip()
+        kind = (p.get("type") or p.get("platform") or p.get("name") or "").lower()
         if "github" in kind or "github.com" in url:
             out["github"] = url or None
         if "twitter" in kind or "x.com" in url or "twitter.com" in url:
@@ -122,7 +123,10 @@ def build_founder_schema(user: dict, profiles: list, address: dict, stats: dict,
     name = f"{first} {last}".strip() or username
     short_bio = (user.get("short_bio") or "").strip()
     full_bio = (user.get("bio") or user.get("full_bio") or user.get("long_bio") or "").strip()
-    profile_image = (user.get("profile_image") or user.get("avatar_url") or "").strip()
+    # Devfolio uses profileImage (camelCase) in readme-md API; Next.js may use snake_case
+    profile_image = (
+        (user.get("profile_image") or user.get("avatar_url") or user.get("profileImage") or "").strip()
+    )
 
     social = social_from_profiles(profiles)
     city = ""

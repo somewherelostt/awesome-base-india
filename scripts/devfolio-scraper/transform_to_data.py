@@ -61,6 +61,34 @@ def description_text(desc_field) -> str:
     return ""
 
 
+def full_description_markdown(desc_field) -> str:
+    """Build full markdown from Devfolio description[] (title + content per section)."""
+    if not desc_field or not isinstance(desc_field, list):
+        return ""
+    boilerplate_phrases = (
+        "First Place Winners will receive",
+        "Incubator Placement",
+        "Demo Day Invitation",
+        "Second Place Winners",
+        "prizes to teams placed",
+    )
+    parts = []
+    for item in desc_field:
+        if not isinstance(item, dict):
+            continue
+        title = (item.get("title") or "").strip()
+        content = (item.get("content") or "").strip()
+        if not content:
+            continue
+        if any(phrase in content for phrase in boilerplate_phrases):
+            continue
+        if title:
+            parts.append(f"## {title}\n\n{content}")
+        else:
+            parts.append(content)
+    return "\n\n".join(parts).strip() if parts else ""
+
+
 def main():
     with open(INPUT_FILE, encoding="utf-8") as f:
         raw = json.load(f)
@@ -78,6 +106,7 @@ def main():
         description = tagline or desc or "Built on Base."
         if len(description) > 380:
             description = description[:377] + "..."
+        description_full = full_description_markdown(src.get("description"))
 
         hashtags = src.get("hashtags") or []
         tag_names = [
@@ -122,9 +151,11 @@ def main():
                     if not farcaster_url:
                         farcaster_url = part
 
-        # Prize names won (from Devfolio "prizes" array)
-        prize_objs = src.get("prizes") or []
-        prize_names = [p.get("name") for p in prize_objs if isinstance(p, dict) and p.get("name")]
+        # Do NOT use API "prizes" for "prizes won" — the search API returns prize definitions
+        # for tracks the project applied to (e.g. "First Place" for Consumer track), not actual
+        # awards. That would mark non-winners as winners. Leave prizes empty until we have a
+        # reliable source (e.g. manual winner list or a dedicated winners API).
+        prize_names = []
 
         out = {
             "id": src.get("uuid") or str(i + 1),
@@ -149,6 +180,8 @@ def main():
             out["farcaster"] = farcaster_url
         if prize_names:
             out["prizes"] = prize_names
+        if description_full:
+            out["descriptionFull"] = description_full
         projects.append(out)
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)

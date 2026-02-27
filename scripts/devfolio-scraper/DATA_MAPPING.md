@@ -118,5 +118,5 @@ This matches the directory’s `Project` type and is used everywhere (product gr
 ## 5. Implemented extras
 
 - **Project GitHub & Farcaster:** Parsed from `links` (comma-separated); stored as `github` and `farcaster` on each project. Shown on project cards.
-- **Prizes:** From Devfolio `prizes` array; stored as `prizes: string[]`. When a batch filter is selected, prize winners are sorted to the top and show a trophy badge.
+- **Prizes:** We do **not** use the API `prizes` array. The search API returns prize *definitions* for tracks the project applied to (e.g. "First Place" for Consumer), not actual awards won, so it would mark non-winners as winners. `prizes` is left empty in the transform. To show real winners, use a manual list of winner slugs or a dedicated winners endpoint and set `prizes` only for those projects.
 - **Founder Twitter & GitHub:** Script `fetch_devfolio_profiles.py` fetches each founder’s Devfolio profile (e.g. `https://devfolio.co/@Harshshukla`), parses the page for Twitter/X and GitHub links, and writes `profile_links.json`. Run `merge_profile_links.py` to update `projects-from-devfolio.json` with real `founderTwitter` and `founderGithub`.
