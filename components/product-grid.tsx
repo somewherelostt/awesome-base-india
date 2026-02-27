@@ -67,15 +67,25 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground">
             {project.founder.split(" ").map((n) => n[0]).join("")}
           </div>
-          <a
-            href={`https://x.com/${project.founderTwitter}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted-foreground hover:text-accent transition-colors"
-            onClick={(e) => e.stopPropagation()}
+          <span
+            role="link"
+            tabIndex={0}
+            className="cursor-pointer text-xs text-muted-foreground hover:text-accent transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+              }
+            }}
           >
             @{project.founderTwitter}
-          </a>
+          </span>
         </div>
         <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
           {project.batch}
