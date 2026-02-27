@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
@@ -9,6 +9,28 @@ import { ChevronDown, ChevronUp, Github, ExternalLink, Trophy } from "lucide-rea
 const AUTO_SCROLL_SPEED = -18;
 const CAROUSEL_REPEAT_COUNT = 5;
 const CARD_HEIGHTS = ["h-[360px]", "h-[400px]", "h-[380px]", "h-[420px]"];
+
+function mulberry32(seed: number): () => number {
+  let t = seed;
+  return () => {
+    t += 0x6D2B79F5;
+    let r = Math.imul(t ^ (t >>> 15), t | 1);
+    r ^= r + Math.imul(r ^ (r >>> 7), r | 61);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shuffleWithSeed<T>(items: T[], seed: number): T[] {
+  const shuffled = [...items];
+  const random = mulberry32(seed);
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    const temp = shuffled[i]!;
+    shuffled[i] = shuffled[j]!;
+    shuffled[j] = temp;
+  }
+  return shuffled;
+}
 
 function getCategoryAccent(category: string): { border: string; tint: string; text: string } {
   const palette: Record<string, { border: string; tint: string; text: string }> = {
@@ -214,16 +236,28 @@ const batchOptions = batches.filter((b) => b !== "All Batches");
 
 interface ProductGridProps {
   projects?: Project[];
+  randomizeShowcase?: boolean;
+  showcaseCount?: number;
+  showViewAllButton?: boolean;
 }
 
 export function ProductGrid(props?: ProductGridProps) {
   const projectsToUse = props?.projects ?? projects;
+  const randomizeShowcase = props?.randomizeShowcase ?? false;
+  const showcaseCount = props?.showcaseCount ?? 15;
+  const showViewAllButton = props?.showViewAllButton ?? false;
+  const [randomSeed] = useState(() => Math.floor(Math.random() * 1_000_000_000));
   const [activeCategory, setActiveCategory] = useState("All");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
   const [selectedBatches, setSelectedBatches] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const sourceProjects = useMemo(() => {
+    if (!randomizeShowcase) return projectsToUse;
+    return shuffleWithSeed(projectsToUse, randomSeed).slice(0, Math.min(showcaseCount, projectsToUse.length));
+  }, [projectsToUse, randomSeed, randomizeShowcase, showcaseCount]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -253,7 +287,7 @@ export function ProductGrid(props?: ProductGridProps) {
     });
   };
 
-  const filtered = projectsToUse
+  const filtered = sourceProjects
     .filter((p) => {
       const matchesCategory = activeCategory === "All" || p.category === activeCategory;
       const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
@@ -283,15 +317,30 @@ export function ProductGrid(props?: ProductGridProps) {
     <section id="projects" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Ecosystem Projects
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            Products shipped by Indian founders building on Base
-          </p>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Ecosystem Projects
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                {randomizeShowcase
+                  ? "Random projects on every visit. Discover someone new each time."
+                  : "Products shipped by Indian founders building on Base"}
+              </p>
+            </div>
+            {showViewAllButton && (
+              <Link
+                href="/directory"
+                className="inline-flex items-center rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                View all projects
+              </Link>
+            )}
+          </div>
         </div>
 
-        <div className="mb-8">
+        {!randomizeShowcase && (
+          <div className="mb-8">
           <div
             className="flex flex-wrap items-center gap-2 rounded-2xl bg-muted/30 px-3 py-2.5 dark:bg-muted/10"
             ref={dropdownRef}
@@ -427,7 +476,8 @@ export function ProductGrid(props?: ProductGridProps) {
               />
             </div>
           </div>
-        </div>
+          </div>
+        )}
 
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 ? (
@@ -453,7 +503,9 @@ export function ProductGrid(props?: ProductGridProps) {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            {filtered.length} project{filtered.length !== 1 ? "s" : ""} shown
+            {randomizeShowcase
+              ? `${filtered.length} random project${filtered.length !== 1 ? "s" : ""} shown`
+              : `${filtered.length} project${filtered.length !== 1 ? "s" : ""} shown`}
           </p>
         </div>
       </div>

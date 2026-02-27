@@ -24,7 +24,12 @@ export default async function HomePage(): Promise<ReactNode> {
       <main id="main-content" className="flex-1 bg-background">
         <HeroSection />
 
-        <ProductGrid projects={projects} />
+        <ProductGrid
+          projects={projects}
+          randomizeShowcase={true}
+          showcaseCount={18}
+          showViewAllButton={true}
+        />
 
         <HowItWorksSection />
 
