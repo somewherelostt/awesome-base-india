@@ -49,10 +49,10 @@ function buildNewMdx(project: { id?: string; slug: string; name: string; descrip
     "",
   ];
   const linkLines: string[] = [];
-  if (project.url) linkLines.push(`- [Devfolio](${project.url})`);
+  linkLines.push(`- [View on Base India Circle](/projects/${slug})`);
   if (project.github) linkLines.push(`- [GitHub](${project.github})`);
   if (project.farcaster) linkLines.push(`- [Farcaster miniapp](${project.farcaster})`);
-  if (linkLines.length === 0) linkLines.push("- [Devfolio](https://base-batch-india.devfolio.co)");
+  if (project.url) linkLines.push(`- [Also on Devfolio](${project.url})`);
   return lines.filter(Boolean).join("\n") + linkLines.join("\n") + "\n";
 }
 

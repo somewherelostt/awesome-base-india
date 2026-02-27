@@ -10,6 +10,8 @@ export interface Project {
   id: string;
   name: string;
   description: string;
+  /** Full markdown description from Devfolio (problem, how it works, challenges, etc.). */
+  descriptionFull?: string;
   category: string;
   /** Primary founder name (first in list); kept for backward compat. */
   founder: string;
