@@ -3,7 +3,7 @@ import http from "http";
 import { Telegraf } from "telegraf";
 import type { SubmissionState } from "./types";
 import { MAIN_CATEGORIES } from "./types";
-import { insertSubmission } from "./supabase";
+import { insertSubmission, getEditIdRecord, insertMdxEdit, type EditIdRecord } from "./supabase";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 if (!BOT_TOKEN) {
@@ -31,7 +31,14 @@ interface UserFlow {
   state: Partial<SubmissionState>;
 }
 
+/** Flow for /edit: user sent edit_id, next message is MDX content. */
+interface EditFlow {
+  edit_id: string;
+  record: EditIdRecord;
+}
+
 const userFlows = new Map<number, UserFlow>();
+const editFlows = new Map<number, EditFlow>();
 
 function getOrCreateFlow(userId: number): UserFlow {
   let flow = userFlows.get(userId);
@@ -100,8 +107,38 @@ bot.command("submit", (ctx) => {
 
 bot.command("cancel", (ctx) => {
   const userId = ctx.from?.id;
-  if (userId) clearFlow(userId);
-  ctx.reply("Submission cancelled. Send /start or /submit to begin again.");
+  if (userId) {
+    clearFlow(userId);
+    editFlows.delete(userId);
+  }
+  ctx.reply("Cancelled. Send /start, /submit, or /edit <your_edit_id> to begin again.");
+});
+
+bot.command("edit", async (ctx) => {
+  const userId = ctx.from?.id;
+  const text = (ctx.message as { text?: string }).text ?? "";
+  const parts = text.trim().split(/\s+/);
+  const editId = parts[1]?.trim();
+  if (!userId) return;
+  if (!editId) {
+    await ctx.reply(
+      "Use your *edit_id* from your profile or project MDX (frontmatter).\n\nExample: `/edit dv8x2k9m`\n\nThen send your full MDX (frontmatter + body; all fields editable) in the next message. After manual review we’ll update the file.",
+      { parse_mode: "Markdown" }
+    );
+    return;
+  }
+  const record = await getEditIdRecord(editId);
+  if (!record) {
+    await ctx.reply(
+      "Unknown edit_id. Make sure it’s in the MDX frontmatter and registered. If you don’t have an edit_id yet, ask the team to add one to your profile/project file."
+    );
+    return;
+  }
+  editFlows.set(userId, { edit_id: editId, record });
+  await ctx.reply(
+    `Editing *${record.type}*: \`${record.identifier}\`.\n\nSend your *full MDX content* in the next message (include full frontmatter so all fields—name, city, short_bio, hackathons_attended, projects_built, prizes_won, onchain_creds_claimed, tags—and body are editable). We’ll store it for review and replace the file after approval.\n\nSend /cancel to abort.`,
+    { parse_mode: "Markdown" }
+  );
 });
 
 bot.on("text", async (ctx) => {
@@ -109,11 +146,37 @@ bot.on("text", async (ctx) => {
   const username = ctx.from?.username ?? null;
   if (!userId) return;
 
-  const flow = userFlows.get(userId);
-  if (!flow) return;
-
   const text = (ctx.message as { text?: string }).text?.trim() ?? "";
   if (!text) return;
+
+  // Handle /edit flow: next message after /edit <id> is MDX content
+  const editFlow = editFlows.get(userId);
+  if (editFlow) {
+    if (text.toLowerCase() === "/cancel") {
+      editFlows.delete(userId);
+      await ctx.reply("Edit cancelled.");
+      return;
+    }
+    const { error } = await insertMdxEdit({
+      edit_id: editFlow.edit_id,
+      mdx_content: text,
+      telegram_user_id: userId,
+      telegram_username: username,
+    });
+    editFlows.delete(userId);
+    if (error) {
+      await ctx.reply("Failed to save. Please try again or contact the team.");
+      return;
+    }
+    await ctx.reply(
+      "✅ *MDX update received.*\n\nWe’ll review it and replace the file after approval. You’ll be notified when it’s live.",
+      { parse_mode: "Markdown" }
+    );
+    return;
+  }
+
+  const flow = userFlows.get(userId);
+  if (!flow) return;
 
   const { step, state } = flow;
 

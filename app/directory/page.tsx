@@ -3,6 +3,7 @@ import { BaseHeader } from "@/components/base-header";
 import { ProductGrid } from "@/components/product-grid";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { createMetadata } from "@/lib/metadata";
+import { getProjectsWithResolvedLogos } from "@/lib/projects-resolved";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
@@ -13,13 +14,14 @@ export const metadata: Metadata = createMetadata({
   path: "/directory",
 });
 
-export default function DirectoryPage(): ReactNode {
+export default async function DirectoryPage(): Promise<ReactNode> {
+  const projects = getProjectsWithResolvedLogos();
   return (
     <>
       <BaseHeader />
       <ThemeSwitch />
       <main id="main-content" className="flex-1 bg-background">
-        <ProductGrid />
+        <ProductGrid projects={projects} />
       </main>
       <BaseFooter />
     </>

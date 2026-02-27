@@ -12,16 +12,12 @@ interface FounderCardData {
   role: string;
   twitter: string;
   avatar: string;
+  github?: string;
 }
 
 function FounderGlassCard({ founder }: { founder: FounderCardData }) {
   return (
-    <a
-      href={`https://x.com/${founder.twitter}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mb-4 block rounded-2xl bg-white/60 p-1.5 shadow-sm backdrop-blur-md dark:bg-neutral-800/40 no-underline"
-    >
+    <div className="mb-4 block rounded-2xl bg-white/60 p-1.5 shadow-sm backdrop-blur-md dark:bg-neutral-800/40">
       <div className="rounded-[10px] border border-neutral-300/60 bg-white p-6 shadow-sm dark:border-neutral-800/50 dark:bg-neutral-900">
         <p className="mb-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
           Building <strong className="text-foreground">{founder.project}</strong> on Base
@@ -30,17 +26,32 @@ function FounderGlassCard({ founder }: { founder: FounderCardData }) {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0052FF] text-sm font-bold text-white">
             {founder.avatar}
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
               {founder.name}
             </div>
-            <div className="text-xs text-neutral-600 dark:text-neutral-400">
-              {founder.role} &middot; @{founder.twitter}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-neutral-600 dark:text-neutral-400">
+              <a
+                href={`https://x.com/${founder.twitter}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                @{founder.twitter}
+              </a>
+              {founder.github && (
+                <>
+                  <span aria-hidden>·</span>
+                  <a href={founder.github} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 

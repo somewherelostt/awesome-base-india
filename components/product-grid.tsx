@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Github, ExternalLink, Trophy } from "lucide-react";
 
 const AUTO_SCROLL_SPEED = -18;
 const CAROUSEL_REPEAT_COUNT = 5;
@@ -92,12 +93,9 @@ function ProjectCarousel({ items }: { items: Project[] }) {
           const heightClass = CARD_HEIGHTS[index % CARD_HEIGHTS.length];
 
           return (
-            <motion.a
-              key={key}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative shrink-0 w-[280px] sm:w-[320px] ${heightClass} overflow-hidden rounded-2xl border text-white`}
+            <Link key={key} href={`/projects/${project.slug ?? project.id}`}>
+            <motion.div
+              className={`group relative shrink-0 w-[280px] sm:w-[320px] ${heightClass} overflow-hidden rounded-2xl border text-white cursor-pointer`}
               onMouseEnter={() => setHoveredCard(key)}
               onMouseLeave={() => setHoveredCard(null)}
               animate={
@@ -122,20 +120,32 @@ function ProjectCarousel({ items }: { items: Project[] }) {
               }}
             >
               <div className="relative flex h-full flex-col p-5">
-                <div className="mb-4 flex items-start justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
-                    {project.logo}
+                <div className="mb-4 flex items-start justify-between gap-2">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
+                    {project.logo.startsWith("http") ? (
+                      <img src={project.logo} alt="" className="h-full w-full object-cover" />
+                    ) : (
+                      project.logo
+                    )}
                   </div>
-                  <span className={`rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium ${accent.text}`}>
-                    {project.category}
-                  </span>
+                  <div className="flex min-w-0 flex-col items-end gap-1.5">
+                    {(project.prizes?.length ?? 0) > 0 && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/50 bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-200">
+                        <Trophy className="h-3 w-3 shrink-0" />
+                        <span className="truncate">{project.prizes![0]}</span>
+                      </span>
+                    )}
+                    <span className={`rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium ${accent.text}`}>
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="mt-auto rounded-xl border border-white/10 bg-black/45 p-4 backdrop-blur-sm">
                   <h3 className="truncate text-lg font-semibold text-white">{project.name}</h3>
                   <p className="mt-1 line-clamp-2 text-sm text-white/70">{project.description}</p>
 
-                  <div className="mt-3 flex items-center justify-between text-xs text-white/60">
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-white/60">
                     <span
                       role="link"
                       tabIndex={0}
@@ -155,11 +165,36 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                     >
                       @{project.founderTwitter}
                     </span>
-                    <span className="truncate pl-3">{project.batch}</span>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 hover:text-white"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label="GitHub"
+                      >
+                        <Github className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                    {project.farcaster && (
+                      <a
+                        href={project.farcaster}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 hover:text-white"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label="Farcaster"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                    <span className="truncate pl-0">{project.batch}</span>
                   </div>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
+            </Link>
           );
         })}
       </motion.div>
@@ -177,7 +212,12 @@ function tagMatchesSubFilter(projectTags: string[], selectedSubFilters: Set<stri
 const BATCH_DROPDOWN_ID = "__batch__";
 const batchOptions = batches.filter((b) => b !== "All Batches");
 
-export function ProductGrid() {
+interface ProductGridProps {
+  projects?: Project[];
+}
+
+export function ProductGrid(props?: ProductGridProps) {
+  const projectsToUse = props?.projects ?? projects;
   const [activeCategory, setActiveCategory] = useState("All");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
@@ -213,19 +253,29 @@ export function ProductGrid() {
     });
   };
 
-  const filtered = projects.filter((p) => {
-    const matchesCategory = activeCategory === "All" || p.category === activeCategory;
-    const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
-    const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(p.tags, subFilters);
-    const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
-    const matchesSearch =
-      searchQuery === "" ||
-      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.founder.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
-  });
+  const filtered = projectsToUse
+    .filter((p) => {
+      const matchesCategory = activeCategory === "All" || p.category === activeCategory;
+      const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
+      const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(p.tags, subFilters);
+      const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
+      const matchesSearch =
+        searchQuery === "" ||
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.founder.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+      return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
+    })
+    .sort((a, b) => {
+      // When a batch is selected, show prize winners at the top
+      if (selectedBatches.size > 0) {
+        const aHasPrize = (a.prizes?.length ?? 0) > 0 ? 1 : 0;
+        const bHasPrize = (b.prizes?.length ?? 0) > 0 ? 1 : 0;
+        if (bHasPrize !== aHasPrize) return bHasPrize - aHasPrize;
+      }
+      return 0;
+    });
 
   const categoriesWithoutAll = categories.filter((c) => c !== "All");
 

@@ -1,0 +1,4164 @@
+[
+  {
+    "id": "dd7a3d4582ad4baf9131926f53fb063e",
+    "name": "Not Your Type",
+    "description": "Bet Against the Crowd, Win with Base.",
+    "category": "Infra",
+    "founder": "Harsh Shukla",
+    "founderTwitter": "Harshshukla",
+    "url": "https://base-batch-india.devfolio.co/projects/not-your-type-80a6",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Next.js",
+      "TypeScript",
+      "BASE",
+      "ThridWeb",
+      "Remix (IDE)",
+      "Shadcn",
+      "Smart wallet"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/297a153123d84db0816031a95a9f9c5e/a193380a-472c-40b4-8aea-63effc2239f3.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/not-your-type-80a6",
+    "founders": [
+      {
+        "name": "Harsh Shukla",
+        "twitter": "Harshshukla"
+      },
+      {
+        "name": "Yadla Mani",
+        "twitter": "mani_yadla"
+      }
+    ],
+    "slug": "not-your-type-80a6",
+    "github": "https://github.com/YadlaMani/nyt-farcaster",
+    "farcaster": "https://farcaster.xyz/miniapps/w6xJSU6RL-Cf/not-your-type",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "a6a40b1961e84ed5950e6b6827373fd4",
+    "name": "Creatorbase",
+    "description": "Creators create, Brands benefit. Auto,onchain.",
+    "category": "Infra",
+    "founder": "Sahil Kakwani",
+    "founderTwitter": "Sahilkakwani9",
+    "url": "https://base-batch-india.devfolio.co/projects/creatorbase-0e7e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "TypeScript",
+      "fmpeg",
+      "Solidity",
+      "nextjs"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/cb4584c0e34f4a949435fd0fb2a3b317/9b09e896-d268-455a-9141-e3aaa7c9a999.png",
+    "source": "https://base-batch-india.devfolio.co/projects/creatorbase-0e7e",
+    "founders": [
+      {
+        "name": "Sahil Kakwani",
+        "twitter": "Sahilkakwani9"
+      },
+      {
+        "name": "Gagan Gehani",
+        "twitter": "GaganGehani"
+      }
+    ],
+    "slug": "creatorbase-0e7e",
+    "github": "https://github.com/sahilkakwani9/CreatorBase-Backend-Fork",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "824d613a9dd94af090f50e030d5f2de6",
+    "name": "Realm",
+    "description": "Infra for personalized social media.",
+    "category": "AI",
+    "founder": "Rajanshee Singh",
+    "founderTwitter": "Rajanshee",
+    "url": "https://base-batch-india.devfolio.co/projects/replyguy-fd0e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "Node.js",
+      "Next.js",
+      "OpenAi"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/713495bcb5b84dda90478cefe4390d4d/826c35d3-7b21-4c1b-b7f9-39fd3e20a254.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/replyguy-fd0e",
+    "founders": [
+      {
+        "name": "Rajanshee Singh",
+        "twitter": "Rajanshee"
+      },
+      {
+        "name": "Mega Byte",
+        "twitter": "Megabyte"
+      },
+      {
+        "name": "Manishi Bhatnagar",
+        "twitter": "Manishii"
+      },
+      {
+        "name": "Bhavya Gor",
+        "twitter": "Bhavya_Gor"
+      }
+    ],
+    "slug": "replyguy-fd0e",
+    "github": "https://github.com/Hojaeaga/replyguy",
+    "farcaster": "https://warpcast.com/yourreplyguy/",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "26a7df6018f141a4b02a1b6195c4337b",
+    "name": "NOICE",
+    "description": "noice turns every interaction into income",
+    "category": "Infra",
+    "founder": "Varun Krishna s",
+    "founderTwitter": "vHawk19",
+    "url": "https://base-batch-india.devfolio.co/projects/noice-fd34",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/fa2f16b3ce7e40f59a38c0e4e18539ea/3772e0da-0b55-462c-bc1a-1d3d5e7ffc9c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/noice-fd34",
+    "founders": [
+      {
+        "name": "Varun Krishna s",
+        "twitter": "vHawk19"
+      },
+      {
+        "name": "Srijan A",
+        "twitter": "srijancse"
+      },
+      {
+        "name": "heet tike",
+        "twitter": "heettike"
+      },
+      {
+        "name": "Div D",
+        "twitter": "divdagar"
+      }
+    ],
+    "slug": "noice-fd34",
+    "github": "https://github.com/noiceengg/tip-processor",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "efe9017e3c9e4b2cb33424970c7024e5",
+    "name": "Clip",
+    "description": "Tokenized Reddit",
+    "category": "Infra",
+    "founder": "Sarvad Shetty",
+    "founderTwitter": "serverConnectd",
+    "url": "https://base-batch-india.devfolio.co/projects/clip-9f1d",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Node.js",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ef446f9411364cb8b746248571c87943/1e3f11a8-c7ec-4355-a437-f74637467826.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/clip-9f1d",
+    "founders": [
+      {
+        "name": "Sarvad Shetty",
+        "twitter": "serverConnectd"
+      },
+      {
+        "name": "chomu eth",
+        "twitter": "PratikShetty"
+      }
+    ],
+    "slug": "clip-9f1d",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "a15a49fc914b4636a636b67a7c1bf676",
+    "name": "Bitmor",
+    "description": "Bitcoin ownership for everyone through loans.",
+    "category": "AI",
+    "founder": "Suryansh Chandak",
+    "founderTwitter": "atheistc137",
+    "url": "https://base-batch-india.devfolio.co/projects/bitmore-b2ec",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "HTML",
+      "Node.js",
+      "MongoDB",
+      "CSS",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/94728623b13740fc8558e5361c0c1a0f/9f9f7c34-b052-46f0-9f3d-fb7b5300d08c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/bitmore-b2ec",
+    "founders": [
+      {
+        "name": "Suryansh Chandak",
+        "twitter": "atheistc137"
+      },
+      {
+        "name": "Krushang Kasundra",
+        "twitter": "kruzk"
+      },
+      {
+        "name": "Shreyas Padmakiran",
+        "twitter": "ShreyasPadmakir"
+      },
+      {
+        "name": "Jose Paul",
+        "twitter": "1cryptoshaman"
+      },
+      {
+        "name": "Sudeep Kamat",
+        "twitter": "CyberWizardX"
+      }
+    ],
+    "slug": "bitmore-b2ec",
+    "github": "https://github.com/bankofcryptoassets",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "0c3338590ff44222af00b81b824beffb",
+    "name": "A$CE",
+    "description": "Elevating crypto yields,Simplifying DeFi",
+    "category": "AI",
+    "founder": "Varun V",
+    "founderTwitter": "varunv321",
+    "url": "https://base-batch-india.devfolio.co/projects/adollarce-14b4",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "AI/ML",
+      "TypeScript",
+      "Defi",
+      "Next.js",
+      "Node.js",
+      "BASE",
+      "Vercel",
+      "OpenAi"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/de5f7a3aac8d4921a8002bca7bf3ce0a/edb72250-275d-4d31-8c7e-d3c8bd327f08.png",
+    "source": "https://base-batch-india.devfolio.co/projects/adollarce-14b4",
+    "founders": [
+      {
+        "name": "Varun V",
+        "twitter": "varunv321"
+      },
+      {
+        "name": "Saurabh yadav",
+        "twitter": "Saurabh3210"
+      },
+      {
+        "name": "Rupam Shil",
+        "twitter": "RupamShil"
+      },
+      {
+        "name": "Roshan Singh",
+        "twitter": "roshan_37"
+      }
+    ],
+    "slug": "adollarce-14b4",
+    "github": "https://github.com/asce-labs",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "bd9f7a67a6b44c4daeb8fa9080257efa",
+    "name": "Darkest Dungeon",
+    "description": "Find door for next with getting reward",
+    "category": "AI",
+    "founder": "unsung builder",
+    "founderTwitter": "unsungbuilder",
+    "url": "https://base-batch-india.devfolio.co/projects/darkest-dungeon-439e",
+    "batch": "Base Batch India",
+    "tags": [
+      "HTML",
+      "CSS",
+      "Solidity",
+      "React",
+      "Tailwind CSS",
+      "Next.js",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b748f597d3aa42ee842bbf52022e0842/cd0fa551-5e8d-45cf-ac8c-199d6d6ccfb1.png",
+    "source": "https://base-batch-india.devfolio.co/projects/darkest-dungeon-439e",
+    "founders": [
+      {
+        "name": "unsung builder",
+        "twitter": "unsungbuilder"
+      }
+    ],
+    "slug": "darkest-dungeon-439e",
+    "github": "https://github.com/harshshukla9/Basedarkestdungeon",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "a0f981dc61574a58b03bd854a47df147",
+    "name": "Lotry",
+    "description": "Tokenized Lottery Launchpad",
+    "category": "AI",
+    "founder": "Arjun C",
+    "founderTwitter": "Arjun_Mundamani",
+    "url": "https://base-batch-india.devfolio.co/projects/lotry-23a5",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Uniswap",
+      "Chainlink",
+      "Next.js",
+      "Firebase",
+      "Cloudinary"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c026eb74ce0a453a8996deddb6dc56f1/8c18f794-b611-41a7-b543-149d4de90255.png",
+    "source": "https://base-batch-india.devfolio.co/projects/lotry-23a5",
+    "founders": [
+      {
+        "name": "Arjun C",
+        "twitter": "Arjun_Mundamani"
+      },
+      {
+        "name": "Aarone George",
+        "twitter": "AaroneGeorge"
+      },
+      {
+        "name": "0xMentalist .eth",
+        "twitter": "mentalist"
+      },
+      {
+        "name": "Nandhakishor A",
+        "twitter": "0xnandhu"
+      },
+      {
+        "name": "Nikhil Pn",
+        "twitter": "nikhilpn"
+      }
+    ],
+    "slug": "lotry-23a5",
+    "github": "https://github.com/nikhil-pn/Lotry.fun",
+    "farcaster": "https://warpcast.com/miniapps/MN82i-SFi5XB/lotry",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "940af98abf6c4242ae89c53b41f83c7c",
+    "name": "Kuri",
+    "description": "Built with care for circles that matter",
+    "category": "AI",
+    "founder": "Jaseem PK",
+    "founderTwitter": "jaseempk",
+    "url": "https://base-batch-india.devfolio.co/projects/kuri-8c26",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "HTML",
+      "Node.js",
+      "Tailwind CSS",
+      "GraphQL",
+      "React",
+      "Supabase",
+      "Cron Scheduler",
+      "CSS",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/9fde96b451dd4eae874b858bd370e9a5/52897866-328f-4e48-b499-2205dc740c52.png",
+    "source": "https://base-batch-india.devfolio.co/projects/kuri-8c26",
+    "founders": [
+      {
+        "name": "Jaseem PK",
+        "twitter": "jaseempk"
+      }
+    ],
+    "slug": "kuri-8c26",
+    "github": "https://github.com/Jaseempk/kuri_contracts.git",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "611f82ea9c6347d8a33ae9804f11a08f",
+    "name": "Hook-Tuah",
+    "description": "Swap on that thang",
+    "category": "DeFi",
+    "founder": "Shivansh Yadav",
+    "founderTwitter": "shivanshxyz",
+    "url": "https://base-batch-india.devfolio.co/projects/hooktuah-761e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Ethereum",
+      "BASE",
+      "TypeScript",
+      "Defi"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/fafef6847618488fada4d48e9e9a26dc/746dbdea-7c83-4383-abc3-745001ecbb19.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/hooktuah-761e",
+    "founders": [
+      {
+        "name": "Shivansh Yadav",
+        "twitter": "shivanshxyz"
+      }
+    ],
+    "slug": "hooktuah-761e",
+    "github": "https://github.com/shivanshxyz/hook-tuah",
+    "prizes": [
+      "First Place"
+    ]
+  },
+  {
+    "id": "fe5cacb6a4c446c5b76420f420ea0be9",
+    "name": "AuditHook",
+    "description": "AI Agent Audits Base Contract",
+    "category": "AI",
+    "founder": "mr jo",
+    "founderTwitter": "Prasannaram",
+    "url": "https://base-batch-india.devfolio.co/projects/audithook-4602",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/df8cc870bae34f77bc26da85092e8987/b6ff822f-be2e-4d0a-8a5b-12709048e66a.png",
+    "source": "https://base-batch-india.devfolio.co/projects/audithook-4602",
+    "founders": [
+      {
+        "name": "mr jo",
+        "twitter": "Prasannaram"
+      }
+    ],
+    "slug": "audithook-4602",
+    "github": "https://github.com/Prasannaverse13/AuditHook",
+    "prizes": [
+      "Second Place"
+    ]
+  },
+  {
+    "id": "b1ba7f26bb7240b88af5ac5dff7a416b",
+    "name": "MoodHacker",
+    "description": "Code with rhythm, logic with soul \u2014 we vibed until it compiled.",
+    "category": "AI",
+    "founder": "Armand Nagg",
+    "founderTwitter": "Armand126",
+    "url": "https://base-batch-india.devfolio.co/projects/moodhacker-4f2e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Svelte",
+      "Hardhat",
+      "RainbowKit"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/16480825f0434fa69715ad797ca64c8c/f8a58629-86fa-4da7-9c12-4426ddf5c0b2.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/moodhacker-4f2e",
+    "founders": [
+      {
+        "name": "Armand Nagg",
+        "twitter": "Armand126"
+      }
+    ],
+    "slug": "moodhacker-4f2e"
+  },
+  {
+    "id": "fe6d2dbdea73474896ca7ff6f7e07635",
+    "name": "Hive",
+    "description": "Decentralised GPU power for all, empowering AI and computing beyond Big Tech.",
+    "category": "AI",
+    "founder": "Meghesh Sahu",
+    "founderTwitter": "Meghesh",
+    "url": "https://base-batch-india.devfolio.co/projects/hive-5d3f",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Polygon",
+      "React.js",
+      "IPFS",
+      "Node.js",
+      "Docker",
+      "web3.js",
+      "Hardhat",
+      "TailWindCSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/3fd770f4790b4e5babcdad4c1a20a4b5/8dd84b5d-4868-4167-a026-d23282b337af.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/hive-5d3f",
+    "founders": [
+      {
+        "name": "Meghesh Sahu",
+        "twitter": "Meghesh"
+      },
+      {
+        "name": "Rohan Singh",
+        "twitter": "rohan5127"
+      },
+      {
+        "name": "Himanshu Kumar",
+        "twitter": "Himanshu151281"
+      }
+    ],
+    "slug": "hive-5d3f",
+    "github": "https://github.com/rohan4693/HackIndia-Tensors"
+  },
+  {
+    "id": "fa58413afee94a66875110bba4183720",
+    "name": "Idea Marketplace",
+    "description": "A place where someone can buy / sell their ideas",
+    "category": "AI",
+    "founder": "Keshav Bajaj",
+    "founderTwitter": "Keshavbajaj04",
+    "url": "https://base-batch-india.devfolio.co/projects/idea-marketplace-45ad",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/0283593144aa44128af0d8499206f09e/729e0bd4-172f-4e4b-86f0-9f774ccf4616.png",
+    "source": "https://base-batch-india.devfolio.co/projects/idea-marketplace-45ad",
+    "founders": [
+      {
+        "name": "Keshav Bajaj",
+        "twitter": "Keshavbajaj04"
+      },
+      {
+        "name": "Aditi Srivastava",
+        "twitter": "adisri05"
+      }
+    ],
+    "slug": "idea-marketplace-45ad",
+    "github": "https://github.com/keshav1727/Idea-MarketPlace.git"
+  },
+  {
+    "id": "35355fbf053b4831921041d6c8e68f46",
+    "name": "Luminous pulse",
+    "description": "Because Showcase shouldn't feel like rocket science",
+    "category": "Consumer",
+    "founder": "Nizami Magomedov",
+    "founderTwitter": "nizami7777",
+    "url": "https://base-batch-india.devfolio.co/projects/luminous-pulse-c7b3",
+    "batch": "Base Batch India",
+    "tags": [
+      "Base SDK",
+      "Three.JS",
+      "Prisma",
+      "Vite"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/2b944e60bdbb4540a6f4b05789167ca3/06ccc0d7-b034-4e3c-95a0-b36c71a0c7cd.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/luminous-pulse-c7b3",
+    "founders": [
+      {
+        "name": "Nizami Magomedov",
+        "twitter": "nizami7777"
+      }
+    ],
+    "slug": "luminous-pulse-c7b3",
+    "github": "https://github.com/nizami7777/Luminous-pulse"
+  },
+  {
+    "id": "064d7161e395404a999f654ec40c74b5",
+    "name": "PathPulse.ai",
+    "description": "Rerouting The Future",
+    "category": "AI",
+    "founder": "Umair Mukadam | PathPulse.ai",
+    "founderTwitter": "Umair_Mu_",
+    "url": "https://base-batch-india.devfolio.co/projects/pathpulseai-dc85",
+    "batch": "Base Batch India",
+    "tags": [
+      "AI/ML",
+      "Big Data",
+      "Mapping"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/d15b484e7d4742888871fcb5caffaea4/37d647dc-cc03-4410-b435-6fe55f5d4694.png",
+    "source": "https://base-batch-india.devfolio.co/projects/pathpulseai-dc85",
+    "founders": [
+      {
+        "name": "Umair Mukadam | PathPulse.ai",
+        "twitter": "Umair_Mu_"
+      }
+    ],
+    "slug": "pathpulseai-dc85"
+  },
+  {
+    "id": "246e3568939846b0ae3750ecd89ceb28",
+    "name": "Retro Arcade",
+    "description": "Retro Pixel Platformer \u2013 a nostalgic journey back!",
+    "category": "AI",
+    "founder": "Roshni Kumari",
+    "founderTwitter": "roshni_k9",
+    "url": "https://base-batch-india.devfolio.co/projects/llama-chaos-78f8",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/66dc2da90213418b9033f54804bb4e70/5313e26a-ae06-475b-99dd-e512a6820f65.png",
+    "source": "https://base-batch-india.devfolio.co/projects/llama-chaos-78f8",
+    "founders": [
+      {
+        "name": "Roshni Kumari",
+        "twitter": "roshni_k9"
+      }
+    ],
+    "slug": "llama-chaos-78f8",
+    "github": "https://github.com/RSN601KRI/Retro_Arcade"
+  },
+  {
+    "id": "4741e74b6bc44902a893f67c35c18a1d",
+    "name": "Predict -X",
+    "description": "Decentralizing Trust, Democratizing Diagnosis.",
+    "category": "AI",
+    "founder": "Gaurav Nilawar",
+    "founderTwitter": "gaurav_1N",
+    "url": "https://base-batch-india.devfolio.co/projects/predict-x-dd91",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Python",
+      "HTML",
+      "Node.js",
+      "React",
+      "CSS",
+      "Tailwind CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/acf6f2497f354292b307e9d6795a47aa/bf0abfce-a0f1-4a8b-bb4e-b0bb3c4059cb.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/predict-x-dd91",
+    "founders": [
+      {
+        "name": "Gaurav Nilawar",
+        "twitter": "gaurav_1N"
+      }
+    ],
+    "slug": "predict-x-dd91",
+    "github": "https://github.com/gaurav1Nn/PredictX.git"
+  },
+  {
+    "id": "9388508feda945d399aa916c0a789cba",
+    "name": "Rentify",
+    "description": "Rent digital equipment instantly",
+    "category": "AI",
+    "founder": "Sahaj Gupta",
+    "founderTwitter": "sahajgupta1248",
+    "url": "https://base-batch-india.devfolio.co/projects/rentify-29b1",
+    "batch": "Base Batch India",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Microsoft Azure"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1d488c25749e456ea9b9db8e6659128c/989b71d1-8620-4b2a-8952-fccb10eb43bb.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/rentify-29b1",
+    "founders": [
+      {
+        "name": "Sahaj Gupta",
+        "twitter": "sahajgupta1248"
+      },
+      {
+        "name": "Sahil Haryani",
+        "twitter": "Sahilsdevfolio"
+      }
+    ],
+    "slug": "rentify-29b1",
+    "github": "https://github.com/sahaj24/Rentify"
+  },
+  {
+    "id": "c9192b2cf4284b199f9ecb3078f0ad27",
+    "name": "SubletterBLR",
+    "description": "Allowing digital nomads to find housing onchain",
+    "category": "Consumer",
+    "founder": "Amrit Shenava",
+    "founderTwitter": "0xastro98",
+    "url": "https://base-batch-india.devfolio.co/projects/subletterblr-f876",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "JavaScript",
+      "CSS",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/dde859e8b4eb490d8a34babfe3477b63/41529214-969a-4c5b-a4af-a34823633640.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/subletterblr-f876",
+    "founders": [
+      {
+        "name": "Amrit Shenava",
+        "twitter": "0xastro98"
+      }
+    ],
+    "slug": "subletterblr-f876"
+  },
+  {
+    "id": "9dabb5c7c8e5469994e17715c11ce489",
+    "name": "Valut",
+    "description": "Use Crypto to pay with UPI anywhere in India",
+    "category": "Infra",
+    "founder": "Shreyas Papinwar",
+    "founderTwitter": "shreyaspapi",
+    "url": "https://base-batch-india.devfolio.co/projects/valut-b645",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Solidity",
+      "Next.js",
+      "Firebase",
+      "GraphQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/4a9b2c9522ad4e4ea12adabd8bdee8fd/b76938e2-a647-42ae-8324-5fabd6023c47.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/valut-b645",
+    "founders": [
+      {
+        "name": "Shreyas Papinwar",
+        "twitter": "shreyaspapi"
+      },
+      {
+        "name": "Ronak Maloo",
+        "twitter": "RONAC"
+      }
+    ],
+    "slug": "valut-b645",
+    "github": "https://github.com/valutpay"
+  },
+  {
+    "id": "27bc6b0622274e5280a4ab1731da0fe3",
+    "name": "Ace DSA",
+    "description": "grind with AI-driven DSA with verifiable onchain",
+    "category": "AI",
+    "founder": "Om Bhojane",
+    "founderTwitter": "ombhojane",
+    "url": "https://base-batch-india.devfolio.co/projects/ace-dsa-759d",
+    "batch": "Base Batch India",
+    "tags": [
+      "OnchainKit",
+      "BASE",
+      "Solidity",
+      "Supabase",
+      "Large Language Model",
+      "Node.js",
+      "Next.js",
+      "Remix IDE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/c2196ca8564a4a4f8d2d4b4e9843c6b2/fe5e3582-a754-4ae1-aca5-21844ed8e2d4.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/ace-dsa-759d",
+    "founders": [
+      {
+        "name": "Om Bhojane",
+        "twitter": "ombhojane"
+      }
+    ],
+    "slug": "ace-dsa-759d",
+    "github": "https://github.com/ombhojane/acedsa"
+  },
+  {
+    "id": "a6fcb55070fa45f4b380c9c979989b55",
+    "name": "rFlux",
+    "description": "Power to the India people \u2014 one block at a time.",
+    "category": "Consumer",
+    "founder": "Said Gaparov",
+    "founderTwitter": "saidik",
+    "url": "https://base-batch-india.devfolio.co/projects/rflux-27eb",
+    "batch": "Base Batch India",
+    "tags": [
+      "TensorFlow",
+      "Flask",
+      "BASE",
+      "FastAPI"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/7a7ee4ad54574f49b2b6e6f9b5716500/86698b32-22e7-4b19-a056-eb29005faa57.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/rflux-27eb",
+    "founders": [
+      {
+        "name": "Said Gaparov",
+        "twitter": "saidik"
+      }
+    ],
+    "slug": "rflux-27eb",
+    "github": "https://github.com/gaparovsaid/rFlux"
+  },
+  {
+    "id": "fa421f99a7764fda8b2703bb8cd2ae4b",
+    "name": "SplitChain",
+    "description": "Split bills. Stay friends. Go onchain.",
+    "category": "AI",
+    "founder": "Shriyash soni",
+    "founderTwitter": "shriyashson",
+    "url": "https://base-batch-india.devfolio.co/projects/splitchain-4a5f",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "HTML",
+      "JavaScript",
+      "Node.js",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/3b71ca767b15499a974992afcbb4056b/d10bb8b9-15ca-42a9-b51f-d4a7157586eb.png",
+    "source": "https://base-batch-india.devfolio.co/projects/splitchain-4a5f",
+    "founders": [
+      {
+        "name": "Shriyash soni",
+        "twitter": "shriyashson"
+      }
+    ],
+    "slug": "splitchain-4a5f",
+    "github": "https://github.com/shriyashsoni/SplitChain"
+  },
+  {
+    "id": "a61dab0bdc7643dbaa3c407278a5e03b",
+    "name": "Mayhem - pump & panic",
+    "description": "Sabotage rival communities",
+    "category": "AI",
+    "founder": "Corot C",
+    "founderTwitter": "corot",
+    "url": "https://base-batch-india.devfolio.co/projects/mayhem-pump-and-panic-dffb",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "JavaScript",
+      "MongoDB",
+      "Tailwind CSS",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/f11298a6cf8b49a899969d1a6a87147d/a78fb228-63a1-46bf-85cc-0b92b8c89dee.png",
+    "source": "https://base-batch-india.devfolio.co/projects/mayhem-pump-and-panic-dffb",
+    "founders": [
+      {
+        "name": "Corot C",
+        "twitter": "corot"
+      }
+    ],
+    "slug": "mayhem-pump-and-panic-dffb",
+    "github": "https://github.com/HemangVora/Mayhem"
+  },
+  {
+    "id": "b09ca09884db44b684481eae2cd91a7b",
+    "name": "Fary stories",
+    "description": "Stories for farcaster",
+    "category": "AI",
+    "founder": "Krishn Panchal",
+    "founderTwitter": "phovious_14",
+    "url": "https://base-batch-india.devfolio.co/projects/fary-stories-6834",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "Next.js",
+      "Supabase",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1af21988d0ea4aa3bde385ba8d15c7d8/66e57ee2-76f9-43f5-8c88-d6f98ee0f46b.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/fary-stories-6834",
+    "founders": [
+      {
+        "name": "Krishn Panchal",
+        "twitter": "phovious_14"
+      }
+    ],
+    "slug": "fary-stories-6834",
+    "github": "https://github.com/phovious-14/Fary"
+  },
+  {
+    "id": "43023de6b5ac42e6ae4006aaaa4a946c",
+    "name": "FriendzCasinoOnBase",
+    "description": "Create a room. Bet with friends. Win together!",
+    "category": "AI",
+    "founder": "Pushkar Kumar",
+    "founderTwitter": "dev_Pushkar",
+    "url": "https://base-batch-india.devfolio.co/projects/friendzcasino-fc72",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "Tailwind CSS",
+      "Next.js",
+      "Solidity",
+      "HTML"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c73b198e31844adcb1516e7018086192/d19fed08-f21d-4a9e-9234-50412e75576a.png",
+    "source": "https://base-batch-india.devfolio.co/projects/friendzcasino-fc72",
+    "founders": [
+      {
+        "name": "Pushkar Kumar",
+        "twitter": "dev_Pushkar"
+      }
+    ],
+    "slug": "friendzcasino-fc72",
+    "github": "https://github.com/iitianpushkar/FriendzCasinoOnBase"
+  },
+  {
+    "id": "537d2b45ba244115b37ea25a29803fb8",
+    "name": "legacy-onchain",
+    "description": "Preserve Your Digital Legacy For Eternity",
+    "category": "AI",
+    "founder": "Singupalli Kartik",
+    "founderTwitter": "skartik_sk",
+    "url": "https://base-batch-india.devfolio.co/projects/legacyonchain-6e22",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "HTML",
+      "Tailwind CSS",
+      "JavaScript",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/e0a971b0ca1447b68cf43f1fddecde6e/01e470bf-ddeb-4286-a1b8-458474ab39a3.png",
+    "source": "https://base-batch-india.devfolio.co/projects/legacyonchain-6e22",
+    "founders": [
+      {
+        "name": "Singupalli Kartik",
+        "twitter": "skartik_sk"
+      }
+    ],
+    "slug": "legacyonchain-6e22",
+    "github": "https://github.com/skartik-sk/legacy-onchain"
+  },
+  {
+    "id": "96dbd9a6925248bdb47206a5d6f159fe",
+    "name": "EmberBeacon",
+    "description": "An experiment in Showcase that kinda blew up in India",
+    "category": "Consumer",
+    "founder": "Maksim Sharapov",
+    "founderTwitter": "sharapovdocent",
+    "url": "https://base-batch-india.devfolio.co/projects/emberbeacon-77fa",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "PostgreSQL",
+      "GraphQL",
+      "Vite"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/f8d2ef09a7a540c8afa2493a1ae9515b/47617f85-6ff8-47ea-adb9-1d0d46819a95.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/emberbeacon-77fa",
+    "founders": [
+      {
+        "name": "Maksim Sharapov",
+        "twitter": "sharapovdocent"
+      }
+    ],
+    "slug": "emberbeacon-77fa",
+    "github": "https://github.com/docentmaks/EmberBeacon"
+  },
+  {
+    "id": "b634f68ecc594cf2a6653bdc8c0ff153",
+    "name": "Klyro",
+    "description": "Discover Talent backed by Proof of Work",
+    "category": "AI",
+    "founder": "NISARG THAKKAR",
+    "founderTwitter": "NISHU02",
+    "url": "https://base-batch-india.devfolio.co/projects/klyro-4cfc",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "Solidity",
+      "BASE",
+      "Ethereum"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/a50bab9d54424e5495fd8279e0332207/a5ba2cff-5c71-431a-b571-12b493f0fc44.png",
+    "source": "https://base-batch-india.devfolio.co/projects/klyro-4cfc",
+    "founders": [
+      {
+        "name": "NISARG THAKKAR",
+        "twitter": "NISHU02"
+      },
+      {
+        "name": "Mohit B",
+        "twitter": "mbcse50"
+      }
+    ],
+    "slug": "klyro-4cfc",
+    "github": "https://github.com/Nishu0/base_fellowship"
+  },
+  {
+    "id": "dbe42d3f91af434687b8c50ec091f771",
+    "name": "TransFilex",
+    "description": "TransFilex \u2013 Securing. Sharing.\u00a0Vanishing",
+    "category": "AI",
+    "founder": "Jalaj Sharma",
+    "founderTwitter": "Jjsharma",
+    "url": "https://base-batch-india.devfolio.co/projects/transfilex-cb1a",
+    "batch": "Base Batch India",
+    "tags": [
+      "Next.js",
+      "Tailwind CSS",
+      "Encryption",
+      "Decryption",
+      "DBMS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/09b0b95c4c5245298fd77425d878ec88/8a92b813-95dd-4562-bfa9-5721bf388853.png",
+    "source": "https://base-batch-india.devfolio.co/projects/transfilex-cb1a",
+    "founders": [
+      {
+        "name": "Jalaj Sharma",
+        "twitter": "Jjsharma"
+      }
+    ],
+    "slug": "transfilex-cb1a"
+  },
+  {
+    "id": "5b3c8e3a015446758611729bb822c08e",
+    "name": "PeggyBank",
+    "description": "Built for the curious, by the obsessed.",
+    "category": "AI",
+    "founder": "Alixandro Bons",
+    "founderTwitter": "AlexBons",
+    "url": "https://base-batch-india.devfolio.co/projects/peggybank-051b",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Chainlink",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/fcaea12afc364f2dae08edf28b448081/e23cad31-6cda-48b8-85b0-5d2400ceec80.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/peggybank-051b",
+    "founders": [
+      {
+        "name": "Alixandro Bons",
+        "twitter": "AlexBons"
+      }
+    ],
+    "slug": "peggybank-051b"
+  },
+  {
+    "id": "cf40f8c7aa9e4547ba9b8b63e0ef2757",
+    "name": "Meme Minto AI",
+    "description": "Where Every Meme Has a Mind and a Market.",
+    "category": "AI",
+    "founder": "Mayur Bagga",
+    "founderTwitter": "mayurbagga",
+    "url": "https://base-batch-india.devfolio.co/projects/meme-minto-ai-68d8",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/041ca20dcc474e348898c52b1445dc76/8dacc063-2c00-470a-bfda-64319af37f31.png",
+    "source": "https://base-batch-india.devfolio.co/projects/meme-minto-ai-68d8",
+    "founders": [
+      {
+        "name": "Mayur Bagga",
+        "twitter": "mayurbagga"
+      },
+      {
+        "name": "Sagar Jethi",
+        "twitter": "sagarjethi"
+      }
+    ],
+    "slug": "meme-minto-ai-68d8",
+    "github": "https://github.com/codemintous/meme-frontend.git"
+  },
+  {
+    "id": "55278904e4f54d8797e6087f4cddaf88",
+    "name": "Crypcurr",
+    "description": "Safe and Secure system to exchange stablecoins.",
+    "category": "Consumer",
+    "founder": "Sujal Garg",
+    "founderTwitter": "sujal_garg",
+    "url": "https://base-batch-india.devfolio.co/projects/crypcurr-9afd",
+    "batch": "Base Batch India",
+    "tags": [
+      "Figma"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1eb14a329bb64262ae7c8ad9c89c6455/be9a5627-692e-49dc-aba4-05e317f35123.png",
+    "source": "https://base-batch-india.devfolio.co/projects/crypcurr-9afd",
+    "founders": [
+      {
+        "name": "Sujal Garg",
+        "twitter": "sujal_garg"
+      }
+    ],
+    "slug": "crypcurr-9afd"
+  },
+  {
+    "id": "c62a14ac9c504d7881860faae152962b",
+    "name": "baseedge",
+    "description": "DEGEN WITH DISCIPLINE",
+    "category": "AI",
+    "founder": "Puneet Kaura",
+    "founderTwitter": "pkaura",
+    "url": "https://base-batch-india.devfolio.co/projects/baseedge-9c23",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "React",
+      "Node.js",
+      "Tailwind CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b9cee6af52e54d73b374e3b4ce5c19fd/9c24b561-3c69-48aa-9502-5a068fb7ea94.png",
+    "source": "https://base-batch-india.devfolio.co/projects/baseedge-9c23",
+    "founders": [
+      {
+        "name": "Puneet Kaura",
+        "twitter": "pkaura"
+      },
+      {
+        "name": "Archisman Das",
+        "twitter": "Rch1011"
+      }
+    ],
+    "slug": "baseedge-9c23"
+  },
+  {
+    "id": "e2e609beece24726aa7ba502d81bc40f",
+    "name": "Zenith Flux",
+    "description": "Because Vibe Coding shouldn't feel like rocket science.",
+    "category": "Consumer",
+    "founder": "Abukov Abdulragim",
+    "founderTwitter": "abukovvv",
+    "url": "https://base-batch-india.devfolio.co/projects/zenith-flux-ec05",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tauri",
+      "Socket.IO",
+      "d3.js",
+      "Supabase"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/01a45ac25c734cd981ed374b5cf69c74/6d13504e-1960-4811-a7ba-d3369c272ee3.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/zenith-flux-ec05",
+    "founders": [
+      {
+        "name": "Abukov Abdulragim",
+        "twitter": "abukovvv"
+      }
+    ],
+    "slug": "zenith-flux-ec05",
+    "github": "https://github.com/abukovvv/ZenithFlux"
+  },
+  {
+    "id": "b2cc74416e5b47dba93107694fabc983",
+    "name": "DreamScape",
+    "description": "Record your dreams and mint them into NFTs!",
+    "category": "AI",
+    "founder": "Samarth Pandit",
+    "founderTwitter": "Vis21",
+    "url": "https://base-batch-india.devfolio.co/projects/dreamscape-1a43",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Tailwind CSS",
+      "Supabase",
+      "Python"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/264b459adce94bf1a766badf4da886e9/4f143fb3-ff69-434d-96d1-b68e71768fa2.png",
+    "source": "https://base-batch-india.devfolio.co/projects/dreamscape-1a43",
+    "founders": [
+      {
+        "name": "Samarth Pandit",
+        "twitter": "Vis21"
+      },
+      {
+        "name": "Mansi Pathak",
+        "twitter": "mansi_pathak"
+      }
+    ],
+    "slug": "dreamscape-1a43",
+    "github": "https://github.com/iamqt-90/BaseVerse"
+  },
+  {
+    "id": "6a92a5e955004dc5974c2b0a77bbbdbf",
+    "name": "TranquilMinds",
+    "description": "We care for you , You don't have to face it again",
+    "category": "AI",
+    "founder": "Sarthak Khurana",
+    "founderTwitter": "Sarthakkhurana0",
+    "url": "https://base-batch-india.devfolio.co/projects/tranquilminds-2dc4",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "React",
+      "MongoDB",
+      "Tailwind CSS",
+      "CSS",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7600984ae79f4cc7b834844b6ddf0fe5/4a1c2ea6-5f14-43ac-b0a0-a92ea42aaac0.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/tranquilminds-2dc4",
+    "founders": [
+      {
+        "name": "Sarthak Khurana",
+        "twitter": "Sarthakkhurana0"
+      }
+    ],
+    "slug": "tranquilminds-2dc4"
+  },
+  {
+    "id": "d27a617a974a4dbcafc52a042f9df249",
+    "name": "TRANSPFLOW",
+    "description": "Blockchain Powered SUPPLY CHAIN MANAGEMENT SYSTEM",
+    "category": "AI",
+    "founder": "Utkarsh Jha",
+    "founderTwitter": "utkarsh_jha_205",
+    "url": "https://base-batch-india.devfolio.co/projects/esataein-358e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Vite",
+      "TailWindCSS",
+      "web3.js",
+      "Ethereum",
+      "Solidity",
+      "pinata"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/b8c0cbdca46a460884b09da40bc4d62c/69741235-2246-4003-a421-ab4af6243098.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/esataein-358e",
+    "founders": [
+      {
+        "name": "Utkarsh Jha",
+        "twitter": "utkarsh_jha_205"
+      }
+    ],
+    "slug": "esataein-358e",
+    "github": "https://github.com/UTKARSHJHA-2005/TranspFlow.git"
+  },
+  {
+    "id": "d9a5aa5979804d5ebf4727f742b42cc6",
+    "name": "BaseTone",
+    "description": "Voice-Powered AI Metaverse on Base",
+    "category": "AI",
+    "founder": "Sparsh Rajput",
+    "founderTwitter": "Sparsh621",
+    "url": "https://base-batch-india.devfolio.co/projects/basetone-07f9",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "Tailwind CSS",
+      "React.js",
+      "TypeScript",
+      "Express.js",
+      "OpenAi",
+      "Socket.IO",
+      "Speech API",
+      "Text-to-Speech"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/d50f5de36a7e48e3a5d104eb0db96b6a/a397cec6-2bd8-4f95-8072-bf2f540c0129.png",
+    "source": "https://base-batch-india.devfolio.co/projects/basetone-07f9",
+    "founders": [
+      {
+        "name": "Sparsh Rajput",
+        "twitter": "Sparsh621"
+      },
+      {
+        "name": "Deepak Anand",
+        "twitter": "DeepakAnand"
+      }
+    ],
+    "slug": "basetone-07f9",
+    "github": "https://github.com/sparsh0006/BaseTone"
+  },
+  {
+    "id": "fc427a8ae81f487fa012440d22d78072",
+    "name": "OneHaus",
+    "description": "Community-Powered Onchain Investment",
+    "category": "AI",
+    "founder": "Hamad Hussain",
+    "founderTwitter": "therealdeal",
+    "url": "https://base-batch-india.devfolio.co/projects/onehaus-0d8f",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Tailwind CSS",
+      "IPFS",
+      "TypeScript",
+      "React.js",
+      "ethers.js",
+      "Ethereum",
+      "Etherscan",
+      "Web3",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/fcef50e698154e30a2c07582252e8c7b/0b92ff68-1e23-4d54-80f0-236f17daa784.png",
+    "source": "https://base-batch-india.devfolio.co/projects/onehaus-0d8f",
+    "founders": [
+      {
+        "name": "Hamad Hussain",
+        "twitter": "therealdeal"
+      }
+    ],
+    "slug": "onehaus-0d8f",
+    "github": "https://github.com/therealhamad/OneHaus"
+  },
+  {
+    "id": "cebd0c4d7e914a1396c02644c4996e68",
+    "name": "AgentConnect",
+    "description": "Powering the Onchain Agent Economy",
+    "category": "AI",
+    "founder": "Akshat Joshi",
+    "founderTwitter": "akki0511",
+    "url": "https://base-batch-india.devfolio.co/projects/agentconnect-9523",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "OpenAi",
+      "RestAPIs"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/2b9e4406b0974a09a33a5b7e4f1a87df/fedf2953-37f7-4648-a3a6-f9c3d54a054e.png",
+    "source": "https://base-batch-india.devfolio.co/projects/agentconnect-9523",
+    "founders": [
+      {
+        "name": "Akshat Joshi",
+        "twitter": "akki0511"
+      }
+    ],
+    "slug": "agentconnect-9523",
+    "github": "https://github.com/AKKI0511/AgentConnect"
+  },
+  {
+    "id": "86aa14b1f8cb48a48ac38943e6b47762",
+    "name": "POP - Proof of Purchase",
+    "description": "Proof, Rewards, and Warranty \u2014 Onchain, Forever.",
+    "category": "Gaming",
+    "founder": "Haard Tripathi",
+    "founderTwitter": "kakarot123",
+    "url": "https://base-batch-india.devfolio.co/projects/pop-warranty-bafc",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "IPFS",
+      "Next.js",
+      "NFT"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/664a77cb735044c19b47db54e22f5354/4d158ef1-8f58-4c3a-8a42-2585f54dec33.png",
+    "source": "https://base-batch-india.devfolio.co/projects/pop-warranty-bafc",
+    "founders": [
+      {
+        "name": "Haard Tripathi",
+        "twitter": "kakarot123"
+      }
+    ],
+    "slug": "pop-warranty-bafc",
+    "github": "https://github.com/Haardtripathi/POP-Proof-Of-Purchase"
+  },
+  {
+    "id": "084b66ddaaed4e29904d1a638002ff45",
+    "name": "based-hackamatic",
+    "description": "Your AI-Powered Hackathon Project Generator",
+    "category": "Infra",
+    "founder": "Vinus Sarvaiya",
+    "founderTwitter": "Vinus06",
+    "url": "https://base-batch-india.devfolio.co/projects/basedhackamatic-275a",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "Solidity"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/442913f2929e4ceca620092b276d9f4a/513cf5c4-7e3f-47f5-9933-1c87bdc70d48.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/basedhackamatic-275a",
+    "founders": [
+      {
+        "name": "Vinus Sarvaiya",
+        "twitter": "Vinus06"
+      }
+    ],
+    "slug": "basedhackamatic-275a",
+    "github": "https://github.com/Hackamatic/based-hackamatic/tree/main"
+  },
+  {
+    "id": "a2655f3333da4d5cb4c17e40b0972b72",
+    "name": "Bloodchain",
+    "description": "\u201cSecure, Transparent and Life Saving\u201d",
+    "category": "AI",
+    "founder": "Kantha Sishanth",
+    "founderTwitter": "Skanthasishanth",
+    "url": "https://base-batch-india.devfolio.co/projects/bloodchain-475c",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Solidity",
+      "CSS",
+      "HTML",
+      "Python",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/3967c455494341d29cf2ced70a78648a/13bcb501-c80c-45a9-bea0-aa563c49ce93.png",
+    "source": "https://base-batch-india.devfolio.co/projects/bloodchain-475c",
+    "founders": [
+      {
+        "name": "Kantha Sishanth",
+        "twitter": "Skanthasishanth"
+      }
+    ],
+    "slug": "bloodchain-475c",
+    "github": "https://github.com/Skanthasishanth/bloodchain-dapp.git"
+  },
+  {
+    "id": "ba43e7828bb84a168da9976385c7f5a4",
+    "name": "momnt",
+    "description": "capture momnts, make $$",
+    "category": "Infra",
+    "founder": "Daksh Kulshrestha",
+    "founderTwitter": "0xDaksh",
+    "url": "https://base-batch-india.devfolio.co/projects/momnt-e5f8",
+    "batch": "Base Batch India",
+    "tags": [
+      "BASE",
+      "Node.js",
+      "Solidity",
+      "Next.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c27f027ac24b493b8a3f4da0d045db73/d55cb20b-2fd5-4056-b1fd-8835c9f598af.png",
+    "source": "https://base-batch-india.devfolio.co/projects/momnt-e5f8",
+    "founders": [
+      {
+        "name": "Daksh Kulshrestha",
+        "twitter": "0xDaksh"
+      }
+    ],
+    "slug": "momnt-e5f8",
+    "github": "https://github.com/dawksh/memento-web"
+  },
+  {
+    "id": "026f596e8b9342568c76138c18024111",
+    "name": "Dust",
+    "description": "A project to save your lost Dust crypto!",
+    "category": "AI",
+    "founder": "Sameer choudhary",
+    "founderTwitter": "sameer_s",
+    "url": "https://base-batch-india.devfolio.co/projects/dust-660f",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "Blockchain",
+      "Web3"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/07a1960430474694b6d7eabb6c49ede5/0a45548a-f12b-4214-b85a-786a806879e9.png",
+    "source": "https://base-batch-india.devfolio.co/projects/dust-660f",
+    "founders": [
+      {
+        "name": "Sameer choudhary",
+        "twitter": "sameer_s"
+      }
+    ],
+    "slug": "dust-660f"
+  },
+  {
+    "id": "f07281a05f8a415f9405b1c3b1c2837c",
+    "name": "Dr. Zoey",
+    "description": "Dr.Zoey is your AI wellness squad\u20146 smart agents for fitness, sleep, mood & more. She guides you, rewards you, and turns everyday health into a gamified, insight-driven journey.",
+    "category": "Consumer",
+    "founder": "Ayush Jain",
+    "founderTwitter": "iyushjain",
+    "url": "https://base-batch-india.devfolio.co/projects/zoey-5044",
+    "batch": "Base Batch India",
+    "tags": [
+      "React Native",
+      "gpt4o",
+      "BASE",
+      "privy"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/1a1981ceef4344fd863be7e780e5d772/595a8ca9-14dd-422a-a24e-296978ed4d18.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/zoey-5044",
+    "founders": [
+      {
+        "name": "Ayush Jain",
+        "twitter": "iyushjain"
+      }
+    ],
+    "slug": "zoey-5044",
+    "github": "https://github.com/Ayushjain2205/dr-zoey"
+  },
+  {
+    "id": "e2a9f05f415c498abf8d7910cab5939c",
+    "name": "Signify",
+    "description": "Every Star deserves to Shine",
+    "category": "AI",
+    "founder": "Alpha Hotshot",
+    "founderTwitter": "alphahotshot282",
+    "url": "https://base-batch-india.devfolio.co/projects/signify-cebb",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "Solidity",
+      "JavaScript",
+      "Tailwind CSS",
+      "React",
+      "BASE",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/aeec1b70d2be44f7ae591d5878846359/338a6dce-1745-4cfa-956e-50951818158f.png",
+    "source": "https://base-batch-india.devfolio.co/projects/signify-cebb",
+    "founders": [
+      {
+        "name": "Alpha Hotshot",
+        "twitter": "alphahotshot282"
+      }
+    ],
+    "slug": "signify-cebb",
+    "github": "https://github.com/ninjaPyjamas/signify-base.git"
+  },
+  {
+    "id": "82294af23ece4fa49e6ca60f0b278fcd",
+    "name": "BasedPay",
+    "description": "Easiest way to pay for UPI using stablecoins",
+    "category": "Consumer",
+    "founder": "Archisman Das",
+    "founderTwitter": "Arch0125",
+    "url": "https://base-batch-india.devfolio.co/projects/basedpay-48db",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "React",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/dc6ce3ef04c441d887ec665dda2e0a75/789a5dcb-4a32-4be7-baac-7aa10c6b5c83.png",
+    "source": "https://base-batch-india.devfolio.co/projects/basedpay-48db",
+    "founders": [
+      {
+        "name": "Archisman Das",
+        "twitter": "Arch0125"
+      }
+    ],
+    "slug": "basedpay-48db",
+    "github": "https://github.com/Arch0125/basedpay"
+  },
+  {
+    "id": "f5c949b2f9c6462a9e78f2031d271354",
+    "name": "ShopDrop",
+    "description": "We didn\u2019t reinvent the wheel \u2014 we just made it roll on-chain.",
+    "category": "Consumer",
+    "founder": "Malik Bon",
+    "founderTwitter": "MalikBon",
+    "url": "https://base-batch-india.devfolio.co/projects/shopdrop-36a6",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Node.js",
+      "Base SDK",
+      "IPFS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/8156ae2579df46b8b03f621b27641b19/d6257826-a79c-48b7-b3e6-a1a46c0c83c2.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/shopdrop-36a6",
+    "founders": [
+      {
+        "name": "Malik Bon",
+        "twitter": "MalikBon"
+      }
+    ],
+    "slug": "shopdrop-36a6"
+  },
+  {
+    "id": "401ab0770e5d4faab041c7825d1b94fc",
+    "name": "ByteSize",
+    "description": "Code with rhythm, logic with soul \u2014 we vibed until it compiled.",
+    "category": "AI",
+    "founder": "Melvin Dondls",
+    "founderTwitter": "Mellstroy",
+    "url": "https://base-batch-india.devfolio.co/projects/bytesize-13e1",
+    "batch": "Base Batch India",
+    "tags": [
+      "Vue.js",
+      "Solidity",
+      "ThirdWeb",
+      {
+        "name": "",
+        "verified": false,
+        "uuid": "1799ebcbd0e8495c86abdb95625e592d"
+      },
+      "Learn about Vue.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/02222db4a9cf4b58aec68951bb255870/21c38e96-b78b-458a-96cd-3adb523fd60d.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/bytesize-13e1",
+    "founders": [
+      {
+        "name": "Melvin Dondls",
+        "twitter": "Mellstroy"
+      }
+    ],
+    "slug": "bytesize-13e1"
+  },
+  {
+    "id": "593cc01468f6434eb57a86b62e643e53",
+    "name": "BId -IOn",
+    "description": "BY Vandhal Varavu Sendral selavu",
+    "category": "AI",
+    "founder": "Lokesh S",
+    "founderTwitter": "Lokesh_011",
+    "url": "https://base-batch-india.devfolio.co/projects/bid-ion-b8ae",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Next.js",
+      "Tailwind CSS",
+      "IPFS",
+      "NFT",
+      "ethers.js",
+      "WebSockets"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/3ab3c73d646245018e7aeb37600ec27f/499abe79-686a-40b7-9b4f-bd6582240ef8.png",
+    "source": "https://base-batch-india.devfolio.co/projects/bid-ion-b8ae",
+    "founders": [
+      {
+        "name": "Lokesh S",
+        "twitter": "Lokesh_011"
+      }
+    ],
+    "slug": "bid-ion-b8ae",
+    "github": "https://github.com/Naveen-807/Hackhazard.git"
+  },
+  {
+    "id": "260e2c89c6ff41298f90d6d0470de0ea",
+    "name": "EclipseCircuit",
+    "description": "DeFi",
+    "category": "Consumer",
+    "founder": "Nadir Abdullaev",
+    "founderTwitter": "nadirabdullaev",
+    "url": "https://base-batch-india.devfolio.co/projects/eclipsecircuit-8c8a",
+    "batch": "Base Batch India",
+    "tags": [
+      "Svelte",
+      "p5.js",
+      "BASE",
+      "Tauri"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/d94837ff6067407886d9a59cd742f6c0/45986264-2d07-4a91-b8da-df2973390612.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/eclipsecircuit-8c8a",
+    "founders": [
+      {
+        "name": "Nadir Abdullaev",
+        "twitter": "nadirabdullaev"
+      }
+    ],
+    "slug": "eclipsecircuit-8c8a",
+    "github": "https://github.com/nadir4ikabdullaev/EclipseCircuit"
+  },
+  {
+    "id": "2eb43a7382f64be4a5159b4fec2c5451",
+    "name": "fishing-on-base",
+    "description": "Retro Fishing Game",
+    "category": "AI",
+    "founder": "Subhranil Mondal",
+    "founderTwitter": "subhranil509",
+    "url": "https://base-batch-india.devfolio.co/projects/fishingonbase-8488",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "Web3",
+      "Hardhat",
+      "Solidity",
+      "CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/fd7052a4575d48bfbaf40ba2f17905cd/0fb5f969-34be-450a-bec1-892858195f84.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/fishingonbase-8488",
+    "founders": [
+      {
+        "name": "Subhranil Mondal",
+        "twitter": "subhranil509"
+      }
+    ],
+    "slug": "fishingonbase-8488",
+    "github": "https://github.com/extremecoder-rgb/fishing-on-base"
+  },
+  {
+    "id": "86f685b2259b4d5e8a82a096638c6dd7",
+    "name": "Indie_Verse",
+    "description": "\"Empowering Indie Artists with Web3 & Fair Deals\"",
+    "category": "Infra",
+    "founder": "ADAIKAL SUSAN BESCHI J I",
+    "founderTwitter": "beschi",
+    "url": "https://base-batch-india.devfolio.co/projects/indieverse-47ee",
+    "batch": "Base Batch India",
+    "tags": [
+      "Next.js",
+      "Solidity",
+      "IPFS",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/2ba64bcd8fc844a9b66c83e1bc94e1e3/aa720b94-d39d-45d1-8fb7-ef17345266bb.png",
+    "source": "https://base-batch-india.devfolio.co/projects/indieverse-47ee",
+    "founders": [
+      {
+        "name": "ADAIKAL SUSAN BESCHI J I",
+        "twitter": "beschi"
+      }
+    ],
+    "slug": "indieverse-47ee",
+    "github": "https://github.com/technicalclipper/Indie_Verse"
+  },
+  {
+    "id": "0fdfd6ec990d4e13a9e0d9fc3425f7ff",
+    "name": "EmberGateway",
+    "description": "Designed for India, powered by Base.",
+    "category": "Consumer",
+    "founder": "Sheikh Kurbanov",
+    "founderTwitter": "Sheikhkurb",
+    "url": "https://base-batch-india.devfolio.co/projects/embergateway-bbca",
+    "batch": "Base Batch India",
+    "tags": [
+      "GraphQL",
+      "PostgreSQL",
+      "Three.JS",
+      "Vite"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/8f05dd81163a4c2b9e6befbaf46520e9/15fb12a2-a7d5-4c44-b1aa-7deea133877f.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/embergateway-bbca",
+    "founders": [
+      {
+        "name": "Sheikh Kurbanov",
+        "twitter": "Sheikhkurb"
+      }
+    ],
+    "slug": "embergateway-bbca",
+    "github": "https://github.com/Kurbanovsheikh/EmberGateway"
+  },
+  {
+    "id": "65850c51d48648e7ac2c24ac083c1cd4",
+    "name": "Phoenix",
+    "description": "Deploy AI agents on-chain. No code.",
+    "category": "AI",
+    "founder": "Diya Dey",
+    "founderTwitter": "diyadey",
+    "url": "https://base-batch-india.devfolio.co/projects/phoenix-dc00",
+    "batch": "Base Batch India",
+    "tags": [
+      "TypeScript",
+      "Next.js",
+      "Vercel",
+      "Solidity",
+      "Tailwind CSS",
+      "Google API"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/fe75753c59864eddadce458f8395c271/219a385f-7cac-4795-9d3f-56c6f5538e60.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/phoenix-dc00",
+    "founders": [
+      {
+        "name": "Diya Dey",
+        "twitter": "diyadey"
+      },
+      {
+        "name": "Santu Patra",
+        "twitter": "santu_dev"
+      }
+    ],
+    "slug": "phoenix-dc00"
+  },
+  {
+    "id": "60c81a16018f443cb55fabf349a7517c",
+    "name": "Tide",
+    "description": "Smarter tech for everyday life \u2014 built for India.",
+    "category": "DeFi",
+    "founder": "Marat Mutelimov",
+    "founderTwitter": "malospal",
+    "url": "https://base-batch-india.devfolio.co/projects/tide-7276",
+    "batch": "Base Batch India",
+    "tags": [
+      "Base SDK",
+      "Uniswap SDK",
+      "The Graph",
+      "foundry"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/b77fb8b29d1f4d2b8a22adc30cff74a1/80dfd4c1-87e5-41cb-ad68-898d6ecf74cb.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/tide-7276",
+    "founders": [
+      {
+        "name": "Marat Mutelimov",
+        "twitter": "malospal"
+      }
+    ],
+    "slug": "tide-7276",
+    "github": "https://github.com/mutelimoff/Tide"
+  },
+  {
+    "id": "a690ad6bde494e8bb2e372340f3bae9b",
+    "name": "Fusion Pay",
+    "description": "Next-Gen Payments. No Crypto Knowledge Needed.",
+    "category": "AI",
+    "founder": "Kavin Thakur",
+    "founderTwitter": "kavin_49",
+    "url": "https://base-batch-india.devfolio.co/projects/fusion-pay-57d6",
+    "batch": "Base Batch India",
+    "tags": [
+      "Next.js",
+      "BASE",
+      "Tailwind CSS",
+      "AI/ML",
+      "Solidity"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b2622d35467647eba1fa466143a8a6fc/e8ab1bea-df43-4f45-89ae-e20743a3fffb.png",
+    "source": "https://base-batch-india.devfolio.co/projects/fusion-pay-57d6",
+    "founders": [
+      {
+        "name": "Kavin Thakur",
+        "twitter": "kavin_49"
+      }
+    ],
+    "slug": "fusion-pay-57d6",
+    "github": "https://github.com/auraCodesKM/v0-fusionpay-landing-page"
+  },
+  {
+    "id": "375f208964ca4142b677f745301914f3",
+    "name": "cognitosign",
+    "description": "Smarter Agents. Seamless Onchain Execution",
+    "category": "AI",
+    "founder": "PRASANNARAM R",
+    "founderTwitter": "Prasannaram13",
+    "url": "https://base-batch-india.devfolio.co/projects/cognitosign-8582",
+    "batch": "Base Batch India",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Tailwind CSS",
+      "React",
+      "PostgreSQL",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/dd04bde7fdab4924b63f402e595eb7b8/68c3b565-bab5-4bed-aa76-4cefa56a4d1f.png",
+    "source": "https://base-batch-india.devfolio.co/projects/cognitosign-8582",
+    "founders": [
+      {
+        "name": "PRASANNARAM R",
+        "twitter": "Prasannaram13"
+      }
+    ],
+    "slug": "cognitosign-8582",
+    "github": "https://github.com/Prasannaverse13/CognitoSign"
+  },
+  {
+    "id": "bfa1e2d01c7f4803817a82e7cb2d1dd0",
+    "name": "Milestone",
+    "description": "A platform for citizens to resolve local issues",
+    "category": "AI",
+    "founder": "Philo Sanjay Chamberline P",
+    "founderTwitter": "Philotheephilix",
+    "url": "https://base-batch-india.devfolio.co/projects/milestone-34e8",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "Solidity",
+      "Node.js",
+      "Python"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/99dadbc5be2f4b3ca9d29a355605103a/c9f86794-7a60-4902-8dcf-1dee0e1bf1a0.png",
+    "source": "https://base-batch-india.devfolio.co/projects/milestone-34e8",
+    "founders": [
+      {
+        "name": "Philo Sanjay Chamberline P",
+        "twitter": "Philotheephilix"
+      }
+    ],
+    "slug": "milestone-34e8",
+    "github": "https://github.com/Philotheephilix/vavasese"
+  },
+  {
+    "id": "7015ff4601b04539819eb762f73e6373",
+    "name": "Will Escrow",
+    "description": "Secure and hassle-free freelancing",
+    "category": "AI",
+    "founder": "Puspak Dakkata",
+    "founderTwitter": "Puspak",
+    "url": "https://base-batch-india.devfolio.co/projects/will-escrow-0fda",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "Tailwind CSS",
+      "Solidity",
+      "Hardhat",
+      "Next.js",
+      "Flask",
+      "Ethereum",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/58dda24b3c0c41a3a121b0b1b4ab129d/fd452196-5771-46a7-98a0-ba73082d5adf.png",
+    "source": "https://base-batch-india.devfolio.co/projects/will-escrow-0fda",
+    "founders": [
+      {
+        "name": "Puspak Dakkata",
+        "twitter": "Puspak"
+      },
+      {
+        "name": "Akhil B",
+        "twitter": "andromeda0004"
+      }
+    ],
+    "slug": "will-escrow-0fda",
+    "github": "https://github.com/AKing-283/ai-escrow-freelancers"
+  },
+  {
+    "id": "5d18aa2b5a68465e857f659a178d9edf",
+    "name": "Coin Cast",
+    "description": "Cast Together, Thrive Forever",
+    "category": "AI",
+    "founder": "Rohan Arora",
+    "founderTwitter": "Rohan_arora",
+    "url": "https://base-batch-india.devfolio.co/projects/coin-cast-749f",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Solidity",
+      "TypeScript",
+      "Next.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/e42b346835b14cceae5c563717041887/ab659bf2-02c7-4ab7-867c-8098cf9192e0.png",
+    "source": "https://base-batch-india.devfolio.co/projects/coin-cast-749f",
+    "founders": [
+      {
+        "name": "Rohan Arora",
+        "twitter": "Rohan_arora"
+      },
+      {
+        "name": "Vaibhav Arora",
+        "twitter": "VaibhavArora"
+      }
+    ],
+    "slug": "coin-cast-749f",
+    "github": "https://github.com/Rohanarora17/coincast-frontend"
+  },
+  {
+    "id": "7cdfbbd676d24af5a7b85dfcf7c66e3a",
+    "name": "Subline",
+    "description": "Beyond the headlines",
+    "category": "AI",
+    "founder": "Kalpana Dey",
+    "founderTwitter": "ethra",
+    "url": "https://base-batch-india.devfolio.co/projects/lunarya-f73e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "React",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/cefd100bce474d7080446f0e41cc5675/41681e4d-371d-4055-babc-1c15581369c1.png",
+    "source": "https://base-batch-india.devfolio.co/projects/lunarya-f73e",
+    "founders": [
+      {
+        "name": "Kalpana Dey",
+        "twitter": "ethra"
+      }
+    ],
+    "slug": "lunarya-f73e",
+    "github": "https://github.com/here-ethra/Subline"
+  },
+  {
+    "id": "b61f2b553ee64bd9997188870e5d6e2e",
+    "name": "Employee Management",
+    "description": "Managing Employees with Ease, Precision, and Speed",
+    "category": "AI",
+    "founder": "Nisarga H G",
+    "founderTwitter": "Nisarga_97",
+    "url": "https://base-batch-india.devfolio.co/projects/employee-management-8735",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "HTML",
+      "Django"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c9261bba0878448cbaf8b47839c38de4/d1497c2b-9cdd-4a3c-852c-b35d9c8746ac.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/employee-management-8735",
+    "founders": [
+      {
+        "name": "Nisarga H G",
+        "twitter": "Nisarga_97"
+      }
+    ],
+    "slug": "employee-management-8735",
+    "github": "https://github.com/NisargaHG/employeemanagement"
+  },
+  {
+    "id": "86718ae870b545b9ab22d8e9ee62272d",
+    "name": "Pepper",
+    "description": "Swap confidentially on Uniswap v4",
+    "category": "Infra",
+    "founder": "Dayitva Goel",
+    "founderTwitter": "dayitvagoel",
+    "url": "https://base-batch-india.devfolio.co/projects/pepper-4844",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "TypeScript",
+      "Next.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/bf742ed991df42c384dfc91f879b5111/bcb9087b-3d27-4e29-aa62-d60f7a376931.png",
+    "source": "https://base-batch-india.devfolio.co/projects/pepper-4844",
+    "founders": [
+      {
+        "name": "Dayitva Goel",
+        "twitter": "dayitvagoel"
+      }
+    ],
+    "slug": "pepper-4844",
+    "github": "https://github.com/Dayitva/Pepper-v4-hook"
+  },
+  {
+    "id": "0e09bef287f24f7487c6cc9e270cdfe8",
+    "name": "BaseLink",
+    "description": "Blockchain Access on WhatsApp, Powered base",
+    "category": "Consumer",
+    "founder": "Sambit Sargam Ekalabya",
+    "founderTwitter": "sambitsargam",
+    "url": "https://base-batch-india.devfolio.co/projects/baselink-f443",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/499af17fd910444da8998ff214236d43/f9f16691-69b4-4830-b179-e50e90c1ba1a.png",
+    "source": "https://base-batch-india.devfolio.co/projects/baselink-f443",
+    "founders": [
+      {
+        "name": "Sambit Sargam Ekalabya",
+        "twitter": "sambitsargam"
+      }
+    ],
+    "slug": "baselink-f443",
+    "github": "https://github.com/sambitsargam/AgentLink"
+  },
+  {
+    "id": "b04b201edccb4f94acf2453c213a7177",
+    "name": "Eureka",
+    "description": "Next-gen Pok\u00e9mon Go with on-chain rewards and POAP",
+    "category": "AI",
+    "founder": "Dhananjay Pai",
+    "founderTwitter": "dhananjaypai08",
+    "url": "https://base-batch-india.devfolio.co/projects/eureka-6ffa",
+    "batch": "Base Batch India",
+    "tags": [
+      "Next.js",
+      "Zero-Knowledge Proofs (ZKPs)",
+      "CohereAI",
+      "AVS",
+      "Render",
+      "Solidity",
+      "ZoKrates"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/d1719293f86a466c935201827bfce775/4d2dcaec-5029-433f-80a9-682f66321252.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/eureka-6ffa",
+    "founders": [
+      {
+        "name": "Dhananjay Pai",
+        "twitter": "dhananjaypai08"
+      }
+    ],
+    "slug": "eureka-6ffa",
+    "github": "https://github.com/dhananjaypai08/Eureka"
+  },
+  {
+    "id": "a4e743431b9c45658f845550f1685d06",
+    "name": "Elevate Quasar",
+    "description": "Mini-apps meets the streets of India.",
+    "category": "Consumer",
+    "founder": "Malik Dzhamalutdinov",
+    "founderTwitter": "abdulmalikdzham",
+    "url": "https://base-batch-india.devfolio.co/projects/elevate-quasar-f994",
+    "batch": "Base Batch India",
+    "tags": [
+      "Supabase",
+      "Zustand",
+      "Next.js",
+      "Base SDK"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/9cdf08e24f214095a5223439cad0579f/7b6229d0-e92c-49d1-95ae-9933764e936f.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/elevate-quasar-f994",
+    "founders": [
+      {
+        "name": "Malik Dzhamalutdinov",
+        "twitter": "abdulmalikdzham"
+      }
+    ],
+    "slug": "elevate-quasar-f994",
+    "github": "https://github.com/abdulmalikdzhamalutdinov/Elevate-Quasar"
+  },
+  {
+    "id": "bdf5c8b558564b769edb9746c11bbcda",
+    "name": "ReTix",
+    "description": "Sell with Proof. Buy with Confidence",
+    "category": "AI",
+    "founder": "Abhishek MVS",
+    "founderTwitter": "mvsAbhishek",
+    "url": "https://base-batch-india.devfolio.co/projects/retix-9f75",
+    "batch": "Base Batch India",
+    "tags": [
+      "Smart Contract",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Solidity",
+      "Zero-Knowledge Proofs (ZKPs)",
+      "OAuth"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/e073e82c893842ce96bc04372a9123ad/da48725d-f4dc-43c9-8869-916f60d9b73f.png",
+    "source": "https://base-batch-india.devfolio.co/projects/retix-9f75",
+    "founders": [
+      {
+        "name": "Abhishek MVS",
+        "twitter": "mvsAbhishek"
+      },
+      {
+        "name": "Aditi Polkam",
+        "twitter": "aditipolkam"
+      }
+    ],
+    "slug": "retix-9f75",
+    "github": "https://github.com/abhishek-mvs/retix-fe"
+  },
+  {
+    "id": "fc3a88777e6d44f1bd20d7e35d42b2b8",
+    "name": "Meemo Arena",
+    "description": "Unleash AI. Mint Power. Dominate the Arena.",
+    "category": "AI",
+    "founder": "J M Tarun",
+    "founderTwitter": "tarunjm23",
+    "url": "https://base-batch-india.devfolio.co/projects/meemo-arena-b97c",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "React",
+      "CSS",
+      "HTML",
+      "Node.js",
+      "Tailwind CSS",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/2c79bc4339eb4c8d971c85eed44132ee/f1be5c15-c677-4aa1-b23a-3f671bff278e.png",
+    "source": "https://base-batch-india.devfolio.co/projects/meemo-arena-b97c",
+    "founders": [
+      {
+        "name": "J M Tarun",
+        "twitter": "tarunjm23"
+      }
+    ],
+    "slug": "meemo-arena-b97c",
+    "github": "https://github.com/jmt-genius/meemoarena"
+  },
+  {
+    "id": "f7be980435684ffda5421d55f4d51b88",
+    "name": "FIRXAuth",
+    "description": "Secure, Transparent, Trusted: FIR Authentication",
+    "category": "Infra",
+    "founder": "Abishake T",
+    "founderTwitter": "Abishak01",
+    "url": "https://base-batch-india.devfolio.co/projects/firxauth-be93",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "Solidity",
+      "Node.js",
+      "TypeScript",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/0583f5b5ebf34820bfdde03c035c1c7d/133bee41-5bab-47e9-973b-86575482546d.png",
+    "source": "https://base-batch-india.devfolio.co/projects/firxauth-be93",
+    "founders": [
+      {
+        "name": "Abishake T",
+        "twitter": "Abishak01"
+      },
+      {
+        "name": "Gokul S",
+        "twitter": "0xgokkull"
+      },
+      {
+        "name": "Kiran R",
+        "twitter": "KrnKiran"
+      },
+      {
+        "name": "Naveen Pandian",
+        "twitter": "neuervinch"
+      },
+      {
+        "name": "Emmanuel R",
+        "twitter": "EmmanuellDev"
+      }
+    ],
+    "slug": "firxauth-be93",
+    "github": "https://github.com/gokkull-15/advaya.git"
+  },
+  {
+    "id": "897de3de185e4e51b306f44fa165e543",
+    "name": "MetaBet",
+    "description": "Feel the thrill with fast, fair, and fun games!",
+    "category": "AI",
+    "founder": "Apoorv Dubey",
+    "founderTwitter": "Apoorv_Dubey",
+    "url": "https://base-batch-india.devfolio.co/projects/metabet-8bdc",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/107c44c7ead54f92b13485e07eb7a539/2158d2c4-1385-45cc-a646-68432e697d9c.png",
+    "source": "https://base-batch-india.devfolio.co/projects/metabet-8bdc",
+    "founders": [
+      {
+        "name": "Apoorv Dubey",
+        "twitter": "Apoorv_Dubey"
+      },
+      {
+        "name": "Rashi Jyotishi",
+        "twitter": "rashi_jyotishi"
+      },
+      {
+        "name": "Abhishek Punhani",
+        "twitter": "punhaniabhi"
+      }
+    ],
+    "slug": "metabet-8bdc",
+    "github": "https://github.com/Abhishek-Punhani/MetaBet"
+  },
+  {
+    "id": "373dcbaae8524df3a299653ad2efc535",
+    "name": "JesseGPT",
+    "description": "Talk to Jesse and coin your project idea on Zora",
+    "category": "AI",
+    "founder": "Swarnim Walavalkar",
+    "founderTwitter": "SwarnimW",
+    "url": "https://base-batch-india.devfolio.co/projects/jessegpt-2acd",
+    "batch": "Base Batch India",
+    "tags": [
+      "Figma",
+      "React.js",
+      "Node.js",
+      "OpenAi",
+      "Next.js",
+      "Python"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/22d78a81e3624b7b976df7fa6b1afb61/3a087aee-3d7b-42f5-be76-641dff2f43bc.png",
+    "source": "https://base-batch-india.devfolio.co/projects/jessegpt-2acd",
+    "founders": [
+      {
+        "name": "Swarnim Walavalkar",
+        "twitter": "SwarnimW"
+      },
+      {
+        "name": "Anish Dhiman",
+        "twitter": "faraday"
+      },
+      {
+        "name": "Ashwin Kumar Uppala",
+        "twitter": "ashwinios"
+      },
+      {
+        "name": "Pratham Vaidya",
+        "twitter": "prathamvaidya"
+      },
+      {
+        "name": "Cyril Reynolds",
+        "twitter": "cyrilbhau"
+      }
+    ],
+    "slug": "jessegpt-2acd",
+    "github": "https://github.com/devfolioco/jessegpt"
+  },
+  {
+    "id": "0a3d092d15404b8c92e553572c9b2e67",
+    "name": "Justlocal.ai",
+    "description": "Hyperlocal search answer engine for local insights",
+    "category": "AI",
+    "founder": "0xauser 0xauser",
+    "founderTwitter": "0xauser",
+    "url": "https://base-batch-india.devfolio.co/projects/justlocalai-29e2",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "Node.js",
+      "Support Vector Machine (SVM)",
+      "Mapbox SDK"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/f995a308ba39481dbf74a7c3f322f6dd/f6679d0c-0331-42ac-b1df-087da032c194.png",
+    "source": "https://base-batch-india.devfolio.co/projects/justlocalai-29e2",
+    "founders": [
+      {
+        "name": "0xauser 0xauser",
+        "twitter": "0xauser"
+      }
+    ],
+    "slug": "justlocalai-29e2",
+    "github": "https://github.com/DV0x/LocalGuru/tree/hackathon"
+  },
+  {
+    "id": "d1fcca7b6a154bfa842eda8750bfe369",
+    "name": "Based Buildr",
+    "description": "Think it. Flow it. Ship it.",
+    "category": "AI",
+    "founder": "bridge \"",
+    "founderTwitter": "unabrijed",
+    "url": "https://base-batch-india.devfolio.co/projects/based-buildr-87da",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "TypeScript",
+      "JavaScript",
+      "BASE",
+      "Ethereum",
+      "HTTP server",
+      "OpenAi"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/6c5dc78baf234d60bf4ce10421b90c04/d47e7b08-75ff-4056-bbc6-e1ec7b0cc349.png",
+    "source": "https://base-batch-india.devfolio.co/projects/based-buildr-87da",
+    "founders": [
+      {
+        "name": "bridge \"",
+        "twitter": "unabrijed"
+      }
+    ],
+    "slug": "based-buildr-87da",
+    "github": "https://github.com/brijeshagal/base-fellowship"
+  },
+  {
+    "id": "1a33d89dc4434b56bfb6dab98e2528bc",
+    "name": "Alpha-Lens Mini Dapp",
+    "description": "Stake Your Alpha. Track Your Cred. Win Onchain.",
+    "category": "Infra",
+    "founder": "YOGENDRA SINGH DIWAN",
+    "founderTwitter": "ysd21",
+    "url": "https://base-batch-india.devfolio.co/projects/alphalens-mini-dapp-e240",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Node.js",
+      "Next.js",
+      "Hardhat",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/cf90a51b12724ee8b2c0a638cbf8a484/0d8d451a-158e-4e51-b3c5-bf47dbd47fa4.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/alphalens-mini-dapp-e240",
+    "founders": [
+      {
+        "name": "YOGENDRA SINGH DIWAN",
+        "twitter": "ysd21"
+      }
+    ],
+    "slug": "alphalens-mini-dapp-e240",
+    "github": "https://github.com/thhorr/Alpha-Lens"
+  },
+  {
+    "id": "a74f704426924d30ae9ad8bcb495a4ea",
+    "name": "AIndaba",
+    "description": "A tap, a swipe, a stake \u2014 welcome to Web3 made usable.",
+    "category": "AI",
+    "founder": "Martian Luis",
+    "founderTwitter": "MartiLuis",
+    "url": "https://base-batch-india.devfolio.co/projects/aindaba-369e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "TensorFlow",
+      "OpenAI API",
+      "Hardhat"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/8f47c3f5bf054d38a20e5b285b943059/62aba17d-af11-4606-91c6-d8d0f3079fee.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/aindaba-369e",
+    "founders": [
+      {
+        "name": "Martian Luis",
+        "twitter": "MartiLuis"
+      }
+    ],
+    "slug": "aindaba-369e"
+  },
+  {
+    "id": "82c4243baa91419f92a0b078889185b3",
+    "name": "Lighthouse Onchain Storage",
+    "description": "Yield powered onchain storage",
+    "category": "Infra",
+    "founder": "Nandit Mehra",
+    "founderTwitter": "nandit123",
+    "url": "https://base-batch-india.devfolio.co/projects/lighthouse-files-a412",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/463028148e8440e683961b20eb8845f4/f436410b-cc00-4fcf-a847-c0762ba47b3b.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/lighthouse-files-a412",
+    "founders": [
+      {
+        "name": "Nandit Mehra",
+        "twitter": "nandit123"
+      }
+    ],
+    "slug": "lighthouse-files-a412"
+  },
+  {
+    "id": "c15b71bdd608417b9b584bba11b90072",
+    "name": "Based Project",
+    "description": "Base is for everyone",
+    "category": "Consumer",
+    "founder": "Aniket Raj",
+    "founderTwitter": "based_builder",
+    "url": "https://base-batch-india.devfolio.co/projects/based-project-e1f8",
+    "batch": "Base Batch India",
+    "tags": [
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7cb183a267b1450ea8b02ddc126d434e/d9a686d6-9b44-4041-8bdb-d3fc00d6330e.png",
+    "source": "https://base-batch-india.devfolio.co/projects/based-project-e1f8",
+    "founders": [
+      {
+        "name": "Aniket Raj",
+        "twitter": "based_builder"
+      }
+    ],
+    "slug": "based-project-e1f8"
+  },
+  {
+    "id": "9e94f172247a475584ff42a70c1f1332",
+    "name": "OdysseyArc",
+    "description": "A side project gone too far. Now it's changing India.",
+    "category": "Consumer",
+    "founder": "Anna Astra",
+    "founderTwitter": "anka577",
+    "url": "https://base-batch-india.devfolio.co/projects/odysseyarc-1dce",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tauri",
+      "d3.js",
+      "Supabase",
+      "p5.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/393f191500c04f0097c12262ccb6d916/f2f2679b-d298-499a-9ede-ec0ce78d884c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/odysseyarc-1dce",
+    "founders": [
+      {
+        "name": "Anna Astra",
+        "twitter": "anka577"
+      }
+    ],
+    "slug": "odysseyarc-1dce",
+    "github": "https://github.com/ankastra"
+  },
+  {
+    "id": "710d90fba0ef46afae090235b55b9603",
+    "name": "NEBULA",
+    "description": "Your code tells a story. We just make sure everyone understands it.",
+    "category": "Infra",
+    "founder": "Sayan Chatterjee",
+    "founderTwitter": "sayanChatterjee",
+    "url": "https://base-batch-india.devfolio.co/projects/nebula-ece3",
+    "batch": "Base Batch India",
+    "tags": [
+      "nextjs",
+      "FastAPI",
+      "Groq",
+      "gemini",
+      "Clerk",
+      "MongoDB Atlas",
+      "Solidity",
+      "ThirdWeb",
+      "MetaMask"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/2916c31e62f74dad8cf9cd6939702112/1fb971c5-8f3b-47e3-8a5c-b3dd2e65df68.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/nebula-ece3",
+    "founders": [
+      {
+        "name": "Sayan Chatterjee",
+        "twitter": "sayanChatterjee"
+      },
+      {
+        "name": "Debjit Kundu",
+        "twitter": "the_sad_guy"
+      },
+      {
+        "name": "Krishanu Biswas",
+        "twitter": "Assailant2206"
+      }
+    ],
+    "slug": "nebula-ece3",
+    "github": "https://github.com/K-is-SAD/"
+  },
+  {
+    "id": "27e66dc7736849f382659fc0e14a656e",
+    "name": "TugZone",
+    "description": "Tokens and devs battle it out",
+    "category": "AI",
+    "founder": "Akshat Patil",
+    "founderTwitter": "akshatpatil",
+    "url": "https://base-batch-india.devfolio.co/projects/tugzone-8bbe",
+    "batch": "Base Batch India",
+    "tags": [
+      "MongoDB",
+      "Next.js",
+      "Solidity",
+      "Tailwind CSS",
+      "TypeScript",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ff04e26d33ee443b9a12701e6e6fa499/25be20f1-8b6b-448c-b47b-a7a16749eda1.png",
+    "source": "https://base-batch-india.devfolio.co/projects/tugzone-8bbe",
+    "founders": [
+      {
+        "name": "Akshat Patil",
+        "twitter": "akshatpatil"
+      },
+      {
+        "name": "Yash Saxena",
+        "twitter": "Captr1g"
+      }
+    ],
+    "slug": "tugzone-8bbe",
+    "github": "https://github.com/captr1g/TugZone_SC"
+  },
+  {
+    "id": "c87655cd0cd54704be86246a1d456523",
+    "name": "Jiyu",
+    "description": "yeah",
+    "category": "Consumer",
+    "founder": "Anmol Sharma",
+    "founderTwitter": "Fluxyy",
+    "url": "https://base-batch-india.devfolio.co/projects/jiyu-b79c",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/a7021146e45345719ae71330b933e71f/44cbc9d5-6011-4ba9-9e87-390e82a9b99d.png",
+    "source": "https://base-batch-india.devfolio.co/projects/jiyu-b79c",
+    "founders": [
+      {
+        "name": "Anmol Sharma",
+        "twitter": "Fluxyy"
+      },
+      {
+        "name": "Durgesh Nayak",
+        "twitter": "dn04"
+      },
+      {
+        "name": "Gaurav Singh",
+        "twitter": "gauravsingh_0"
+      }
+    ],
+    "slug": "jiyu-b79c",
+    "github": "https://github.com/Fluxy-hue/hackathon"
+  },
+  {
+    "id": "76d9b34777914f24991f31a4a43cc56f",
+    "name": "Elqen",
+    "description": "Secure, Stablecoin On-Chain Rotation Fund System",
+    "category": "Infra",
+    "founder": "Shivananda Reddy Kankanala",
+    "founderTwitter": "sh1vananda",
+    "url": "https://base-batch-india.devfolio.co/projects/elqen-4e0c",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Hardhat",
+      "ethers.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/8388fd28cff0496aac598fa7ac02efb0/00afe15f-ade8-457e-9a77-99f6a0591d62.png",
+    "source": "https://base-batch-india.devfolio.co/projects/elqen-4e0c",
+    "founders": [
+      {
+        "name": "Shivananda Reddy Kankanala",
+        "twitter": "sh1vananda"
+      }
+    ],
+    "slug": "elqen-4e0c",
+    "github": "https://github.com/sh1vananda/elqen"
+  },
+  {
+    "id": "b0298d2c921c49278cc5c1def01f0ac3",
+    "name": "Autonomint",
+    "description": "The cheapest way to hedge risk in Defi",
+    "category": "AI",
+    "founder": "Akshit Vig",
+    "founderTwitter": "Akvig",
+    "url": "https://base-batch-india.devfolio.co/projects/autonomint-e650",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Solidity",
+      "Tailwind CSS",
+      "AWS Lambda",
+      "nest.js",
+      "ethers.js",
+      "JWT",
+      "RestAPIs"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/4dd6bf5f84e440809292be3d12fb1607/c59e1e0d-35fd-47f7-a069-e0387cf4a64c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/autonomint-e650",
+    "founders": [
+      {
+        "name": "Akshit Vig",
+        "twitter": "Akvig"
+      }
+    ],
+    "slug": "autonomint-e650",
+    "github": "https://github.com/Autonomint"
+  },
+  {
+    "id": "f9aaf90350bf458b9965242c2a05fe84",
+    "name": "Stuyder: Simplifying college learning",
+    "description": "Studyer makes college learning easy and fast.",
+    "category": "AI",
+    "founder": "Piyush Chaudhary",
+    "founderTwitter": "DevlooperPiyush",
+    "url": "https://base-batch-india.devfolio.co/projects/stuyder-simplifying-college-learning-4e0a",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/e4c1009aa77d4670aefce2b7e0afde8e/8f481e32-e287-4396-8964-99e3728428c9.png",
+    "source": "https://base-batch-india.devfolio.co/projects/stuyder-simplifying-college-learning-4e0a",
+    "founders": [
+      {
+        "name": "Piyush Chaudhary",
+        "twitter": "DevlooperPiyush"
+      }
+    ],
+    "slug": "stuyder-simplifying-college-learning-4e0a"
+  },
+  {
+    "id": "8bb63091d59c4dbc9b06b61a80209487",
+    "name": "CelestialRe",
+    "description": "A side project gone too far. Now it's changing India",
+    "category": "Infra",
+    "founder": "Maksim Mihailov",
+    "founderTwitter": "mihailovmaks",
+    "url": "https://base-batch-india.devfolio.co/projects/celestialre-d407",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "IPFS",
+      "ethers.js",
+      "Hardhat"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/e555c78675d24b7d96560962e6e22c89/6edbfe46-ed7a-43ad-9823-d40165168991.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/celestialre-d407",
+    "founders": [
+      {
+        "name": "Maksim Mihailov",
+        "twitter": "mihailovmaks"
+      }
+    ],
+    "slug": "celestialre-d407",
+    "github": "https://github.com/zaharmaks/CelestialRe"
+  },
+  {
+    "id": "83df040b0a7f417284dc775f279bd3cc",
+    "name": "CodeCrew",
+    "description": "The Future of Open Source Is Tokenized",
+    "category": "AI",
+    "founder": "Ujwal Gupta",
+    "founderTwitter": "UJWALGUPTA",
+    "url": "https://base-batch-india.devfolio.co/projects/codecrew-06fc",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/6ec1a356fe3b4668b69c0115bed3ccc7/2635763c-c0fd-4cc0-912d-ec8ccd1d9c22.png",
+    "source": "https://base-batch-india.devfolio.co/projects/codecrew-06fc",
+    "founders": [
+      {
+        "name": "Ujwal Gupta",
+        "twitter": "UJWALGUPTA"
+      }
+    ],
+    "slug": "codecrew-06fc"
+  },
+  {
+    "id": "960b197a7c374ee48e7849a4a83c8b14",
+    "name": "ZK Carbon",
+    "description": "Trustless Carbon. Verified by Math",
+    "category": "Infra",
+    "founder": "Aaryan Jain",
+    "founderTwitter": "ironjam13",
+    "url": "https://base-batch-india.devfolio.co/projects/zk-carbon-f08f",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Zero-Knowledge Proofs (ZKPs)",
+      "Next.js",
+      "IPFS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1ac6f823493f4ee09571d2bc39e23ddb/96c315fc-2157-4bfd-9496-a996478790b9.png",
+    "source": "https://base-batch-india.devfolio.co/projects/zk-carbon-f08f",
+    "founders": [
+      {
+        "name": "Aaryan Jain",
+        "twitter": "ironjam13"
+      },
+      {
+        "name": "Nitin Gupta",
+        "twitter": "nitininhouse"
+      }
+    ],
+    "slug": "zk-carbon-f08f",
+    "github": "https://github.com/IronJam11/Base-India"
+  },
+  {
+    "id": "fc8de561272241e797c8f2d0bb8aad0d",
+    "name": "Catoff Esports",
+    "description": "Esports prediction market w/ AI agent odds",
+    "category": "Infra",
+    "founder": "Tony Klor",
+    "founderTwitter": "tonycatoff",
+    "url": "https://base-batch-india.devfolio.co/projects/catoff-esports-261d",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Solidity",
+      "JavaScript",
+      "Node.js",
+      "nest.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/29f1bb5464e64a859f5ede5d2360a951/be3b8fab-bca6-4f69-96cb-d2546f3eaf02.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/catoff-esports-261d",
+    "founders": [
+      {
+        "name": "Tony Klor",
+        "twitter": "tonycatoff"
+      }
+    ],
+    "slug": "catoff-esports-261d"
+  },
+  {
+    "id": "3238fe2e6889436f991551c0d2b04d10",
+    "name": "Payzoll",
+    "description": "Unified payment infrastructure. TradFi->Web3",
+    "category": "AI",
+    "founder": "Abhinav Pangaria",
+    "founderTwitter": "A_b_h_i_n_a_v",
+    "url": "https://base-batch-india.devfolio.co/projects/payzoll-b749",
+    "batch": "Base Batch India",
+    "tags": [
+      "Next.js",
+      "Solidity",
+      "Node.js",
+      "Nodemailer",
+      "JavaScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "AWS",
+      "Cron Scheduler",
+      "Cryptography"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7b06377afc0b49ca97e5835ad3325a2b/9c2f2b72-06a0-44ba-8494-2ab2f8b088a1.png",
+    "source": "https://base-batch-india.devfolio.co/projects/payzoll-b749",
+    "founders": [
+      {
+        "name": "Abhinav Pangaria",
+        "twitter": "A_b_h_i_n_a_v"
+      }
+    ],
+    "slug": "payzoll-b749"
+  },
+  {
+    "id": "ec3f5eac1f064d68bacf0e8ad952c9aa",
+    "name": "Shadow Protector",
+    "description": "Pushing DeFi Towards Interoperability",
+    "category": "AI",
+    "founder": "Anmol Goyal",
+    "founderTwitter": "Parizval",
+    "url": "https://base-batch-india.devfolio.co/projects/shadow-protector-bc2e",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Tailwind CSS",
+      "React",
+      "Solidity",
+      "Chainlink",
+      "AAVE",
+      "Defi",
+      "Next.js",
+      "GraphQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/d1c676a0c8094c9ebd2691f16e2b9480/1f7e8cae-82d0-4aa3-bb21-00388bbbfec0.png",
+    "source": "https://base-batch-india.devfolio.co/projects/shadow-protector-bc2e",
+    "founders": [
+      {
+        "name": "Anmol Goyal",
+        "twitter": "Parizval"
+      }
+    ],
+    "slug": "shadow-protector-bc2e",
+    "github": "https://github.com/shadow-protector/"
+  },
+  {
+    "id": "f842980614f946f48e194d73f715fcdd",
+    "name": "Lucra AI",
+    "description": "Talk money. Lucra does the rest.",
+    "category": "AI",
+    "founder": "Agnij Dutta",
+    "founderTwitter": "agnijdutta413",
+    "url": "https://base-batch-india.devfolio.co/projects/lucra-ai-ea43",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Tailwind CSS",
+      "Supabase",
+      "BASE",
+      "Next.js",
+      "AI/ML",
+      "React.js",
+      "React",
+      "HTML"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/acb00a61a548440894ea2ec19534c79c/32bc0031-8281-4cea-9907-8e3469103f1f.png",
+    "source": "https://base-batch-india.devfolio.co/projects/lucra-ai-ea43",
+    "founders": [
+      {
+        "name": "Agnij Dutta",
+        "twitter": "agnijdutta413"
+      },
+      {
+        "name": "Arkaprobho Sinha Roy",
+        "twitter": "ArkoRoy"
+      }
+    ],
+    "slug": "lucra-ai-ea43",
+    "github": "https://github.com/arkoroy05/LucraAI"
+  },
+  {
+    "id": "4e3da495da8c4c0f94fe248aa26552b8",
+    "name": "Base Earn",
+    "description": "Make your first dollar on Base",
+    "category": "AI",
+    "founder": "K N Nidhi",
+    "founderTwitter": "Nidhi26",
+    "url": "https://base-batch-india.devfolio.co/projects/base-earn-c50f",
+    "batch": "Base Batch India",
+    "tags": [
+      "TypeScript",
+      "React.js",
+      "Tailwind CSS",
+      "Solidity",
+      "Web3",
+      "Express.js",
+      "Firebase Authentication",
+      "PostgreSQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c3ff3df48e79493a96fa8bdf0fc194d0/30aa6e44-0e85-47c6-9a7a-1ebf5f2aa79a.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/base-earn-c50f",
+    "founders": [
+      {
+        "name": "K N Nidhi",
+        "twitter": "Nidhi26"
+      },
+      {
+        "name": "Sachin Singh",
+        "twitter": "sachins"
+      }
+    ],
+    "slug": "base-earn-c50f",
+    "github": "https://github.com/thesachinsingh/base-earn"
+  },
+  {
+    "id": "2284393221374ac8901fd80b682e6977",
+    "name": "SkillBet",
+    "description": "Bet on your Skills, Strategy, Game not on Money",
+    "category": "AI",
+    "founder": "Yash Bainsla",
+    "founderTwitter": "GojoSensei2",
+    "url": "https://base-batch-india.devfolio.co/projects/skillbet-6844",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Solidity",
+      "MongoDB",
+      "JavaScript",
+      "HTML",
+      "Zero-Knowledge Proofs (ZKPs)",
+      "MetaMask",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ca586a5943ce4836bfee9e27339c2933/a61253c6-29af-450a-86cd-4b4ca05e1a30.png",
+    "source": "https://base-batch-india.devfolio.co/projects/skillbet-6844",
+    "founders": [
+      {
+        "name": "Yash Bainsla",
+        "twitter": "GojoSensei2"
+      },
+      {
+        "name": "Yash Agrawal",
+        "twitter": "NotMeetha"
+      }
+    ],
+    "slug": "skillbet-6844",
+    "github": "https://github.com/YASH-ai-bit/Skill_Bet"
+  },
+  {
+    "id": "42265d1bd1ea47ceabac0fa3fbd0033e",
+    "name": "govAIrn",
+    "description": "AI layer that powers intelligent DAO governance",
+    "category": "Infra",
+    "founder": "Udbhav Pandamaneti",
+    "founderTwitter": "MeteorDash",
+    "url": "https://base-batch-india.devfolio.co/projects/govairn-3559",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Supabase",
+      "Solidity",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b102bc128f5c4e11a6c907e33ffcb403/62a08d9d-efbb-4b12-a0cb-9010ebd1df66.png",
+    "source": "https://base-batch-india.devfolio.co/projects/govairn-3559",
+    "founders": [
+      {
+        "name": "Udbhav Pandamaneti",
+        "twitter": "MeteorDash"
+      }
+    ],
+    "slug": "govairn-3559",
+    "github": "https://github.com/Meteoristic/govAIrn"
+  },
+  {
+    "id": "77eeb662213c4e299bd7d35350f5698f",
+    "name": "Coincept",
+    "description": "Ideas \u2192 Tokens \u2192 Products. All On-Chain.",
+    "category": "AI",
+    "founder": "Sarvagna Kadiya",
+    "founderTwitter": "sarvagna13",
+    "url": "https://base-batch-india.devfolio.co/projects/coincept-b454",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "Next.js",
+      "OpenZeppelin",
+      "OpenAi",
+      "Node.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/57c6dce48a0e4ecb9b9473f5afd65ce8/f5ad26f6-ef5f-405b-8c63-5fa41724468e.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/coincept-b454",
+    "founders": [
+      {
+        "name": "Sarvagna Kadiya",
+        "twitter": "sarvagna13"
+      },
+      {
+        "name": "Avinash Malothu",
+        "twitter": "Avinash27"
+      }
+    ],
+    "slug": "coincept-b454",
+    "github": "https://github.com/AvinashNayak27/coincept-demo-app"
+  },
+  {
+    "id": "4e3da495da8c4c0f94fe248aa26552b8",
+    "name": "Base Earn",
+    "description": "Make your first dollar on Base",
+    "category": "AI",
+    "founder": "K N Nidhi",
+    "founderTwitter": "Nidhi26",
+    "url": "https://base-batch-india.devfolio.co/projects/base-earn-c50f",
+    "batch": "Base Batch India",
+    "tags": [
+      "TypeScript",
+      "React.js",
+      "Tailwind CSS",
+      "Solidity",
+      "Web3",
+      "Express.js",
+      "Firebase Authentication",
+      "PostgreSQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c3ff3df48e79493a96fa8bdf0fc194d0/30aa6e44-0e85-47c6-9a7a-1ebf5f2aa79a.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/base-earn-c50f",
+    "founders": [
+      {
+        "name": "K N Nidhi",
+        "twitter": "Nidhi26"
+      },
+      {
+        "name": "Sachin Singh",
+        "twitter": "sachins"
+      }
+    ],
+    "slug": "base-earn-c50f",
+    "github": "https://github.com/thesachinsingh/base-earn"
+  },
+  {
+    "id": "f0c142512fe34697b11682deb7f912a5",
+    "name": "FlashDuels",
+    "description": "Monetise your conviction.",
+    "category": "AI",
+    "founder": "Abhitej Singh",
+    "founderTwitter": "abhitejxyz",
+    "url": "https://base-batch-india.devfolio.co/projects/flashduels-0a75",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Node.js",
+      "Tailwind CSS",
+      "Python",
+      "MongoDB",
+      "React"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/3f127eabc75c4d99ad5c0abe4058e788/c0f3bf2a-8895-447e-83c5-c9e2195cb49b.png",
+    "source": "https://base-batch-india.devfolio.co/projects/flashduels-0a75",
+    "founders": [
+      {
+        "name": "Abhitej Singh",
+        "twitter": "abhitejxyz"
+      }
+    ],
+    "slug": "flashduels-0a75",
+    "github": "https://github.com/FilamentFinance/flashduels"
+  },
+  {
+    "id": "27af96b73a2b46849c823b7e7482aadf",
+    "name": "Base PingPong Arena \ud83c\udfd3",
+    "description": "\u201cPlay. Earn. Dominate. On Base.\u201d",
+    "category": "AI",
+    "founder": "Arpit Patel",
+    "founderTwitter": "arpit_150",
+    "url": "https://base-batch-india.devfolio.co/projects/base-pingpong-arena-9fa9",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Base Mainnet",
+      "React",
+      "ethers.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Hardhat"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/b292b38dfdca43a7a4aeee57b8f12511/c1d4faa2-93f8-4bd7-bc78-de315d7e2c80.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/base-pingpong-arena-9fa9",
+    "founders": [
+      {
+        "name": "Arpit Patel",
+        "twitter": "arpit_150"
+      }
+    ],
+    "slug": "base-pingpong-arena-9fa9",
+    "github": "https://github.com/arpit15006/Base-PingPong-Arena.git"
+  },
+  {
+    "id": "c6b49f4c87a8468cb79da8bcfba4bea1",
+    "name": "Bazario",
+    "description": "Built for the curious, by the obsessed.",
+    "category": "Consumer",
+    "founder": "Amirhan Criptan",
+    "founderTwitter": "amirhaneth",
+    "url": "https://base-batch-india.devfolio.co/projects/bazario-d016",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Node.js",
+      "Base SDK",
+      "IPFS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/833c5bb5e6d04b739f9904233aa1379e/25bb02a8-966a-484e-ad95-b20ee7e72304.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/bazario-d016",
+    "founders": [
+      {
+        "name": "Amirhan Criptan",
+        "twitter": "amirhaneth"
+      }
+    ],
+    "slug": "bazario-d016"
+  },
+  {
+    "id": "4a7cac0fb3ed4b36b4e2294580789eba",
+    "name": "Vista",
+    "description": "If Base met India, and they had a brilliant idea \u2014 this is it",
+    "category": "AI",
+    "founder": "Timur Mutelimov",
+    "founderTwitter": "timurmanutd",
+    "url": "https://base-batch-india.devfolio.co/projects/vista-6e72",
+    "batch": "Base Batch India",
+    "tags": [
+      "HuggingFace",
+      "Flask",
+      "langchain",
+      "Python"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/a0eccfa330d747cc8dcdfc4b77d1aca1/cebd7beb-6563-4e42-a97c-3b68f45c9892.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/vista-6e72",
+    "founders": [
+      {
+        "name": "Timur Mutelimov",
+        "twitter": "timurmanutd"
+      }
+    ],
+    "slug": "vista-6e72",
+    "github": "https://github.com/timurmut/NovaVista"
+  },
+  {
+    "id": "1c1b8631849e4a038724c355b971f68f",
+    "name": "The Oasis",
+    "description": "Changing the Cinema Industry",
+    "category": "Infra",
+    "founder": "Gyanshu Pathak",
+    "founderTwitter": "gyanshupathak",
+    "url": "https://base-batch-india.devfolio.co/projects/the-oasis-63bb",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Flask",
+      "Solidity"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1e85e41c6e674714baf7c2af72c43edc/b326979b-556b-4f40-8115-154fc3d56a0f.png",
+    "source": "https://base-batch-india.devfolio.co/projects/the-oasis-63bb",
+    "founders": [
+      {
+        "name": "Gyanshu Pathak",
+        "twitter": "gyanshupathak"
+      }
+    ],
+    "slug": "the-oasis-63bb",
+    "github": "https://github.com/gyanshupathak/Oasis"
+  },
+  {
+    "id": "6192c603147048bd822b5645e07ab412",
+    "name": "YieldCraft",
+    "description": "Built for the curious, by the obsessed.",
+    "category": "Infra",
+    "founder": "William Morales",
+    "founderTwitter": "WillyMO",
+    "url": "https://base-batch-india.devfolio.co/projects/yieldcraft-b673",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "foundry",
+      "The Graph",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/e0c4c51672af43188378eae8b541714b/2ff05b07-b17a-489c-9a9f-99750fad95be.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/yieldcraft-b673",
+    "founders": [
+      {
+        "name": "William Morales",
+        "twitter": "WillyMO"
+      }
+    ],
+    "slug": "yieldcraft-b673"
+  },
+  {
+    "id": "9248e76c92fd4fa5bad8c6c893b93e4a",
+    "name": "MirageDomain",
+    "description": "Because Stablecoins shouldn't feel like rocket science.",
+    "category": "AI",
+    "founder": "Vlad Kuchma",
+    "founderTwitter": "KychmaVlad",
+    "url": "https://base-batch-india.devfolio.co/projects/miragedomain-814a",
+    "batch": "Base Batch India",
+    "tags": [
+      "BASE",
+      "Solidity",
+      "IPFS",
+      "Chainlink"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/f35cd304e3184961819513ef50e848e6/a4ff0ffc-9ded-44df-b76f-7c3646bce11c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/miragedomain-814a",
+    "founders": [
+      {
+        "name": "Vlad Kuchma",
+        "twitter": "KychmaVlad"
+      }
+    ],
+    "slug": "miragedomain-814a",
+    "github": "https://github.com/ky4mavlad/MirageDomain"
+  },
+  {
+    "id": "8b30f20fe49e48f1af030da4f788f27a",
+    "name": "WarpQuiz",
+    "description": "The quiz app that lives in your social feed.",
+    "category": "AI",
+    "founder": "Divyansh Goel",
+    "founderTwitter": "divyanshgoel",
+    "url": "https://base-batch-india.devfolio.co/projects/warpquiz-00c6",
+    "batch": "Base Batch India",
+    "tags": [
+      "HTML",
+      "CSS",
+      "Node.js",
+      "Supabase",
+      "TypeScript",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/d5fdb91d9f34442a96f3fc415a3a7260/21fcd599-b6f9-4f87-9a9b-f88b61399568.png",
+    "source": "https://base-batch-india.devfolio.co/projects/warpquiz-00c6",
+    "founders": [
+      {
+        "name": "Divyansh Goel",
+        "twitter": "divyanshgoel"
+      }
+    ],
+    "slug": "warpquiz-00c6"
+  },
+  {
+    "id": "0e6ac40d293f4c5a8ed7a3193f6df7da",
+    "name": "Suraksha Link",
+    "description": "SurakshaLink Inspired by the bond of protection",
+    "category": "AI",
+    "founder": "Rehan Suman",
+    "founderTwitter": "rezosnd",
+    "url": "https://base-batch-india.devfolio.co/projects/suraksha-link-7577",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "CSS",
+      "HTML",
+      "Tailwind CSS",
+      "Node.js",
+      "Firebase Authentication",
+      "Firebase Cloud Messaging",
+      "TypeScript",
+      "Whatsapp API",
+      "Mapbox"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/8ad6bb18ece54abe8b79f81389f4b8de/9fd4354e-6b3f-4c49-821c-ea03fae19868.png",
+    "source": "https://base-batch-india.devfolio.co/projects/suraksha-link-7577",
+    "founders": [
+      {
+        "name": "Rehan Suman",
+        "twitter": "rezosnd"
+      }
+    ],
+    "slug": "suraksha-link-7577",
+    "github": "https://github.com/rezosnd/SurakshaLink"
+  },
+  {
+    "id": "07b5f6eb3d4b48b69144622932143b97",
+    "name": "Satyra trips",
+    "description": "Verified Reviews for Real Travelers",
+    "category": "AI",
+    "founder": "Kaushik K",
+    "founderTwitter": "Kaushik17",
+    "url": "https://base-batch-india.devfolio.co/projects/satyra-trips-f539",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "React",
+      "Tailwind CSS",
+      "ethers.js",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b6435cd14e46418baeca73af854b869b/acbb081e-10b8-45f9-b1b4-3ff368cc0115.png",
+    "source": "https://base-batch-india.devfolio.co/projects/satyra-trips-f539",
+    "founders": [
+      {
+        "name": "Kaushik K",
+        "twitter": "Kaushik17"
+      },
+      {
+        "name": "Ashwin B",
+        "twitter": "ashwin27"
+      },
+      {
+        "name": "Madhu Varsha",
+        "twitter": "Madhuvarsha"
+      }
+    ],
+    "slug": "satyra-trips-f539"
+  },
+  {
+    "id": "db732922a8e645f9b4f3115b5c2e8ded",
+    "name": "dapps.co",
+    "description": "The Ownership Economy for Social Media",
+    "category": "AI",
+    "founder": "Mohit Madan",
+    "founderTwitter": "TheMohitMadan",
+    "url": "https://base-batch-india.devfolio.co/projects/dappsco-8b4e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "Solidity",
+      "CSS",
+      "MongoDB",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7a69fb2979c44ed3b3cd655142f862cc/81510a25-6455-4d86-8249-6c4d45972563.png",
+    "source": "https://base-batch-india.devfolio.co/projects/dappsco-8b4e",
+    "founders": [
+      {
+        "name": "Mohit Madan",
+        "twitter": "TheMohitMadan"
+      }
+    ],
+    "slug": "dappsco-8b4e"
+  },
+  {
+    "id": "d8a0ff56c7db4dc2ba1f9995c09bf393",
+    "name": "zkVisa",
+    "description": "Your Visa Process in right hands",
+    "category": "AI",
+    "founder": "Taufique Ansari",
+    "founderTwitter": "taufique22",
+    "url": "https://base-batch-india.devfolio.co/projects/zkvisa-90e0",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Circom",
+      "Snarkjs",
+      "Groth16 Verifier",
+      "OpenZeppelin",
+      "Tailwind CSS",
+      "Vite",
+      "ethers.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/d24c5eb88e0841ce8c2ba1c783103f66/projects/a9de728fc26c460f9df6442757e2cf5c/8e2811f0-78d1-436d-8898-a80b14b39c3c.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/zkvisa-90e0",
+    "founders": [
+      {
+        "name": "Taufique Ansari",
+        "twitter": "taufique22"
+      },
+      {
+        "name": "Sadhak Kumar",
+        "twitter": "Sadhakk"
+      },
+      {
+        "name": "Devangana Barua",
+        "twitter": "Devangana_B"
+      },
+      {
+        "name": "Vinesh Paralkar",
+        "twitter": "Vinesh111103"
+      }
+    ],
+    "slug": "zkvisa-90e0",
+    "github": "https://github.com/SadhakKumar/ZK_location_verifier"
+  },
+  {
+    "id": "6ec4242ceaf94a63934e9a39e0e22204",
+    "name": "Game Terminal",
+    "description": "Create games and launch tokens instantly.",
+    "category": "AI",
+    "founder": "Saurav Upreti",
+    "founderTwitter": "surff81",
+    "url": "https://base-batch-india.devfolio.co/projects/game-terminal-a0bb",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "CSS",
+      "HTML",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b382d8ad7be145d2967e7bd333d2dd15/b1615d18-3b01-47b0-95b4-1b6892d5f146.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/game-terminal-a0bb",
+    "founders": [
+      {
+        "name": "Saurav Upreti",
+        "twitter": "surff81"
+      }
+    ],
+    "slug": "game-terminal-a0bb",
+    "github": "https://github.com/draggingsurf/Game-Terminal"
+  },
+  {
+    "id": "ebfad1847639465fa9ab477c8421f1d3",
+    "name": "RuinsOfRome",
+    "description": "AI Battles with a zest of Roman Mythology",
+    "category": "AI",
+    "founder": "Sachindra Singh",
+    "founderTwitter": "singh_sach",
+    "url": "https://base-batch-india.devfolio.co/projects/ruinsofrome-17af",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Hardhat",
+      "TypeScript",
+      "Next.js",
+      "IPFS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/034dd5de92f9427eafec16875be0534a/b9e2b307-77ce-4c4e-80e9-79ab43a6df88.webp",
+    "source": "https://base-batch-india.devfolio.co/projects/ruinsofrome-17af",
+    "founders": [
+      {
+        "name": "Sachindra Singh",
+        "twitter": "singh_sach"
+      }
+    ],
+    "slug": "ruinsofrome-17af",
+    "github": "https://github.com/SachPlayZ/RuinsOfRome"
+  },
+  {
+    "id": "7a0e0bf689a94f9f85d53e30928625cd",
+    "name": "ETHER-CHESS-OTC",
+    "description": "Play Chess. Win ETH. Own the Board.",
+    "category": "AI",
+    "founder": "Navneet Vishwakarma",
+    "founderTwitter": "Navneet1206",
+    "url": "https://base-batch-india.devfolio.co/projects/etherchessotc-5a86",
+    "batch": "Base Batch India",
+    "tags": [
+      "CSS",
+      "Solidity",
+      "JavaScript",
+      "Tailwind CSS",
+      "React",
+      "Node.js",
+      "HTML",
+      "Web3",
+      "ethers.js",
+      "Hardhat"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/26436dc9c4224c12ba612d8dac6f11a2/306ae368-d9ad-4c7c-a290-ad702451a9dd.png",
+    "source": "https://base-batch-india.devfolio.co/projects/etherchessotc-5a86",
+    "founders": [
+      {
+        "name": "Navneet Vishwakarma",
+        "twitter": "Navneet1206"
+      }
+    ],
+    "slug": "etherchessotc-5a86",
+    "github": "https://github.com/Navneet1206/Ether-Chess-OTC"
+  },
+  {
+    "id": "d590c1ac006648e0b55404ae8453a9a7",
+    "name": "SplitChain",
+    "description": "Split. Settle. Simplify.",
+    "category": "AI",
+    "founder": "Harsh Shrivastava",
+    "founderTwitter": "Harsh5491",
+    "url": "https://base-batch-india.devfolio.co/projects/splitchain-5717",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "TypeScript",
+      "HTML",
+      "Blockchain",
+      "BASE",
+      "Visual Studio Code",
+      "GitHub",
+      "Solidity",
+      "IPFS",
+      "Web3",
+      "Ethereum"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/a06733359c544205bffbb922216bd1c2/8c3ee2af-34d1-4793-9a6a-c3d46d71c2e1.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/splitchain-5717",
+    "founders": [
+      {
+        "name": "Harsh Shrivastava",
+        "twitter": "Harsh5491"
+      }
+    ],
+    "slug": "splitchain-5717",
+    "github": "https://github.com/Harsh549100/SplitChain"
+  },
+  {
+    "id": "336c3d38b258406f81155d907d5d7912",
+    "name": "Medilocker",
+    "description": "Decentralized Medical Data Vault",
+    "category": "AI",
+    "founder": "Naman Jain",
+    "founderTwitter": "namangoat",
+    "url": "https://base-batch-india.devfolio.co/projects/medilocker-0071",
+    "batch": "Base Batch India",
+    "tags": [
+      "Node.js",
+      "JavaScript",
+      "Tailwind CSS",
+      "CSS",
+      "HTML",
+      "Python"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/5b2cd617169c4af3a689567e2df31cfb/b6f1f99c-5561-43b5-a5a5-94b4eb21c9a3.png",
+    "source": "https://base-batch-india.devfolio.co/projects/medilocker-0071",
+    "founders": [
+      {
+        "name": "Naman Jain",
+        "twitter": "namangoat"
+      }
+    ],
+    "slug": "medilocker-0071",
+    "github": "https://github.com/Jain-Naman-V/baseblockchain.git"
+  },
+  {
+    "id": "ad455f6ea0a64b00a998e2f630182a74",
+    "name": "Base Buzz",
+    "description": "Visually vibrant vibes, onchain",
+    "category": "AI",
+    "founder": "Emmanuel muchui",
+    "founderTwitter": "Manuel254001",
+    "url": "https://base-batch-india.devfolio.co/projects/base-buzz-95e6",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Material-UI",
+      "Solidity",
+      "HTML"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/515541cce3c8461ea474029d5c1735c3/b1532f0f-6e04-49fc-a5ef-ca8c57738f60.png",
+    "source": "https://base-batch-india.devfolio.co/projects/base-buzz-95e6",
+    "founders": [
+      {
+        "name": "Emmanuel muchui",
+        "twitter": "Manuel254001"
+      }
+    ],
+    "slug": "base-buzz-95e6"
+  },
+  {
+    "id": "1ab449916b7c4c4e99bb5d8f4a9a3bc4",
+    "name": "Base persona",
+    "description": "Evolve your onchain identity",
+    "category": "AI",
+    "founder": "Josphine mwendwa",
+    "founderTwitter": "Josphine",
+    "url": "https://base-batch-india.devfolio.co/projects/base-persona-78cc",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Solidity",
+      "HTML",
+      "Material-UI",
+      "Supabase",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/0d51f15c03f44b6386329ee4ab08f1a9/e3271752-ebb0-45ab-9f88-26504ec37f31.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/base-persona-78cc",
+    "founders": [
+      {
+        "name": "Josphine mwendwa",
+        "twitter": "Josphine"
+      }
+    ],
+    "slug": "base-persona-78cc"
+  },
+  {
+    "id": "446f3899da464896a44f0f1b9480ca46",
+    "name": "AIAX",
+    "description": "Making Web3 finances accessible to everyone",
+    "category": "AI",
+    "founder": "Debayudh Basu",
+    "founderTwitter": "debayudh_7",
+    "url": "https://base-batch-india.devfolio.co/projects/aiax-d39b",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Solidity",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Next.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ad75aa62bf444995bb358b8a9da1ccbb/ac01d6e5-6468-4f81-b334-6af5b78352aa.png",
+    "source": "https://base-batch-india.devfolio.co/projects/aiax-d39b",
+    "founders": [
+      {
+        "name": "Debayudh Basu",
+        "twitter": "debayudh_7"
+      }
+    ],
+    "slug": "aiax-d39b",
+    "github": "https://github.com/debayudh07/hack"
+  },
+  {
+    "id": "1054265ffcb24fd79d46a23b56c23039",
+    "name": "Breath Mint",
+    "description": "The Green Ranger fights Kaijus in South Korea.",
+    "category": "AI",
+    "founder": "Aatish Sahai",
+    "founderTwitter": "blu3gold",
+    "url": "https://base-batch-india.devfolio.co/projects/breath-mint-073e",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Node.js",
+      "Flask"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ed72e9b945ae4c8d9cd658cbc9a2fb46/f00b1ec2-230f-4dd7-be4e-2ca6e8af9006.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/breath-mint-073e",
+    "founders": [
+      {
+        "name": "Aatish Sahai",
+        "twitter": "blu3gold"
+      }
+    ],
+    "slug": "breath-mint-073e",
+    "github": "https://github.com/vxibhxv/Breathmint.git"
+  },
+  {
+    "id": "4be1895088374369834faf4ce237ff16",
+    "name": "Base Carbon Canopy",
+    "description": "Decentralized Stablecoin Carbon Impact",
+    "category": "Infra",
+    "founder": "Sarang R",
+    "founderTwitter": "SR_2005",
+    "url": "https://base-batch-india.devfolio.co/projects/base-carbon-canopy-fad0",
+    "batch": "Base Batch India",
+    "tags": [
+      "BASE",
+      "Solidity",
+      "Hardhat",
+      "OpenZeppelin",
+      "React",
+      "ethers.js",
+      "Leaflet.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/6f7d5690e52f47cc9f06d3dd28126e3e/080d7c7e-83d8-44c4-b378-20dafd6905b4.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/base-carbon-canopy-fad0",
+    "founders": [
+      {
+        "name": "Sarang R",
+        "twitter": "SR_2005"
+      },
+      {
+        "name": "Vishal P",
+        "twitter": "chilledvulture"
+      }
+    ],
+    "slug": "base-carbon-canopy-fad0",
+    "github": "https://github.com/S1056SAR/Base-Carbon-Canopy"
+  },
+  {
+    "id": "d85031b379654cbbb12dd5687227fdfd",
+    "name": "SocioAgent",
+    "description": "On-chain actions via socials, seamlessly connected",
+    "category": "AI",
+    "founder": "Mohammad Hassan",
+    "founderTwitter": "hassan1005",
+    "url": "https://base-batch-india.devfolio.co/projects/docsai-2088",
+    "batch": "Base Batch India",
+    "tags": [
+      "Tailwind CSS",
+      "Node.js",
+      "Docker",
+      "Solidity",
+      "React.js",
+      "TypeScript",
+      "MongoDB Atlas",
+      "mongoose",
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b5fb01c71ee9467eb176d7dea5459634/98342b6e-b5dd-429a-aaab-6fe9288f57e2.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/docsai-2088",
+    "founders": [
+      {
+        "name": "Mohammad Hassan",
+        "twitter": "hassan1005"
+      }
+    ],
+    "slug": "docsai-2088",
+    "github": "https://github.com/Hassan1004/SocioAgent"
+  },
+  {
+    "id": "1154bd568da8493385c37d011df7224f",
+    "name": "BaseSplit",
+    "description": "Split smartly, spend wisely",
+    "category": "AI",
+    "founder": "Devyansh Bhardwaj",
+    "founderTwitter": "bhardwaj_div",
+    "url": "https://base-batch-india.devfolio.co/projects/basesplit-c003",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Solidity",
+      "Tailwind CSS",
+      "BASE",
+      "Firebase",
+      "Firestore"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/932422d62f8b4e278a33f77217f3a0bf/707a3661-cd2f-4381-970b-8810657fbee9.png",
+    "source": "https://base-batch-india.devfolio.co/projects/basesplit-c003",
+    "founders": [
+      {
+        "name": "Devyansh Bhardwaj",
+        "twitter": "bhardwaj_div"
+      }
+    ],
+    "slug": "basesplit-c003",
+    "github": "https://github.com/gammerChadder/baseSplit"
+  },
+  {
+    "id": "bfb9152bc98145b1a86058d900fc6124",
+    "name": "RentPay",
+    "description": "Pay Rent in Crypto. Get Fiat Instantly.",
+    "category": "AI",
+    "founder": "Adee Shaikh",
+    "founderTwitter": "adeeshaikh",
+    "url": "https://base-batch-india.devfolio.co/projects/rentpay-1cb1",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "Next.js",
+      "Vercel"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7b3e28fc192645059c3bbea745aa40a6/39638b2c-5468-457f-9508-ba1a8f01f52c.png",
+    "source": "https://base-batch-india.devfolio.co/projects/rentpay-1cb1",
+    "founders": [
+      {
+        "name": "Adee Shaikh",
+        "twitter": "adeeshaikh"
+      },
+      {
+        "name": "Jay Jadhav",
+        "twitter": "jayjadhav_08"
+      }
+    ],
+    "slug": "rentpay-1cb1",
+    "github": "https://github.com/adee1455/RentPay"
+  },
+  {
+    "id": "4e82112680334e979728f9e43a17e5ef",
+    "name": "DBeats",
+    "description": "Own the Beat, Collect the Vibe",
+    "category": "Infra",
+    "founder": "Sarthak Rawat",
+    "founderTwitter": "eik1",
+    "url": "https://base-batch-india.devfolio.co/projects/dbeats-78d7",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "React",
+      "MongoDB",
+      "Node.js",
+      "JavaScript",
+      "Hardhat"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/6493eaa0f88c41f39b11f0076acc6c5e/dba60870-18de-4c76-bfc7-0c0f7ef0f2a4.png",
+    "source": "https://base-batch-india.devfolio.co/projects/dbeats-78d7",
+    "founders": [
+      {
+        "name": "Sarthak Rawat",
+        "twitter": "eik1"
+      }
+    ],
+    "slug": "dbeats-78d7",
+    "github": "https://github.com/eik-1/dbeats-base"
+  },
+  {
+    "id": "3e1c747b4d35484aae9642ad15bd253f",
+    "name": "Token Tails",
+    "description": "More than a mint. It's a pet, a story and a game",
+    "category": "AI",
+    "founder": "Akash Mundari",
+    "founderTwitter": "AkashMundari00",
+    "url": "https://base-batch-india.devfolio.co/projects/token-tails-3b63",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "Tailwind CSS",
+      "BASE",
+      "Next.js",
+      "CSS",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/ec00b2a96f1d436aa3e3cfcd22119f04/690d3d3f-a7ed-4573-9426-344d43f977da.png",
+    "source": "https://base-batch-india.devfolio.co/projects/token-tails-3b63",
+    "founders": [
+      {
+        "name": "Akash Mundari",
+        "twitter": "AkashMundari00"
+      },
+      {
+        "name": "Anushka Somani",
+        "twitter": "a4b0c90048c244b"
+      }
+    ],
+    "slug": "token-tails-3b63",
+    "github": "https://github.com/anushkasomani/base_batch"
+  },
+  {
+    "id": "4fb31f16722b4c24adec54986352f3d1",
+    "name": "Bstream",
+    "description": "Direct ETH Tips for Streamers, No Middleman Needed",
+    "category": "AI",
+    "founder": "Amit Kokane",
+    "founderTwitter": "AmitKokane",
+    "url": "https://base-batch-india.devfolio.co/projects/bstream-c5ef",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "Tailwind CSS",
+      "BASE",
+      "TypeScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7cb55ba7a6964c0db02d103e66ca3767/260e67f4-6c4c-49e3-b15e-7e5fe1fe8fa5.png",
+    "source": "https://base-batch-india.devfolio.co/projects/bstream-c5ef",
+    "founders": [
+      {
+        "name": "Amit Kokane",
+        "twitter": "AmitKokane"
+      },
+      {
+        "name": "Sandesh Shinde",
+        "twitter": "Sandesh_05"
+      },
+      {
+        "name": "mady saint",
+        "twitter": "madysaint"
+      }
+    ],
+    "slug": "bstream-c5ef",
+    "github": "https://github.com/Hack-Archive/Bstream"
+  },
+  {
+    "id": "1ba7ad5140d74da68192c318a728791c",
+    "name": "Task-fi : Earn Rewards While building skills",
+    "description": "Earn Rewards While Building Skills;Marketplace",
+    "category": "AI",
+    "founder": "Divyansh Sharma",
+    "founderTwitter": "divyansh_2824",
+    "url": "https://base-batch-india.devfolio.co/projects/taskfi-fd50",
+    "batch": "Base Batch India",
+    "tags": [
+      "Solidity",
+      "JavaScript",
+      "Python",
+      "React",
+      "Node.js",
+      "React.js",
+      "Tailwind CSS",
+      "Ethereum",
+      "ethers.js",
+      "Etherscan",
+      "BASE"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/7f158f072aad44ae98452811ab803a3a/0adaab93-5d08-435b-9353-9f859752b1e1.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/taskfi-fd50",
+    "founders": [
+      {
+        "name": "Divyansh Sharma",
+        "twitter": "divyansh_2824"
+      }
+    ],
+    "slug": "taskfi-fd50",
+    "github": "https://github.com/divi2806/taskfi-base-batch-hackathon"
+  },
+  {
+    "id": "ce0146ca4b3b43638e78da4f8096887d",
+    "name": "Explore the World",
+    "description": "Driving foot traffic to businesses",
+    "category": "AI",
+    "founder": "Abhijeet Singh",
+    "founderTwitter": "AbhijeetSingh04",
+    "url": "https://base-batch-india.devfolio.co/projects/explore-the-world-d743",
+    "batch": "Base Batch India",
+    "tags": [
+      "C#",
+      "YAML",
+      "Rust",
+      "JS",
+      "Solidity"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/c24f82ee1f7b4e00b25d39aca2166fd4/b9a1d090-46bc-441b-ad1f-a6f699046ebc.png",
+    "source": "https://base-batch-india.devfolio.co/projects/explore-the-world-d743",
+    "founders": [
+      {
+        "name": "Abhijeet Singh",
+        "twitter": "AbhijeetSingh04"
+      }
+    ],
+    "slug": "explore-the-world-d743"
+  },
+  {
+    "id": "eed5cc6aad884d87b7544b4922dd1350",
+    "name": "Alphai",
+    "description": "market intelligence platform powered by AI Agents",
+    "category": "AI",
+    "founder": "Shruti Panjwani",
+    "founderTwitter": "shrutipanjwani_",
+    "url": "https://base-batch-india.devfolio.co/projects/alphai-0b59",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "Next.js",
+      "OpenAi",
+      "Deep Learning",
+      "Artificial Intelligence",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "AWS"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/dedcd1cce16c4e09a3699439eca81eb5/d0b00627-3a7a-4360-9a38-34e7075f0a47.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/alphai-0b59",
+    "founders": [
+      {
+        "name": "Shruti Panjwani",
+        "twitter": "shrutipanjwani_"
+      },
+      {
+        "name": "Dev Motlani",
+        "twitter": "cryptodude"
+      }
+    ],
+    "slug": "alphai-0b59"
+  },
+  {
+    "id": "d605db36ce6648ae857e1dbc9028fa02",
+    "name": "Chaotic",
+    "description": "Connecting People onchain",
+    "category": "AI",
+    "founder": "Shreyansh Gaykwad",
+    "founderTwitter": "Shreyansh176",
+    "url": "https://base-batch-india.devfolio.co/projects/chaotic-c448",
+    "batch": "Base Batch India",
+    "tags": [
+      "React",
+      "JavaScript",
+      "MongoDB",
+      "Node.js",
+      "Tailwind CSS",
+      "Solidity",
+      "The Graph"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/b2429cadde4148b4ac98bfe0f6c10df6/684b5ce2-74a0-4e08-a354-a21213c5c591.png",
+    "source": "https://base-batch-india.devfolio.co/projects/chaotic-c448",
+    "founders": [
+      {
+        "name": "Shreyansh Gaykwad",
+        "twitter": "Shreyansh176"
+      }
+    ],
+    "slug": "chaotic-c448",
+    "github": "https://github.com/mr-shreyansh/chaotic-frontend"
+  },
+  {
+    "id": "1c1b292529aa4395a0a5267c02740016",
+    "name": "Fundora",
+    "description": "Turn Invoices into Asset-Seamless & Secure on Base",
+    "category": "AI",
+    "founder": "Abhyudaya Tiwari",
+    "founderTwitter": "abtiwari",
+    "url": "https://base-batch-india.devfolio.co/projects/fundora-7fca",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Firebase",
+      "GitHub",
+      "Vercel"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/6e8dc7a270ae4d96a9c31249aaa73e1e/5fa44044-7e30-4dcc-a160-3d9a383dc2d8.png",
+    "source": "https://base-batch-india.devfolio.co/projects/fundora-7fca",
+    "founders": [
+      {
+        "name": "Abhyudaya Tiwari",
+        "twitter": "abtiwari"
+      },
+      {
+        "name": "Atul Waman",
+        "twitter": "AtulC137"
+      },
+      {
+        "name": "Atharva Gaikwad",
+        "twitter": "Athguy"
+      },
+      {
+        "name": "Shubham Katekar",
+        "twitter": "Shubham_Katekar"
+      },
+      {
+        "name": "Piyush Bafna",
+        "twitter": "nerdy_bat"
+      }
+    ],
+    "slug": "fundora-7fca",
+    "github": "https://github.com/FundoraInvoice/Fundora-Invoices"
+  },
+  {
+    "id": "e15ae902aed545c1b341956f12f2e1d4",
+    "name": "trump.fun",
+    "description": "Bet on what Trump will do next",
+    "category": "AI",
+    "founder": "Avneesh Agarwal",
+    "founderTwitter": "avneesh0612",
+    "url": "https://base-batch-india.devfolio.co/projects/trumpfun-9cee",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "Solidity",
+      "Next.js",
+      "TypeScript",
+      "The Graph",
+      "GraphQL"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/1704e69fa11b44e490045e94ec9fdef7/2a37bb06-a5db-48bf-a622-7a7b8c25fe65.png",
+    "source": "https://base-batch-india.devfolio.co/projects/trumpfun-9cee",
+    "founders": [
+      {
+        "name": "Avneesh Agarwal",
+        "twitter": "avneesh0612"
+      }
+    ],
+    "slug": "trumpfun-9cee"
+  },
+  {
+    "id": "bbe1dd84e83a45109e6d14e449084827",
+    "name": "CoinPal",
+    "description": "AI guide for mastering Coinbase & crypto with ease",
+    "category": "AI",
+    "founder": "Hariprasad Sakhare",
+    "founderTwitter": "hprasad",
+    "url": "https://base-batch-india.devfolio.co/projects/coinpal-406d",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Solidity",
+      "React",
+      "Node.js",
+      "Flask",
+      "Tailwind CSS",
+      "Supabase"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/2707fc943612470e86a03b1c0b3fcc90/5ca9bdc4-7033-4615-b91e-1c47bb62db6b.jpeg",
+    "source": "https://base-batch-india.devfolio.co/projects/coinpal-406d",
+    "founders": [
+      {
+        "name": "Hariprasad Sakhare",
+        "twitter": "hprasad"
+      },
+      {
+        "name": "Shivansh Bhageria",
+        "twitter": "rajarshidattapy"
+      },
+      {
+        "name": "Aditya pattanayak",
+        "twitter": "AdityaR6786"
+      },
+      {
+        "name": "Soumik Baksi",
+        "twitter": "soumikbaksi26"
+      }
+    ],
+    "slug": "coinpal-406d",
+    "github": "https://github.com/rajarshidattapy/CoinPal"
+  },
+  {
+    "id": "b921cd51e5f34a699039e77aa3388fa4",
+    "name": "gitDontIgnore",
+    "description": "An onchain AI Powered Project Manager",
+    "category": "Infra",
+    "founder": "SAIRAM M R",
+    "founderTwitter": "sairammr",
+    "url": "https://base-batch-india.devfolio.co/projects/gitdontignore-e118",
+    "batch": "Base Batch India",
+    "tags": [
+      "Python",
+      "Solidity",
+      "Next.js"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/32f9b3a9d8e0430dad37870e5afa0bf8/6ea2b83b-8fcc-40f8-9a3d-d87cc5a7d732.png",
+    "source": "https://base-batch-india.devfolio.co/projects/gitdontignore-e118",
+    "founders": [
+      {
+        "name": "SAIRAM M R",
+        "twitter": "sairammr"
+      }
+    ],
+    "slug": "gitdontignore-e118",
+    "github": "https://github.com/adrieljoshua/gitDontIgnoreAI"
+  },
+  {
+    "id": "1a125fddee8e42a0b78bb7e21e062c25",
+    "name": "Test P",
+    "description": "Test P",
+    "category": "Consumer",
+    "founder": "Anshuman Singha",
+    "founderTwitter": "anshumansingh",
+    "url": "https://base-batch-india.devfolio.co/projects/test-p-27bd",
+    "batch": "Base Batch India",
+    "tags": [
+      "JavaScript"
+    ],
+    "logo": "https://assets.devfolio.co/hackathons/base-batch-india/projects/cb1e93f893034e42b6055005a4bf8941/8368bd27-ef07-4804-a26f-aea11c461c33.png",
+    "source": "https://base-batch-india.devfolio.co/projects/test-p-27bd",
+    "founders": [
+      {
+        "name": "Anshuman Singha",
+        "twitter": "anshumansingh"
+      }
+    ],
+    "slug": "test-p-27bd"
+  }
+]

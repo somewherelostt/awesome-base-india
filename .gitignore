@@ -54,3 +54,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scripts: generated / cache (keep script source, ignore heavy outputs)
+scripts/devfolio-scraper/all_projects.json
+scripts/devfolio-scraper/profile_links.json
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# telegram bot env (already covered by .env*; explicit for clarity)
+telegram-bot/.env
+telegram-bot/.env.local
+
+# IDE / cursor
+.cursor/

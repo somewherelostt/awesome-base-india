@@ -9,7 +9,8 @@ Bot that collects project submissions via Telegram and saves them to Supabase. Y
 
 2. **Supabase**  
    Create a project and run the SQL in **`supabase-setup.sql`** in the SQL editor (creates the table with Base ecosystem–style fields: logo, category, tags).  
-   If you already have the table, run **`supabase-migrate-ecosystem-fields.sql`** to add `logo_url` and `tags`.
+   If you already have the table, run **`supabase-migrate-ecosystem-fields.sql`** to add `logo_url` and `tags`.  
+   For the **/edit** flow (profile/project MDX updates), also run **`supabase-edit-id-and-mdx.sql`** to create `edit_id_registry` and `mdx_edits`. Then run **`npm run sync-edit-ids`** from the repo root (with `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` set) to sync `edit_id` from MDX frontmatter into the registry.
 
 3. **Env**  
    Copy `.env.example` to `.env` and set:
@@ -107,5 +108,15 @@ The bot runs an HTTP server on `PORT` (for Render health checks) and the Telegra
 
 - `/start` – Start or restart the flow  
 - `/submit` – Start a new submission  
-- `/cancel` – Cancel current submission  
-- `/skip` – Skip optional steps (GitHub, Twitter, teammates)
+- `/cancel` – Cancel current submission or edit flow  
+- `/skip` – Skip optional steps (GitHub, Twitter, teammates)  
+- `/edit <edit_id>` – Update your founder profile or project MDX. Use the `edit_id` from your MDX frontmatter (e.g. `/edit dv8x2k9m`). The bot will ask for the full updated MDX content; it’s stored in Supabase for manual review, then you replace the file in the repo.
+
+### Edit flow (profile / project MDX)
+
+1. Founder and project pages are stored as MDX with an **edit_id** in frontmatter.  
+2. User sends `/edit <edit_id>` in the bot.  
+3. Bot looks up `edit_id_registry` (synced from MDX via `npm run sync-edit-ids` in the repo root).  
+4. User sends the full new MDX (frontmatter + body) in the next message.  
+5. Bot saves it to `mdx_edits` with status `pending`.  
+6. You review in Supabase, then copy `mdx_content` into the right file (e.g. `content/founders/<username>.mdx`) and deploy.
