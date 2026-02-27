@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { projects, categories, batches, type Project } from "@/lib/data";
+import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const colorMap: Record<string, string> = {
@@ -90,21 +91,67 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
+function tagMatchesSubFilter(projectTags: string[], selectedSubFilters: Set<string>): boolean {
+  if (selectedSubFilters.size === 0) return true;
+  return projectTags.some((tag) =>
+    Array.from(selectedSubFilters).some((s) => s.toLowerCase() === tag.toLowerCase())
+  );
+}
+
+const BATCH_DROPDOWN_ID = "__batch__";
+const batchOptions = batches.filter((b) => b !== "All Batches");
+
 export function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [activeBatch, setActiveBatch] = useState("All Batches");
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
+  const [selectedBatches, setSelectedBatches] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleSubFilter = (category: string, value: string) => {
+    setSelectedSubFilters((prev) => {
+      const set = new Set(prev[category] ?? []);
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
+      return { ...prev, [category]: set };
+    });
+  };
+
+  const toggleBatch = (batch: string) => {
+    setSelectedBatches((prev) => {
+      const next = new Set(prev);
+      if (next.has(batch)) next.delete(batch);
+      else next.add(batch);
+      return next;
+    });
+  };
 
   const filtered = projects.filter((p) => {
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
-    const matchesBatch = activeBatch === "All Batches" || p.batch === activeBatch;
+    const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
+    const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(p.tags, subFilters);
+    const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
     const matchesSearch =
       searchQuery === "" ||
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.founder.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesBatch && matchesSearch;
+      p.founder.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
   });
+
+  const categoriesWithoutAll = categories.filter((c) => c !== "All");
 
   return (
     <section id="projects" className="px-6 py-20 sm:px-8">
@@ -118,59 +165,141 @@ export function ProductGrid() {
           </p>
         </div>
 
-        <div className="mb-8 space-y-4">
-          <div className="relative">
-            <svg
-              className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <div className="mb-8">
+          <div
+            className="flex flex-wrap items-center gap-2 rounded-2xl bg-muted/30 px-3 py-2.5 dark:bg-muted/10"
+            ref={dropdownRef}
+          >
+            <button
+              onClick={() => {
+                setActiveCategory("All");
+                setOpenDropdown(null);
+              }}
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                activeCategory === "All"
+                  ? "bg-background text-foreground shadow-sm dark:bg-neutral-800"
+                  : "text-muted-foreground hover:bg-background/60 hover:text-foreground dark:hover:bg-neutral-800/60"
+              }`}
             >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search projects, founders..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-border bg-background py-3 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-            />
-          </div>
+              All
+            </button>
+            {categoriesWithoutAll.map((cat) => {
+              const hasDropdown = (categorySubFilters[cat]?.length ?? 0) > 0;
+              const isOpen = openDropdown === cat;
+              const selected = selectedSubFilters[cat];
+              const count = selected?.size ?? 0;
+              const isActive = activeCategory === cat;
 
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
+              return (
+                <div key={cat} className="relative">
+                  <button
+                    onClick={() => {
+                      if (hasDropdown) {
+                        setOpenDropdown(isOpen ? null : cat);
+                        setActiveCategory(cat);
+                      } else {
+                        setActiveCategory(cat);
+                        setOpenDropdown(null);
+                      }
+                    }}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-background text-foreground shadow-sm dark:bg-neutral-800"
+                        : "text-muted-foreground hover:bg-background/60 hover:text-foreground dark:hover:bg-neutral-800/60"
+                    }`}
+                  >
+                    {cat}
+                    {hasDropdown && (isOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />)}
+                    {count > 0 && (
+                      <span className="rounded-full bg-foreground/10 px-1.5 py-0.5 text-xs font-medium text-foreground">
+                        {count}
+                      </span>
+                    )}
+                  </button>
+                  {hasDropdown && isOpen && (
+                    <div className="absolute left-0 top-full z-20 mt-1.5 min-w-[200px] rounded-xl border border-border/60 bg-background py-1.5 shadow-lg dark:border-neutral-700">
+                      {(categorySubFilters[cat] ?? []).map((option) => {
+                        const checked = selectedSubFilters[cat]?.has(option) ?? false;
+                        return (
+                          <label
+                            key={option}
+                            className="flex cursor-pointer items-center gap-2 px-3 py-2 text-sm text-foreground hover:bg-muted/50"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => toggleSubFilter(cat, option)}
+                              className="h-3.5 w-3.5 rounded border-neutral-300 text-accent focus:ring-accent dark:border-neutral-600"
+                            />
+                            <span className="capitalize">{option.replace(/-/g, " ")}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <div className="relative">
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
-                  activeCategory === cat
-                    ? "bg-accent text-white"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
+                onClick={() => setOpenDropdown(openDropdown === BATCH_DROPDOWN_ID ? null : BATCH_DROPDOWN_ID)}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                  selectedBatches.size > 0
+                    ? "bg-background text-foreground shadow-sm dark:bg-neutral-800"
+                    : "text-muted-foreground hover:bg-background/60 hover:text-foreground dark:hover:bg-neutral-800/60"
                 }`}
               >
-                {cat}
+                Batch
+                {openDropdown === BATCH_DROPDOWN_ID ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                {selectedBatches.size > 0 && (
+                  <span className="rounded-full bg-foreground/10 px-1.5 py-0.5 text-xs font-medium text-foreground">
+                    {selectedBatches.size}
+                  </span>
+                )}
               </button>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {batches.map((batch) => (
-              <button
-                key={batch}
-                onClick={() => setActiveBatch(batch)}
-                className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
-                  activeBatch === batch
-                    ? "border-accent bg-accent/10 text-accent"
-                    : "border-border text-muted-foreground hover:text-foreground"
-                }`}
+              {openDropdown === BATCH_DROPDOWN_ID && (
+                <div className="absolute left-0 top-full z-20 mt-1.5 min-w-[220px] rounded-xl border border-border/60 bg-background py-1.5 shadow-lg dark:border-neutral-700">
+                  {batchOptions.map((batch) => {
+                    const checked = selectedBatches.has(batch);
+                    return (
+                      <label
+                        key={batch}
+                        className="flex cursor-pointer items-center gap-2 px-3 py-2 text-sm text-foreground hover:bg-muted/50"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleBatch(batch)}
+                          className="h-3.5 w-3.5 rounded border-neutral-300 text-accent focus:ring-accent dark:border-neutral-600"
+                        />
+                        <span>{batch}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+            <div className="relative ml-auto w-full min-w-0 shrink-0 sm:w-48">
+              <svg
+                className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                {batch}
-              </button>
-            ))}
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full rounded-lg border-0 bg-background/80 py-2 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:bg-background focus:outline-none focus:ring-2 focus:ring-foreground/10 dark:bg-neutral-800/80 dark:focus:bg-neutral-800"
+              />
+            </div>
           </div>
         </div>
 

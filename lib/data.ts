@@ -54,6 +54,21 @@ export const batches = [
   "Independent",
 ] as const;
 
+/** Sub-filters per category (dropdown checkboxes). Matched against project tags (case-insensitive). */
+export const categorySubFilters: Record<string, string[]> = {
+  AI: ["chatbot", "agents", "discovery", "personalization", "automation", "compute", "support", "multi-agent"],
+  Consumer: ["creator", "payments", "video", "content", "rewards", "marketplace", "music", "gaming", "messaging", "social"],
+  DeFi: ["DEX", "AMM", "yield", "staking", "savings", "portfolio", "treasury", "multisig", "lending", "insurance", "onramp", "trading", "farming", "dashboard", "automation"],
+  Gaming: ["play-to-earn", "NFT", "lottery", "raffle", "casual", "betting", "quests", "gamification", "dungeon-crawler"],
+  Infra: ["oracle", "bridge", "L2", "analytics", "gas", "relay", "dev-tools", "security", "audit"],
+  "Mini-apps": ["marketplace", "payments", "social", "gaming"],
+  NFT: ["art", "gallery", "no-code", "deployer", "collab", "3D"],
+  DAO: ["governance", "voting", "treasury", "multisig", "sybil"],
+  Identity: ["credentials", "KYC", "soulbound", "attestations", "naming", "ZK"],
+  Social: ["creator", "tipping", "messaging", "token-gated", "community", "social-tokens"],
+  Payments: ["stablecoin", "onramp", "merchant", "micropayments", "payroll", "streaming", "freelance", "USDC"],
+};
+
 export const projects: Project[] = [
   {
     id: "1",
@@ -216,7 +231,7 @@ export const projects: Project[] = [
       "Provably fair onchain lottery and raffle system on Base. Transparent draws with verifiable randomness and instant prize distribution via smart contracts.",
     category: "Gaming",
     founder: "Lotry Team",
-    founderTwitter: "lotry_xyz",
+    founderTwitter: "lotrydotfun",
     url: "https://base-batch-india.devfolio.co/projects",
     batch: "Base Batch India",
     tags: ["lottery", "raffle", "randomness", "gaming"],
@@ -240,7 +255,8 @@ export const projects: Project[] = [
   {
     id: "14",
     name: "LiquidStake",
-    description: "Liquid staking derivatives on Base. Stake ETH, get lsETH, earn yield while staying liquid.",
+    description:
+      "Liquid staking derivatives on Base. Stake ETH, get lsETH, earn yield while staying liquid.",
     category: "DeFi",
     founder: "Manish Rao",
     founderTwitter: "manishdefi",
@@ -253,7 +269,8 @@ export const projects: Project[] = [
   {
     id: "15",
     name: "PixelCraft",
-    description: "Collaborative onchain pixel art canvas. Create, own, and trade pixel art NFTs on Base.",
+    description:
+      "Collaborative onchain pixel art canvas. Create, own, and trade pixel art NFTs on Base.",
     category: "NFT",
     founder: "Tanya Bhatt",
     founderTwitter: "tanyapixels",
@@ -266,7 +283,8 @@ export const projects: Project[] = [
   {
     id: "16",
     name: "BaseVault",
-    description: "Multi-sig treasury management for DAOs on Base. Gasless approvals with social recovery.",
+    description:
+      "Multi-sig treasury management for DAOs on Base. Gasless approvals with social recovery.",
     category: "DAO",
     founder: "Siddharth Menon",
     founderTwitter: "sidmenon",
@@ -279,7 +297,8 @@ export const projects: Project[] = [
   {
     id: "17",
     name: "QuickPay",
-    description: "Cross-border payment rails for freelancers. Get paid globally, settle on Base instantly.",
+    description:
+      "Cross-border payment rails for freelancers. Get paid globally, settle on Base instantly.",
     category: "Payments",
     founder: "Rashmi Iyer",
     founderTwitter: "rashmipays",
@@ -292,7 +311,8 @@ export const projects: Project[] = [
   {
     id: "18",
     name: "DeSci India",
-    description: "Decentralized science funding platform. Indian researchers publish and get funded on Base.",
+    description:
+      "Decentralized science funding platform. Indian researchers publish and get funded on Base.",
     category: "Social",
     founder: "Arun Krishnan",
     founderTwitter: "arunkris",
@@ -305,7 +325,8 @@ export const projects: Project[] = [
   {
     id: "19",
     name: "BaseOracle",
-    description: "Decentralized oracle network optimized for Base. Low-latency price feeds for DeFi.",
+    description:
+      "Decentralized oracle network optimized for Base. Low-latency price feeds for DeFi.",
     category: "Infra",
     founder: "Nikhil Gupta",
     founderTwitter: "nikhiloracle",
@@ -318,7 +339,8 @@ export const projects: Project[] = [
   {
     id: "20",
     name: "GigBase",
-    description: "Decentralized gig marketplace. Post jobs, complete tasks, get paid in crypto on Base.",
+    description:
+      "Decentralized gig marketplace. Post jobs, complete tasks, get paid in crypto on Base.",
     category: "Social",
     founder: "Meera Shah",
     founderTwitter: "meeragigs",
@@ -331,7 +353,8 @@ export const projects: Project[] = [
   {
     id: "21",
     name: "BaseAI",
-    description: "AI model marketplace on Base. Buy, sell, and rent AI compute using onchain credits.",
+    description:
+      "AI model marketplace on Base. Buy, sell, and rent AI compute using onchain credits.",
     category: "AI",
     founder: "Varun Taneja",
     founderTwitter: "varunai",
@@ -344,7 +367,8 @@ export const projects: Project[] = [
   {
     id: "22",
     name: "Fundbase",
-    description: "Onchain crowdfunding for Indian startups. Raise from global investors, tracked on Base.",
+    description:
+      "Onchain crowdfunding for Indian startups. Raise from global investors, tracked on Base.",
     category: "DeFi",
     founder: "Pooja Rajan",
     founderTwitter: "poojafund",
@@ -357,7 +381,8 @@ export const projects: Project[] = [
   {
     id: "23",
     name: "NFTix",
-    description: "Event ticketing on Base. Verifiable tickets as NFTs with built-in resale royalties.",
+    description:
+      "Event ticketing on Base. Verifiable tickets as NFTs with built-in resale royalties.",
     category: "NFT",
     founder: "Sahil Mehta",
     founderTwitter: "sahiltix",
@@ -370,7 +395,8 @@ export const projects: Project[] = [
   {
     id: "24",
     name: "BaseRent",
-    description: "Tokenized real estate rentals. Security deposits and rent payments as smart contracts on Base.",
+    description:
+      "Tokenized real estate rentals. Security deposits and rent payments as smart contracts on Base.",
     category: "DeFi",
     founder: "Lakshmi Subramanian",
     founderTwitter: "lakshmirent",
@@ -383,7 +409,8 @@ export const projects: Project[] = [
   {
     id: "25",
     name: "LearnBase",
-    description: "Learn-to-earn education platform. Complete Web3 courses, earn credentials as NFTs on Base.",
+    description:
+      "Learn-to-earn education platform. Complete Web3 courses, earn credentials as NFTs on Base.",
     category: "Social",
     founder: "Ankita Das",
     founderTwitter: "ankitalearns",
@@ -396,7 +423,8 @@ export const projects: Project[] = [
   {
     id: "26",
     name: "BaseBridge",
-    description: "One-click bridge between Ethereum L1 and Base. Optimized for speed and low fees.",
+    description:
+      "One-click bridge between Ethereum L1 and Base. Optimized for speed and low fees.",
     category: "Infra",
     founder: "Gaurav Thakur",
     founderTwitter: "gauravbridge",
@@ -409,7 +437,8 @@ export const projects: Project[] = [
   {
     id: "27",
     name: "DexTracker",
-    description: "Real-time DEX analytics for Base. Track volume, TVL, and whale movements.",
+    description:
+      "Real-time DEX analytics for Base. Track volume, TVL, and whale movements.",
     category: "Infra",
     founder: "Ravi Shankar",
     founderTwitter: "ravianalytics",
@@ -422,7 +451,8 @@ export const projects: Project[] = [
   {
     id: "28",
     name: "SocialFi",
-    description: "Creator monetization protocol. Fans buy social tokens of their favorite creators on Base.",
+    description:
+      "Creator monetization protocol. Fans buy social tokens of their favorite creators on Base.",
     category: "Social",
     founder: "Simran Kaur",
     founderTwitter: "simransocial",
@@ -435,7 +465,8 @@ export const projects: Project[] = [
   {
     id: "29",
     name: "YieldFarm",
-    description: "Auto-compounding yield aggregator for Base DeFi protocols. Set-and-forget farming.",
+    description:
+      "Auto-compounding yield aggregator for Base DeFi protocols. Set-and-forget farming.",
     category: "DeFi",
     founder: "Harsh Vardhan",
     founderTwitter: "harshyield",
@@ -448,7 +479,8 @@ export const projects: Project[] = [
   {
     id: "30",
     name: "BaseQuiz",
-    description: "Trivia-to-earn gaming on Base. Daily quizzes with real crypto prizes.",
+    description:
+      "Trivia-to-earn gaming on Base. Daily quizzes with real crypto prizes.",
     category: "Gaming",
     founder: "Deepak Jain",
     founderTwitter: "deepakquiz",
@@ -461,7 +493,8 @@ export const projects: Project[] = [
   {
     id: "31",
     name: "WalletGuard",
-    description: "Smart contract wallet with built-in phishing detection and transaction simulation on Base.",
+    description:
+      "Smart contract wallet with built-in phishing detection and transaction simulation on Base.",
     category: "Infra",
     founder: "Ananya Mishra",
     founderTwitter: "ananyasec",
@@ -474,7 +507,8 @@ export const projects: Project[] = [
   {
     id: "32",
     name: "TokenVote",
-    description: "Governance-as-a-service for Base projects. Snapshot-style voting with onchain execution.",
+    description:
+      "Governance-as-a-service for Base projects. Snapshot-style voting with onchain execution.",
     category: "DAO",
     founder: "Kunal Verma",
     founderTwitter: "kunalvotes",
@@ -487,7 +521,8 @@ export const projects: Project[] = [
   {
     id: "33",
     name: "StreamPay",
-    description: "Real-time salary streaming on Base. Get paid every second instead of every month.",
+    description:
+      "Real-time salary streaming on Base. Get paid every second instead of every month.",
     category: "Payments",
     founder: "Nandini Roy",
     founderTwitter: "nandinistream",
@@ -500,7 +535,8 @@ export const projects: Project[] = [
   {
     id: "34",
     name: "AIAgent",
-    description: "Autonomous AI agents that trade, stake, and manage DeFi portfolios on Base for you.",
+    description:
+      "Autonomous AI agents that trade, stake, and manage DeFi portfolios on Base for you.",
     category: "AI",
     founder: "Akash Reddy",
     founderTwitter: "akashagent",
@@ -513,7 +549,8 @@ export const projects: Project[] = [
   {
     id: "35",
     name: "BaseENS",
-    description: "Affordable .base name service. Human-readable addresses for the Base ecosystem.",
+    description:
+      "Affordable .base name service. Human-readable addresses for the Base ecosystem.",
     category: "Identity",
     founder: "Tanvi Agarwal",
     founderTwitter: "tanvinames",
@@ -526,7 +563,8 @@ export const projects: Project[] = [
   {
     id: "36",
     name: "Predictor",
-    description: "Decentralized prediction market for Indian events — elections, cricket, weather — on Base.",
+    description:
+      "Decentralized prediction market for Indian events — elections, cricket, weather — on Base.",
     category: "DeFi",
     founder: "Vivek Choudhary",
     founderTwitter: "vivekpredicts",
@@ -539,7 +577,8 @@ export const projects: Project[] = [
   {
     id: "37",
     name: "CodeBounty",
-    description: "Open source bounty platform on Base. Fund issues, claim bounties, build in public.",
+    description:
+      "Open source bounty platform on Base. Fund issues, claim bounties, build in public.",
     category: "Infra",
     founder: "Ishaan Khanna",
     founderTwitter: "ishaanbounty",
@@ -552,7 +591,8 @@ export const projects: Project[] = [
   {
     id: "38",
     name: "MusicBase",
-    description: "Music NFT platform for Indian artists. Release tracks, sell limited editions on Base.",
+    description:
+      "Music NFT platform for Indian artists. Release tracks, sell limited editions on Base.",
     category: "NFT",
     founder: "Reema Kapoor",
     founderTwitter: "reemamusic",
@@ -565,7 +605,8 @@ export const projects: Project[] = [
   {
     id: "39",
     name: "InsureBase",
-    description: "Parametric insurance on Base. Auto-payouts for crop failure, flight delays, weather events.",
+    description:
+      "Parametric insurance on Base. Auto-payouts for crop failure, flight delays, weather events.",
     category: "DeFi",
     founder: "Ashwin Nair",
     founderTwitter: "ashwininsure",
@@ -578,7 +619,8 @@ export const projects: Project[] = [
   {
     id: "40",
     name: "SkillMint",
-    description: "Verifiable skill credentials as soulbound tokens on Base. Proof of expertise for Web3 jobs.",
+    description:
+      "Verifiable skill credentials as soulbound tokens on Base. Proof of expertise for Web3 jobs.",
     category: "Identity",
     founder: "Pallavi Gupta",
     founderTwitter: "pallaviskills",
@@ -591,7 +633,8 @@ export const projects: Project[] = [
   {
     id: "41",
     name: "BasePay",
-    description: "Merchant payment gateway for Base. Accept crypto payments with instant INR settlement.",
+    description:
+      "Merchant payment gateway for Base. Accept crypto payments with instant INR settlement.",
     category: "Payments",
     founder: "Rajesh Pillai",
     founderTwitter: "rajeshpay",
@@ -604,7 +647,8 @@ export const projects: Project[] = [
   {
     id: "42",
     name: "DataDAO",
-    description: "Decentralized data marketplace. Sell anonymized datasets and earn on Base.",
+    description:
+      "Decentralized data marketplace. Sell anonymized datasets and earn on Base.",
     category: "DAO",
     founder: "Neeraj Sharma",
     founderTwitter: "neerajdata",
@@ -617,7 +661,8 @@ export const projects: Project[] = [
   {
     id: "43",
     name: "RunnerGame",
-    description: "Endless runner game with NFT characters and daily leaderboard prizes on Base.",
+    description:
+      "Endless runner game with NFT characters and daily leaderboard prizes on Base.",
     category: "Gaming",
     founder: "Sanjay Kumar",
     founderTwitter: "sanjayplays",
@@ -630,7 +675,8 @@ export const projects: Project[] = [
   {
     id: "44",
     name: "ChatAgent",
-    description: "AI-powered customer support agent that lives on Base. Pay per conversation, no subscriptions.",
+    description:
+      "AI-powered customer support agent that lives on Base. Pay per conversation, no subscriptions.",
     category: "AI",
     founder: "Ayesha Khan",
     founderTwitter: "ayeshaai",
@@ -643,7 +689,8 @@ export const projects: Project[] = [
   {
     id: "45",
     name: "BaseSwap",
-    description: "AMM DEX native to Base with concentrated liquidity and low-fee swaps.",
+    description:
+      "AMM DEX native to Base with concentrated liquidity and low-fee swaps.",
     category: "DeFi",
     founder: "Vikrant Tiwari",
     founderTwitter: "vikrantswap",
@@ -656,7 +703,8 @@ export const projects: Project[] = [
   {
     id: "46",
     name: "ProofWork",
-    description: "Freelancer reputation protocol. Every completed gig builds your onchain work history on Base.",
+    description:
+      "Freelancer reputation protocol. Every completed gig builds your onchain work history on Base.",
     category: "Social",
     founder: "Shreya Rao",
     founderTwitter: "shreyaproof",
@@ -669,7 +717,8 @@ export const projects: Project[] = [
   {
     id: "47",
     name: "MemeFactory",
-    description: "One-click meme token launcher on Base. Fair launch with locked liquidity.",
+    description:
+      "One-click meme token launcher on Base. Fair launch with locked liquidity.",
     category: "DeFi",
     founder: "Rohit Agarwal",
     founderTwitter: "rohitmeme",
@@ -682,7 +731,8 @@ export const projects: Project[] = [
   {
     id: "48",
     name: "ChainDoc",
-    description: "Verifiable document storage on Base. Diplomas, contracts, and certificates as onchain proofs.",
+    description:
+      "Verifiable document storage on Base. Diplomas, contracts, and certificates as onchain proofs.",
     category: "Identity",
     founder: "Geeta Srinivasan",
     founderTwitter: "geetadocs",
@@ -695,7 +745,8 @@ export const projects: Project[] = [
   {
     id: "49",
     name: "TipJar",
-    description: "Micro-tipping for content creators on Base. Tip anyone with a link, no wallet needed.",
+    description:
+      "Micro-tipping for content creators on Base. Tip anyone with a link, no wallet needed.",
     category: "Payments",
     founder: "Amar Desai",
     founderTwitter: "amartips",
@@ -708,7 +759,8 @@ export const projects: Project[] = [
   {
     id: "50",
     name: "BuilderBoard",
-    description: "Public leaderboard tracking the most active builders on Base. Contributions, deploys, and commits.",
+    description:
+      "Public leaderboard tracking the most active builders on Base. Contributions, deploys, and commits.",
     category: "Infra",
     founder: "Shruti Menon",
     founderTwitter: "shrutibuilds",
@@ -721,7 +773,8 @@ export const projects: Project[] = [
   {
     id: "51",
     name: "OnchainKYC",
-    description: "Privacy-preserving KYC protocol using ZK proofs. Verify once, use everywhere on Base.",
+    description:
+      "Privacy-preserving KYC protocol using ZK proofs. Verify once, use everywhere on Base.",
     category: "Identity",
     founder: "Arnav Gupta",
     founderTwitter: "arnavzk",
@@ -734,7 +787,8 @@ export const projects: Project[] = [
   {
     id: "52",
     name: "BaseFi",
-    description: "All-in-one DeFi dashboard for Base. Track positions, auto-harvest yields, and rebalance portfolios.",
+    description:
+      "All-in-one DeFi dashboard for Base. Track positions, auto-harvest yields, and rebalance portfolios.",
     category: "DeFi",
     founder: "Saurabh Jain",
     founderTwitter: "saurabhdefi",
@@ -747,7 +801,8 @@ export const projects: Project[] = [
   {
     id: "53",
     name: "ChainVote",
-    description: "Transparent polling and elections on Base. Gasless voting with Sybil resistance via World ID.",
+    description:
+      "Transparent polling and elections on Base. Gasless voting with Sybil resistance via World ID.",
     category: "DAO",
     founder: "Prateek Srivastava",
     founderTwitter: "prateekdao",
@@ -760,7 +815,8 @@ export const projects: Project[] = [
   {
     id: "54",
     name: "NFTGallery",
-    description: "Curated virtual gallery for onchain art. 3D exhibition spaces with social viewing on Base.",
+    description:
+      "Curated virtual gallery for onchain art. 3D exhibition spaces with social viewing on Base.",
     category: "NFT",
     founder: "Ritika Bansal",
     founderTwitter: "ritikanft",
@@ -773,7 +829,8 @@ export const projects: Project[] = [
   {
     id: "55",
     name: "PaySplit",
-    description: "Group expense splitting on Base. Split bills with friends, settle instantly in USDC.",
+    description:
+      "Group expense splitting on Base. Split bills with friends, settle instantly in USDC.",
     category: "Payments",
     founder: "Mohit Tiwari",
     founderTwitter: "mohitpays",
@@ -786,7 +843,8 @@ export const projects: Project[] = [
   {
     id: "56",
     name: "AgentSwarm",
-    description: "Multi-agent AI framework on Base. Deploy swarms of AI agents that collaborate onchain.",
+    description:
+      "Multi-agent AI framework on Base. Deploy swarms of AI agents that collaborate onchain.",
     category: "AI",
     founder: "Divyansh Mehta",
     founderTwitter: "divyanshagent",
@@ -799,7 +857,8 @@ export const projects: Project[] = [
   {
     id: "57",
     name: "BaseStream",
-    description: "Decentralized live streaming with token-gated access and real-time tipping on Base.",
+    description:
+      "Decentralized live streaming with token-gated access and real-time tipping on Base.",
     category: "Social",
     founder: "Anjali Verma",
     founderTwitter: "anjalistream",
@@ -812,7 +871,8 @@ export const projects: Project[] = [
   {
     id: "58",
     name: "StackBase",
-    description: "DCA and dollar-cost averaging protocol for Base. Auto-buy any token on a schedule.",
+    description:
+      "DCA and dollar-cost averaging protocol for Base. Auto-buy any token on a schedule.",
     category: "DeFi",
     founder: "Kartikey Sharma",
     founderTwitter: "kartikeydefi",
@@ -825,7 +885,8 @@ export const projects: Project[] = [
   {
     id: "59",
     name: "QuestDrop",
-    description: "Gamified airdrop distribution. Complete onchain quests to earn token drops on Base.",
+    description:
+      "Gamified airdrop distribution. Complete onchain quests to earn token drops on Base.",
     category: "Gaming",
     founder: "Raghav Mittal",
     founderTwitter: "raghavquest",
@@ -838,7 +899,8 @@ export const projects: Project[] = [
   {
     id: "60",
     name: "BaseRelay",
-    description: "Gasless transaction relay network for Base dApps. Sponsor gas for your users seamlessly.",
+    description:
+      "Gasless transaction relay network for Base dApps. Sponsor gas for your users seamlessly.",
     category: "Infra",
     founder: "Nitin Rawat",
     founderTwitter: "nitinrelay",
@@ -851,7 +913,8 @@ export const projects: Project[] = [
   {
     id: "61",
     name: "OnchainResume",
-    description: "Verifiable professional credentials on Base. Your work history as soulbound attestations.",
+    description:
+      "Verifiable professional credentials on Base. Your work history as soulbound attestations.",
     category: "Identity",
     founder: "Megha Sinha",
     founderTwitter: "meghacreds",
@@ -864,7 +927,8 @@ export const projects: Project[] = [
   {
     id: "62",
     name: "TokenChat",
-    description: "Token-gated community messaging on Base. Hold tokens to access exclusive group chats.",
+    description:
+      "Token-gated community messaging on Base. Hold tokens to access exclusive group chats.",
     category: "Social",
     founder: "Aryan Khanna",
     founderTwitter: "aryanchat",
@@ -877,7 +941,8 @@ export const projects: Project[] = [
   {
     id: "63",
     name: "BaseBets",
-    description: "Peer-to-peer betting protocol on Base. Create custom bets, invite friends, settle trustlessly.",
+    description:
+      "Peer-to-peer betting protocol on Base. Create custom bets, invite friends, settle trustlessly.",
     category: "Gaming",
     founder: "Siddharth Goyal",
     founderTwitter: "sidbets",
@@ -890,7 +955,8 @@ export const projects: Project[] = [
   {
     id: "64",
     name: "MintPress",
-    description: "No-code NFT collection deployer for Base. Upload art, set rules, launch in minutes.",
+    description:
+      "No-code NFT collection deployer for Base. Upload art, set rules, launch in minutes.",
     category: "NFT",
     founder: "Tara Saxena",
     founderTwitter: "taramints",
@@ -903,7 +969,8 @@ export const projects: Project[] = [
   {
     id: "65",
     name: "PromptPay",
-    description: "Pay AI agents with crypto on Base. Micropayments for API calls, prompts, and compute.",
+    description:
+      "Pay AI agents with crypto on Base. Micropayments for API calls, prompts, and compute.",
     category: "AI",
     founder: "Yash Agarwal",
     founderTwitter: "yashprompt",
