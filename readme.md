@@ -1,6 +1,6 @@
 # Awesome Base India [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-**Awesome Base India** is a curated list of Indian projects, dApps, and initiatives building on Base - an Ethereum L2 incubated by Coinbase.
+**Awesome Base India** is a curated list of Indian projects, dApps, and initiatives building on Base — an Ethereum L2 incubated by Coinbase.
 
 ## Base Official Links
 
@@ -38,19 +38,42 @@
 
 *Indian DeFi protocols, DEXs, and financial applications on Base*
 
-<!-- Add Indian DeFi projects here -->
+- [Hook-Tuah](https://hooktuah.vercel.app/) — Swap on that thang
+- [Tide](https://github.com/mutelimoff/Tide) — Smarter tech for everyday life — built for India.
 
 ### Gaming
 
 *Indian gaming projects and blockchain games on Base*
 
-<!-- Add Indian gaming projects here -->
+- [POP - Proof of Purchase](https://pop-proof-of-purchase.vercel.app/) — Proof, Rewards, and Warranty — Onchain, Forever.
 
 ### Infrastructure
 
 *Indian infrastructure providers, developer tools, and platforms on Base*
 
-<!-- Add Indian infrastructure projects here -->
+- [Alpha-Lens Mini Dapp](https://alpha-lens.vercel.app/) — Stake Your Alpha. Track Your Cred. Win Onchain.
+- [Base Carbon Canopy](https://base-carbon-canopy-2ajn.vercel.app/) — Decentralized Stablecoin Carbon Impact
+- [based-hackamatic](https://github.com/Hackamatic/based-hackamatic/tree/main) — Your AI-Powered Hackathon Project Generator
+- [Catoff Esports](https://esports.catoff.xyz) — Esports prediction market w/ AI agent odds
+- [CelestialRe](https://github.com/zaharmaks/CelestialRe) — A side project gone too far. Now it's changing India
+- [Clip](https://theclip.fun/) — Tokenized Reddit
+- [Creatorbase](https://app.creatorbase.pro) — Creators create, Brands benefit. Auto,onchain.
+- [DBeats](https://dbeats-base.vercel.app) — Own the Beat, Collect the Vibe
+- [Elqen](https://github.com/sh1vananda/elqen) — Secure, Stablecoin On-Chain Rotation Fund System
+- [FIRXAuth](https://github.com/gokkull-15/advaya.git) — Secure, Transparent, Trusted: FIR Authentication
+- [gitDontIgnore](https://github.com/adrieljoshua/gitDontIgnoreAI) — An onchain AI Powered Project Manager
+- [govAIrn](https://www.govAIrn.com) — AI layer that powers intelligent DAO governance
+- [Indie_Verse](https://signify-dusky.vercel.app/) — Empowering Indie Artists with Web3 & Fair Deals
+- [Lighthouse Onchain Storage](https://lighthouse.storage/) — Yield powered onchain storage
+- [momnt](https://app.momnt.fun) — capture momnts, make $$
+- [NEBULA](https://nebula-five-alpha.vercel.app/) — Your code tells a story. We just make sure everyone understands it.
+- [NOICE](https://noice.so) — noice turns every interaction into income
+- [Not Your Type](https://farcaster.xyz/miniapps/w6xJSU6RL-Cf/not-your-type) — Bet Against the Crowd, Win with Base.
+- [Pepper](https://github.com/Dayitva/Pepper-v4-hook) — Swap confidentially on Uniswap v4
+- [The Oasis](https://github.com/gyanshupathak/Oasis) — Changing the Cinema Industry
+- [Valut](https://valut.tech) — Use Crypto to pay with UPI anywhere in India
+- [YieldCraft](https://YieldCraft.vercel.app/) — Built for the curious, by the obsessed.
+- [ZK Carbon](https://base-india-w789-git-main-aaryans-projects-26cf2221.vercel.app/) — Trustless Carbon. Verified by Math
 
 ### NFTs
 
