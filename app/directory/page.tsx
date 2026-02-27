@@ -1,15 +1,15 @@
 import { BaseFooter } from "@/components/base-footer";
 import { BaseHeader } from "@/components/base-header";
-import { DirectoryContent } from "@/components/directory-content";
+import { ProductGrid } from "@/components/product-grid";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = createMetadata({
-  title: "Founders Directory",
+  title: "Project Directory",
   description:
-    "Connect with Indian founders building on Base. Join the Base India Inner Circle.",
+    "Browse all projects built on Base by Indian builders. Full curated directory with filtering and search.",
   path: "/directory",
 });
 
@@ -19,7 +19,7 @@ export default function DirectoryPage(): ReactNode {
       <BaseHeader />
       <ThemeSwitch />
       <main id="main-content" className="flex-1 bg-background">
-        <DirectoryContent />
+        <ProductGrid />
       </main>
       <BaseFooter />
     </>
