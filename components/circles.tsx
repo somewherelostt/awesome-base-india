@@ -207,7 +207,7 @@ const Circles: React.FC<CirclesProps> = ({
         })}
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes circles-container-fade-in {
           0% {
             opacity: 0;
