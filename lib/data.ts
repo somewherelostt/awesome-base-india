@@ -31,6 +31,10 @@ export interface Project {
   github?: string;
   /** Project Farcaster / miniapp link */
   farcaster?: string;
+  /** YouTube video URL (demo, pitch, etc.) */
+  youtube?: string;
+  /** Other important links (app, demo, website) from Devfolio */
+  links?: string[];
   /** Prize names won (e.g. ["First Place"]). Used to surface winners when filtering by batch. */
   prizes?: string[];
 }

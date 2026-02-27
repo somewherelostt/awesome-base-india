@@ -5,7 +5,7 @@ import { getProjectBySlugOrId, projects } from "@/lib/data";
 import { getFounderByUsername } from "@/lib/founder";
 import { createMetadata } from "@/lib/metadata";
 import { getProjectMdx } from "@/lib/project-mdx";
-import { Github, ExternalLink, Trophy, Link2 } from "lucide-react";
+import { Github, ExternalLink, Trophy, Link2, Youtube, Globe } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -37,12 +37,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 const DEFAULT_PLACEHOLDER = "Add a longer description, milestones, or team story here.";
 
+function labelForUrl(url: string): string {
+  const lower = url.toLowerCase();
+  if (lower.includes("vercel.app") || lower.includes("netlify.app") || lower.includes("replit.app")) return "Try the app";
+  if (lower.includes(".so") || lower.includes(".app") || lower.includes(".fun") || lower.includes(".xyz")) return "Website";
+  return "Link";
+}
+
 function ProjectLinks({
   project,
 }: {
-  project: { github?: string; farcaster?: string; url: string };
+  project: { github?: string; farcaster?: string; youtube?: string; links?: string[]; url: string };
 }) {
   const links: { href: string; label: string; icon: React.ReactNode; primary?: boolean }[] = [];
+  const hasPrimary = !!project.farcaster || (project.links && project.links.length > 0);
+
   if (project.farcaster) {
     links.push({
       href: project.farcaster,
@@ -51,14 +60,30 @@ function ProjectLinks({
       primary: true,
     });
   }
+  if (project.youtube) {
+    links.push({
+      href: project.youtube,
+      label: "Video",
+      icon: <Youtube className="h-4 w-4" />,
+      primary: !project.farcaster && hasPrimary === false,
+    });
+  }
   if (project.github) {
     links.push({
       href: project.github,
       label: "GitHub",
       icon: <Github className="h-4 w-4" />,
-      primary: !project.farcaster,
+      primary: !hasPrimary && !project.youtube,
     });
   }
+  (project.links ?? []).forEach((href, i) => {
+    links.push({
+      href,
+      label: labelForUrl(href),
+      icon: <Globe className="h-4 w-4" />,
+      primary: !project.farcaster && i === 0 && !project.youtube && !project.github,
+    });
+  });
   links.push({
     href: project.url,
     label: "View on Devfolio",

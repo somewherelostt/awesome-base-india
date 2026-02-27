@@ -135,21 +135,32 @@ def main():
         project_url = f"{base_url}/{slug}" if slug else base_url
         logo = (src.get("favicon") or src.get("cover_img") or "").strip()
 
-        # Parse links for GitHub and Farcaster
+        # Parse all project links: GitHub, Farcaster, YouTube, and other (app/demo/website)
         links_str = (src.get("links") or "").strip()
         github_url = ""
         farcaster_url = ""
+        youtube_url = ""
+        other_links = []
         if links_str:
             for part in links_str.replace("，", ",").split(","):
                 part = part.strip()
-                if not part:
+                if not part or not part.startswith("http"):
                     continue
                 lower = part.lower()
                 if "github.com" in lower and not github_url:
                     github_url = part
-                if "farcaster.xyz" in lower or "warpcast.com" in lower or "/miniapps/" in lower:
+                elif "farcaster.xyz" in lower or "warpcast.com" in lower:
                     if not farcaster_url:
                         farcaster_url = part
+                elif "youtu.be" in lower or "youtube.com" in lower:
+                    if not youtube_url:
+                        youtube_url = part
+                else:
+                    # App, demo, website, docs, etc. (skip blockscan, drive, canva, etc. for "main" links)
+                    skip_domains = ("basescan.org", "blockscout.com", "drive.google.com", "canva.com", "1drv.ms", "linktr.ee", "medium.com", "docs.google.com", "figma.com")
+                    if not any(d in lower for d in skip_domains):
+                        other_links.append(part)
+        other_links = other_links[:5]
 
         # Do NOT use API "prizes" for "prizes won" — the search API returns prize definitions
         # for tracks the project applied to (e.g. "First Place" for Consumer track), not actual
@@ -178,6 +189,10 @@ def main():
             out["github"] = github_url
         if farcaster_url:
             out["farcaster"] = farcaster_url
+        if youtube_url:
+            out["youtube"] = youtube_url
+        if other_links:
+            out["links"] = other_links
         if prize_names:
             out["prizes"] = prize_names
         if description_full:
