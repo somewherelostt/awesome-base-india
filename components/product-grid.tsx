@@ -1,103 +1,169 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const colorMap: Record<string, string> = {
-    AI: "bg-orange-500/10 text-orange-400 border-orange-500/20",
-    Consumer: "bg-pink-500/10 text-pink-400 border-pink-500/20",
-    DeFi: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    Gaming: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-    Infra: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    "Mini-apps": "bg-violet-500/10 text-violet-400 border-violet-500/20",
-    NFT: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    DAO: "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/20",
-    Identity: "bg-sky-500/10 text-sky-400 border-sky-500/20",
-    Social: "bg-green-500/10 text-green-400 border-green-500/20",
-    Payments: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+const AUTO_SCROLL_SPEED = -18;
+const CAROUSEL_REPEAT_COUNT = 5;
+const CARD_HEIGHTS = ["h-[360px]", "h-[400px]", "h-[380px]", "h-[420px]"];
+
+function getCategoryAccent(category: string): { border: string; tint: string; text: string } {
+  const palette: Record<string, { border: string; tint: string; text: string }> = {
+    AI: { border: "#FF6B35", tint: "rgba(255,107,53,0.45)", text: "text-orange-300" },
+    Consumer: { border: "#EC4899", tint: "rgba(236,72,153,0.45)", text: "text-pink-300" },
+    DeFi: { border: "#0052FF", tint: "rgba(0,82,255,0.48)", text: "text-blue-300" },
+    Gaming: { border: "#F59E0B", tint: "rgba(245,158,11,0.45)", text: "text-amber-300" },
+    Infra: { border: "#06B6D4", tint: "rgba(6,182,212,0.45)", text: "text-cyan-300" },
+    "Mini-apps": { border: "#8B5CF6", tint: "rgba(139,92,246,0.45)", text: "text-violet-300" },
+    NFT: { border: "#A855F7", tint: "rgba(168,85,247,0.45)", text: "text-purple-300" },
+    DAO: { border: "#D946EF", tint: "rgba(217,70,239,0.45)", text: "text-fuchsia-300" },
+    Identity: { border: "#0EA5E9", tint: "rgba(14,165,233,0.45)", text: "text-sky-300" },
+    Social: { border: "#10B981", tint: "rgba(16,185,129,0.45)", text: "text-green-300" },
+    Payments: { border: "#14B8A6", tint: "rgba(20,184,166,0.45)", text: "text-emerald-300" },
   };
 
-  const badgeClass = colorMap[project.category] || "bg-accent/10 text-accent border-accent/20";
+  return palette[category] || { border: "#0052FF", tint: "rgba(0,82,255,0.45)", text: "text-blue-300" };
+}
+
+function ProjectCarousel({ items }: { items: Project[] }) {
+  const [isDragging, setIsDragging] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [oneSetWidth, setOneSetWidth] = useState(0);
+  const baseX = useMotionValue(0);
+  const scrollVelocity = useRef(AUTO_SCROLL_SPEED);
+
+  const repeatedItems = Array.from({ length: CAROUSEL_REPEAT_COUNT }, (_, repeatIndex) =>
+    items.map((project, index) => ({
+      project,
+      key: `${project.id}-${repeatIndex}`,
+      index,
+    }))
+  ).flat();
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? 280 : 320;
+      const gap = 20;
+      const width = (cardWidth + gap) * items.length;
+      setOneSetWidth(width);
+      baseX.set(-width);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [items.length, baseX]);
+
+  useAnimationFrame((_, delta) => {
+    if (!oneSetWidth || isDragging) return;
+
+    scrollVelocity.current = scrollVelocity.current * 0.9 + AUTO_SCROLL_SPEED * 0.1;
+    const moveBy = scrollVelocity.current * (delta / 1000);
+    baseX.set(baseX.get() + moveBy);
+
+    const currentX = baseX.get();
+    if (currentX <= -oneSetWidth * 2) {
+      baseX.set(currentX + oneSetWidth);
+    } else if (currentX > 0) {
+      baseX.set(currentX - oneSetWidth);
+    }
+  });
 
   return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex flex-col rounded-2xl border border-border bg-background p-6 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -12, transition: { duration: 0.2 } }}
-      transition={{ duration: 0.4, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      layout
-    >
-      <div className="mb-4 flex items-start justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-lg font-bold text-accent">
-          {project.logo}
-        </div>
-        <span className={`rounded-full border px-3 py-1 text-xs font-medium ${badgeClass}`}>
-          {project.category}
-        </span>
-      </div>
+    <div className="relative -mx-4 overflow-hidden py-8 sm:-mx-6 lg:-mx-8">
+      <motion.div
+        className="flex items-end gap-5 px-4 sm:px-6 lg:px-8 cursor-grab active:cursor-grabbing"
+        style={{ x: baseX }}
+        drag="x"
+        onDragStart={() => setIsDragging(true)}
+        onDragEnd={(_, info) => {
+          setIsDragging(false);
+          scrollVelocity.current = info.velocity.x;
+        }}
+        dragElastic={0.05}
+        dragMomentum={false}
+      >
+        {repeatedItems.map(({ project, key, index }) => {
+          const accent = getCategoryAccent(project.category);
+          const isHovered = hoveredCard === key;
+          const heightClass = CARD_HEIGHTS[index % CARD_HEIGHTS.length];
 
-      <h3 className="mb-2 text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
-        {project.name}
-      </h3>
-
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-        {project.description}
-      </p>
-
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="flex items-center justify-between border-t border-border pt-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground">
-            {project.founder.split(" ").map((n) => n[0]).join("")}
-          </div>
-          <span
-            role="link"
-            tabIndex={0}
-            className="cursor-pointer text-xs text-muted-foreground hover:text-accent transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+          return (
+            <motion.a
+              key={key}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative shrink-0 w-[280px] sm:w-[320px] ${heightClass} overflow-hidden rounded-2xl border text-white`}
+              onMouseEnter={() => setHoveredCard(key)}
+              onMouseLeave={() => setHoveredCard(null)}
+              animate={
+                isHovered
+                  ? { scale: 1.04, rotateX: -14, y: -18, zIndex: 50 }
+                  : { scale: 1, rotateX: 0, y: 0, zIndex: 1 }
               }
-            }}
-          >
-            @{project.founderTwitter}
-          </span>
-        </div>
-        <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
-          {project.batch}
-        </span>
-      </div>
+              transition={{
+                duration: 0.28,
+                ease: "backOut",
+                zIndex: { delay: isHovered ? 0 : 0.35 },
+              }}
+              style={{
+                borderColor: `${accent.border}70`,
+                transformPerspective: 1000,
+                boxShadow: isHovered ? `0 25px 80px ${accent.tint}` : "none",
+                background: `
+                  linear-gradient(180deg, rgba(10,10,10,0.10) 0%, rgba(10,10,10,0.72) 58%, rgba(10,10,10,0.96) 100%),
+                  radial-gradient(circle at 72% 10%, ${accent.tint} 0%, rgba(0,0,0,0) 52%),
+                  #070707
+                `,
+              }}
+            >
+              <div className="relative flex h-full flex-col p-5">
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
+                    {project.logo}
+                  </div>
+                  <span className={`rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium ${accent.text}`}>
+                    {project.category}
+                  </span>
+                </div>
 
-      <div className="pointer-events-none absolute right-4 top-4 opacity-0 transition-opacity group-hover:opacity-100">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-          <path d="M7 17L17 7M17 7H7M17 7V17" />
-        </svg>
-      </div>
-    </motion.a>
+                <div className="mt-auto rounded-xl border border-white/10 bg-black/45 p-4 backdrop-blur-sm">
+                  <h3 className="truncate text-lg font-semibold text-white">{project.name}</h3>
+                  <p className="mt-1 line-clamp-2 text-sm text-white/70">{project.description}</p>
+
+                  <div className="mt-3 flex items-center justify-between text-xs text-white/60">
+                    <span
+                      role="link"
+                      tabIndex={0}
+                      className="cursor-pointer hover:text-white"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+                        }
+                      }}
+                    >
+                      @{project.founderTwitter}
+                    </span>
+                    <span className="truncate pl-3">{project.batch}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.a>
+          );
+        })}
+      </motion.div>
+    </div>
   );
 }
 
@@ -315,15 +381,8 @@ export function ProductGrid() {
 
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 ? (
-            <motion.div
-              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-              layout
-            >
-              <AnimatePresence mode="popLayout">
-                {filtered.map((project, i) => (
-                  <ProjectCard key={project.id} project={project} index={i} />
-                ))}
-              </AnimatePresence>
+            <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <ProjectCarousel items={filtered} />
             </motion.div>
           ) : (
             <motion.div
