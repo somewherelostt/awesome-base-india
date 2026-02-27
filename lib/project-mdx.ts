@@ -26,6 +26,31 @@ export interface ProjectMdx {
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "projects");
 
+let _allFrontmatterCache: Map<string, ProjectMdxFrontmatter> | null = null;
+
+/** Batch-read all project MDX frontmatter once. Cached for the process. Use for lists/grids. */
+export function getAllProjectMdxFrontmatterMap(): Map<string, ProjectMdxFrontmatter> {
+  if (_allFrontmatterCache) return _allFrontmatterCache;
+  const map = new Map<string, ProjectMdxFrontmatter>();
+  if (!existsSync(CONTENT_DIR)) {
+    _allFrontmatterCache = map;
+    return map;
+  }
+  const files = readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"));
+  for (const file of files) {
+    const slug = file.replace(/\.mdx$/, "");
+    try {
+      const raw = readFileSync(path.join(CONTENT_DIR, file), "utf-8");
+      const { data } = matter(raw);
+      map.set(slug, data as ProjectMdxFrontmatter);
+    } catch {
+      // skip invalid files
+    }
+  }
+  _allFrontmatterCache = map;
+  return map;
+}
+
 export function getProjectMdx(slugOrId: string): ProjectMdx | null {
   const filePath = path.join(CONTENT_DIR, `${slugOrId}.mdx`);
   if (!existsSync(filePath)) return null;
@@ -39,8 +64,5 @@ export function getProjectMdx(slugOrId: string): ProjectMdx | null {
 }
 
 export function getAllProjectSlugsFromMdx(): string[] {
-  if (!existsSync(CONTENT_DIR)) return [];
-  return readdirSync(CONTENT_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return Array.from(getAllProjectMdxFrontmatterMap().keys());
 }

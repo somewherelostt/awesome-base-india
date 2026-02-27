@@ -30,6 +30,31 @@ export interface FounderProfile {
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "founders");
 
+let _allFounderFrontmatterCache: Map<string, FounderProfileFrontmatter> | null = null;
+
+/** Batch-read all founder MDX frontmatter once. Cached for the process. Use for lists (e.g. /founders). */
+export function getAllFounderFrontmatterMap(): Map<string, FounderProfileFrontmatter> {
+  if (_allFounderFrontmatterCache) return _allFounderFrontmatterCache;
+  const map = new Map<string, FounderProfileFrontmatter>();
+  if (!existsSync(CONTENT_DIR)) {
+    _allFounderFrontmatterCache = map;
+    return map;
+  }
+  const files = readdirSync(CONTENT_DIR).filter((f: string) => f.endsWith(".mdx"));
+  for (const file of files) {
+    const username = file.replace(/\.mdx$/, "");
+    try {
+      const raw = readFileSync(path.join(CONTENT_DIR, file), "utf-8");
+      const { data } = matter(raw);
+      map.set(username, data as FounderProfileFrontmatter);
+    } catch {
+      // skip invalid files
+    }
+  }
+  _allFounderFrontmatterCache = map;
+  return map;
+}
+
 export function getFounderByUsername(username: string): FounderProfile | null {
   const filePath = path.join(CONTENT_DIR, `${username}.mdx`);
   if (!existsSync(filePath)) return null;
@@ -43,10 +68,7 @@ export function getFounderByUsername(username: string): FounderProfile | null {
 }
 
 export function getAllFounderUsernames(): string[] {
-  if (!existsSync(CONTENT_DIR)) return [];
-  return readdirSync(CONTENT_DIR)
-    .filter((f: string) => f.endsWith(".mdx"))
-    .map((f: string) => f.replace(/\.mdx$/, ""));
+  return Array.from(getAllFounderFrontmatterMap().keys());
 }
 
 /** Flat founder record for the /founders pals view (merged from MDX + projects). */
@@ -60,7 +82,7 @@ export interface FounderForPals {
   tags: string[];
 }
 
-/** Get all founders for the pals listing + map. Merges MDX profiles with project data. */
+/** Get all founders for the pals listing + map. Merges MDX profiles with project data. Uses a single batch read of founder MDX. */
 export function getAllFoundersForPals(projects: {
   founderTwitter?: string;
   founder?: string;
@@ -78,16 +100,16 @@ export function getAllFoundersForPals(projects: {
     });
   });
   getAllFounderUsernames().forEach((u) => usernames.add(u));
+  const frontmatterByUsername = getAllFounderFrontmatterMap();
   const out: FounderForPals[] = [];
   for (const username of usernames) {
-    const profile = getFounderByUsername(username);
+    const f = frontmatterByUsername.get(username);
     const proj = projects.find(
       (p) =>
         (p.founderTwitter || "").toLowerCase() === username.toLowerCase() ||
         (p.founders || []).some((f) => (f.twitter || "").toLowerCase() === username.toLowerCase())
     );
-    if (profile) {
-      const f = profile.frontmatter;
+    if (f) {
       out.push({
         username,
         name: f.name || username,
