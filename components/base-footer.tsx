@@ -112,7 +112,7 @@ export function BaseFooter(): ReactNode {
                 </p>
               </div>
               <a
-                href="https://x.com/BaseIndiaCircle"
+                href="https://x.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-lg font-medium underline underline-offset-4 transition-opacity hover:opacity-70"

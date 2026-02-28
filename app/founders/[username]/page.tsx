@@ -5,7 +5,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import { getAllFounderUsernames, getFounderByUsername } from "@/lib/founder";
 import { projects } from "@/lib/data";
 import { createMetadata } from "@/lib/metadata";
-import { Github, MapPin, Trophy, Briefcase } from "lucide-react";
+import { Github, MapPin, Trophy, Briefcase, DollarSign, BadgeCheck, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -103,34 +103,27 @@ function getSimilarFounders(currentUsername: string, tags: string[] = [], limit 
   return scored.slice(0, limit);
 }
 
-/** Tags to show: prefer project tags when founder has projects; else MDX tags deduped and filtered. */
+/** Tags to show: merge founder's interests (MDX tags) with project tags, dedupe, and cap. */
 function getDisplayTags(
   mdxTags: string[] | undefined,
   projectTags: string[]
 ): string[] {
-  if (projectTags.length > 0) {
-    const seen = new Set<string>();
-    return projectTags
-      .map((t) => (typeof t === "string" ? t : String(t ?? "")))
-      .filter((t) => {
-        const key = t.trim().toLowerCase();
-        if (!key || seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      })
-      .slice(0, 14);
-  }
-  const raw = (mdxTags ?? []).map((t) => String(t ?? "").trim()).filter(Boolean);
   const stopWords = new Set(["the", "and", "for", "with", "have", "are", "but", "not", "you", "all", "can", "had", "our", "out", "get", "has", "how", "its", "may", "now", "old", "see", "way", "who", "did", "got", "let", "put", "say", "she", "too", "use", "with"]);
   const seen = new Set<string>();
-  const filtered = raw.filter((t) => {
-    const key = t.toLowerCase();
-    if (seen.has(key) || t.length < 2) return false;
-    if (t.length <= 3 && stopWords.has(key)) return false;
+  const out: string[] = [];
+  const add = (t: string) => {
+    const s = (typeof t === "string" ? t : String(t ?? "")).trim();
+    if (!s) return;
+    const key = s.toLowerCase();
+    if (seen.has(key)) return;
+    if (s.length < 2) return;
+    if (s.length <= 3 && stopWords.has(key)) return;
     seen.add(key);
-    return true;
-  });
-  return filtered.slice(0, 12);
+    out.push(s);
+  };
+  (mdxTags ?? []).forEach(add);
+  projectTags.forEach(add);
+  return out.slice(0, 16);
 }
 
 export default async function FounderPage({ params }: PageProps) {
@@ -157,13 +150,23 @@ export default async function FounderPage({ params }: PageProps) {
     onchain_creds_claimed: 0,
     tags: projectMatch!.tags?.slice(0, 8) ?? [],
   };
-  // Derive stats from actual project data (founder can have multiple projects / batches)
+  // Prefer frontmatter stats when set (e.g. from founder submissions); else derive from project data
   const projectsBuilt = allProjects.length;
   const hackathonsFromData = new Set(allProjects.map((m) => m.project.batch)).size;
   const f: typeof baseF = {
     ...baseF,
-    projects_built: projectsBuilt > 0 ? projectsBuilt : (baseF.projects_built ?? 0),
-    hackathons_attended: hackathonsFromData > 0 ? hackathonsFromData : (baseF.hackathons_attended ?? 0),
+    projects_built:
+      baseF.projects_built != null && baseF.projects_built > 0
+        ? baseF.projects_built
+        : projectsBuilt > 0
+          ? projectsBuilt
+          : baseF.projects_built ?? 0,
+    hackathons_attended:
+      baseF.hackathons_attended != null && baseF.hackathons_attended > 0
+        ? baseF.hackathons_attended
+        : hackathonsFromData > 0
+          ? hackathonsFromData
+          : baseF.hackathons_attended ?? 0,
   };
   // Use profile_image from MDX/Devfolio when valid URL; else fall back to Twitter avatar so DP always shows
   const profileImageUrl =
@@ -174,9 +177,11 @@ export default async function FounderPage({ params }: PageProps) {
     founder?.content ??
     `## About\n\nBuilder from India.\n\n## Projects\n\n[${projectMatch!.name}](${projectMatch!.url})`;
   // Remove placeholder and empty "What I'm Building" section so the page stays clean
+  // Remove ## Interests (and similar) so tags only show in Interests & skills pills
   const content = rawContent
     .replace(/\*?\s*Add your focus areas and current projects here\.\s*\*?/gi, "")
     .replace(/\n## What I'm Building\s*\n(?=\s*##|$)/gi, "\n")
+    .replace(/\n##\s*Interests\s*[\s\S]*?(?=\n##|$)/gi, "\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
   const similar = getSimilarFounders(username, f.tags || []);
@@ -250,6 +255,29 @@ export default async function FounderPage({ params }: PageProps) {
                   <span className="text-sm text-muted-foreground">Hackathons</span>
                   <span className="text-lg font-semibold text-foreground">{f.hackathons_attended ?? 0}</span>
                 </div>
+                {(f.prizes_won ?? 0) > 0 && (
+                  <div className="flex items-center gap-2">
+                    <Trophy className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">Prizes won</span>
+                    <span className="text-lg font-semibold text-foreground">{f.prizes_won}</span>
+                  </div>
+                )}
+                {(f.prize_winnings_amount ?? 0) > 0 && (
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">Prize winnings</span>
+                    <span className="text-lg font-semibold text-foreground">
+                      ${Number(f.prize_winnings_amount).toLocaleString()}
+                    </span>
+                  </div>
+                )}
+                {(f.onchain_creds_claimed ?? 0) > 0 && (
+                  <div className="flex items-center gap-2">
+                    <BadgeCheck className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">Onchain creds</span>
+                    <span className="text-lg font-semibold text-foreground">{f.onchain_creds_claimed}</span>
+                  </div>
+                )}
               </div>
             </div>
           </header>
@@ -257,10 +285,9 @@ export default async function FounderPage({ params }: PageProps) {
           {/* About (MDX body) */}
           {content.replace(/#+\s*/g, "").trim().length > 0 && (
             <section className="mb-10 rounded-2xl border border-border bg-card p-6 sm:p-8">
-              <h2 className="text-lg font-semibold text-foreground sm:text-xl">About</h2>
               <div
                 className={[
-                  "founder-prose mt-4 prose prose-base max-w-none dark:prose-invert",
+                  "founder-prose prose prose-base max-w-none dark:prose-invert",
                   "prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4",
                   "prose-headings:text-foreground prose-headings:font-semibold prose-headings:mt-6 prose-headings:mb-3",
                   "prose-h2:text-base prose-h3:text-sm",
@@ -303,15 +330,20 @@ export default async function FounderPage({ params }: PageProps) {
             )}
           </section>
 
-          {/* Tags */}
+          {/* Interests & skills */}
           {displayTags.length > 0 && (
-            <section className="mb-10 rounded-2xl border border-border bg-card p-6 sm:p-8">
-              <h2 className="text-lg font-semibold text-foreground sm:text-xl">Interests & skills</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
+            <section className="mb-10 overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8">
+              <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground sm:text-xl">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <Sparkles className="h-4 w-4" />
+                </span>
+                Interests & skills
+              </h2>
+              <div className="mt-5 flex flex-wrap gap-2.5">
                 {displayTags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-muted/80 px-3 py-1.5 text-sm font-medium text-foreground"
+                    className="inline-flex items-center rounded-xl border border-border/80 bg-muted/40 px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:scale-[1.02] hover:border-accent/50 hover:bg-accent/10 hover:text-accent hover:shadow-md"
                   >
                     {tag}
                   </span>

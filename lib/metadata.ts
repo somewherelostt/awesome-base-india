@@ -4,13 +4,13 @@ export const siteConfig = {
   name: "Base India Circle",
   description:
     "The ultimate directory of products and projects building on Base from India. Discover ecosystem projects, connect with founders, and submit your own.",
-  url: "https://baseindiacircle.xyz",
+  url: "https://awesome-base-india.vercel.app",
   ogImage: "/og-image.png",
   creator: "@BaseIndiaCircle",
   authors: [
     {
       name: "Base India Circle",
-      url: "https://baseindiacircle.xyz",
+      url: "https://awesome-base-india.vercel.app",
     },
   ],
   keywords: [

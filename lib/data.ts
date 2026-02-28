@@ -31,6 +31,8 @@ export interface Project {
   source?: string;
   /** Project GitHub repo or link */
   github?: string;
+  /** Project Twitter/X profile URL */
+  twitter?: string;
   /** Project Farcaster / miniapp link */
   farcaster?: string;
   /** YouTube video URL (demo, pitch, etc.) */
@@ -103,6 +105,7 @@ export const categorySubFilters: Record<string, string[]> = {
 
 import projectsFromDevfolio from "./projects-from-devfolio.json";
 import clawdKitchenRaw from "./clawd-kitchen-projects.json";
+import projectsFromSubmissions from "./projects-from-submissions.json";
 
 /** Normalize GitHub URL to comparable form for founder matching (e.g. github.com/username or username/repo). */
 function normalizeGithubUrl(url: string): string {
@@ -184,11 +187,14 @@ function mergeClawdKitchenProjects(
 }
 
 const githubToFounder = buildGithubToFounderMap(projectsFromDevfolio as Project[]);
-export const projects: Project[] = mergeClawdKitchenProjects(
+const devfolioPlusClawd = mergeClawdKitchenProjects(
   projectsFromDevfolio as Project[],
   clawdKitchenRaw as ClawdKitchenEntry[],
   githubToFounder
 );
+export const projects: Project[] = Array.isArray(projectsFromSubmissions) && projectsFromSubmissions.length > 0
+  ? [...devfolioPlusClawd, ...(projectsFromSubmissions as Project[])]
+  : devfolioPlusClawd;
 
 /** Resolve project by slug (e.g. not-your-type-80a6) or by id. */
 export function getProjectBySlugOrId(slugOrId: string): Project | undefined {

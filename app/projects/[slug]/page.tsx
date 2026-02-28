@@ -44,13 +44,18 @@ function labelForUrl(url: string): string {
   return "Link";
 }
 
+function isDevfolioUrl(url: string): boolean {
+  return url.toLowerCase().includes("devfolio");
+}
+
 function ProjectLinks({
   project,
 }: {
-  project: { github?: string; farcaster?: string; youtube?: string; links?: string[]; url: string };
+  project: { github?: string; twitter?: string; farcaster?: string; youtube?: string; links?: string[]; url: string };
 }) {
   const links: { href: string; label: string; icon: React.ReactNode; primary?: boolean }[] = [];
   const hasPrimary = !!project.farcaster || (project.links && project.links.length > 0);
+  const urlIsDevfolio = isDevfolioUrl(project.url);
 
   if (project.farcaster) {
     links.push({
@@ -73,7 +78,14 @@ function ProjectLinks({
       href: project.github,
       label: "GitHub",
       icon: <Github className="h-4 w-4" />,
-      primary: !hasPrimary && !project.youtube,
+      primary: !hasPrimary && !project.youtube && urlIsDevfolio,
+    });
+  }
+  if (project.twitter) {
+    links.push({
+      href: project.twitter.startsWith("http") ? project.twitter : `https://x.com/${project.twitter.replace(/^@/, "")}`,
+      label: "Twitter",
+      icon: <ExternalLink className="h-4 w-4" />,
     });
   }
   (project.links ?? []).forEach((href, i) => {
@@ -84,11 +96,20 @@ function ProjectLinks({
       primary: !project.farcaster && i === 0 && !project.youtube && !project.github,
     });
   });
-  links.push({
-    href: project.url,
-    label: "View on Devfolio",
-    icon: <Link2 className="h-4 w-4" />,
-  });
+  if (urlIsDevfolio) {
+    links.push({
+      href: project.url,
+      label: "View on Devfolio",
+      icon: <Link2 className="h-4 w-4" />,
+    });
+  } else {
+    links.unshift({
+      href: project.url,
+      label: "Website",
+      icon: <Globe className="h-4 w-4" />,
+      primary: !project.farcaster && !hasPrimary,
+    });
+  }
 
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -215,16 +236,18 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Detailed description */}
           <section
             className="mb-10 sm:mb-12 rounded-2xl border border-border bg-card p-6 sm:p-8"
-            aria-labelledby="about-project-heading"
+            aria-labelledby={hasDetailedContent ? undefined : "about-project-heading"}
           >
-            <h2
-              id="about-project-heading"
-              className="text-xl font-semibold text-foreground sm:text-2xl"
-            >
-              About this project
-            </h2>
-            <div className="mt-4 space-y-4">
-              {oneLiner && (
+            {!hasDetailedContent && (
+              <h2
+                id="about-project-heading"
+                className="text-xl font-semibold text-foreground sm:text-2xl"
+              >
+                About this project
+              </h2>
+            )}
+            <div className={hasDetailedContent ? "space-y-4" : "mt-4 space-y-4"}>
+              {oneLiner && !hasDetailedContent && !project.descriptionFull && (
                 <p className="text-base leading-relaxed text-muted-foreground">
                   {oneLiner}
                 </p>
