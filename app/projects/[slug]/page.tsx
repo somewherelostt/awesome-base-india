@@ -185,7 +185,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <header className="mb-10 sm:mb-12">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
               <div className="flex h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-border bg-muted shadow-sm sm:h-28 sm:w-28">
-                {logo.startsWith("http") ? (
+                {(logo.startsWith("http") || logo.startsWith("/")) ? (
                   <img
                     src={logo}
                     alt=""

@@ -87,7 +87,7 @@ export function ChromaGrid({
   const items = (limit ? projects.slice(0, limit) : projects).map((p) => {
     const colors = getCategoryColor(p.category);
     return {
-      image: p.logo.startsWith("http") ? p.logo : `https://avatar.vercel.sh/${p.id}?size=300`,
+      image: (p.logo.startsWith("http") || p.logo.startsWith("/")) ? p.logo : `https://avatar.vercel.sh/${p.id}?size=300`,
       title: p.name,
       subtitle: p.category,
       handle: `@${p.founderTwitterHandle || p.founderTwitter}`,

@@ -156,7 +156,7 @@ function ProjectCarousel({ items }: { items: Project[] }) {
               <div className="relative flex h-full flex-col p-5">
                 <div className="mb-4 flex items-start justify-between gap-2">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
-                    {project.logo.startsWith("http") ? (
+                    {(project.logo.startsWith("http") || project.logo.startsWith("/")) ? (
                       <img src={project.logo} alt="" className="h-full w-full object-cover" />
                     ) : (
                       project.logo
