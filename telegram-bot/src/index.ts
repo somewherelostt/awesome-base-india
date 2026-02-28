@@ -247,46 +247,56 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
   const match = ctx.match;
   const choice = match[1] as string;
 
+  // Answer callback immediately so the button click is acknowledged (required by Telegram)
+  await ctx.answerCbQuery();
+
   if (choice === "existing_project") {
-    const { data: list, error } = await listDirectoryProjects();
-    await ctx.answerCbQuery();
-    if (error || !list.length) {
-      await ctx.reply(
-        "No projects in the directory yet. You can submit a *new project* with /start → New project, or ask the team to seed the directory.",
-        { parse_mode: "Markdown" }
-      );
-      setFlow(userId, { type: "menu" });
-      return;
+    try {
+      const { data: list, error } = await listDirectoryProjects();
+      if (error || !list.length) {
+        await ctx.reply(
+          "No projects in the directory yet. You can submit a *new project* with /start → New project, or ask the team to seed the directory.",
+          { parse_mode: "Markdown" }
+        );
+        setFlow(userId, { type: "menu" });
+        return;
+      }
+      setFlow(userId, { type: "existing_project", step: "pick" });
+      const text =
+        "*Select a project* (reply with the *exact name* or *number*):\n\n" +
+        list.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`).join("\n");
+      await ctx.reply(text, { parse_mode: "Markdown" });
+    } catch (e) {
+      console.error("listDirectoryProjects error:", e);
+      await ctx.reply("Could not load the project list. Check Supabase setup and run `npm run seed-directory` from the repo, or try again later.");
     }
-    setFlow(userId, { type: "existing_project", step: "pick" });
-    const text =
-      "*Select a project* (reply with the *exact name* or *number*):\n\n" +
-      list.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`).join("\n");
-    await ctx.reply(text, { parse_mode: "Markdown" });
     return;
   }
 
   if (choice === "existing_founder") {
-    const { data: list, error } = await listDirectoryFounders();
-    await ctx.answerCbQuery();
-    if (error || !list.length) {
-      await ctx.reply(
-        "No founders in the directory yet. You can add a *new founder* with /start → New founder, or ask the team to seed the directory.",
-        { parse_mode: "Markdown" }
-      );
-      setFlow(userId, { type: "menu" });
-      return;
+    try {
+      const { data: list, error } = await listDirectoryFounders();
+      if (error || !list.length) {
+        await ctx.reply(
+          "No founders in the directory yet. You can add a *new founder* with /start → New founder, or ask the team to seed the directory.",
+          { parse_mode: "Markdown" }
+        );
+        setFlow(userId, { type: "menu" });
+        return;
+      }
+      setFlow(userId, { type: "existing_founder", step: "pick" });
+      const text =
+        "*Select a founder* (reply with the *exact name* or *username* or *number*):\n\n" +
+        list.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`).join("\n");
+      await ctx.reply(text, { parse_mode: "Markdown" });
+    } catch (e) {
+      console.error("listDirectoryFounders error:", e);
+      await ctx.reply("Could not load the founder list. Check Supabase setup and run `npm run seed-directory` from the repo, or try again later.");
     }
-    setFlow(userId, { type: "existing_founder", step: "pick" });
-    const text =
-      "*Select a founder* (reply with the *exact name* or *username* or *number*):\n\n" +
-      list.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`).join("\n");
-    await ctx.reply(text, { parse_mode: "Markdown" });
     return;
   }
 
   if (choice === "new_project") {
-    await ctx.answerCbQuery();
     setFlow(userId, {
       type: "new_project",
       step: "product_name",
@@ -300,7 +310,6 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
   }
 
   if (choice === "new_founder") {
-    await ctx.answerCbQuery();
     setFlow(userId, {
       type: "new_founder",
       step: "username",
@@ -312,8 +321,6 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
     );
     return;
   }
-
-  await ctx.answerCbQuery();
 });
 
 // ─── /edit <edit_id> flow (unchanged) ───────────────────────────────────────
@@ -626,7 +633,7 @@ async function handleNewProject(
       await ctx.reply("Something went wrong saving. Please try again or contact the team.");
       return true;
     }
-    await ctx.reply("✅ *Submission received.* We'll verify and add you to the directory. You can copy the submission from Supabase when updating MDX.", { parse_mode: "Markdown" });
+    await ctx.reply("✅ *Submission received.* We'll verify and add you to the directory.", { parse_mode: "Markdown" });
     return true;
   }
 
