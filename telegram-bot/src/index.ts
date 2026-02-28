@@ -159,16 +159,24 @@ function parseTeammates(text: string): { name: string; twitter: string }[] {
   return result;
 }
 
-/** Format project/founder row as simple key: value lines for easy copy from Supabase. */
+const MAX_PREVIEW_LENGTH = 3000;
+
+/** Format project row for bot preview; long fields truncated so message stays under Telegram limit. */
 function formatProjectSimple(p: DirectoryProject): string {
   const lines: string[] = [];
   const add = (k: string, v: unknown) => {
     if (v != null && String(v).trim() !== "") lines.push(`${k}: ${String(v).trim()}`);
   };
+  const addTrunc = (k: string, v: unknown, maxLen: number) => {
+    if (v == null) return;
+    const s = String(v).trim();
+    if (!s) return;
+    lines.push(s.length <= maxLen ? `${k}: ${s}` : `${k}: ${s.slice(0, maxLen)}…`);
+  };
   add("slug", p.slug);
   add("name", p.name);
   add("description", p.description);
-  add("description_full", p.description_full);
+  addTrunc("description_full", p.description_full, 400);
   add("category", p.category);
   add("founder_name", p.founder_name);
   add("founder_twitter", p.founder_twitter);
@@ -183,19 +191,28 @@ function formatProjectSimple(p: DirectoryProject): string {
   add("youtube_url", p.youtube_url);
   add("other_links", p.other_links);
   add("prizes", p.prizes);
-  return lines.join("\n");
+  let out = lines.join("\n");
+  if (out.length > MAX_PREVIEW_LENGTH) out = out.slice(0, MAX_PREVIEW_LENGTH) + "\n…(truncated)";
+  return out;
 }
 
+/** Format founder row for bot preview; long fields truncated. */
 function formatFounderSimple(f: DirectoryFounder): string {
   const lines: string[] = [];
   const add = (k: string, v: unknown) => {
     if (v != null && String(v).trim() !== "") lines.push(`${k}: ${String(v).trim()}`);
   };
+  const addTrunc = (k: string, v: unknown, maxLen: number) => {
+    if (v == null) return;
+    const s = String(v).trim();
+    if (!s) return;
+    lines.push(s.length <= maxLen ? `${k}: ${s}` : `${k}: ${s.slice(0, maxLen)}…`);
+  };
   add("username", f.username);
   add("name", f.name);
   add("city", f.city);
   add("country", f.country);
-  add("short_bio", f.short_bio);
+  addTrunc("short_bio", f.short_bio, 300);
   add("profile_image", f.profile_image);
   add("github", f.github);
   add("twitter", f.twitter);
@@ -205,7 +222,9 @@ function formatFounderSimple(f: DirectoryFounder): string {
   add("prize_winnings_amount", f.prize_winnings_amount);
   add("onchain_creds_claimed", f.onchain_creds_claimed);
   add("tags", f.tags);
-  return lines.join("\n");
+  let out = lines.join("\n");
+  if (out.length > MAX_PREVIEW_LENGTH) out = out.slice(0, MAX_PREVIEW_LENGTH) + "\n…(truncated)";
+  return out;
 }
 
 const WELCOME =
