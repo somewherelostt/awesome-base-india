@@ -51,22 +51,27 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
   }, [founders, selected]);
 
   return (
-    <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[380px_1fr]">
-      {/* Left sidebar – NS style */}
-      <div className="flex min-h-0 flex-col overflow-hidden border-r border-border bg-card/50">
-        <div className="border-b border-border p-3">
+    <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-[400px_1fr] lg:gap-8 lg:px-8">
+      {/* Left: search + founder list (clear priority) */}
+      <div className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-card/50">
+        <div className="shrink-0 border-b border-border p-4">
+          <label htmlFor="founders-search" className="sr-only">
+            Search founders by name, project, city or tags
+          </label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
             <input
-              type="search"
+              id="founders-search"
+              type="text"
+              autoComplete="off"
               placeholder="Search founders..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background py-2 pl-9 pr-3 text-sm placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full rounded-xl border border-border bg-background py-2.5 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
             />
           </div>
         </div>
-        <div className="flex-1 overflow-y-auto p-3">
+        <div className="flex-1 overflow-y-auto p-4">
           {selected ? (
             <>
               {/* Selected profile card */}
@@ -113,14 +118,17 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
                 </div>
                 {(selected.tags?.length ?? 0) > 0 && (
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {selected.tags!.slice(0, 6).map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-muted px-2.5 py-0.5 text-xs text-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {selected.tags!.slice(0, 6).map((t) => {
+                      const tag = typeof t === "string" ? t : String(t ?? "");
+                      return (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-muted px-2.5 py-0.5 text-xs text-foreground"
+                        >
+                          {tag}
+                        </span>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -193,15 +201,15 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
         </div>
       </div>
 
-      {/* Right – India map only */}
-      <div className="flex min-h-0 flex-col p-4">
-        <div className="mb-2 flex shrink-0 items-center gap-2">
-          <h1 className="text-lg font-semibold text-foreground">Founders</h1>
+      {/* Right: map card (fixed height so layout stays balanced) */}
+      <div className="flex flex-col rounded-2xl border border-border bg-card/50 overflow-hidden">
+        <div className="flex shrink-0 items-center gap-2 border-b border-border px-4 py-3">
+          <h2 className="text-base font-semibold text-foreground">Map</h2>
           <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
             India
           </span>
         </div>
-        <div className="relative min-h-0 flex-1 rounded-2xl border border-border bg-muted/10">
+        <div className="relative h-[320px] w-full shrink-0 sm:h-[380px] lg:h-[400px]">
           <FoundersPalsMapClient
             founders={filtered}
             selectedUsername={selectedUsername}

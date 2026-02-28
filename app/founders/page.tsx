@@ -22,7 +22,7 @@ export default function FoundersPage(): ReactNode {
     <div className="flex min-h-screen flex-col bg-background">
       <BaseHeader />
       <ThemeSwitch />
-      <main id="main-content" className="flex flex-1 flex-col min-h-0">
+      <main id="main-content" className="flex flex-1 flex-col min-h-0 pt-24 pb-12">
         <FoundersPalsView founders={founders} />
       </main>
       <BaseFooter />

@@ -141,7 +141,7 @@ export function BaseHeader(): ReactNode {
 
               <div className="flex items-center gap-2 ml-6">
                 <Link
-                  href="/directory"
+                  href="/founders"
                   className="px-4 py-2 tracking-tight text-sm font-light text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white no-underline"
                   onMouseEnter={() => setActiveMenu(null)}
                 >
@@ -267,7 +267,7 @@ export function BaseHeader(): ReactNode {
                           About
                         </Link>
                         <Link
-                          href="/directory"
+                          href="/founders"
                           className="block py-2 px-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 no-underline"
                         >
                           Founders
