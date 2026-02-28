@@ -8,9 +8,11 @@ Bot that collects project submissions via Telegram and saves them to Supabase. Y
    Message [@BotFather](https://t.me/BotFather), create a bot, copy the token.
 
 2. **Supabase**  
-   Create a project and run the SQL in **`supabase-setup.sql`** in the SQL editor (creates the table with Base ecosystem–style fields: logo, category, tags).  
-   If you already have the table, run **`supabase-migrate-ecosystem-fields.sql`** to add `logo_url` and `tags`.  
-   For the **/edit** flow (profile/project MDX updates), also run **`supabase-edit-id-and-mdx.sql`** to create `edit_id_registry` and `mdx_edits`. Then run **`npm run sync-edit-ids`** from the repo root (with `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` set) to sync `edit_id` from MDX frontmatter into the registry.
+   Run in the SQL editor, in order:
+   - **`supabase-setup.sql`** – project submissions table.
+   - **`supabase-edit-id-and-mdx.sql`** – edit_id registry and mdx_edits for /edit flow.
+   - **`supabase-directory-and-edits.sql`** – directory_projects, directory_founders, founder_submissions (for “Existing project/founder” list and field-level edits).
+   From repo root run **`npm run sync-edit-ids`** to sync edit_id from MDX into the registry. Run **`npm run seed-directory`** to seed **directory_projects** and **directory_founders** from `lib/projects-from-devfolio.json` and `content/founders/*.mdx` so the bot can list “Existing project” / “Existing founder” by exact name.
 
 3. **Env**  
    Copy `.env.example` to `.env` and set:
@@ -36,21 +38,13 @@ npm run dev
 
 ## Flow
 
-1. User sends `/start` or `/submit`.
-2. Bot asks in order (aligned with [Base ecosystem](https://www.base.org/ecosystem)):  
-   - Product name  
-   - Project URL  
-   - Description  
-   - Logo URL (optional, `/skip`)  
-   - Main category: **AI**, **Wallet**, **Defi**, **Consumer**, **Onramp**, **Infra**  
-   - Tags (optional, comma-separated, e.g. Developer Tool, Social, Dex; `/skip`)  
-   - GitHub link (optional, `/skip`)  
-   - Project Twitter (optional, `/skip`)  
-   - Founder name  
-   - Founder Twitter  
-   - Teammates: one per line as `Name @handle`, or `/skip` for solo
-3. Bot inserts one row into `project_submissions` with `status = 'pending'`.
-4. You review in Supabase, set `status = 'approved'` (or reject), then use the row on the frontend.
+1. User sends **/start** or **/submit**. The bot shows a menu:
+   - **Existing project** – list of projects (from `directory_projects` or `edit_id_registry`). User picks by name/number, then can edit fields one by one. Changes are saved to `directory_projects`; you copy from Supabase into the project MDX.
+   - **Existing founder** – same for founders (`directory_founders`). Edits go to Supabase; you update the founder MDX manually.
+   - **New project** – same as before: product name, URL, description, logo, category, tags, GitHub, Twitter, founder name, founder Twitter, teammates. Saved to `project_submissions` (simple columns for easy copy to MDX).
+   - **New founder** – asks: username, name, city, country, short_bio, profile_image, github, twitter, hackathons_attended, projects_built, prizes_won, tags, etc. Saved to `founder_submissions`.
+2. All data is stored in **simple flat fields** in Supabase so you can copy-paste when updating or creating MDX files.
+3. **/edit &lt;edit_id&gt;** – unchanged: user sends full MDX in the next message; stored in `mdx_edits` for manual replace.
 
 ## Field mapping to frontend
 

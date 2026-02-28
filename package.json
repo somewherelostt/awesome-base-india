@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,json,css,md}\"",
     "typecheck": "tsc --noEmit",
     "sync-edit-ids": "npx tsx scripts/sync-edit-ids-to-supabase.ts",
+    "seed-directory": "npx tsx scripts/seed-directory-to-supabase.ts",
     "add-edit-ids": "npx tsx scripts/add-edit-ids-to-founders.ts",
     "generate-project-mdx": "npx tsx scripts/generate-project-mdx.ts",
     "fetch-clawd-kitchen": "node scripts/fetch-clawd-kitchen.js"
