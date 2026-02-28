@@ -237,10 +237,12 @@ function ProjectCarousel({ items }: { items: Project[] }) {
 
 function tagMatchesSubFilter(projectTags: unknown[], selectedSubFilters: Set<string>): boolean {
   if (selectedSubFilters.size === 0) return true;
-  const tags = projectTags.filter((t): t is string => typeof t === "string");
-  return tags.some((tag) =>
-    Array.from(selectedSubFilters).some((s) => s.toLowerCase() === tag.toLowerCase())
-  );
+  return projectTags.some((tag) => {
+    const tagStr = tag != null && typeof tag === "string" ? tag : String(tag);
+    return Array.from(selectedSubFilters).some(
+      (s) => String(s).toLowerCase() === tagStr.toLowerCase()
+    );
+  });
 }
 
 const BATCH_DROPDOWN_ID = "__batch__";
@@ -267,7 +269,13 @@ export function ProductGrid(props?: ProductGridProps) {
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
   const [selectedBatches, setSelectedBatches] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setDebouncedSearch(searchQuery), 180);
+    return () => window.clearTimeout(id);
+  }, [searchQuery]);
 
   const sourceProjects = useMemo(() => {
     if (!randomizeShowcase) return projectsToUse;
@@ -309,14 +317,14 @@ export function ProductGrid(props?: ProductGridProps) {
       const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
       const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(Array.isArray(p.tags) ? p.tags : [], subFilters);
       const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
-      const q = searchQuery.trim().toLowerCase();
+      const q = typeof debouncedSearch === "string" ? debouncedSearch.trim().toLowerCase() : "";
       const matchesSearch =
         q === "" ||
         String(p.name ?? "").toLowerCase().includes(q) ||
         String(p.description ?? "").toLowerCase().includes(q) ||
         String(p.founder ?? "").toLowerCase().includes(q) ||
         (Array.isArray(p.tags) ? p.tags : []).some((t) =>
-          typeof t === "string" && t.toLowerCase().includes(q)
+          String(t ?? "").toLowerCase().includes(q)
         );
       return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
     })
