@@ -201,10 +201,14 @@ export function getProjectBySlugOrId(slugOrId: string): Project | undefined {
 export const founders: Founder[] = projects.map((p) => ({
   id: p.id,
   name: p.founder,
-  twitter: p.founderTwitter,
+  twitter: p.founderTwitterHandle || p.founderTwitter,
   ...(p.founderGithub ? { github: p.founderGithub } : {}),
   avatar: p.name
     .split(" ")
     .map((w) => w[0])
     .join("")
-    .sl
+    .slice(0, 2)
+    .toUpperCase(),
+  role: "Builder",
+  project: p.name,
+}));

@@ -90,7 +90,7 @@ export function ChromaGrid({
       image: p.logo.startsWith("http") ? p.logo : `https://avatar.vercel.sh/${p.id}?size=300`,
       title: p.name,
       subtitle: p.category,
-      handle: `@${p.founderTwitter}`,
+      handle: `@${p.founderTwitterHandle || p.founderTwitter}`,
       location: p.batch,
       borderColor: colors.border,
       gradient: colors.gradient,

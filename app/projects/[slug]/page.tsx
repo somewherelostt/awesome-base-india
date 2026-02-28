@@ -133,19 +133,22 @@ export default async function ProjectPage({ params }: PageProps) {
           {
             name: project.founder,
             twitter: project.founderTwitter,
+            twitterHandle: project.founderTwitterHandle || project.founderTwitter,
             github: project.founderGithub,
           },
         ];
 
   const foundersWithProfiles = foundersList.map((f) => {
     const profile = getFounderByUsername(f.twitter);
+    const displayHandle = (f as { twitterHandle?: string }).twitterHandle ?? profile?.frontmatter?.twitter ?? f.twitter;
     const fromMdx = profile?.frontmatter.profile_image?.trim();
     const profile_image =
       fromMdx && (fromMdx.startsWith("http://") || fromMdx.startsWith("https://"))
         ? fromMdx
-        : `https://unavatar.io/twitter/${encodeURIComponent(f.twitter)}`;
+        : `https://unavatar.io/twitter/${encodeURIComponent(displayHandle)}`;
     return {
       ...f,
+      twitterHandle: displayHandle,
       profile_image,
       github: f.github ?? profile?.frontmatter.github ?? null,
     };
@@ -287,11 +290,11 @@ export default async function ProjectPage({ params }: PageProps) {
                   <div className="min-w-0 flex-1">
                     <p className="font-semibold text-foreground">{f.name}</p>
                     <p className="text-sm text-muted-foreground">
-                      @{f.twitter}
+                      @{f.twitterHandle ?? f.twitter}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-3">
                       <a
-                        href={`https://x.com/${f.twitter}`}
+                        href={`https://x.com/${f.twitterHandle ?? f.twitter}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm font-medium text-accent hover:underline"

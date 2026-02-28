@@ -80,17 +80,15 @@
 
 - [AIAX](https://hack-blond.vercel.app/) — Making Web3 finances accessible to everyone
 
-- [AIndaba](https://AIndaba.vercel.app/) — A tap, a swipe, a stake — welcome to Web3 made usable.
-
 - [AIXBT Sigma by Buffett](https://base-ai-agent-git-hackathon-leap-18b78ea0.vercel.app/) — AIXBT finds the alpha, Sigma trades it for you autonomously. Agentic trading & execution, no grind.
-
-- [Alpha-Lens Mini Dapp](https://alpha-lens.vercel.app/) — Stake Your Alpha. Track Your Cred. Win Onchain.
 
 - [Alphai](https://www.alphai.co) — market intelligence platform powered by AI Agents
 
 - [Antler](https://aws.amazon.com/) — Leveraging Generative AI to Accelerate DPI Adoption in India: Develop a GenAI product/model/platform that promotes the adoption and maximizes the benefits of Digital Public Infrastructure (DPI)
 
 - [Aquari](https://www.instagram.com/aquariofficial/) — An On-Chain Public Waste Management Company - transforming waste management into wealth creation through a transparent blockchain-powered gig economy platform.
+
+- [Arbitr](https://github.com/moonwalkerdadik/Arbitr) — A decentralized dispute resolution system for secure and transparent transactions on the blockchain.
 
 - [Arca](https://github.com/mayur-samrutwar/arca) — AI city with human life simulation
 
@@ -103,8 +101,6 @@
 - [attn](https://attn.bio) — get in touch with people you cant (ye
 
 - [AuditHook](https://audit-hook.replit.app/) — AI Agent Audits Base Contract
-
-- [Autonomint](https://www.autonomint.com/) — The cheapest way to hedge risk in Defi
 
 - [AutoPilot Mode](https://build-onchain-fbi.devfolio.co/projects/autopilot-mode-8122) — It takes control of your wallet.
 
@@ -132,6 +128,8 @@
 
 - [Base Wallet Balance Checker](https://github.com/w213x/proj1) — Effortlessly connect your MetaMask wallet and instantly check your balance on the Base network, all in one simple web app.
 
+- [Base-Forecast](https://base-forecast-frontend-final-deployment.vercel.app/) — ForeCast is a decentralized on-chain prediction market platform on Base enabling users to trade on real-world events with transparency, instant settlements, and global accessibility.
+
 - [BaseArena](https://base-arena.vercel.app/) — Let our AI agent mint your epic NFT from every jaw-dropping move, boost your in-game rep, and dish out on-chain rewards—because why just play when you can earn and laugh along the way?
 
 - [BaseChain Gas Tracker](https://github.com/kingnftking/BaseChain-Gas-Tracker) — Real-time gas fee tracking to optimize transaction costs on the Base blockchain.
@@ -141,6 +139,8 @@
 - [BaseConnect](https://github.com/flexsquee/SustainableSolutions.git) — A user-friendly Web3 platform that enables seamless financial transactions and token interactions on the Base Network, empowering communities with decentralized tools.
 
 - [BaseCrate](https://basecrate.vercel.app/) — Simplifying On-Chain Investments with Curated Asset Baskets.
+
+- [BaseCrowdfund](https://github.com/vectorkiller666/BaseCrowdfund) — A decentralized crowdfunding platform empowering global creators through the Base blockchain.
 
 - [Based Buildr](https://n8n-yt8y.onrender.com/) — Think it. Flow it. Ship it.
 
@@ -174,6 +174,8 @@
 
 - [Basics](https://www.basicsxyz.com/en) — A gamified guide to all things onchain. Learn, earn and surf through possibilities on Base.
 
+- [BBridge](https://github.com/loverkillercrypto/BBridge) — Seamless asset transfer between Base and Ethereum networks through decentralized cross-chain bridging.
+
 - [Bhet](https://bhet.makerdock.xyz/) — Seamless cross-border remittances for your family.
 
 - [BId -IOn](https://hackhazard-umber.vercel.app/) — BY Vandhal Varavu Sendral selavu
@@ -181,8 +183,6 @@
 - [BITBUZZ](https://based-india.devfolio.co/projects/bitbuzz-8127) — BitBuzz is not just a video platform; it's a groundbreaking Blockchain-powered ecosystem that revolutionizes how creators and audiences earn and engage
 
 - [Bitmor](https://bitmore.vercel.app/) — Bitcoin ownership for everyone through loans.
-
-- [Block Hunt 🎯](https://blockhunt.vercel.app/) — Block Hunt is the ultimate Web3 job finder for the Base Community! 🚀 Powered by Onchainkit, Basenames and SmartWallet by Coinbase, it’s your gateway to top decentralized jobs. Get started today! 🔥
 
 - [BlockBill](https://blockbill.vercel.app) — Generate verifiable transaction reciepts!
 
@@ -238,6 +238,10 @@
 
 - [CoinPal](https://github.com/rajarshidattapy/CoinPal) — AI guide for mastering Coinbase & crypto with ease
 
+- [CollabChain](https://github.com/Kishoraditya/collabchain) — Empowering all supply chain stakeholders with an onchain collaborative planning platform for transparent and efficient coordination.
+
+- [Crafted](https://crafted.ketto.space/) — Crafted is an easy to use NFT marketplace empowering local artists to sell their art effortlessly.
+
 - [Creative Destruction XYZ](https://act.v0.build/) — We aim to consolidate information from various platforms (using Content Aggregation funnels) and use it to power a variety of applications to empower the end user
 
 - [Creatorbase](https://app.creatorbase.pro) — Creators create, Brands benefit. Auto,onchain.
@@ -287,6 +291,8 @@
 - [Decentralized Voting DApp](https://github.com/sneakersoph/DecentralizedVotingDApp.git) — A transparent and secure platform for creating polls and casting votes using Ethereum smart contracts.
 
 - [Decentralized Voting DApp](https://github.com/bombzombtomb/Decentralized-Voting-DApp) — Empowering communities with decentralized, secure, and transparent voting polls on the Base blockchain.
+
+- [Decentrix.ai](https://decentrix-based.vercel.app/) — Decentrix is a pool of multi chain AI agents that helps new developers to learn a new chain/protocol and build on the OP stack using natural language and minimal coding.
 
 - [Defile](https://defileb.vercel.app/) — A Decentralized File management platform to store/lock files on the blockchain.
 
@@ -374,19 +380,21 @@
 
 - [HighMiles](https://crash-miles.vercel.app/) — Reimagining Travel Rewards for the Crash Community and Beyond
 
-- [Hive](https://github.com/rohan4693/HackIndia-Tensors) — Decentralised GPU power for all, empowering AI and computing beyond Big Tech.
-
 - [Hype Scan AI](https://github.com/humannx2/AI-Basechain-coin) — Predict Meme Coin Pumps Before They Happen
 
 - [IamYou](https://github.com/Sachin-pro-dev/IamYou.git) — IamYou is a Web3-powered AI chatbot that learns from your past, mimics your style, and helps you reach your goals. It’s not just a task manager—it's your digital twin  & helps you level up in life
-
-- [Idea Marketplace](https://github.com/keshav1727/Idea-MarketPlace.git) — A place where someone can buy / sell their ideas
 
 - [IndiaTransit](https://github.com/SHOLAY1234) — Revolutionizing urban transportation in India with blockchain technology
 
 - [Indie_Verse](https://signify-dusky.vercel.app/) — "Empowering Indie Artists with Web3 & Fair Deals"
 
 - [Inferno](https://gamma.app/docs/Inferno-X402-at-scale-l8tshnnrcbcmg95) — x402 at scale
+
+- [Innovative India](https://based-india.devfolio.co/projects/innovative-india-343c) — Tagline:
+"Innovating India, Empowering Communities, Shaping a Sustainable Future."
+
+Description:  
+Transforming challenges into solutions through local innovation and technology.
 
 - [Intent Wallet](https://intentwallet-production.up.railway.app/) — Intent-based Web3 wallet for X402
 
@@ -408,8 +416,6 @@
 
 - [LensView](https://lensview.io/) — The omnipresent comment section of the web.
 
-- [Lighthouse Onchain Storage](https://lighthouse.storage/) — Yield powered onchain storage
-
 - [Lotry](https://warpcast.com/miniapps/MN82i-SFi5XB/lotry) — Tokenized Lottery Launchpad
 
 - [Lucra AI](https://lucra-ai-eta.vercel.app) — Talk money. Lucra does the rest.
@@ -423,6 +429,8 @@
 - [Meemo Arena](https://meemoarena.vercel.app/) — Unleash AI. Mint Power. Dominate the Arena.
 
 - [Melody Launch](https://github.com/anshved/crowdfund-blockchain) — Empowering Artists in the Digital Age
+
+- [Meme Minto AI](https://memminto.fun/) — Where Every Meme Has a Mind and a Market.
 
 - [MetaBet](https://meta-bet-two.vercel.app/) — Feel the thrill with fast, fair, and fun games!
 
@@ -438,15 +446,11 @@
 
 - [momnt](https://app.momnt.fun) — capture momnts, make $$
 
-- [MoodHacker](https://MoodHacker.vercel.app/) — Code with rhythm, logic with soul — we vibed until it compiled.
-
 - [MultiChain-NFTs-App](https://github.com/Abhishekyadav26/MultiChain-NFTs-App) — MultiChain NFT Claimable app empowers users to seamlessly claim NFTs across multiple blockchain networks
 
 - [MyResearch](https://build-onchain-fbi.devfolio.co/projects/myresearch-a932) — Your daily crypto research, assembled.
 
 - [Nebula](https://nebula-two-opal.vercel.app/) — Redefining crowdfunding: Empowering communities through transparent, decentralized impact-driven investments.
-
-- [NEBULA](https://nebula-five-alpha.vercel.app/) — Your code tells a story. We just make sure everyone understands it.
 
 - [Neom](https://github.com/BlocSoc-iitr/selene) — Neom is engineered to provide a TRUSTLESS and PERMISSIONLESS experience by leveraging Selene, a cutting-edge light client. No more trusting centralized RPCs or having to run your own full node.
 
@@ -459,6 +463,8 @@
 - [OmniX](https://omnixbeta.vercel.app/) — Gamifying health and Wellness
 
 - [onchain board games](https://onchain-checkers.vercel.app/) — stake, play, win
+
+- [ONCHAIN Investment AI Advice](https://github.com/Parth-boiiii/devfolio) — Invest Smart, Right from the Start!
 
 - [Onchain Social Agent](https://github.com/Sritharinis/Coinbase-Social-agent-Hackathon) — Agents analyze social media interactions to reward users with tokens, enhancing engagement.
 
@@ -483,6 +489,8 @@
 - [Payzoll](https://payzoll-base.pages.dev/) — Unified payment infrastructure. TradFi->Web3
 
 - [Pearbee](https://pearbee-web3-app.vercel.app/login) — Predict Real-World Events, Decide the Future!
+
+- [PeggyBank](https://PeggyBank.vercel.app/) — Built for the curious, by the obsessed.
 
 - [Pepper](https://github.com/Dayitva/Pepper-v4-hook) — Swap confidentially on Uniswap v4
 
@@ -563,6 +571,8 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [SkillBet](https://github.com/YASH-ai-bit/Skill_Bet) — Bet on your Skills, Strategy, Game not on Money
 
+- [SkillChain](https://skill-block-red.vercel.app) — SkillChain: A blockchain-based platform revolutionizing how skills and qualifications are verified, empowering individuals with a secure, decentralized way to showcase their expertise and achievements
+
 - [SkillGamer](https://azure-starlin-90.tiiny.site/) — Gamified PvP Hiring
 
 - [Smile2Earn](https://github.com/Sayangenri/Smile2Earn) — Your smile is worth something
@@ -592,6 +602,8 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [Stellar Odyssey AI](https://opensea.io/collection/stellar-odyssey-ai) — Stellar Odyssey AI is a collection of AI-generated cosmic explorers and celestial scenes. Each NFT represents a unique space traveler navigating surreal planetary landscapes.
 
 - [StreamNFT](https://dapp-streamnft.vercel.app/rent/base%20sepolia) — Empowering everyone with a flexible, rewarding ownership experience to manage, trade, share, unlock liquidity, and work with utility of digital assets.
+
+- [Stuyder: Simplifying college learning](https://studyer.netlify.app) — Studyer makes college learning easy and fast.
 
 - [Subline](https://subline.lovable.app) — Beyond the headlines
 
@@ -630,6 +642,8 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [TouchBaseIndia](https://touch-base-india.vercel.app/) — Discover, connect, and transact with your Based Community using Basenames and Farcaster. Find your tribe, chat securely, and transfer funds seamlessly – all without complex addresses.
 
 - [TranquilMinds](https://v0-new-project-zhiiwwenp4x.vercel.app/) — We care for you , You don't have to face it again
+
+- [TransFilex](https://www.transfilex.com/) — TransFilex – Securing. Sharing. Vanishing
 
 - [TRANSPFLOW](https://github.com/UTKARSHJHA-2005/TranspFlow.git) — Blockchain Powered SUPPLY CHAIN MANAGEMENT SYSTEM
 
@@ -687,6 +701,8 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [ZERO-KP VERIFY](https://github.com/sujinbabups/base_india-ZKP) — Zero-KP Verify: Secure Identity Verification with Zero Data Exposure"
 
+- [ZK Carbon](https://base-india-w789-git-main-aaryans-projects-26cf2221.vercel.app/) — Trustless Carbon. Verified by Math
+
 - [zkVisa](https://github.com/SadhakKumar/ZK_location_verifier) — Your Visa Process in right hands
 
 ### NFTs
@@ -721,8 +737,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [Base_Project](https://github.com/upshawnkimmy/Hak) — BASE
 
-- [Based Project](https://base.xyz) — Base is for everyone
-
 - [BasedFrames](https://ezframes.xyz) — No Code Tool for creating Farcaster Frames on Base
 
 - [BasedPay](https://github.com/Arch0125/basedpay) — Easiest way to pay for UPI using stablecoins
@@ -735,9 +749,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [Bazario](https://Bazario.vercel.app/) — Built for the curious, by the obsessed.
 
-- [Bounty-Hub](https://bounty-hub.vercel.app) — Fueling Collaboration on the Base Network!
-( Web3 Base Network + Github based - Open Source Bounty Dispenser )
-
 - [Building a pay-per-use](https://build-onchain-fbi.devfolio.co/projects/hsjhs-6ceb) — Pay only for what you watch
 
 - [Castmoney Feed](https://castmoney.xyz) — Castmoney Feed is a social DeFi explorer that leverages Farcaster to provide real time insights into onchain activities.
@@ -745,8 +756,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [ChainConnect](https://chainconnect.chainchecker.vercel.com) — Bridging Communities through Decentralized Collaboration
 
 - [check balanse on acc](https://github.com/cwisuec/baseee) — balanse on base
-
-- [ClankBot](https://github.com/vidhathat/ClankBot) — Telegram-based DeFi trading bot for Base network that enables wallet creation, token trading, price alerts, and wallet monitoring.
 
 - [Crypcurr](https://base-batch-india.devfolio.co/projects/crypcurr-9afd) — Safe and Secure system to exchange stablecoins.
 
@@ -776,8 +785,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [interact with base](https://github.com/ILeasa/Base) — base int
 
-- [Jiyu](https://github.com/Fluxy-hue/hackathon) — yeah
-
 - [Json_file](https://github.com/sheron99/BaseHakaton) — base
 
 - [Krypto](https://github.com/adrianhajdin/project_web3.0/tree/main) — Buy and Sell Crypto Tokens
@@ -789,8 +796,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [MemeAgent](https://github.com/cryptonord) — Complete
 
 - [NebulaID](https://base.nebulaid.xyz) — Universal Identity Protocol for everyone
-
-- [OdysseyArc](https://github.com/ankastra) — A side project gone too far. Now it's changing India.
 
 - [Package on base](https://github.com/mareketamar/Baseci) — Package
 
@@ -817,8 +822,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [Tokenomics Lab](https://x.com/tokenomics_labs?t=2Qma6jkWw96DNL3kP6H59A&s=09) — “Empower your blockchain project with our advanced simulation platform.”
 
 - [transactoin](https://github.com/butlerbacrebom/base) — base
-
-- [Tribe](https://t.me/+ehfp3G5xl7liMTc1) — Connect with people in your city using farcaster channels
 
 - [Visisphere](https://visisphere.vercel.app/) — Seeing the world with a complete new way.
 

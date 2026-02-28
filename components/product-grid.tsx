@@ -197,7 +197,7 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                         }
                       }}
                     >
-                      @{project.founderTwitter}
+                      @{project.founderTwitterHandle || project.founderTwitter}
                     </span>
                     {project.github && (
                       <a
