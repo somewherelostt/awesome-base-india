@@ -100,8 +100,92 @@ export const categorySubFilters: Record<string, string[]> = {
 };
 
 import projectsFromDevfolio from "./projects-from-devfolio.json";
+import clawdKitchenRaw from "./clawd-kitchen-projects.json";
 
-export const projects: Project[] = projectsFromDevfolio as Project[];
+/** Normalize GitHub URL to comparable form for founder matching (e.g. github.com/username or username/repo). */
+function normalizeGithubUrl(url: string): string {
+  if (!url || typeof url !== "string") return "";
+  const u = url.trim().toLowerCase().replace(/\/$/, "");
+  const m = u.match(/github\.com\/([^/]+)(?:\/([^/]+))?/);
+  if (m) return m[1] + (m[2] ? `/${m[2]}` : "");
+  return u;
+}
+
+/** Build map: normalized github -> { name, twitter } from Devfolio projects (for ClawdKitchen founder matching). */
+function buildGithubToFounderMap(devfolioProjects: Project[]): Map<string, { name: string; twitter: string }> {
+  const map = new Map<string, { name: string; twitter: string }>();
+  for (const p of devfolioProjects) {
+    if (p.founderGithub) {
+      const key = normalizeGithubUrl(p.founderGithub);
+      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: p.founderTwitter });
+    }
+    if (p.github) {
+      const key = normalizeGithubUrl(p.github);
+      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: p.founderTwitter });
+    }
+    for (const f of p.founders || []) {
+      if (f.github) {
+        const key = normalizeGithubUrl(f.github);
+        if (key && !map.has(key)) map.set(key, { name: f.name, twitter: f.twitter });
+      }
+    }
+  }
+  return map;
+}
+
+type ClawdKitchenEntry = {
+  name: string;
+  description: string;
+  url: string;
+  github?: string;
+  slug: string;
+  links?: string[];
+  descriptionFull?: string;
+};
+
+function mergeClawdKitchenProjects(
+  devfolio: Project[],
+  clawdRaw: ClawdKitchenEntry[],
+  githubMap: Map<string, { name: string; twitter: string }>
+): Project[] {
+  if (!Array.isArray(clawdRaw) || clawdRaw.length === 0) return devfolio;
+  const merged = [...devfolio];
+  for (const c of clawdRaw) {
+    const githubKey = c.github ? normalizeGithubUrl(c.github) : "";
+    const firstSegment = githubKey.split("/")[0] ?? "";
+    const matched = githubKey
+      ? githubMap.get(githubKey) ?? (firstSegment ? githubMap.get(firstSegment) : null)
+      : null;
+    const project: Project = {
+      id: `clawd-${c.slug}`,
+      name: c.name,
+      description: c.description,
+      category: "AI",
+      founder: matched?.name ?? c.name,
+      founderTwitter: matched?.twitter ?? "",
+      url: c.url,
+      batch: "ClawdKitchen",
+      tags: ["AI", "Agents", "Base"],
+      logo: c.name.slice(0, 2).toUpperCase(),
+      slug: c.slug,
+      ...(c.descriptionFull !== undefined && { descriptionFull: c.descriptionFull }),
+      ...(c.links?.length && { links: c.links }),
+      ...(c.github && { github: c.github, founderGithub: c.github }),
+      ...(matched && {
+        founders: [{ name: matched.name, twitter: matched.twitter, ...(c.github && { github: c.github }) }],
+      }),
+    };
+    merged.push(project);
+  }
+  return merged;
+}
+
+const githubToFounder = buildGithubToFounderMap(projectsFromDevfolio as Project[]);
+export const projects: Project[] = mergeClawdKitchenProjects(
+  projectsFromDevfolio as Project[],
+  clawdKitchenRaw as ClawdKitchenEntry[],
+  githubToFounder
+);
 
 /** Resolve project by slug (e.g. not-your-type-80a6) or by id. */
 export function getProjectBySlugOrId(slugOrId: string): Project | undefined {

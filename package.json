@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "sync-edit-ids": "npx tsx scripts/sync-edit-ids-to-supabase.ts",
     "add-edit-ids": "npx tsx scripts/add-edit-ids-to-founders.ts",
-    "generate-project-mdx": "npx tsx scripts/generate-project-mdx.ts"
+    "generate-project-mdx": "npx tsx scripts/generate-project-mdx.ts",
+    "fetch-clawd-kitchen": "node scripts/fetch-clawd-kitchen.js"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

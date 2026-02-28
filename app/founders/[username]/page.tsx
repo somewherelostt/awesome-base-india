@@ -5,7 +5,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import { getAllFounderUsernames, getFounderByUsername } from "@/lib/founder";
 import { projects } from "@/lib/data";
 import { createMetadata } from "@/lib/metadata";
-import { Github, MapPin, Trophy, Briefcase, Award, Sparkles } from "lucide-react";
+import { Github, MapPin, Trophy, Briefcase } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -103,8 +103,6 @@ function getSimilarFounders(currentUsername: string, tags: string[] = [], limit 
   return scored.slice(0, limit);
 }
 
-const FOUNDER_PLACEHOLDER = "Add your focus areas and current projects here.";
-
 /** Tags to show: prefer project tags when founder has projects; else MDX tags deduped and filtered. */
 function getDisplayTags(
   mdxTags: string[] | undefined,
@@ -112,14 +110,17 @@ function getDisplayTags(
 ): string[] {
   if (projectTags.length > 0) {
     const seen = new Set<string>();
-    return projectTags.filter((t) => {
-      const key = t.trim().toLowerCase();
-      if (!key || seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    }).slice(0, 14);
+    return projectTags
+      .map((t) => (typeof t === "string" ? t : String(t ?? "")))
+      .filter((t) => {
+        const key = t.trim().toLowerCase();
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .slice(0, 14);
   }
-  const raw = (mdxTags ?? []).map((t) => t.trim()).filter(Boolean);
+  const raw = (mdxTags ?? []).map((t) => String(t ?? "").trim()).filter(Boolean);
   const stopWords = new Set(["the", "and", "for", "with", "have", "are", "but", "not", "you", "all", "can", "had", "our", "out", "get", "has", "how", "its", "may", "now", "old", "see", "way", "who", "did", "got", "let", "put", "say", "she", "too", "use", "with"]);
   const seen = new Set<string>();
   const filtered = raw.filter((t) => {
@@ -249,16 +250,6 @@ export default async function FounderPage({ params }: PageProps) {
                   <Trophy className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">Hackathons</span>
                   <span className="text-lg font-semibold text-foreground">{f.hackathons_attended ?? 0}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">Prizes</span>
-                  <span className="text-lg font-semibold text-foreground">{f.prizes_won ?? 0}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">Onchain creds</span>
-                  <span className="text-lg font-semibold text-foreground">{f.onchain_creds_claimed ?? 0}</span>
                 </div>
               </div>
             </div>
