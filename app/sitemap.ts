@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: baseUrl, lastModified: lastMod, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/directory`, lastModified: lastMod, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/about`, lastModified: lastMod, changeFrequency: "monthly", priority: 0.7 },
     ...projectUrls,
     ...founderUrls,
   ];

@@ -501,12 +501,19 @@ export function ProductGrid(props?: ProductGridProps) {
           )}
         </AnimatePresence>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            {randomizeShowcase
-              ? `${filtered.length} random project${filtered.length !== 1 ? "s" : ""} shown`
-              : `${filtered.length} project${filtered.length !== 1 ? "s" : ""} shown`}
-          </p>
+        <div className="mt-8 flex justify-center">
+          {randomizeShowcase ? (
+            <Link
+              href="/directory"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-muted/50 hover:text-accent dark:bg-muted/20 dark:hover:bg-muted/30"
+            >
+              View more
+            </Link>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              {filtered.length} project{filtered.length !== 1 ? "s" : ""} shown
+            </p>
+          )}
         </div>
       </div>
     </section>

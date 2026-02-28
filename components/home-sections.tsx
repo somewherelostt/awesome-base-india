@@ -5,10 +5,14 @@ import {
   ChevronRight,
   Code2,
   Eye,
+  ExternalLink,
   FileCheck,
   GitBranch,
+  Github,
   Globe,
   LineChart,
+  Linkedin,
+  Mail,
   Rocket,
   Search,
   Send,
@@ -148,7 +152,7 @@ export function HeroSection(): ReactNode {
       >
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="#projects"
+            href="/directory"
             className="bg-accent group inline-flex items-center gap-3 rounded-md py-3 pl-5 pr-3 font-medium text-white shadow-lg shadow-accent/25 transition-all duration-500 ease-out hover:rounded-[50px] hover:shadow-xl hover:shadow-accent/40"
           >
             <span>Browse directory</span>
@@ -292,7 +296,7 @@ const bentoCards = [
     body: "A living map of Base India builders. Tap to connect on X.",
     highlights: "Circle animation / Inner Circle",
     cta: "Meet founders",
-    href: "/directory",
+    href: "/founders",
     icon: Users,
     large: false,
   },
@@ -767,7 +771,7 @@ export function FounderConnectPreview(): ReactNode {
           {...fadeInUp}
         >
           <Link
-            href="/directory"
+            href="/founders"
             className="bg-accent group inline-flex items-center gap-3 rounded-md py-3 pl-5 pr-3 font-medium text-white shadow-lg shadow-accent/25 transition-all duration-500 hover:rounded-[50px]"
           >
             <span>Meet founders</span>
@@ -973,7 +977,7 @@ const comparisonFeatures = [
 
 export function GuidelinesSection(): ReactNode {
   return (
-    <section id="about" className="relative w-full bg-background px-8 py-12 md:py-24">
+    <section id="guidelines" className="relative w-full bg-background px-8 py-12 md:py-24">
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <motion.div
@@ -1102,6 +1106,128 @@ export function GuidelinesSection(): ReactNode {
   );
 }
 
+// ─── Section: About (team + community) ────────────────────────────────────────
+
+const TEAM = [
+  {
+    name: "Maaz",
+    links: [
+      { label: "X", href: "https://x.com/Maaztwts", icon: ExternalLink },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/maaz--/", icon: Linkedin },
+      { label: "GitHub", href: "https://github.com/somewherelostt", icon: Github },
+      { label: "Email", href: "mailto:abumaaz2004@gmail.com", icon: Mail },
+    ],
+    note: null,
+  },
+  {
+    name: "Rupam",
+    links: [{ label: "X", href: "https://x.com/0xrupamp26", icon: ExternalLink }],
+    note: "More links coming soon",
+  },
+  {
+    name: "Satyam",
+    links: [{ label: "X", href: "https://x.com/satyam10124", icon: ExternalLink }],
+    note: "More links coming soon",
+  },
+] as const;
+
+export function AboutSection(): ReactNode {
+  return (
+    <section id="about" className="relative w-full scroll-mt-20 bg-background px-6 py-16 md:py-24">
+      <div className="mx-auto w-full max-w-4xl">
+        <motion.div
+          className="mb-12 text-center md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: easeOut }}
+        >
+          <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
+            About us
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Built by India-based builders, for the Base ecosystem.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {TEAM.map((person, i) => (
+            <motion.div
+              key={person.name}
+              className="group relative rounded-2xl border border-border bg-muted/20 p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent/40 hover:bg-muted/30"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: easeOut }}
+            >
+              <p className="mb-4 font-semibold text-foreground">{person.name}</p>
+              <div className="flex flex-wrap gap-2">
+                {person.links.map(({ label, href, icon: Icon }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-background/80 px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+                    aria-label={`${person.name} on ${label}`}
+                  >
+                    <Icon className="h-4 w-4 shrink-0" />
+                    <span>{label}</span>
+                  </Link>
+                ))}
+              </div>
+              {person.note && (
+                <p className="mt-3 text-xs text-muted-foreground">{person.note}</p>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          className="mt-10 rounded-2xl border border-border bg-muted/20 p-6 text-center backdrop-blur-sm md:mt-12 md:p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
+        >
+          <p className="text-sm font-medium text-muted-foreground">
+            A community project with the help of{" "}
+            <Link
+              href="https://innercircle.so/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-foreground underline decoration-accent/50 underline-offset-2 transition-colors hover:text-accent"
+            >
+              Inner Circle
+            </Link>
+            .
+          </p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="https://innercircle.so/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-background/80 px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+            >
+              <Globe className="h-4 w-4" />
+              innercircle.so
+            </Link>
+            <Link
+              href="https://x.com/innercircle_so"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-background/80 px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+            >
+              <ExternalLink className="h-4 w-4" />
+              @innercircle_so
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Section 11: Final CTA ───────────────────────────────────────────────────
 
 export function FinalCTASection(): ReactNode {
@@ -1152,7 +1278,7 @@ export function FinalCTASection(): ReactNode {
               </span>
             </Link>
             <Link
-              href="#projects"
+              href="/directory"
               className="rounded-md bg-white/10 px-6 py-3 font-medium text-white transition-all duration-500 hover:rounded-[50px] hover:bg-white/20"
             >
               Browse directory
