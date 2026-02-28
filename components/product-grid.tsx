@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
 import { ChevronDown, ChevronUp, Github, ExternalLink, Trophy } from "lucide-react";
@@ -51,6 +52,7 @@ function getCategoryAccent(category: string): { border: string; tint: string; te
 }
 
 function ProjectCarousel({ items }: { items: Project[] }) {
+  const router = useRouter();
   const [isDragging, setIsDragging] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [oneSetWidth, setOneSetWidth] = useState(0);
@@ -114,12 +116,22 @@ function ProjectCarousel({ items }: { items: Project[] }) {
           const isHovered = hoveredCard === key;
           const heightClass = CARD_HEIGHTS[index % CARD_HEIGHTS.length];
 
+          const projectHref = `/projects/${project.slug ?? project.id}`;
           return (
-            <Link key={key} href={`/projects/${project.slug ?? project.id}`}>
             <motion.div
+              key={key}
+              role="link"
+              tabIndex={0}
               className={`group relative shrink-0 w-[280px] sm:w-[320px] ${heightClass} overflow-hidden rounded-2xl border text-white cursor-pointer`}
               onMouseEnter={() => setHoveredCard(key)}
               onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => router.push(projectHref)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  router.push(projectHref);
+                }
+              }}
               animate={
                 isHovered
                   ? { scale: 1.04, rotateX: -14, y: -18, zIndex: 50 }
@@ -175,13 +187,13 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+                        window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
                       }}
                       onKeyDown={(e) => {
                         if (e.key === "Enter" || e.key === " ") {
                           e.preventDefault();
                           e.stopPropagation();
-                          window.open(`https://x.com/${project.founderTwitter}`, "_blank", "noopener,noreferrer");
+                          window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
                         }
                       }}
                     >
@@ -216,7 +228,6 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                 </div>
               </div>
             </motion.div>
-            </Link>
           );
         })}
       </motion.div>
@@ -224,9 +235,10 @@ function ProjectCarousel({ items }: { items: Project[] }) {
   );
 }
 
-function tagMatchesSubFilter(projectTags: string[], selectedSubFilters: Set<string>): boolean {
+function tagMatchesSubFilter(projectTags: unknown[], selectedSubFilters: Set<string>): boolean {
   if (selectedSubFilters.size === 0) return true;
-  return projectTags.some((tag) =>
+  const tags = projectTags.filter((t): t is string => typeof t === "string");
+  return tags.some((tag) =>
     Array.from(selectedSubFilters).some((s) => s.toLowerCase() === tag.toLowerCase())
   );
 }
@@ -291,7 +303,7 @@ export function ProductGrid(props?: ProductGridProps) {
     .filter((p) => {
       const matchesCategory = activeCategory === "All" || p.category === activeCategory;
       const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
-      const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(p.tags, subFilters);
+      const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(Array.isArray(p.tags) ? p.tags : [], subFilters);
       const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
       const matchesSearch =
         searchQuery === "" ||

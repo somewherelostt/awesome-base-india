@@ -15,8 +15,10 @@ export interface Project {
   category: string;
   /** Primary founder name (first in list); kept for backward compat. */
   founder: string;
-  /** Primary founder Twitter username (first in list). */
+  /** Primary founder canonical id (Devfolio username) for /founders/[username]. */
   founderTwitter: string;
+  /** Twitter handle for display/X links when different from Devfolio username. */
+  founderTwitterHandle?: string;
   founderGithub?: string;
   /** All founders for this project (when multiple). Primary = first entry. */
   founders?: ProjectFounder[];
@@ -114,14 +116,15 @@ function normalizeGithubUrl(url: string): string {
 /** Build map: normalized github -> { name, twitter } from Devfolio projects (for ClawdKitchen founder matching). */
 function buildGithubToFounderMap(devfolioProjects: Project[]): Map<string, { name: string; twitter: string }> {
   const map = new Map<string, { name: string; twitter: string }>();
+  const twitterFor = (p: Project) => p.founderTwitterHandle || p.founderTwitter;
   for (const p of devfolioProjects) {
     if (p.founderGithub) {
       const key = normalizeGithubUrl(p.founderGithub);
-      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: p.founderTwitter });
+      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: twitterFor(p) });
     }
     if (p.github) {
       const key = normalizeGithubUrl(p.github);
-      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: p.founderTwitter });
+      if (key && !map.has(key)) map.set(key, { name: p.founder, twitter: twitterFor(p) });
     }
     for (const f of p.founders || []) {
       if (f.github) {
@@ -204,8 +207,4 @@ export const founders: Founder[] = projects.map((p) => ({
     .split(" ")
     .map((w) => w[0])
     .join("")
-    .slice(0, 2)
-    .toUpperCase(),
-  role: "Builder",
-  project: p.name,
-}));
+    .sl

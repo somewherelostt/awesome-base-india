@@ -3,6 +3,7 @@ import { BaseHeader } from "@/components/base-header";
 import { FounderConnectPreview, HeroSection, HowItWorksSection } from "@/components/home-sections";
 import { ProductGrid } from "@/components/product-grid";
 import { ThemeSwitch } from "@/components/theme-switch";
+import { getFounderAvatarRowsForOrbit } from "@/lib/founder";
 import { createMetadata } from "@/lib/metadata";
 import { getProjectsWithResolvedLogos } from "@/lib/projects-resolved";
 import type { Metadata } from "next";
@@ -17,6 +18,7 @@ export const metadata: Metadata = createMetadata({
 
 export default async function HomePage(): Promise<ReactNode> {
   const projects = getProjectsWithResolvedLogos();
+  const founderAvatarRows = getFounderAvatarRowsForOrbit(projects);
   return (
     <>
       <BaseHeader />
@@ -33,7 +35,7 @@ export default async function HomePage(): Promise<ReactNode> {
 
         <HowItWorksSection />
 
-        <FounderConnectPreview />
+        <FounderConnectPreview founderAvatarRows={founderAvatarRows} />
       </main>
       <BaseFooter />
     </>

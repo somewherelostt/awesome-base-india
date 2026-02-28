@@ -710,7 +710,12 @@ const scrollLabels = [
   "Shipping weekly",
 ];
 
-export function FounderConnectPreview(): ReactNode {
+export function FounderConnectPreview({
+  founderAvatarRows,
+}: {
+  founderAvatarRows?: string[][];
+} = {}): ReactNode {
+  const rows = founderAvatarRows && founderAvatarRows.length > 0 ? founderAvatarRows : founderAvatars;
   return (
     <section className="bg-background px-6 py-16 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-6xl text-center">
@@ -735,11 +740,11 @@ export function FounderConnectPreview(): ReactNode {
           }}
         >
           <Circles
-            rows={founderAvatars}
+            rows={rows}
             circleSize={56}
             baseRadius={70}
             orbitGap={72}
-            rotationDuration={30}
+            rotationDuration={22}
             rowDelay={3}
             direction="clockwise"
             alternateDirection={true}

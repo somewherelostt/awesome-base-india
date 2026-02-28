@@ -7,10 +7,12 @@ Writes: content/founders/[username].mdx (frontmatter + editable body)
 
 Usage:
   pip install requests
-  python fetch_devfolio_profile_json.py
+  python fetch_devfolio_profile_json.py                    # fetch all founders
+  python fetch_devfolio_profile_json.py user1 user2 user3  # retry only these usernames
 """
 import json
 import re
+import sys
 import time
 from pathlib import Path
 
@@ -19,6 +21,7 @@ import requests
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent.parent
 PROJECTS_JSON = ROOT / "lib" / "projects-from-devfolio.json"
+PROFILE_LINKS = SCRIPT_DIR / "profile_links.json"
 CONTENT_FOUNDERS = ROOT / "content" / "founders"
 BASE_URL = "https://devfolio.co"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/115.0"
@@ -213,25 +216,43 @@ def generate_mdx(schema: dict, full_bio: str) -> str:
 
 
 def main():
-    if not PROJECTS_JSON.exists():
-        print("Run transform_to_data.py first.")
-        return
+    # Retry mode: only usernames passed as arguments
+    only_usernames = [a.strip() for a in sys.argv[1:] if a.strip()]
 
-    with open(PROJECTS_JSON, encoding="utf-8") as f:
-        projects = json.load(f)
-
-    usernames = set()
-    for p in projects:
-        u = (p.get("founderTwitter") or "").strip()
-        if u and u != "devfolio":
-            usernames.add(u)
-        for f in p.get("founders") or []:
-            t = (f.get("twitter") or "").strip()
-            if t and t != "devfolio":
-                usernames.add(t)
+    if only_usernames:
+        usernames = set(only_usernames)
+        print("Retry mode: fetching", len(usernames), "profile(s)...")
+    else:
+        if not PROJECTS_JSON.exists():
+            print("Run transform_to_data.py first.")
+            return
+        with open(PROJECTS_JSON, encoding="utf-8") as f:
+            projects = json.load(f)
+        raw = set()
+        for p in projects:
+            u = (p.get("founderTwitter") or "").strip()
+            if u and u != "devfolio":
+                raw.add(u)
+            for f in p.get("founders") or []:
+                t = (f.get("twitter") or "").strip()
+                if t and t != "devfolio":
+                    raw.add(t)
+        # One profile per person: normalize Twitter handles to Devfolio username when we have profile_links
+        twitter_to_devfolio = {}
+        if PROFILE_LINKS.exists():
+            with open(PROFILE_LINKS, encoding="utf-8") as f:
+                links = json.load(f)
+            for devfolio_user, data in (links or {}).items():
+                tw = (data.get("twitter") or "").strip()
+                if tw:
+                    twitter_to_devfolio[tw.lower()] = devfolio_user
+        usernames = set()
+        for u in raw:
+            canonical = twitter_to_devfolio.get(u.lower(), u)
+            usernames.add(canonical)
+        print("Fetching", len(usernames), "profiles and writing MDX...")
 
     CONTENT_FOUNDERS.mkdir(parents=True, exist_ok=True)
-    print("Fetching", len(usernames), "profiles and writing MDX...")
 
     for i, username in enumerate(sorted(usernames)):
         print(i + 1, "/", len(usernames), username, end=" ... ")
@@ -275,6 +296,21 @@ def main():
         out_path.write_text(mdx, encoding="utf-8")
         print("ok ->", out_path.name)
         time.sleep(1.0)
+
+    # Remove duplicate founder MDX keyed by Twitter handle (we now use Devfolio username only)
+    if not only_usernames and PROFILE_LINKS.exists():
+        with open(PROFILE_LINKS, encoding="utf-8") as f:
+            links = json.load(f)
+        twitter_handles = { (data.get("twitter") or "").strip().lower() for data in (links or {}).values() if (data.get("twitter") or "").strip() }
+        removed = 0
+        for mdx_file in list(CONTENT_FOUNDERS.glob("*.mdx")):
+            stem = mdx_file.stem.lower()
+            if stem in twitter_handles:
+                mdx_file.unlink()
+                removed += 1
+                print("Removed duplicate profile (Twitter handle):", mdx_file.name)
+        if removed:
+            print("Removed", removed, "duplicate founder MDX file(s).")
 
     print("Done. MDX files in", CONTENT_FOUNDERS)
 

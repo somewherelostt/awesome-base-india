@@ -140,3 +140,61 @@ body {
     background-position: -200% 0;
   }
 }
+
+/* Circles orbital animation keyframes (founder orbit) – ensure rotation runs */
+@keyframes circles-orbit-0 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-1 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-2 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-3 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-4 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-5 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-orbit-6 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes circles-counter-orbit-0 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-1 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-2 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-3 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-4 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-5 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}
+@keyframes circles-counter-orbit-6 {
+  0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
+  100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
+}

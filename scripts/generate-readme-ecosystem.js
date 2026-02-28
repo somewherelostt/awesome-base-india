@@ -101,5 +101,5 @@ If you have something you'd like to add, please open a pull request and ensure i
 `;
 
 fs.writeFileSync(path.join(__dirname, "readme_ecosystem_section.md"), out, "utf8");
-fs.writeFileSync(path.join(__dirname, "..", "readme.md"), header + out + footer, "utf8");
-console.log("Wrote readme_ecosystem_section.md and readme.md");
+fs.writeFileSync(path.join(__dirname, "..", "README.md"), header + out + footer, "utf8");
+console.log("Wrote readme_ecosystem_section.md and README.md (all projects listed under 9 sections)");

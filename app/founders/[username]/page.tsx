@@ -165,6 +165,11 @@ export default async function FounderPage({ params }: PageProps) {
     projects_built: projectsBuilt > 0 ? projectsBuilt : (baseF.projects_built ?? 0),
     hackathons_attended: hackathonsFromData > 0 ? hackathonsFromData : (baseF.hackathons_attended ?? 0),
   };
+  // Use profile_image from MDX/Devfolio when valid URL; else fall back to Twitter avatar so DP always shows
+  const profileImageUrl =
+    f.profile_image?.trim() && (f.profile_image.startsWith("http://") || f.profile_image.startsWith("https://"))
+      ? f.profile_image
+      : `https://unavatar.io/twitter/${encodeURIComponent(username)}`;
   const rawContent =
     founder?.content ??
     `## About\n\nBuilder from India.\n\n## Projects\n\n[${projectMatch!.name}](${projectMatch!.url})`;
@@ -189,17 +194,11 @@ export default async function FounderPage({ params }: PageProps) {
           {/* Hero */}
           <header className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
             <div className="shrink-0">
-              {f.profile_image ? (
-                <img
-                  src={f.profile_image}
-                  alt=""
-                  className="h-28 w-28 rounded-2xl object-cover ring-2 ring-border shadow-sm sm:h-32 sm:w-32"
-                />
-              ) : (
-                <div className="flex h-28 w-28 items-center justify-center rounded-2xl bg-accent/15 text-3xl font-bold text-accent shadow-sm sm:h-32 sm:w-32">
-                  {f.name.slice(0, 2).toUpperCase()}
-                </div>
-              )}
+              <img
+                src={profileImageUrl}
+                alt=""
+                className="h-28 w-28 rounded-2xl object-cover ring-2 ring-border shadow-sm sm:h-32 sm:w-32"
+              />
             </div>
             <div className="min-w-0 flex-1">
               <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">

@@ -133,3 +133,40 @@ export function getAllFoundersForPals(projects: {
   }
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
+
+/** Avatar URL for a founder: profile_image if set and URL-like, else Twitter avatar via unavatar. */
+function getFounderAvatarUrl(founder: FounderForPals): string {
+  const img = founder.profile_image?.trim();
+  if (img && (img.startsWith("http://") || img.startsWith("https://")))
+    return img;
+  return `https://unavatar.io/twitter/${encodeURIComponent(founder.username)}`;
+}
+
+/**
+ * Build rows of founder avatar URLs for the orbit/circles component.
+ * Row sizes follow 2, 3, 4, 5, 6... to match the orbital layout.
+ * Call from server (e.g. home page) with projects from getProjectsWithResolvedLogos().
+ */
+export function getFounderAvatarRowsForOrbit(projects: {
+  founderTwitter?: string;
+  founder?: string;
+  name?: string;
+  tags?: string[];
+  founders?: { name: string; twitter: string }[];
+}[]): string[][] {
+  const pals = getAllFoundersForPals(projects);
+  const urls = pals.map(getFounderAvatarUrl);
+  const rowSizes = [2, 3, 4, 5, 6];
+  const rows: string[][] = [];
+  let i = 0;
+  for (let r = 0; r < rowSizes.length && i < urls.length; r++) {
+    const size = rowSizes[r]!;
+    rows.push(urls.slice(i, i + size));
+    i += size;
+  }
+  while (i < urls.length) {
+    rows.push(urls.slice(i, i + 6));
+    i += 6;
+  }
+  return rows.filter((row) => row.length > 0);
+}

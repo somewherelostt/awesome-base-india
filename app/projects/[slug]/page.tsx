@@ -139,9 +139,14 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const foundersWithProfiles = foundersList.map((f) => {
     const profile = getFounderByUsername(f.twitter);
+    const fromMdx = profile?.frontmatter.profile_image?.trim();
+    const profile_image =
+      fromMdx && (fromMdx.startsWith("http://") || fromMdx.startsWith("https://"))
+        ? fromMdx
+        : `https://unavatar.io/twitter/${encodeURIComponent(f.twitter)}`;
     return {
       ...f,
-      profile_image: profile?.frontmatter.profile_image ?? null,
+      profile_image,
       github: f.github ?? profile?.frontmatter.github ?? null,
     };
   });

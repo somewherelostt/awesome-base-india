@@ -122,6 +122,8 @@
 
 - [Base Funds](https://base-funds.vercel.app/) — Base Funds is a decentralized savings pool using smart contracts for community-based saving and borrowing. Built on Base, it offers fast, secure, and transparent financial access for all.
 
+- [Base Network Faucet](https://github.com/dewardh/base) — Faucet
+
 - [Base persona](https://base-id-adventures.lovable.app) — Evolve your onchain identity
 
 - [Base PingPong Arena 🏓](https://base-ping-pong-arena.vercel.app) — “Play. Earn. Dominate. On Base.”
@@ -179,6 +181,8 @@
 - [BITBUZZ](https://based-india.devfolio.co/projects/bitbuzz-8127) — BitBuzz is not just a video platform; it's a groundbreaking Blockchain-powered ecosystem that revolutionizes how creators and audiences earn and engage
 
 - [Bitmor](https://bitmore.vercel.app/) — Bitcoin ownership for everyone through loans.
+
+- [Block Hunt 🎯](https://blockhunt.vercel.app/) — Block Hunt is the ultimate Web3 job finder for the Base Community! 🚀 Powered by Onchainkit, Basenames and SmartWallet by Coinbase, it’s your gateway to top decentralized jobs. Get started today! 🔥
 
 - [BlockBill](https://blockbill.vercel.app) — Generate verifiable transaction reciepts!
 
@@ -420,8 +424,6 @@
 
 - [Melody Launch](https://github.com/anshved/crowdfund-blockchain) — Empowering Artists in the Digital Age
 
-- [Meme Minto AI](https://memminto.fun/) — Where Every Meme Has a Mind and a Market.
-
 - [MetaBet](https://meta-bet-two.vercel.app/) — Feel the thrill with fast, fair, and fun games!
 
 - [MicroLoan](https://github.com/whiteroomich/MicroLoan/tree/main) — A decentralized platform for secure, peer-to-peer microloans with collateral support, powered by Base blockchain.
@@ -481,8 +483,6 @@
 - [Payzoll](https://payzoll-base.pages.dev/) — Unified payment infrastructure. TradFi->Web3
 
 - [Pearbee](https://pearbee-web3-app.vercel.app/login) — Predict Real-World Events, Decide the Future!
-
-- [PeggyBank](https://PeggyBank.vercel.app/) — Built for the curious, by the obsessed.
 
 - [Pepper](https://github.com/Dayitva/Pepper-v4-hook) — Swap confidentially on Uniswap v4
 
@@ -631,8 +631,6 @@ A decentralized platform that connects individuals to exchange skills and servic
 
 - [TranquilMinds](https://v0-new-project-zhiiwwenp4x.vercel.app/) — We care for you , You don't have to face it again
 
-- [TransFilex](https://www.transfilex.com/) — TransFilex – Securing. Sharing. Vanishing
-
 - [TRANSPFLOW](https://github.com/UTKARSHJHA-2005/TranspFlow.git) — Blockchain Powered SUPPLY CHAIN MANAGEMENT SYSTEM
 
 - [trump.fun](https://trump-fun.vercel.app) — Bet on what Trump will do next
@@ -736,6 +734,9 @@ A decentralized platform that connects individuals to exchange skills and servic
 - [Basified](https://www.npmjs.com/package/basified) — Unleash the full power of BASE-Sepolia —track, verify, and manage contracts like a blockchain wizard!
 
 - [Bazario](https://Bazario.vercel.app/) — Built for the curious, by the obsessed.
+
+- [Bounty-Hub](https://bounty-hub.vercel.app) — Fueling Collaboration on the Base Network!
+( Web3 Base Network + Github based - Open Source Bounty Dispenser )
 
 - [Building a pay-per-use](https://build-onchain-fbi.devfolio.co/projects/hsjhs-6ceb) — Pay only for what you watch
 

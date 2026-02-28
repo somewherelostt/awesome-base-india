@@ -1,21 +1,122 @@
 ---
-username: priaansh
-name: Priaansh Gupta
+username: "priaansh"
+name: "Priaansh Gupta"
+city: "Bangalore"
+country: "India"
+github: "https://github.com/beast-brain-11"
+twitter: "https://x.com/PiyushS51272087"
 hackathons_attended: 0
 projects_built: 0
 prizes_won: 0
 prize_winnings_amount: 0
 onchain_creds_claimed: 0
-tags: []
+tags:
+  - "Brain"
+  - "Bot"
+  - "educational"
+  - "platform"
+  - "where"
+  - "users"
+  - "can"
+  - "exchange"
+  - "ETH"
+  - "Braincells"
+  - "interact"
+  - "agent"
 ---
 
 ## About
-Builder from India.
+
+# Brain Bot 🧠
+
+A Web3-powered educational platform where users can exchange ETH for Braincells (platform credits) and interact with an AI agent to learn new concepts.
+
+## Features
+
+- 🔄 ETH to Braincells Exchange System
+- 🤖 AI-powered Learning Assistant
+- 💳 Web3 Wallet Integration (MetaMask)
+- 💾 Chat History Storage
+- 💫 Modern, Responsive UI
+
+## Architecture
+
+### Frontend
+- Vanilla JavaScript with Vite
+- Web3 Integration using Viem
+- Base Sepolia Test Network for transactions
+- Supabase for chat history storage
+
+### Backend Services
+- Web3 Backend API (https://outskill-cline.onrender.com)
+  - Handles ETH to Braincells conversion
+  - Manages user balances
+  - Verifies blockchain transactions
+- AI Agent API
+  - Endpoint: https://priaansh-flowise.hf.space
+  - Provides educational responses and explanations
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Configure environment:
+- Ensure you have MetaMask installed with Base Sepolia Test Network configured
+- Get some test ETH from Base Sepolia faucet
+
+3. Start development server:
+```bash
+npm run dev
+```
+
+## Usage
+
+1. **Connect Wallet**
+   - Click "Connect Wallet" button
+   - Approve MetaMask connection
+
+2. **Exchange ETH for Braincells**
+   - Click "Exchange ETH" button
+   - Enter desired ETH amount
+   - Confirm transaction in MetaMask
+   - Exchange rate: 1 ETH = 30,000 Braincells
+
+3. **Start Learning**
+   - Click "Start Solving" to enter chat interface
+   - Each message costs 100 Braincells
+   - Ask questions to learn new concepts
+   - Chat history is saved automatically
+
+## Technical Details
+
+### API Endpoints
+
+#### Web3 Backend (Base URL: https://outskill-cline.onrender.com)
+
+- `GET /health`: Check API status
+- `GET /balance/:walletAddress`: Get user's Braincells balance
+- `POST /exchange`: Convert ETH to Braincells
+  ```json
+  {
+    "walletAddress": "0x...",
+    "ethAmount": 1.0,
+    "transactionHash": "0x..."
+  }
+  ```
+
+### Architecture Components
+
+- `web3.js`: Handles wallet connection and ETH transac
 
 ## What I'm Building
+
 *Add your focus areas and current projects here.*
 
 ## Interests
+
 - Web3
 - Base
 - India ecosystem
