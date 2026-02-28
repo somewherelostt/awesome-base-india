@@ -79,6 +79,8 @@ export const batches = [
   "Based India",
   "Builder Track 002",
   "Build Onchain FBI",
+  "Onchain AI BLR",
+  "ClawdKitchen",
   "Independent",
 ] as const;
 

@@ -11,6 +11,14 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 INPUT_FILE = SCRIPT_DIR / "all_projects.json"
 OUTPUT_FILE = SCRIPT_DIR.parent.parent / "lib" / "projects-from-devfolio.json"
 
+# Devfolio hackathon subdomain -> our batch display name (for filter + README)
+HACKATHON_BATCH_MAP = {
+    "base-batch-india": "Base Batch India",
+    "build-onchain-fbi": "Build Onchain FBI",
+    "onchain-ai-blr": "Onchain AI BLR",
+    "based-india": "Based India",
+}
+
 # Map hashtags/tags to our app categories (case-insensitive match)
 CATEGORY_KEYWORDS = {
     "AI": ["ai", "chatbot", "agents", "discovery", "personalization", "automation", "compute", "support", "multi-agent", "llm", "ml"],
@@ -99,6 +107,11 @@ def main():
     for i, src in enumerate(raw):
         if not isinstance(src, dict):
             continue
+        hackathon = src.get("hackathon") or {}
+        subdomain = (hackathon.get("subdomain") or "").strip() or "base-batch-india"
+        batch_name = HACKATHON_BATCH_MAP.get(subdomain) or hackathon.get("name") or "Base Batch India"
+        base_url_hack = f"https://{subdomain}.devfolio.co/projects"
+
         name = (src.get("name") or "").strip() or f"Project {i+1}"
         slug = (src.get("slug") or "").strip()
         tagline = (src.get("tagline") or "").strip()
@@ -132,7 +145,7 @@ def main():
             founder = name
             founder_twitter = slug or "devfolio"
 
-        project_url = f"{base_url}/{slug}" if slug else base_url
+        project_url = f"{base_url_hack}/{slug}" if slug else base_url_hack
         logo = (src.get("favicon") or src.get("cover_img") or "").strip()
 
         # Parse all project links: GitHub, Farcaster, YouTube, and other (app/demo/website)
@@ -176,7 +189,7 @@ def main():
             "founder": founder,
             "founderTwitter": founder_twitter,
             "url": project_url,
-            "batch": "Base Batch India",
+            "batch": batch_name,
             "tags": tag_names,
             "logo": logo or name[:2].upper(),
             "source": project_url,

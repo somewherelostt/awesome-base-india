@@ -58,6 +58,9 @@ next-env.d.ts
 # scripts: generated / cache (keep script source, ignore heavy outputs)
 scripts/devfolio-scraper/all_projects.json
 scripts/devfolio-scraper/profile_links.json
+scripts/readme_ecosystem_section.md
+scripts/**/readme_ecosystem*.md
+scripts/**/*.txt
 **/__pycache__/
 *.pyc
 *.pyo

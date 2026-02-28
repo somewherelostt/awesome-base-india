@@ -1,6 +1,6 @@
 """
-Scrape Base Batch India projects from Devfolio API.
-Output: all_projects.json in this folder.
+Scrape projects from multiple Devfolio hackathons (Base Batch India, Build Onchain FBI,
+Onchain AI BLR, Based India). Output: all_projects.json in this folder.
 """
 import requests
 import json
@@ -13,15 +13,24 @@ HEADERS = {
     "Referer": "https://base-batch-india.devfolio.co/",
 }
 
+# All hackathon slugs to fetch (Devfolio subdomains)
+HACKATHON_SLUGS = [
+    "base-batch-india",
+    "build-onchain-fbi",
+    "onchain-ai-blr",
+    "based-india",
+]
+
 OUTPUT_FILE = Path(__file__).resolve().parent / "all_projects.json"
 PAGE_SIZE = 50
-MAX_OFFSET = 500
+MAX_OFFSET = 1000
 
 all_projects = []
+seen_ids = set()
 
 for offset in range(0, MAX_OFFSET, PAGE_SIZE):
     payload = {
-        "hackathon_slugs": ["base-batch-india"],
+        "hackathon_slugs": HACKATHON_SLUGS,
         "q": "",
         "filter": "all",
         "prizes": [],
@@ -38,10 +47,12 @@ for offset in range(0, MAX_OFFSET, PAGE_SIZE):
     projects = hits.get("hits", []) if isinstance(hits, dict) else []
     if not projects:
         break
-    # Each item has _source with the actual project data
     for item in projects:
         src = item.get("_source") or item
-        all_projects.append(src)
+        pid = src.get("uuid") or src.get("slug") or ""
+        if pid and pid not in seen_ids:
+            seen_ids.add(pid)
+            all_projects.append(src)
     print("Collected:", len(all_projects))
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
