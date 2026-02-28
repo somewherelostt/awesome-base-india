@@ -34,28 +34,6 @@ if (!HAS_SUPABASE) {
   console.warn("SUPABASE_URL or SUPABASE_SERVICE_KEY missing — Existing project/founder and submissions will fail. Set both in Render → Environment.");
 }
 
-/** Telegram message length limit. */
-const MAX_MESSAGE_LENGTH = 4000;
-
-/** Send a long list in multiple messages so each stays under Telegram's limit. */
-async function sendListInChunks(
-  ctx: { reply: (text: string, opts?: { parse_mode?: "Markdown" }) => Promise<unknown> },
-  header: string,
-  lines: string[]
-): Promise<void> {
-  const prefix = header + "\n\n";
-  let chunk = prefix;
-  for (const line of lines) {
-    const next = chunk + (chunk === prefix ? "" : "\n") + line;
-    if (next.length > MAX_MESSAGE_LENGTH && chunk.length > prefix.length) {
-      await ctx.reply(chunk.trim(), { parse_mode: "Markdown" });
-      chunk = prefix + line;
-    } else {
-      chunk = chunk === prefix ? chunk + line : chunk + "\n" + line;
-    }
-  }
-  if (chunk.trim().length > prefix.trim().length) await ctx.reply(chunk.trim(), { parse_mode: "Markdown" });
-}
 
 const bot = new Telegraf(BOT_TOKEN);
 
@@ -98,15 +76,19 @@ interface MenuFlow {
 
 interface ExistingProjectFlow {
   type: "existing_project";
-  step: "pick" | "show" | "edit_field" | "edit_value";
+  step: "pick" | "pick_from_matches" | "show" | "edit_field" | "edit_value";
   slug?: string;
+  matchSlugs?: string[];
+  matchNames?: string[];
   editingField?: string;
 }
 
 interface ExistingFounderFlow {
   type: "existing_founder";
-  step: "pick" | "show" | "edit_field" | "edit_value";
+  step: "pick" | "pick_from_matches" | "show" | "edit_field" | "edit_value";
   username?: string;
+  matchUsernames?: string[];
+  matchNames?: string[];
   editingField?: string;
 }
 
@@ -290,9 +272,10 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
         return;
       }
       setFlow(userId, { type: "existing_project", step: "pick" });
-      const header = `*Select a project* (reply with the *exact name* or *number* 1–${list.length}):`;
-      const lines = list.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`);
-      await sendListInChunks(ctx, header, lines);
+      await ctx.reply(
+        "Type the *project name* (or part of it) to find your project. If we find a match, you can request changes — our team will review and update the website.",
+        { parse_mode: "Markdown" }
+      );
     } catch (e) {
       const errMsg = e instanceof Error ? e.message : String(e);
       console.error("listDirectoryProjects error:", errMsg, e);
@@ -316,9 +299,10 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
         return;
       }
       setFlow(userId, { type: "existing_founder", step: "pick" });
-      const header = `*Select a founder* (reply with the *exact name* or *username* or *number* 1–${list.length}):`;
-      const lines = list.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`);
-      await sendListInChunks(ctx, header, lines);
+      await ctx.reply(
+        "Type the *founder name* or *username* (or part of it) to find the profile. If we find a match, you can request changes — our team will review and update the website.",
+        { parse_mode: "Markdown" }
+      );
     } catch (e) {
       const errMsg = e instanceof Error ? e.message : String(e);
       console.error("listDirectoryFounders error:", errMsg, e);
@@ -407,25 +391,82 @@ async function handleEditFlow(ctx: { from?: { id?: number }; message?: { text?: 
   return true;
 }
 
-// ─── Existing project: pick → show → edit field → edit value ────────────────
+// ─── Existing project: pick (search by name) → show → edit field → edit value ────────────────
 async function handleExistingProject(ctx: { reply: (t: string, o?: { parse_mode?: "Markdown" }) => Promise<unknown> }, userId: number, text: string): Promise<boolean> {
   const flow = userFlows.get(userId);
   if (!flow || flow.type !== "existing_project") return false;
 
-  if (flow.step === "pick") {
-    const { data: list } = await listDirectoryProjects();
-    const byName = new Map(list.map((p) => [p.name.toLowerCase(), p.slug]));
-    const bySlug = new Map(list.map((p) => [p.slug.toLowerCase(), p.slug]));
-    const byNum = list.map((p) => p.slug);
+  if (flow.step === "pick_from_matches" && flow.matchSlugs?.length) {
     const t = text.trim().toLowerCase();
-    let slug: string | undefined = byName.get(t) ?? bySlug.get(t);
-    if (!slug && /^\d+$/.test(t)) {
+    let slug: string | undefined;
+    if (/^\d+$/.test(t)) {
       const i = parseInt(t, 10);
-      if (i >= 1 && i <= byNum.length) slug = byNum[i - 1];
+      if (i >= 1 && i <= flow.matchSlugs.length) slug = flow.matchSlugs[i - 1];
     }
+    if (!slug && flow.matchNames) {
+      const idx = flow.matchNames.findIndex((n) => n.toLowerCase() === t);
+      if (idx >= 0) slug = flow.matchSlugs![idx];
+    }
+    if (!slug) slug = flow.matchSlugs!.find((s) => s.toLowerCase() === t);
     if (!slug) {
-      await ctx.reply("Not found. Reply with the exact project name or number from the list, or /cancel.");
+      await ctx.reply("Reply with a number (1–" + flow.matchSlugs.length + ") or the exact project name/slug from the list, or /cancel.");
       return true;
+    }
+    const project = await getDirectoryProject(slug);
+    if (!project) {
+      setFlow(userId, { type: "menu" });
+      await ctx.reply("Project not found. Send /start to try again.");
+      return true;
+    }
+    setFlow(userId, { type: "existing_project", step: "show", slug });
+    const preview = formatProjectSimple(project);
+    await ctx.reply(
+      `Found: *${project.name}* (\`${project.slug}\`).\n\nYour requested changes will be saved for our team to review; we'll then update the website.\n\n*Current data:*\n\`\`\`\n${preview}\n\`\`\`\n\nReply with a *field name* to request a change (e.g. \`name\`, \`description\`). Or /done when finished.`,
+      { parse_mode: "Markdown" }
+    );
+    return true;
+  }
+
+  if (flow.step === "pick") {
+    const query = text.trim();
+    if (!query) {
+      await ctx.reply("Type a project name (or part of it) to search, or /cancel.");
+      return true;
+    }
+    const { data: list } = await listDirectoryProjects();
+    const q = query.toLowerCase();
+    const matches = list.filter(
+      (p) => p.name.toLowerCase().includes(q) || p.slug.toLowerCase().includes(q)
+    );
+    if (matches.length === 0) {
+      await ctx.reply("No project found for \"" + query + "\". Try another name or /cancel.");
+      return true;
+    }
+    let slug: string;
+    if (matches.length === 1) {
+      slug = matches[0]!.slug;
+    } else {
+      const byExactName = matches.find((p) => p.name.toLowerCase() === q);
+      const byExactSlug = matches.find((p) => p.slug.toLowerCase() === q);
+      if (byExactName) slug = byExactName.slug;
+      else if (byExactSlug) slug = byExactSlug.slug;
+      else if (/^\d+$/.test(query) && parseInt(query, 10) >= 1 && parseInt(query, 10) <= matches.length) {
+        slug = matches[parseInt(query, 10) - 1]!.slug;
+      } else {
+        const show = matches.slice(0, 10);
+        const shortList = show.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`).join("\n");
+        setFlow(userId, {
+          type: "existing_project",
+          step: "pick_from_matches",
+          matchSlugs: show.map((p) => p.slug),
+          matchNames: show.map((p) => p.name),
+        });
+        await ctx.reply(
+          `Found ${matches.length} project(s). Pick one:\n\n${shortList}${matches.length > 10 ? "\n\n(Reply with 1–10 or the exact name/slug.)" : ""}`,
+          { parse_mode: "Markdown" }
+        );
+        return true;
+      }
     }
     const project = await getDirectoryProject(slug);
     if (!project) {
@@ -439,7 +480,7 @@ async function handleExistingProject(ctx: { reply: (t: string, o?: { parse_mode?
     setFlow(userId, { type: "existing_project", step: "show", slug });
     const preview = formatProjectSimple(project);
     await ctx.reply(
-      `*Current data* (copy from Supabase later):\n\`\`\`\n${preview}\n\`\`\`\n\nTo edit a field, reply with the *field name* (e.g. \`name\`, \`description\`). Or /done to finish.`,
+      `Found: *${project.name}* (\`${project.slug}\`).\n\nYour requested changes will be saved for our team to review; we'll then update the website.\n\n*Current data:*\n\`\`\`\n${preview}\n\`\`\`\n\nReply with a *field name* to request a change (e.g. \`name\`, \`description\`). Or /done when finished.`,
       { parse_mode: "Markdown" }
     );
     return true;
@@ -447,7 +488,7 @@ async function handleExistingProject(ctx: { reply: (t: string, o?: { parse_mode?
 
   if (flow.step === "show" && flow.slug) {
     if (text.trim().toLowerCase() === "/done") {
-      await ctx.reply("✅ Edits are saved in Supabase. We'll update the MDX file manually. Send /start for more.");
+      await ctx.reply("✅ Your requested changes are saved. Our team will review and update the website. Send /start for more.");
       setFlow(userId, { type: "menu" });
       return true;
     }
@@ -471,7 +512,7 @@ async function handleExistingProject(ctx: { reply: (t: string, o?: { parse_mode?
       return true;
     }
     setFlow(userId, { type: "existing_project", step: "show", slug: flow.slug });
-    await ctx.reply("✅ Updated. Edit another field or /done to finish.");
+    await ctx.reply("✅ Change saved for review. Request another field or /done when finished.");
     return true;
   }
 
@@ -483,20 +524,77 @@ async function handleExistingFounder(ctx: { reply: (t: string, o?: { parse_mode?
   const flow = userFlows.get(userId);
   if (!flow || flow.type !== "existing_founder") return false;
 
-  if (flow.step === "pick") {
-    const { data: list } = await listDirectoryFounders();
-    const byName = new Map(list.map((f) => [f.name.toLowerCase(), f.username]));
-    const byUser = new Map(list.map((f) => [f.username.toLowerCase(), f.username]));
-    const byNum = list.map((f) => f.username);
+  if (flow.step === "pick_from_matches" && flow.matchUsernames?.length) {
     const t = text.trim().toLowerCase();
-    let username: string | undefined = byName.get(t) ?? byUser.get(t);
-    if (!username && /^\d+$/.test(t)) {
+    let username: string | undefined;
+    if (/^\d+$/.test(t)) {
       const i = parseInt(t, 10);
-      if (i >= 1 && i <= byNum.length) username = byNum[i - 1];
+      if (i >= 1 && i <= flow.matchUsernames.length) username = flow.matchUsernames[i - 1];
     }
+    if (!username && flow.matchNames) {
+      const idx = flow.matchNames.findIndex((n) => n.toLowerCase() === t);
+      if (idx >= 0) username = flow.matchUsernames![idx];
+    }
+    if (!username) username = flow.matchUsernames!.find((u) => u.toLowerCase() === t);
     if (!username) {
-      await ctx.reply("Not found. Reply with the exact founder name or username or number, or /cancel.");
+      await ctx.reply("Reply with a number (1–" + flow.matchUsernames.length + ") or the exact founder name/username from the list, or /cancel.");
       return true;
+    }
+    const founder = await getDirectoryFounder(username);
+    if (!founder) {
+      setFlow(userId, { type: "menu" });
+      await ctx.reply("Founder not found. Send /start to try again.");
+      return true;
+    }
+    setFlow(userId, { type: "existing_founder", step: "show", username });
+    const preview = formatFounderSimple(founder);
+    await ctx.reply(
+      `Found: *${founder.name}* (\`${founder.username}\`).\n\nYour requested changes will be saved for our team to review; we'll then update the website.\n\n*Current data:*\n\`\`\`\n${preview}\n\`\`\`\n\nReply with a *field name* to request a change (e.g. \`name\`, \`city\`). Or /done when finished.`,
+      { parse_mode: "Markdown" }
+    );
+    return true;
+  }
+
+  if (flow.step === "pick") {
+    const query = text.trim();
+    if (!query) {
+      await ctx.reply("Type a founder name or username (or part of it) to search, or /cancel.");
+      return true;
+    }
+    const { data: list } = await listDirectoryFounders();
+    const q = query.toLowerCase();
+    const matches = list.filter(
+      (f) => f.name.toLowerCase().includes(q) || f.username.toLowerCase().includes(q)
+    );
+    if (matches.length === 0) {
+      await ctx.reply("No founder found for \"" + query + "\". Try another name or /cancel.");
+      return true;
+    }
+    let username: string;
+    if (matches.length === 1) {
+      username = matches[0]!.username;
+    } else {
+      const byExactName = matches.find((f) => f.name.toLowerCase() === q);
+      const byExactUser = matches.find((f) => f.username.toLowerCase() === q);
+      if (byExactName) username = byExactName.username;
+      else if (byExactUser) username = byExactUser.username;
+      else if (/^\d+$/.test(query) && parseInt(query, 10) >= 1 && parseInt(query, 10) <= matches.length) {
+        username = matches[parseInt(query, 10) - 1]!.username;
+      } else {
+        const show = matches.slice(0, 10);
+        const shortList = show.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`).join("\n");
+        setFlow(userId, {
+          type: "existing_founder",
+          step: "pick_from_matches",
+          matchUsernames: show.map((f) => f.username),
+          matchNames: show.map((f) => f.name),
+        });
+        await ctx.reply(
+          `Found ${matches.length} founder(s). Pick one:\n\n${shortList}${matches.length > 10 ? "\n\n(Reply with 1–10 or the exact name/username.)" : ""}`,
+          { parse_mode: "Markdown" }
+        );
+        return true;
+      }
     }
     const founder = await getDirectoryFounder(username);
     if (!founder) {
@@ -510,7 +608,7 @@ async function handleExistingFounder(ctx: { reply: (t: string, o?: { parse_mode?
     setFlow(userId, { type: "existing_founder", step: "show", username });
     const preview = formatFounderSimple(founder);
     await ctx.reply(
-      `*Current data*:\n\`\`\`\n${preview}\n\`\`\`\n\nReply with a *field name* to edit (e.g. \`name\`, \`city\`). Or /done to finish.`,
+      `Found: *${founder.name}* (\`${founder.username}\`).\n\nYour requested changes will be saved for our team to review; we'll then update the website.\n\n*Current data:*\n\`\`\`\n${preview}\n\`\`\`\n\nReply with a *field name* to request a change (e.g. \`name\`, \`city\`). Or /done when finished.`,
       { parse_mode: "Markdown" }
     );
     return true;
@@ -518,7 +616,7 @@ async function handleExistingFounder(ctx: { reply: (t: string, o?: { parse_mode?
 
   if (flow.step === "show" && flow.username) {
     if (text.trim().toLowerCase() === "/done") {
-      await ctx.reply("✅ Edits saved in Supabase. We'll update the MDX file manually. Send /start for more.");
+      await ctx.reply("✅ Your requested changes are saved. Our team will review and update the website. Send /start for more.");
       setFlow(userId, { type: "menu" });
       return true;
     }
@@ -542,7 +640,7 @@ async function handleExistingFounder(ctx: { reply: (t: string, o?: { parse_mode?
       return true;
     }
     setFlow(userId, { type: "existing_founder", step: "show", username: flow.username });
-    await ctx.reply("✅ Updated. Edit another field or /done to finish.");
+    await ctx.reply("✅ Change saved for review. Request another field or /done when finished.");
     return true;
   }
 
