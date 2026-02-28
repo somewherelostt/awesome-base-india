@@ -1,6 +1,6 @@
 import "dotenv/config";
 import http from "http";
-import { Telegraf } from "telegraf";
+import { Telegraf, type Context } from "telegraf";
 import type { SubmissionState, FounderSubmissionState } from "./types";
 import {
   MAIN_CATEGORIES,
@@ -203,7 +203,7 @@ const WELCOME =
   "We're the directory for products and founders building on Base from India. Choose an option below.";
 
 // ─── Start menu: Existing project / Existing founder / New project / New founder ───
-function sendStartMenu(ctx: { reply: (text: string, opts?: { parse_mode?: "Markdown"; reply_markup?: unknown }) => Promise<unknown> }) {
+function sendStartMenu(ctx: Context) {
   ctx.reply(WELCOME, {
     parse_mode: "Markdown",
     reply_markup: {
