@@ -112,6 +112,7 @@ const ParticleText: React.FC<ParticleTextProps> = ({
 
       canvas.width = container.clientWidth * dpr;
       canvas.height = container.clientHeight * dpr;
+      if (canvas.width === 0 || canvas.height === 0) return;
 
       let effectiveFontSize = fontSize;
       if (autoFit) {

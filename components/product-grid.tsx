@@ -258,7 +258,10 @@ export function ProductGrid(props?: ProductGridProps) {
   const randomizeShowcase = props?.randomizeShowcase ?? false;
   const showcaseCount = props?.showcaseCount ?? 15;
   const showViewAllButton = props?.showViewAllButton ?? false;
-  const [randomSeed] = useState(() => Math.floor(Math.random() * 1_000_000_000));
+  const [randomSeed, setRandomSeed] = useState<number | null>(null);
+  useEffect(() => {
+    setRandomSeed(Math.floor(Math.random() * 1_000_000_000));
+  }, []);
   const [activeCategory, setActiveCategory] = useState("All");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
@@ -268,7 +271,8 @@ export function ProductGrid(props?: ProductGridProps) {
 
   const sourceProjects = useMemo(() => {
     if (!randomizeShowcase) return projectsToUse;
-    return shuffleWithSeed(projectsToUse, randomSeed).slice(0, Math.min(showcaseCount, projectsToUse.length));
+    const seed = randomSeed ?? 0;
+    return shuffleWithSeed(projectsToUse, seed).slice(0, Math.min(showcaseCount, projectsToUse.length));
   }, [projectsToUse, randomSeed, randomizeShowcase, showcaseCount]);
 
   useEffect(() => {
@@ -305,12 +309,15 @@ export function ProductGrid(props?: ProductGridProps) {
       const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
       const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(Array.isArray(p.tags) ? p.tags : [], subFilters);
       const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
+      const q = searchQuery.trim().toLowerCase();
       const matchesSearch =
-        searchQuery === "" ||
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.founder.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+        q === "" ||
+        String(p.name ?? "").toLowerCase().includes(q) ||
+        String(p.description ?? "").toLowerCase().includes(q) ||
+        String(p.founder ?? "").toLowerCase().includes(q) ||
+        (Array.isArray(p.tags) ? p.tags : []).some((t) =>
+          typeof t === "string" && t.toLowerCase().includes(q)
+        );
       return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
     })
     .sort((a, b) => {
