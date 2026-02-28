@@ -29,6 +29,34 @@ if (!BOT_TOKEN) {
   process.exit(1);
 }
 
+const HAS_SUPABASE = !!(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY);
+if (!HAS_SUPABASE) {
+  console.warn("SUPABASE_URL or SUPABASE_SERVICE_KEY missing — Existing project/founder and submissions will fail. Set both in Render → Environment.");
+}
+
+/** Telegram message length limit. */
+const MAX_MESSAGE_LENGTH = 4000;
+
+/** Send a long list in multiple messages so each stays under Telegram's limit. */
+async function sendListInChunks(
+  ctx: { reply: (text: string, opts?: { parse_mode?: "Markdown" }) => Promise<unknown> },
+  header: string,
+  lines: string[]
+): Promise<void> {
+  const prefix = header + "\n\n";
+  let chunk = prefix;
+  for (const line of lines) {
+    const next = chunk + (chunk === prefix ? "" : "\n") + line;
+    if (next.length > MAX_MESSAGE_LENGTH && chunk.length > prefix.length) {
+      await ctx.reply(chunk.trim(), { parse_mode: "Markdown" });
+      chunk = prefix + line;
+    } else {
+      chunk = chunk === prefix ? chunk + line : chunk + "\n" + line;
+    }
+  }
+  if (chunk.trim().length > prefix.trim().length) await ctx.reply(chunk.trim(), { parse_mode: "Markdown" });
+}
+
 const bot = new Telegraf(BOT_TOKEN);
 
 // ─── Project submission steps (new project) ─────────────────────────────────
@@ -262,13 +290,16 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
         return;
       }
       setFlow(userId, { type: "existing_project", step: "pick" });
-      const text =
-        "*Select a project* (reply with the *exact name* or *number*):\n\n" +
-        list.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`).join("\n");
-      await ctx.reply(text, { parse_mode: "Markdown" });
+      const header = `*Select a project* (reply with the *exact name* or *number* 1–${list.length}):`;
+      const lines = list.map((p, i) => `${i + 1}. ${p.name} (\`${p.slug}\`)`);
+      await sendListInChunks(ctx, header, lines);
     } catch (e) {
-      console.error("listDirectoryProjects error:", e);
-      await ctx.reply("Could not load the project list. Check Supabase setup and run `npm run seed-directory` from the repo, or try again later.");
+      const errMsg = e instanceof Error ? e.message : String(e);
+      console.error("listDirectoryProjects error:", errMsg, e);
+      const hint = !process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY
+        ? " Set SUPABASE_URL and SUPABASE_SERVICE_KEY in Render → your bot service → Environment (exact names, case-sensitive)."
+        : " Check Render Logs for the full error. Tables directory_projects and edit_id_registry must exist in Supabase.";
+      await ctx.reply("Could not load the project list." + hint);
     }
     return;
   }
@@ -285,13 +316,16 @@ bot.action(/^menu_(.+)$/, async (ctx) => {
         return;
       }
       setFlow(userId, { type: "existing_founder", step: "pick" });
-      const text =
-        "*Select a founder* (reply with the *exact name* or *username* or *number*):\n\n" +
-        list.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`).join("\n");
-      await ctx.reply(text, { parse_mode: "Markdown" });
+      const header = `*Select a founder* (reply with the *exact name* or *username* or *number* 1–${list.length}):`;
+      const lines = list.map((f, i) => `${i + 1}. ${f.name} (\`${f.username}\`)`);
+      await sendListInChunks(ctx, header, lines);
     } catch (e) {
-      console.error("listDirectoryFounders error:", e);
-      await ctx.reply("Could not load the founder list. Check Supabase setup and run `npm run seed-directory` from the repo, or try again later.");
+      const errMsg = e instanceof Error ? e.message : String(e);
+      console.error("listDirectoryFounders error:", errMsg, e);
+      const hint = !process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY
+        ? " Set SUPABASE_URL and SUPABASE_SERVICE_KEY in Render → your bot service → Environment (exact names, case-sensitive)."
+        : " Check Render Logs for the full error. Tables directory_founders and edit_id_registry must exist in Supabase.";
+      await ctx.reply("Could not load the founder list." + hint);
     }
     return;
   }
