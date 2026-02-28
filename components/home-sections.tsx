@@ -32,7 +32,6 @@ import {
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import Circles from "@/components/circles";
 import ParticleText from "@/components/particle-text";
 import PixelBlast from "@/components/pixel-blast";
 
@@ -668,135 +667,7 @@ export function FeaturedSection(): ReactNode {
   );
 }
 
-// ─── Section 7: Founder Connect Preview ──────────────────────────────────────
-
-const founderAvatars = [
-  [
-    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-  ],
-  [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-  ],
-  [
-    "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
-  ],
-  [
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-  ],
-  [
-    "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop",
-  ],
-];
-
-const scrollLabels = [
-  "Looking for feedback",
-  "Open to collabs",
-  "Hiring",
-  "Shipping weekly",
-];
-
-export function FounderConnectPreview({
-  founderAvatarRows,
-}: {
-  founderAvatarRows?: string[][];
-} = {}): ReactNode {
-  const rows = founderAvatarRows && founderAvatarRows.length > 0 ? founderAvatarRows : founderAvatars;
-  return (
-    <section className="bg-background px-6 py-16 md:py-32 overflow-hidden">
-      <div className="mx-auto max-w-6xl text-center">
-        <motion.div {...fadeInUp}>
-          <h2 className="mb-4 text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-            Base India Inner Circle
-          </h2>
-          <p className="text-muted-foreground mx-auto max-w-xl text-lg">
-            Tap a builder, open their X, and say hi. Collaboration beats clout.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="mt-12 flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1, ease: easeOut }}
-          style={{
-            maskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
-          }}
-        >
-          <Circles
-            rows={rows}
-            circleSize={56}
-            baseRadius={70}
-            orbitGap={72}
-            rotationDuration={22}
-            rowDelay={3}
-            direction="clockwise"
-            alternateDirection={true}
-            fadeMode="in"
-            fadeBlur={true}
-            showPaths={true}
-            animate={true}
-            animationDuration={0.8}
-            animationStagger={0.15}
-          />
-        </motion.div>
-
-        <motion.div
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-          {...fadeInUp}
-        >
-          {scrollLabels.map((label) => (
-            <span
-              key={label}
-              className="bg-foreground/5 text-muted-foreground rounded-full px-4 py-1.5 text-sm"
-            >
-              {label}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-          {...fadeInUp}
-        >
-          <Link
-            href="/founders"
-            className="bg-accent group inline-flex items-center gap-3 rounded-md py-3 pl-5 pr-3 font-medium text-white shadow-lg shadow-accent/25 transition-all duration-500 hover:rounded-[50px]"
-          >
-            <span>Meet founders</span>
-            <span className="bg-white text-accent flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110">
-              <ChevronRight className="relative left-px h-4 w-4" />
-            </span>
-          </Link>
-          <Link
-            href="/submit"
-            className="text-foreground rounded-md bg-foreground/5 px-6 py-3 font-medium transition-all duration-500 hover:rounded-[50px] hover:bg-foreground/10"
-          >
-            Add my profile
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Section 8: Stats Band (Stats5 style) ───────────────────────────────────
+// ─── Section 7: Stats Band (Stats5 style) ───────────────────────────────────
 
 function CountUp({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);

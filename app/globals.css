@@ -198,3 +198,42 @@ body {
   0% { transform: rotate(calc(-1 * var(--item-angle))) scale(1); opacity: 1; }
   100% { transform: rotate(calc(-1 * var(--item-angle) - 360deg)) scale(1); opacity: 1; }
 }
+
+/* Founder circle visibility: container and path (styled-jsx may not run in prod) */
+@keyframes circles-container-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes circles-path-entrance {
+  0% { opacity: 0; stroke-dashoffset: 100; }
+  100% { opacity: 0.5; stroke-dashoffset: 0; }
+}
+/* Entrance keyframes so orbit avatars are visible when styled-jsx keyframes are missing */
+@keyframes circles-entrance-0 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-1 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-2 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-3 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-4 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-5 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
+@keyframes circles-entrance-6 {
+  0% { opacity: 0; transform: rotate(calc(-1 * var(--item-angle))) scale(0.6); filter: blur(10px); }
+  100% { opacity: 1; transform: rotate(calc(-1 * var(--item-angle))) scale(1); filter: blur(0); }
+}
