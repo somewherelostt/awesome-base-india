@@ -119,10 +119,11 @@ function ProjectCarousel({ items }: { items: Project[] }) {
         dragElastic={0.05}
         dragMomentum={false}
       >
-        {repeatedItems.map(({ project, key, index }) => {
+        {repeatedItems.map(({ project, key, index }, itemIndex) => {
           const accent = getCategoryAccent(project.category);
           const isHovered = hoveredCard === key;
           const heightClass = CARD_HEIGHTS[index % CARD_HEIGHTS.length];
+          const shouldAnimate = itemIndex < 50;
 
           const projectHref = `/projects/${project.slug ?? project.id}`;
           return (
@@ -141,15 +142,18 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                 }
               }}
               animate={
-                isHovered
+                shouldAnimate && isHovered
                   ? { scale: 1.04, rotateX: -14, y: -18, zIndex: 50 }
-                  : { scale: 1, rotateX: 0, y: 0, zIndex: 1 }
+                  : shouldAnimate
+                  ? { scale: 1, rotateX: 0, y: 0, zIndex: 1 }
+                  : {}
               }
               transition={{
-                duration: 0.28,
+                duration: shouldAnimate ? 0.28 : 0,
                 ease: "backOut",
                 zIndex: { delay: isHovered ? 0 : 0.35 },
               }}
+              whileHover={!shouldAnimate ? { scale: 1.02 } : undefined}
               style={{
                 borderColor: `${accent.border}70`,
                 transformPerspective: 1000,
@@ -270,6 +274,8 @@ export function ProductGrid(props?: ProductGridProps) {
   const showViewAllButton = props?.showViewAllButton ?? false;
   const [showAll, setShowAll] = useState(false);
   const [randomSeed, setRandomSeed] = useState<number | null>(null);
+  const [page, setPage] = useState(1);
+  const ITEMS_PER_PAGE = 24;
   
   useEffect(() => {
     const now = new Date();
@@ -279,6 +285,7 @@ export function ProductGrid(props?: ProductGridProps) {
   }, []);
   
   const [activeCategory, setActiveCategory] = useState("All");
+  const [pendingCategory, setPendingCategory] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
   const [selectedBatches, setSelectedBatches] = useState<Set<string>>(new Set());
@@ -287,7 +294,20 @@ export function ProductGrid(props?: ProductGridProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const id = window.setTimeout(() => setDebouncedSearch(searchQuery), 180);
+    if (pendingCategory === null) return;
+    const timer = setTimeout(() => {
+      setActiveCategory(pendingCategory);
+      setPendingCategory(null);
+      setPage(1);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [pendingCategory]);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      setDebouncedSearch(searchQuery);
+      setPage(1);
+    }, 180);
     return () => window.clearTimeout(id);
   }, [searchQuery]);
 
@@ -320,6 +340,7 @@ export function ProductGrid(props?: ProductGridProps) {
       else set.add(value);
       return { ...prev, [category]: set };
     });
+    setPage(1);
   };
 
   const toggleBatch = (batch: string) => {
@@ -329,34 +350,44 @@ export function ProductGrid(props?: ProductGridProps) {
       else next.add(batch);
       return next;
     });
+    setPage(1);
   };
 
-  const filtered = sourceProjects
-    .filter((p) => {
-      const matchesCategory = activeCategory === "All" || p.category === activeCategory;
-      const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
-      const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(Array.isArray(p.tags) ? p.tags : [], subFilters);
-      const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
-      const q = typeof debouncedSearch === "string" ? debouncedSearch.trim().toLowerCase() : "";
-      const matchesSearch =
-        q === "" ||
-        String(p.name ?? "").toLowerCase().includes(q) ||
-        String(p.description ?? "").toLowerCase().includes(q) ||
-        String(p.founder ?? "").toLowerCase().includes(q) ||
-        (Array.isArray(p.tags) ? p.tags : []).some((t) =>
-          String(t ?? "").toLowerCase().includes(q)
-        );
-      return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
-    })
-    .sort((a, b) => {
-      // When a batch is selected, show prize winners at the top
-      if (selectedBatches.size > 0) {
-        const aHasPrize = (a.prizes?.length ?? 0) > 0 ? 1 : 0;
-        const bHasPrize = (b.prizes?.length ?? 0) > 0 ? 1 : 0;
-        if (bHasPrize !== aHasPrize) return bHasPrize - aHasPrize;
-      }
-      return 0;
-    });
+  const filtered = useMemo(() => {
+    return sourceProjects
+      .filter((p) => {
+        const matchesCategory = activeCategory === "All" || p.category === activeCategory;
+        const subFilters = activeCategory !== "All" ? selectedSubFilters[activeCategory] : undefined;
+        const matchesSubFilters = !subFilters || subFilters.size === 0 || tagMatchesSubFilter(Array.isArray(p.tags) ? p.tags : [], subFilters);
+        const matchesBatch = selectedBatches.size === 0 || selectedBatches.has(p.batch);
+        const q = typeof debouncedSearch === "string" ? debouncedSearch.trim().toLowerCase() : "";
+        const matchesSearch =
+          q === "" ||
+          String(p.name ?? "").toLowerCase().includes(q) ||
+          String(p.description ?? "").toLowerCase().includes(q) ||
+          String(p.founder ?? "").toLowerCase().includes(q) ||
+          (Array.isArray(p.tags) ? p.tags : []).some((t) =>
+            String(t ?? "").toLowerCase().includes(q)
+          );
+        return matchesCategory && matchesSubFilters && matchesBatch && matchesSearch;
+      })
+      .sort((a, b) => {
+        if (selectedBatches.size > 0) {
+          const aHasPrize = (a.prizes?.length ?? 0) > 0 ? 1 : 0;
+          const bHasPrize = (b.prizes?.length ?? 0) > 0 ? 1 : 0;
+          if (bHasPrize !== aHasPrize) return bHasPrize - aHasPrize;
+        }
+        return 0;
+      });
+  }, [sourceProjects, activeCategory, selectedSubFilters, selectedBatches, debouncedSearch]);
+
+  const paginatedResults = useMemo(() => {
+    if (randomizeShowcase && !showAll) return filtered;
+    return filtered.slice(0, page * ITEMS_PER_PAGE);
+  }, [filtered, page, randomizeShowcase, showAll]);
+
+  const hasMore = filtered.length > page * ITEMS_PER_PAGE;
+  const loadMore = () => setPage(p => p + 1);
 
   const categoriesWithoutAll = categories.filter((c) => c !== "All");
 
@@ -394,11 +425,11 @@ export function ProductGrid(props?: ProductGridProps) {
           >
             <button
               onClick={() => {
-                setActiveCategory("All");
-                setOpenDropdown(null);
+                setPendingCategory("All");
+                setSelectedSubFilters({});
               }}
               className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                activeCategory === "All"
+                (pendingCategory ?? activeCategory) === "All"
                   ? "bg-background text-foreground shadow-sm dark:bg-neutral-800"
                   : "text-muted-foreground hover:bg-background/60 hover:text-foreground dark:hover:bg-neutral-800/60"
               }`}
@@ -527,9 +558,9 @@ export function ProductGrid(props?: ProductGridProps) {
         )}
 
         <AnimatePresence mode="popLayout">
-          {filtered.length > 0 ? (
+          {paginatedResults.length > 0 ? (
             <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <ProjectCarousel items={filtered} />
+              <ProjectCarousel items={paginatedResults} />
             </motion.div>
           ) : (
             <motion.div
@@ -561,12 +592,22 @@ export function ProductGrid(props?: ProductGridProps) {
           )}
           {randomizeShowcase && showAll && (
             <p className="text-sm text-muted-foreground">
-              Showing all {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+              Showing all {paginatedResults.length} of {filtered.length} project{filtered.length !== 1 ? "s" : ""}
             </p>
+          )}
+          {!randomizeShowcase && hasMore && (
+            <motion.button
+              onClick={loadMore}
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-muted/50 hover:text-accent dark:bg-muted/20 dark:hover:bg-muted/30"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Load More ({filtered.length - paginatedResults.length} more)
+            </motion.button>
           )}
           {!randomizeShowcase && (
             <p className="text-sm text-muted-foreground">
-              {filtered.length} project{filtered.length !== 1 ? "s" : ""} shown
+              Showing {paginatedResults.length} of {filtered.length} project{filtered.length !== 1 ? "s" : ""}
             </p>
           )}
         </div>
