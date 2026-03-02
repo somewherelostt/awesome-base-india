@@ -28,8 +28,8 @@ function shuffleWithSeed<T>(items: T[], seed: number): T[] {
   for (let i = shuffled.length - 1; i > 0; i -= 1) {
     const j = Math.floor(random() * (i + 1));
     if (shuffled[i] !== undefined && shuffled[j] !== undefined) {
-      const temp = shuffled[i];
-      shuffled[i] = shuffled[j];
+      const temp = shuffled[i] as T;
+      shuffled[i] = shuffled[j] as T;
       shuffled[j] = temp;
     }
   }
