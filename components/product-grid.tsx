@@ -27,9 +27,11 @@ function shuffleWithSeed<T>(items: T[], seed: number): T[] {
   const random = mulberry32(seed);
   for (let i = shuffled.length - 1; i > 0; i -= 1) {
     const j = Math.floor(random() * (i + 1));
-    const temp = shuffled[i]!;
-    shuffled[i] = shuffled[j]!;
-    shuffled[j] = temp;
+    if (shuffled[i] !== undefined && shuffled[j] !== undefined) {
+      const temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
   }
   return shuffled;
 }
