@@ -155,7 +155,7 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                 ease: "backOut",
                 zIndex: { delay: isHovered ? 0 : 0.35 },
               }}
-              whileHover={!shouldAnimate ? { scale: 1.02 } : undefined}
+              {...(!shouldAnimate ? { whileHover: { scale: 1.02 } } : {})}
               style={{
                 borderColor: `${accent.border}70`,
                 transformPerspective: 1000,
