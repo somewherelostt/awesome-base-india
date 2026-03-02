@@ -50,7 +50,7 @@ const itemVariants = {
 
 export function BaseFooter(): ReactNode {
   return (
-    <footer className="relative w-full overflow-hidden bg-white dark:bg-neutral-950 py-12 sm:py-16 md:py-20 lg:py-24">
+    <footer className="relative w-full overflow-hidden bg-white dark:bg-black py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
