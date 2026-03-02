@@ -110,7 +110,7 @@ export function HeroSection(): ReactNode {
         </motion.p>
 
         <motion.div
-          className="w-full h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
+          className="w-full h-[320px] sm:h-[420px] md:h-[550px] lg:h-[680px]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: easeOut }}
@@ -124,7 +124,7 @@ export function HeroSection(): ReactNode {
               mouseControls={{ enabled: true, radius: 180, strength: 6 }}
               backgroundColor="transparent"
               fontFamily="sans-serif"
-              fontSize={400}
+              fontSize={800}
               fontWeight="900"
               friction={0.75}
               ease={0.05}
