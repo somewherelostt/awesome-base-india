@@ -31,9 +31,22 @@ import {
 } from "motion/react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import ParticleText from "@/components/particle-text";
-import PixelBlast from "@/components/pixel-blast";
+
+const ParticleText = dynamic(() => import("@/components/particle-text"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center">
+      <span className="text-4xl font-bold tracking-tight text-accent/20 sm:text-6xl md:text-7xl">Base Circle Club</span>
+    </div>
+  ),
+});
+
+const PixelBlast = dynamic(() => import("@/components/pixel-blast"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full" />,
+});
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -120,7 +133,7 @@ export function HeroSection(): ReactNode {
               text="Base Circle Club"
               colors={["#0052FF", "#3B82F6", "#60A5FA", "#ffffff"]}
               particleSize={2}
-              particleGap={2}
+              particleGap={3}
               mouseControls={{ enabled: true, radius: 180, strength: 6 }}
               backgroundColor="transparent"
               fontFamily="sans-serif"

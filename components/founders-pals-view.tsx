@@ -3,8 +3,9 @@
 import { FoundersPalsMapClient } from "@/components/founders-pals-map-client";
 import type { FounderForPals } from "@/lib/founder";
 import { Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 interface FoundersPalsViewProps {
   founders: FounderForPals[];
@@ -24,10 +25,22 @@ function matchScore(a: FounderForPals, b: FounderForPals): number {
 
 export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedUsername, setSelectedUsername] = useState<string | null>(null);
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    debounceTimer.current = setTimeout(() => setDebouncedSearch(value), 150);
+  }, []);
+
+  useEffect(() => {
+    return () => { if (debounceTimer.current) clearTimeout(debounceTimer.current); };
+  }, []);
 
   const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    const q = debouncedSearch.trim().toLowerCase();
     if (!q) return founders;
     return founders.filter(
       (f) =>
@@ -37,7 +50,7 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
         (f.city && f.city.toLowerCase().includes(q)) ||
         (f.tags || []).some((t) => String(t).toLowerCase().includes(q))
     );
-  }, [founders, search]);
+  }, [founders, debouncedSearch]);
 
   const selected = selectedUsername ? founders.find((f) => f.username === selectedUsername) : null;
   const similar = useMemo(() => {
@@ -66,7 +79,7 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
               autoComplete="off"
               placeholder="Search founders..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => handleSearch(e.target.value)}
               className="w-full rounded-xl border border-border bg-background py-2.5 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
             />
           </div>
@@ -87,10 +100,14 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
               <div className="mb-6 rounded-xl border border-border bg-background p-4">
                 <div className="flex items-start gap-3">
                   {selected.profile_image ? (
-                    <img
+                    <Image
                       src={selected.profile_image}
-                      alt=""
+                      alt={selected.name}
+                      width={56}
+                      height={56}
                       className="h-14 w-14 rounded-full object-cover ring-2 ring-border"
+                      loading="lazy"
+                      unoptimized
                     />
                   ) : (
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">
@@ -170,10 +187,14 @@ export function FoundersPalsView({ founders }: FoundersPalsViewProps) {
                     >
                       <div className="flex items-center gap-3">
                         {f.profile_image ? (
-                          <img
+                          <Image
                             src={f.profile_image}
-                            alt=""
+                            alt={f.name}
+                            width={40}
+                            height={40}
                             className="h-10 w-10 rounded-full object-cover"
+                            loading="lazy"
+                            unoptimized
                           />
                         ) : (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent">

@@ -13,7 +13,7 @@ export const siteConfig = {
   description:
     "The ultimate directory of products and projects building on Base from India. Discover ecosystem projects, connect with founders, and submit your own.",
   url: "https://baseindiacircle.xyz",
-  twitter: "@BaseIndiaCircle",
+  twitter: "@BaseCircleClub",
 
   /** Telegram bot URL for project submissions. If set, /submit redirects here; if null, the submit form page is shown. */
   submitBotUrl: "https://t.me/awesome_base_India_bot" as string | null,

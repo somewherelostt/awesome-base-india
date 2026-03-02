@@ -3,12 +3,13 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "motion/react";
+import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useInView } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
 import { ChevronDown, ChevronUp, Github, ExternalLink, Trophy } from "lucide-react";
+import Image from "next/image";
 
 const AUTO_SCROLL_SPEED = -18;
-const CAROUSEL_REPEAT_COUNT = 5;
+const CAROUSEL_REPEAT_COUNT = 3;
 const CARD_HEIGHTS = ["h-[360px]", "h-[400px]", "h-[380px]", "h-[420px]"];
 
 function mulberry32(seed: number): () => number {
@@ -58,6 +59,8 @@ function ProjectCarousel({ items }: { items: Project[] }) {
   const [oneSetWidth, setOneSetWidth] = useState(0);
   const baseX = useMotionValue(0);
   const scrollVelocity = useRef(AUTO_SCROLL_SPEED);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(carouselRef, { amount: 0.1 });
 
   const repeatedItems = Array.from({ length: CAROUSEL_REPEAT_COUNT }, (_, repeatIndex) =>
     items.map((project, index) => ({
@@ -82,8 +85,13 @@ function ProjectCarousel({ items }: { items: Project[] }) {
     return () => window.removeEventListener("resize", handleResize);
   }, [items.length, baseX]);
 
-  useAnimationFrame((_, delta) => {
-    if (!oneSetWidth || isDragging) return;
+  const lastFrameTime = useRef(0);
+
+  useAnimationFrame((time, delta) => {
+    if (!oneSetWidth || isDragging || !isInView) return;
+
+    if (time - lastFrameTime.current < 33) return;
+    lastFrameTime.current = time;
 
     scrollVelocity.current = scrollVelocity.current * 0.9 + AUTO_SCROLL_SPEED * 0.1;
     const moveBy = scrollVelocity.current * (delta / 1000);
@@ -98,7 +106,7 @@ function ProjectCarousel({ items }: { items: Project[] }) {
   });
 
   return (
-    <div className="relative -mx-4 overflow-hidden py-8 sm:-mx-6 lg:-mx-8">
+    <div ref={carouselRef} className="relative -mx-4 overflow-hidden py-8 sm:-mx-6 lg:-mx-8">
       <motion.div
         className="flex items-end gap-5 px-4 sm:px-6 lg:px-8 cursor-grab active:cursor-grabbing"
         style={{ x: baseX }}
@@ -157,7 +165,7 @@ function ProjectCarousel({ items }: { items: Project[] }) {
                 <div className="mb-4 flex items-start justify-between gap-2">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
                     {(project.logo.startsWith("http") || project.logo.startsWith("/")) ? (
-                      <img src={project.logo} alt="" className="h-full w-full object-cover" />
+                      <Image src={project.logo} alt="" width={48} height={48} className="h-full w-full object-cover" loading="lazy" unoptimized />
                     ) : (
                       project.logo
                     )}

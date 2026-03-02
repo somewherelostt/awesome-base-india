@@ -1,152 +1,198 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-const easeOut = [0.16, 1, 0.3, 1] as const;
+const footerCards = [
+  {
+    title: "Explore",
+    links: [
+      { text: "Project Directory", href: "/directory" },
+      { text: "Founders", href: "/founders" },
+      { text: "Submit Project", href: "/submit" },
+      { text: "About Us", href: "/about" },
+    ],
+  },
+  {
+    title: "Ecosystem",
+    links: [
+      { text: "Base", href: "https://base.org", external: true },
+      { text: "Inner Circle", href: "https://x.com/innercircle_so", external: true },
+      { text: "Brand Kit", href: "https://base.org/brand", external: true },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { text: "X / Twitter", href: "https://x.com/BaseCircleClub", external: true },
+      { text: "Telegram Bot", href: "https://t.me/awesome_base_India_bot", external: true },
+      { text: "GitHub", href: "https://github.com", external: true },
+      { text: "Community", href: "https://t.co/BC2WASe4OD", external: true },
+    ],
+  },
+];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.5 },
-  transition: { duration: 0.8, ease: easeOut },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 };
 
-const exploreLinks = [
-  { label: "Projects", href: "/" },
-  { label: "Founders Circle", href: "/directory" },
-  { label: "Submit Project", href: "/submit" },
-];
-
-const ecosystemLinks = [
-  { label: "Base", href: "https://base.org" },
-  { label: "Base Circle Club", href: "https://x.com/BaseCircleClub" },
-  { label: "Brand Kit", href: "https://base.org/brand" },
-];
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export function BaseFooter(): ReactNode {
   return (
-    <footer className="bg-accent px-6 py-16 text-white md:px-12 lg:px-20 rounded-tr-4xl rounded-tl-4xl">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          <motion.div className="max-w-md" {...fadeInUp}>
-            <p className="text-lg leading-relaxed text-white/80">
-              The ultimate directory of products and projects building on Base
-              from India. Scouting the best onchain talent from the subcontinent.
-            </p>
-            <Link
-              href="/submit"
-              className="group mt-8 inline-flex items-center gap-3 rounded-md bg-white py-3 pl-4 pr-3 font-medium text-accent shadow-lg shadow-black/10 transition-all duration-500 ease-out hover:rounded-[50px] hover:bg-white/90 hover:shadow-xl hover:shadow-black/20"
+    <footer className="relative w-full overflow-hidden bg-white dark:bg-neutral-950 py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-6"
+        >
+          {/* Top Section - 4 Columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+            {/* First Column - Branding */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col justify-between space-y-6 mb-6 lg:mb-0 pr-6"
             >
-              <span>Submit Your Project</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white transition-all duration-300 group-hover:scale-110">
-                <ChevronRight className="h-4 w-4 relative left-px" />
-              </span>
-            </Link>
-          </motion.div>
-
-          <div className="grid grid-cols-2 gap-8 lg:justify-items-end">
-            <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.1 }}>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/50">
-                Explore
-              </h4>
-              <ul className="space-y-3">
-                {exploreLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="inline-block text-white/80 transition-all duration-300 hover:translate-x-1 hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.2 }}>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/50">
-                Ecosystem
-              </h4>
-              <ul className="space-y-3">
-                {ecosystemLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block text-white/80 transition-all duration-300 hover:translate-x-1 hover:text-white"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="my-16 h-px bg-white/10" />
-
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          <motion.div {...fadeInUp}>
-            <h2 className="text-6xl font-medium leading-none tracking-tight md:text-7xl lg:text-8xl">
-              Base Circle
-              <br />
-              Club
-            </h2>
-            <p className="mt-8 text-sm text-white/50">
-              Built with love for the Base ecosystem
-            </p>
-          </motion.div>
-
-          <div className="flex flex-col justify-between gap-8 lg:items-end lg:text-right">
-            <motion.div className="space-y-6" {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.1 }}>
-              <div>
-                <h4 className="mb-1 font-semibold">India to the World</h4>
-                <p className="text-white/70">
-                  From Base Batches, Fellowship,
-                  <br />
-                  Hyperthon & every activation
-                </p>
+              {/* Logo */}
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0052FF]">
+                  <svg width="18" height="18" viewBox="0 0 111 111" fill="white">
+                    <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H0C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" />
+                  </svg>
+                </div>
+                <span className="text-lg font-semibold tracking-tight text-neutral-900 dark:text-white">
+                  Base Circle Club
+                </span>
               </div>
-              <a
-                href="https://x.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-lg font-medium underline underline-offset-4 transition-opacity hover:opacity-70"
-              >
-                @BaseCircleClub
-              </a>
+
+              {/* Motto */}
+              <div>
+                <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-white sm:text-xl">
+                  India to the World.
+                  <br />
+                  Building on Base.
+                </h3>
+              </div>
+
+              {/* Small Text */}
+              <div className="mt-auto flex items-center gap-4">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                  Proof-first directory since 2024
+                </p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://x.com/BaseCircleClub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-500 dark:hover:text-white"
+                    aria-label="X / Twitter"
+                  >
+                    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://base.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-500 dark:hover:text-white"
+                    aria-label="Base"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 111 111" fill="currentColor">
+                      <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H0C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </motion.div>
 
-            <motion.div className="flex items-center gap-4 lg:justify-end" {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.2 }}>
-              <a
-                href="https://x.com/BaseCircleClub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-white hover:text-accent"
-                aria-label="Twitter"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a
-                href="https://base.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-white hover:text-accent"
-                aria-label="Base"
-              >
-                <svg width="16" height="16" viewBox="0 0 111 111" fill="currentColor">
-                  <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H0C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" />
-                </svg>
-              </a>
-            </motion.div>
+            {/* Cards - Dynamically Rendered */}
+            {footerCards.map((card, index) => {
+              let marginClass = "";
+
+              if (index > 0) {
+                marginClass = "-mt-px";
+              }
+
+              if (index === 0) {
+                marginClass += " md:mt-0";
+              } else if (index === 1) {
+                marginClass += " md:-mt-px md:ml-0";
+              } else if (index === 2) {
+                marginClass += " md:-mt-px md:-ml-px";
+              }
+
+              marginClass += " lg:mt-0";
+              if (index > 0) {
+                marginClass += " lg:-ml-px";
+              }
+
+              return (
+                <motion.div
+                  key={card.title}
+                  variants={itemVariants}
+                  className={`group relative min-h-[300px] overflow-hidden border border-neutral-200 p-6 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900 sm:p-8 ${marginClass}`}
+                >
+                  <h4 className="mb-6 text-sm font-medium tracking-tight text-neutral-900 dark:text-white sm:text-base">
+                    {card.title}
+                  </h4>
+                  <ul className="space-y-3">
+                    {card.links.map((link) => {
+                      const isExternal = "external" in link && link.external;
+                      const content = (
+                        <span className="inline-flex items-center gap-1 text-sm font-light text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white sm:text-base">
+                          {link.text}
+                          {isExternal && <ArrowUpRight className="h-3 w-3" />}
+                        </span>
+                      );
+
+                      return (
+                        <li key={link.text}>
+                          {isExternal ? (
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {content}
+                            </a>
+                          ) : (
+                            <Link href={link.href}>{content}</Link>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
-        </div>
+
+          {/* Bottom Section - Large Background Text */}
+          <motion.div
+            variants={itemVariants}
+            className="relative flex items-center justify-center overflow-hidden py-8 sm:py-12 md:py-16"
+          >
+            <div className="w-full select-none" aria-hidden="true">
+              <h2 className="text-center text-[clamp(3rem,12vw,12rem)] font-bold leading-none tracking-tighter text-neutral-100 dark:text-neutral-900">
+                BASE CIRCLE CLUB
+              </h2>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </footer>
   );
