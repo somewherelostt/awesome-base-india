@@ -187,7 +187,7 @@ export function BaseFooter(): ReactNode {
             className="relative flex items-center justify-center overflow-hidden py-8 sm:py-12 md:py-16"
           >
             <div className="w-full select-none" aria-hidden="true">
-              <h2 className="text-center text-[clamp(3rem,12vw,12rem)] font-bold leading-none tracking-tighter text-neutral-100 dark:text-neutral-900">
+              <h2 className="whitespace-nowrap text-center text-[clamp(2rem,8vw,8rem)] font-bold leading-none tracking-tighter text-neutral-200 dark:text-neutral-800">
                 BASE CIRCLE CLUB
               </h2>
             </div>
