@@ -228,7 +228,7 @@ function formatFounderSimple(f: DirectoryFounder): string {
 }
 
 const WELCOME =
-  "👋 *Welcome to Base India Circle*\n\n" +
+  "👋 *Welcome to Base Circle Club*\n\n" +
   "We're the directory for products and founders building on Base from India. Choose an option below.";
 
 // ─── Start menu: Existing project / Existing founder / New project / New founder ───

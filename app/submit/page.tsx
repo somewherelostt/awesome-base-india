@@ -11,7 +11,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = createMetadata({
   title: "Submit Your Project",
   description:
-    "Submit your Base ecosystem project to be featured in the Base India Circle directory. Get discovered by the community.",
+    "Submit your Base ecosystem project to be featured in the Base Circle Club directory. Get discovered by the community.",
   path: "/submit",
 });
 

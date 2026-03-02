@@ -1,6 +1,6 @@
-# Awesome Base India [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Base Circle Club [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-**Awesome Base India** is a curated list of Indian projects, dApps, and initiatives building on Base — an Ethereum L2 incubated by Coinbase.
+**Base Circle Club** is a curated directory of Indian projects, dApps, and initiatives building on Base — an Ethereum L2 incubated by Coinbase.
 
 ## Base Official Links
 

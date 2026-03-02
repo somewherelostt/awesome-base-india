@@ -1,4 +1,4 @@
-# Base India Circle - Product Overview
+# Base Circle Club - Product Overview
 
 ## Platform Mission
 Connect Indian founders building on Base blockchain through intelligent discovery, real-time monitoring, and AI-powered insights.

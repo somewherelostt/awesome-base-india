@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Base India Circle",
+  name: "Base Circle Club",
   description:
     "The ultimate directory of products and projects building on Base from India. Discover ecosystem projects, connect with founders, and submit your own.",
   url: "https://awesome-base-india.vercel.app",
-  ogImage: "/og-image.png",
-  creator: "@BaseIndiaCircle",
+  ogImage: "https://awesome-base-india.vercel.app/og-image.png",
+  creator: "@BaseCircleClub",
   authors: [
     {
-      name: "Base India Circle",
+      name: "Base Circle Club",
       url: "https://awesome-base-india.vercel.app",
     },
   ],

@@ -1,4 +1,4 @@
-# Base India Circle – Telegram submission bot
+# Base Circle Club – Telegram submission bot
 
 Bot that collects project submissions via Telegram and saves them to Supabase. You verify in Supabase and then use the data on the frontend.
 

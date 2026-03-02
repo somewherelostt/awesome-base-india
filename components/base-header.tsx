@@ -38,7 +38,7 @@ export function BaseHeader(): ReactNode {
               >
                 <BaseLogo />
                 <span className="text-base font-semibold tracking-tight">
-                  Base India Circle
+                  Base Circle Club
                 </span>
               </Link>
 
@@ -90,7 +90,7 @@ export function BaseHeader(): ReactNode {
               >
                 <BaseLogo />
                 <span className="text-base font-semibold tracking-tight">
-                  Base India Circle
+                  Base Circle Club
                 </span>
               </Link>
 

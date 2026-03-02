@@ -49,7 +49,7 @@ function buildNewMdx(project: { id?: string; slug: string; name: string; descrip
     "",
   ];
   const linkLines: string[] = [];
-  linkLines.push(`- [View on Base India Circle](/projects/${slug})`);
+  linkLines.push(`- [View on Base Circle Club](/projects/${slug})`);
   if (project.github) linkLines.push(`- [GitHub](${project.github})`);
   if (project.farcaster) linkLines.push(`- [Farcaster miniapp](${project.farcaster})`);
   if (project.url) linkLines.push(`- [Also on Devfolio](${project.url})`);

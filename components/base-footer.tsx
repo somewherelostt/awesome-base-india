@@ -22,7 +22,7 @@ const exploreLinks = [
 
 const ecosystemLinks = [
   { label: "Base", href: "https://base.org" },
-  { label: "Base India", href: "https://x.com/BaseIndiaCircle" },
+  { label: "Base Circle Club", href: "https://x.com/BaseCircleClub" },
   { label: "Brand Kit", href: "https://base.org/brand" },
 ];
 
@@ -92,9 +92,9 @@ export function BaseFooter(): ReactNode {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <motion.div {...fadeInUp}>
             <h2 className="text-6xl font-medium leading-none tracking-tight md:text-7xl lg:text-8xl">
-              Base India
+              Base Circle
               <br />
-              Circle
+              Club
             </h2>
             <p className="mt-8 text-sm text-white/50">
               Built with love for the Base ecosystem
@@ -117,13 +117,13 @@ export function BaseFooter(): ReactNode {
                 rel="noopener noreferrer"
                 className="inline-block text-lg font-medium underline underline-offset-4 transition-opacity hover:opacity-70"
               >
-                @BaseIndiaCircle
+                @BaseCircleClub
               </a>
             </motion.div>
 
             <motion.div className="flex items-center gap-4 lg:justify-end" {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.2 }}>
               <a
-                href="https://x.com/BaseIndiaCircle"
+                href="https://x.com/BaseCircleClub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-white hover:text-accent"

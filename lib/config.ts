@@ -8,7 +8,7 @@
  */
 
 export const siteConfig = {
-  name: "Base India Circle",
+  name: "Base Circle Club",
   tagline: "India to the World. Building on Base.",
   description:
     "The ultimate directory of products and projects building on Base from India. Discover ecosystem projects, connect with founders, and submit your own.",

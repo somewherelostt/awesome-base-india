@@ -110,21 +110,21 @@ export function HeroSection(): ReactNode {
         </motion.p>
 
         <motion.div
-          className="w-full h-[140px] sm:h-[180px] md:h-[220px] lg:h-[260px]"
+          className="w-full h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: easeOut }}
         >
           {isMounted && (
             <ParticleText
-              text="Base India Circle"
+              text="Base Circle Club"
               colors={["#0052FF", "#3B82F6", "#60A5FA", "#ffffff"]}
               particleSize={2}
               particleGap={2}
               mouseControls={{ enabled: true, radius: 180, strength: 6 }}
               backgroundColor="transparent"
               fontFamily="sans-serif"
-              fontSize={300}
+              fontSize={400}
               fontWeight="900"
               friction={0.75}
               ease={0.05}
@@ -743,7 +743,7 @@ export function StatsSection(): ReactNode {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl font-medium tracking-tight text-white text-center leading-tight max-w-4xl"
             >
-              Base India Circle is growing
+              Base Circle Club is growing
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full max-w-4xl">
@@ -884,7 +884,7 @@ export function GuidelinesSection(): ReactNode {
               The bar is simple.
             </h2>
             <p className="mb-8 text-md max-w-md leading-relaxed text-muted-foreground">
-              Base India Circle vs. typical directories — we verify onchain
+              Base Circle Club vs. typical directories — we verify onchain
               usage, require proof links, and connect you directly with founders.
               No follower-count gating. No pay-to-win.
             </p>
