@@ -393,21 +393,38 @@ export function HowItWorksSection(): ReactNode {
       <div className="mx-auto max-w-6xl">
         <motion.div
           ref={headerRef}
-          className="mb-8 flex items-end justify-between md:mb-16"
+          className="mb-8 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between"
           initial={{ opacity: 0, y: 20 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: easeOut }}
         >
-          <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-            How it works
-          </h2>
-          <Link
-            href="/submit"
-            className="hidden items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-accent sm:flex"
-          >
-            Submit a project
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          <div>
+            <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
+              How it works
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Join 12+ builders shipping on Base from India
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="https://forms.gle/innerCircleForm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90"
+            >
+              <Users className="h-4 w-4" />
+              Join InnerCircle
+              <ExternalLink className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/submit"
+              className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-accent"
+            >
+              Submit a project
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">

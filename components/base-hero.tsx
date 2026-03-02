@@ -39,17 +39,17 @@ export function BaseHero(): ReactNode {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="text-muted-foreground mx-auto mt-6 max-w-xl text-2xl leading-12 tracking-tight md:text-3xl"
+          className="mx-auto mt-6 max-w-xl text-xl leading-relaxed tracking-tight text-foreground/90 md:text-2xl"
         >
-          <span className="text-foreground bg-foreground/5 inline-block rounded-md px-2 py-0.5 leading-10">
+          <span className="inline-block rounded-md bg-foreground/8 px-2 py-0.5 font-medium text-foreground">
             Discover
           </span>{" "}
           projects{" "}
-          <span className="text-foreground bg-foreground/5 inline-block rounded-full px-4 py-0.5 leading-10">
+          <span className="inline-block rounded-full bg-foreground/8 px-4 py-0.5 font-medium text-foreground">
             building on Base
           </span>{" "}
           from{" "}
-          <span className="text-foreground bg-foreground/5 inline-block rounded-md px-2 py-0.5 leading-10">
+          <span className="inline-block rounded-md bg-foreground/8 px-2 py-0.5 font-medium text-foreground">
             Indian founders
           </span>{" "}
           shipping real products onchain.

@@ -260,10 +260,16 @@ export function ProductGrid(props?: ProductGridProps) {
   const randomizeShowcase = props?.randomizeShowcase ?? false;
   const showcaseCount = props?.showcaseCount ?? 15;
   const showViewAllButton = props?.showViewAllButton ?? false;
+  const [showAll, setShowAll] = useState(false);
   const [randomSeed, setRandomSeed] = useState<number | null>(null);
+  
   useEffect(() => {
-    setRandomSeed(Math.floor(Math.random() * 1_000_000_000));
+    const now = new Date();
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const daysSinceEpoch = Math.floor(startOfDay.getTime() / (1000 * 60 * 60 * 24));
+    setRandomSeed(daysSinceEpoch);
   }, []);
+  
   const [activeCategory, setActiveCategory] = useState("All");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [selectedSubFilters, setSelectedSubFilters] = useState<Record<string, Set<string>>>({});
@@ -277,11 +283,17 @@ export function ProductGrid(props?: ProductGridProps) {
     return () => window.clearTimeout(id);
   }, [searchQuery]);
 
-  const sourceProjects = useMemo(() => {
+  const shuffledProjects = useMemo(() => {
     if (!randomizeShowcase) return projectsToUse;
     const seed = randomSeed ?? 0;
-    return shuffleWithSeed(projectsToUse, seed).slice(0, Math.min(showcaseCount, projectsToUse.length));
-  }, [projectsToUse, randomSeed, randomizeShowcase, showcaseCount]);
+    return shuffleWithSeed(projectsToUse, seed);
+  }, [projectsToUse, randomSeed, randomizeShowcase]);
+
+  const sourceProjects = useMemo(() => {
+    if (!randomizeShowcase) return projectsToUse;
+    if (showAll) return shuffledProjects;
+    return shuffledProjects.slice(0, Math.min(showcaseCount, shuffledProjects.length));
+  }, [shuffledProjects, randomizeShowcase, showcaseCount, showAll, projectsToUse]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -528,15 +540,23 @@ export function ProductGrid(props?: ProductGridProps) {
           )}
         </AnimatePresence>
 
-        <div className="mt-8 flex justify-center">
-          {randomizeShowcase ? (
-            <Link
-              href="/directory"
+        <div className="mt-8 flex flex-col items-center gap-4">
+          {randomizeShowcase && !showAll && shuffledProjects.length > showcaseCount && (
+            <motion.button
+              onClick={() => setShowAll(true)}
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-muted/50 hover:text-accent dark:bg-muted/20 dark:hover:bg-muted/30"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              View more
-            </Link>
-          ) : (
+              View More ({shuffledProjects.length - showcaseCount} more projects)
+            </motion.button>
+          )}
+          {randomizeShowcase && showAll && (
+            <p className="text-sm text-muted-foreground">
+              Showing all {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+            </p>
+          )}
+          {!randomizeShowcase && (
             <p className="text-sm text-muted-foreground">
               {filtered.length} project{filtered.length !== 1 ? "s" : ""} shown
             </p>
