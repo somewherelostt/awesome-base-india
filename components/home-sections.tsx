@@ -131,13 +131,13 @@ export function HeroSection(): ReactNode {
           {isMounted && (
             <ParticleText
               text="Base Circle Club"
-              colors={["#0052FF", "#3B82F6", "#60A5FA", "#ffffff"]}
+              colors={["#0052FF", "#3B82F6", "#60A5FA", "#FFFFFF"]}
               particleSize={2}
-              particleGap={3}
+              particleGap={1}
               mouseControls={{ enabled: true, radius: 180, strength: 6 }}
               backgroundColor="transparent"
               fontFamily="sans-serif"
-              fontSize={800}
+              fontSize={1500}
               fontWeight="900"
               friction={0.75}
               ease={0.05}
