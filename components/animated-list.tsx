@@ -92,10 +92,11 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
         setKeyboardNav(true);
         setSelectedIndex(prev => Math.max(prev - 1, 0));
       } else if (e.key === 'Enter') {
-        if (selectedIndex >= 0 && selectedIndex < items.length) {
+        if (items && selectedIndex >= 0 && selectedIndex < items.length) {
           e.preventDefault();
-          if (onItemSelect) {
-            onItemSelect(items[selectedIndex], selectedIndex);
+          const selectedItem = items[selectedIndex];
+          if (onItemSelect && selectedItem !== undefined) {
+            onItemSelect(selectedItem, selectedIndex);
           }
         }
       }

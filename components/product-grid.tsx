@@ -3,14 +3,11 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useInView } from "motion/react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import { projects, categories, batches, categorySubFilters, type Project } from "@/lib/data";
 import { ChevronDown, ChevronUp, Github, ExternalLink, Trophy } from "lucide-react";
 import Image from "next/image";
 
-const AUTO_SCROLL_SPEED = -18;
-const CAROUSEL_REPEAT_COUNT = 3;
-const CARD_HEIGHTS = ["h-[360px]", "h-[400px]", "h-[380px]", "h-[420px]"];
 
 function mulberry32(seed: number): () => number {
   let t = seed;
@@ -54,7 +51,7 @@ function getCategoryAccent(category: string): { border: string; tint: string; te
   return palette[category] || { border: "#0052FF", tint: "rgba(0,82,255,0.45)", text: "text-blue-300" };
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index: _index }: { project: Project; index: number }) {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
