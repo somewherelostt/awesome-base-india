@@ -80,7 +80,7 @@ export function HeroSection(): ReactNode {
         <motion.div className="absolute inset-0" style={{ zIndex: 0, y: parallaxY }}>
           <PixelBlast
             variant="circle"
-            pixelSize={5}
+            pixelSize={3}
             colors={[...pixelColors]}
             patternScale={3}
             patternDensity={1.2}
@@ -131,13 +131,13 @@ export function HeroSection(): ReactNode {
           {isMounted && (
             <ParticleText
               text="Base Circle Club"
-              colors={["#0052FF", "#3B82F6", "#60A5FA", "#ffffff"]}
-              particleSize={2}
-              particleGap={3}
+              colors={["#0052FF", "#0052FF", "#0052FF", "#1E40AF"]}
+              particleSize={3}
+              particleGap={1}
               mouseControls={{ enabled: true, radius: 180, strength: 6 }}
               backgroundColor="transparent"
               fontFamily="sans-serif"
-              fontSize={800}
+              fontSize={1500}
               fontWeight="900"
               friction={0.75}
               ease={0.05}
