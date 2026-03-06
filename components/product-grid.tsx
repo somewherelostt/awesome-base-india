@@ -54,197 +54,167 @@ function getCategoryAccent(category: string): { border: string; tint: string; te
   return palette[category] || { border: "#0052FF", tint: "rgba(0,82,255,0.45)", text: "text-blue-300" };
 }
 
-function ProjectCarousel({ items }: { items: Project[] }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const router = useRouter();
-  const [isDragging, setIsDragging] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const [oneSetWidth, setOneSetWidth] = useState(0);
-  const baseX = useMotionValue(0);
-  const scrollVelocity = useRef(AUTO_SCROLL_SPEED);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(carouselRef, { amount: 0.1 });
-
-  const repeatedItems = Array.from({ length: CAROUSEL_REPEAT_COUNT }, (_, repeatIndex) =>
-    items.map((project, index) => ({
-      project,
-      key: `${project.id}-${repeatIndex}`,
-      index,
-    }))
-  ).flat();
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobile = window.innerWidth < 640;
-      const cardWidth = isMobile ? 280 : 320;
-      const gap = 20;
-      const width = (cardWidth + gap) * items.length;
-      setOneSetWidth(width);
-      baseX.set(-width);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [items.length, baseX]);
-
-  const lastFrameTime = useRef(0);
-
-  useAnimationFrame((time, delta) => {
-    if (!oneSetWidth || isDragging || !isInView) return;
-
-    if (time - lastFrameTime.current < 33) return;
-    lastFrameTime.current = time;
-
-    scrollVelocity.current = scrollVelocity.current * 0.9 + AUTO_SCROLL_SPEED * 0.1;
-    const moveBy = scrollVelocity.current * (delta / 1000);
-    baseX.set(baseX.get() + moveBy);
-
-    const currentX = baseX.get();
-    if (currentX <= -oneSetWidth * 2) {
-      baseX.set(currentX + oneSetWidth);
-    } else if (currentX > 0) {
-      baseX.set(currentX - oneSetWidth);
-    }
-  });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(cardRef, { amount: 0.5, once: false });
+  const accent = getCategoryAccent(project.category);
+  const projectHref = `/projects/${project.slug ?? project.id}`;
 
   return (
-    <div ref={carouselRef} className="relative -mx-4 overflow-hidden py-8 sm:-mx-6 lg:-mx-8">
-      <motion.div
-        className="flex items-end gap-5 px-4 sm:px-6 lg:px-8 cursor-grab active:cursor-grabbing"
-        style={{ x: baseX }}
-        drag="x"
-        onDragStart={() => setIsDragging(true)}
-        onDragEnd={(_, info) => {
-          setIsDragging(false);
-          scrollVelocity.current = info.velocity.x;
-        }}
-        dragElastic={0.05}
-        dragMomentum={false}
-      >
-        {repeatedItems.map(({ project, key, index }, itemIndex) => {
-          const accent = getCategoryAccent(project.category);
-          const isHovered = hoveredCard === key;
-          const heightClass = CARD_HEIGHTS[index % CARD_HEIGHTS.length];
-          const shouldAnimate = itemIndex < 50;
+    <motion.div
+      ref={cardRef}
+      role="link"
+      tabIndex={0}
+      className="group relative h-[380px] overflow-hidden rounded-2xl border text-white cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => router.push(projectHref)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          router.push(projectHref);
+        }
+      }}
+      initial={{ scale: 0.7, opacity: 0 }}
+      animate={inView ? {
+        scale: isHovered ? 1.04 : 1,
+        opacity: 1,
+        rotateX: isHovered ? -14 : 0,
+        y: isHovered ? -18 : 0
+      } : { scale: 0.7, opacity: 0 }}
+      transition={{
+        duration: 0.28,
+        ease: "backOut",
+      }}
+      style={{
+        borderColor: `${accent.border}70`,
+        transformPerspective: 1000,
+        boxShadow: isHovered ? `0 25px 80px ${accent.tint}` : "none",
+        background: `
+          linear-gradient(180deg, rgba(10,10,10,0.10) 0%, rgba(10,10,10,0.72) 58%, rgba(10,10,10,0.96) 100%),
+          radial-gradient(circle at 72% 10%, ${accent.tint} 0%, rgba(0,0,0,0) 52%),
+          #070707
+        `,
+      }}
+    >
+      <div className="relative flex h-full flex-col p-5">
+        <div className="mb-4 flex items-start justify-between gap-2">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
+            {(project.logo.startsWith("http") || project.logo.startsWith("/")) ? (
+              <Image src={project.logo} alt="" width={48} height={48} className="h-full w-full object-cover" loading="lazy" unoptimized />
+            ) : (
+              project.logo
+            )}
+          </div>
+          <div className="flex min-w-0 flex-col items-end gap-1.5">
+            {(project.prizes?.length ?? 0) > 0 && (
+              <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/50 bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-200">
+                <Trophy className="h-3 w-3 shrink-0" />
+                <span className="truncate">{project.prizes![0]}</span>
+              </span>
+            )}
+            <span className={`rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium ${accent.text}`}>
+              {project.category}
+            </span>
+          </div>
+        </div>
 
-          const projectHref = `/projects/${project.slug ?? project.id}`;
-          return (
-            <motion.div
-              key={key}
+        <div className="mt-auto rounded-xl border border-white/10 bg-black/45 p-4 backdrop-blur-sm">
+          <h3 className="truncate text-lg font-semibold text-white">{project.name}</h3>
+          <p className="mt-1 line-clamp-2 text-sm text-white/70">{project.description}</p>
+
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-white/60">
+            <span
               role="link"
               tabIndex={0}
-              className={`group relative shrink-0 w-[280px] sm:w-[320px] ${heightClass} overflow-hidden rounded-2xl border text-white cursor-pointer`}
-              onMouseEnter={() => setHoveredCard(key)}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push(projectHref)}
+              className="cursor-pointer hover:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
+              }}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  router.push(projectHref);
+                  e.stopPropagation();
+                  window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
                 }
               }}
-              animate={
-                shouldAnimate && isHovered
-                  ? { scale: 1.04, rotateX: -14, y: -18, zIndex: 50 }
-                  : shouldAnimate
-                  ? { scale: 1, rotateX: 0, y: 0, zIndex: 1 }
-                  : {}
-              }
-              transition={{
-                duration: shouldAnimate ? 0.28 : 0,
-                ease: "backOut",
-                zIndex: { delay: isHovered ? 0 : 0.35 },
-              }}
-              {...(!shouldAnimate ? { whileHover: { scale: 1.02 } } : {})}
-              style={{
-                borderColor: `${accent.border}70`,
-                transformPerspective: 1000,
-                boxShadow: isHovered ? `0 25px 80px ${accent.tint}` : "none",
-                background: `
-                  linear-gradient(180deg, rgba(10,10,10,0.10) 0%, rgba(10,10,10,0.72) 58%, rgba(10,10,10,0.96) 100%),
-                  radial-gradient(circle at 72% 10%, ${accent.tint} 0%, rgba(0,0,0,0) 52%),
-                  #070707
-                `,
-              }}
             >
-              <div className="relative flex h-full flex-col p-5">
-                <div className="mb-4 flex items-start justify-between gap-2">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/10 text-xl font-semibold">
-                    {(project.logo.startsWith("http") || project.logo.startsWith("/")) ? (
-                      <Image src={project.logo} alt="" width={48} height={48} className="h-full w-full object-cover" loading="lazy" unoptimized />
-                    ) : (
-                      project.logo
-                    )}
-                  </div>
-                  <div className="flex min-w-0 flex-col items-end gap-1.5">
-                    {(project.prizes?.length ?? 0) > 0 && (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/50 bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-200">
-                        <Trophy className="h-3 w-3 shrink-0" />
-                        <span className="truncate">{project.prizes![0]}</span>
-                      </span>
-                    )}
-                    <span className={`rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium ${accent.text}`}>
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
+              @{project.founderTwitterHandle || project.founderTwitter}
+            </span>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-white"
+                onClick={(e) => e.stopPropagation()}
+                aria-label="GitHub"
+              >
+                <Github className="h-3.5 w-3.5" />
+              </a>
+            )}
+            {project.farcaster && (
+              <a
+                href={project.farcaster}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-white"
+                onClick={(e) => e.stopPropagation()}
+                aria-label="Farcaster"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+            <span className="truncate pl-0">{project.batch}</span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
-                <div className="mt-auto rounded-xl border border-white/10 bg-black/45 p-4 backdrop-blur-sm">
-                  <h3 className="truncate text-lg font-semibold text-white">{project.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-white/70">{project.description}</p>
+function ProjectScrollableGrid({ items }: { items: Project[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [leftGradientOpacity, setLeftGradientOpacity] = useState<number>(0);
+  const [rightGradientOpacity, setRightGradientOpacity] = useState<number>(1);
 
-                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-white/60">
-                    <span
-                      role="link"
-                      tabIndex={0}
-                      className="cursor-pointer hover:text-white"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          window.open(`https://x.com/${project.founderTwitterHandle || project.founderTwitter}`, "_blank", "noopener,noreferrer");
-                        }
-                      }}
-                    >
-                      @{project.founderTwitterHandle || project.founderTwitter}
-                    </span>
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 hover:text-white"
-                        onClick={(e) => e.stopPropagation()}
-                        aria-label="GitHub"
-                      >
-                        <Github className="h-3.5 w-3.5" />
-                      </a>
-                    )}
-                    {project.farcaster && (
-                      <a
-                        href={project.farcaster}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 hover:text-white"
-                        onClick={(e) => e.stopPropagation()}
-                        aria-label="Farcaster"
-                      >
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
-                    )}
-                    <span className="truncate pl-0">{project.batch}</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
+    setLeftGradientOpacity(Math.min(scrollLeft / 50, 1));
+    const rightDistance = scrollWidth - (scrollLeft + clientWidth);
+    setRightGradientOpacity(scrollWidth <= clientWidth ? 0 : Math.min(rightDistance / 50, 1));
+  };
+
+  return (
+    <div className="relative -mx-4 py-8 sm:-mx-6 lg:-mx-8">
+      <div
+        ref={scrollRef}
+        className="flex items-end gap-5 overflow-x-auto px-4 pt-8 pb-4 sm:px-6 lg:px-8 [&::-webkit-scrollbar]:h-[8px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:rounded-[4px] dark:[&::-webkit-scrollbar-thumb]:bg-neutral-600"
+        onScroll={handleScroll}
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#404040 transparent'
+        }}
+      >
+        {items.map((project, index) => (
+          <div key={project.id} className="shrink-0 w-[280px] sm:w-[320px]">
+            <ProjectCard project={project} index={index} />
+          </div>
+        ))}
+      </div>
+      
+      <div
+        className="absolute left-0 top-0 bottom-0 w-[100px] bg-gradient-to-r from-background to-transparent pointer-events-none transition-opacity duration-300"
+        style={{ opacity: leftGradientOpacity }}
+      />
+      <div
+        className="absolute right-0 top-0 bottom-0 w-[100px] bg-gradient-to-l from-background to-transparent pointer-events-none transition-opacity duration-300"
+        style={{ opacity: rightGradientOpacity }}
+      />
     </div>
   );
 }
@@ -562,7 +532,7 @@ export function ProductGrid(props?: ProductGridProps) {
         <AnimatePresence mode="popLayout">
           {paginatedResults.length > 0 ? (
             <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <ProjectCarousel items={paginatedResults} />
+              <ProjectScrollableGrid items={paginatedResults} />
             </motion.div>
           ) : (
             <motion.div
