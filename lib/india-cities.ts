@@ -57,3 +57,41 @@ export function lngLatToSvg(lng: number, lat: number): [number, number] {
   const y = ((maxLat - lat) / (maxLat - minLat)) * 100;
   return [x, y];
 }
+
+/**
+ * Calculate distance between two coordinates using Haversine formula
+ * @param coord1 - [lng, lat] of first point
+ * @param coord2 - [lng, lat] of second point
+ * @returns Distance in kilometers
+ */
+export function getDistance(
+  coord1: [number, number],
+  coord2: [number, number]
+): number {
+  const [lng1, lat1] = coord1;
+  const [lng2, lat2] = coord2;
+  const R = 6371; // Earth's radius in km
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLng / 2) *
+      Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+/**
+ * Get cluster radius based on zoom level
+ * Higher zoom = smaller radius (less clustering)
+ * @param zoom - Map zoom level
+ * @returns Cluster radius in kilometers
+ */
+export function getClusterRadiusByZoom(zoom: number): number {
+  if (zoom >= 8) return 0; // No clustering at high zoom
+  if (zoom >= 6) return 50; // 50km radius
+  if (zoom >= 5) return 150; // 150km radius
+  return 300; // 300km radius at low zoom
+}
